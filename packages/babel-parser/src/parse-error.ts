@@ -48,6 +48,7 @@ export type ParseError<ErrorDetails> = SyntaxError &
 // 1. https://github.com/microsoft/TypeScript/blob/v4.5.5/lib/lib.es5.d.ts#L1027
 export type ParseErrorConstructor<ErrorDetails> = (a: {
   loc: Position;
+  filename: string | undefined;
   details: ErrorDetails;
 }) => ParseError<ErrorDetails>;
 
@@ -72,12 +73,7 @@ function toParseErrorConstructor<ErrorDetails extends object>({
   toMessage,
   ...properties
 }: ParseErrorCredentials<ErrorDetails>): ParseErrorConstructor<ErrorDetails> {
-  type ConstructorArgument = {
-    loc: Position;
-    details: ErrorDetails;
-  };
-
-  return function constructor({ loc, details }: ConstructorArgument) {
+  return function constructor({ loc, filename, details }) {
     const error = new SyntaxError();
     Object.assign(error, properties, { loc, pos: loc.index });
     if ("missingPlugin" in details) {
@@ -92,6 +88,7 @@ function toParseErrorConstructor<ErrorDetails extends object>({
       const { line, column, index } = overrides.loc ?? loc;
       return constructor({
         loc: new Position(line, column, index),
+        filename,
         details: { ...details, ...overrides.details },
       });
     });
@@ -101,7 +98,11 @@ function toParseErrorConstructor<ErrorDetails extends object>({
     Object.defineProperty(error, "message", {
       configurable: true,
       get(this: ParseError<ErrorDetails>): string {
-        const message = `${toMessage(details)} (${loc.line}:${loc.column})`;
+        let pos = `${this.loc.line}:${this.loc.column}`;
+        if (process.env.BABEL_8_BREAKING) {
+          if (filename) pos = `${filename}:${pos}`;
+        }
+        const message = `${toMessage(this.details)} (${pos})`;
         this.message = message;
         return message;
       },

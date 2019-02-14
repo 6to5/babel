@@ -1483,8 +1483,11 @@ export default abstract class Tokenizer extends CommentsParser {
   ): ParseError<ErrorDetails> {
     const { at, ...details } = raiseProperties;
     const loc = at instanceof Position ? at : at.loc.start;
-    // @ts-expect-error: refine details typing
-    const error = toParseError({ loc, details });
+    const error = toParseError({
+      loc,
+      details: details as ErrorDetails,
+      filename: this.filename,
+    });
 
     if (!this.options.errorRecovery) throw error;
     if (!this.isLookahead) this.state.errors.push(error);
@@ -1510,8 +1513,11 @@ export default abstract class Tokenizer extends CommentsParser {
     for (let i = errors.length - 1; i >= 0; i--) {
       const error = errors[i];
       if (error.loc.index === pos) {
-        // @ts-expect-error: refine details typing
-        return (errors[i] = toParseError({ loc, details }));
+        return (errors[i] = toParseError({
+          loc,
+          details: details as ErrorDetails,
+          filename: this.filename,
+        }));
       }
       if (error.loc.index < pos) break;
     }
