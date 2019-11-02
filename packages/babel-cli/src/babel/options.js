@@ -1,6 +1,7 @@
 // @flow
 
 import fs from "fs";
+import path from "path";
 
 import commander from "commander";
 import { version } from "@babel/core";
@@ -131,6 +132,7 @@ commander.option(
 commander.option(
   "-d, --out-dir [out]",
   "Compile an input directory of modules into an output directory",
+  getOutDir(),
 );
 commander.option(
   "--relative",
@@ -170,6 +172,10 @@ export default function parseArgv(args: Array<string>): CmdOptions | null {
   commander.parse(args);
 
   const errors = [];
+
+  if (commander.args.length === 0) {
+    commander.args.push("src");
+  }
 
   let filenames = commander.args.reduce(function(globbed, input) {
     let files = glob.sync(input);
@@ -319,4 +325,25 @@ function collect(value, previousValue): Array<string> {
   const values = value.split(",");
 
   return previousValue ? previousValue.concat(values) : values;
+}
+
+function getOutDir(): string {
+  const outDirOptions = ["lib", "dist"];
+
+  // check package.json main field if it exists
+  if (fs.existsSync("package.json")) {
+    const packageJson = JSON.parse(fs.readFileSync("package.json"));
+
+    if (packageJson && packageJson.main) {
+      return path.dirname(packageJson.main);
+    }
+  }
+
+  outDirOptions.some(function(outDir) {
+    if (fs.existsSync(outDir)) {
+      return outDir;
+    }
+  });
+
+  return "lib";
 }
