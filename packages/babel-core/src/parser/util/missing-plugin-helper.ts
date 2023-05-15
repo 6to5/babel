@@ -8,6 +8,16 @@ const pluginNameMap: Record<
       url: "https://github.com/babel/babel/tree/main/packages/babel-plugin-syntax-async-do-expressions",
     },
   },
+  awaitOperations: {
+    syntax: {
+      name: "@babel/plugin-syntax-await-operations",
+      url: "https://github.com/babel/babel/tree/main/packages/babel-plugin-syntax-await-operations",
+    },
+    transform: {
+      name: "@babel/plugin-proposal-await-operations",
+      url: "https://github.com/babel/babel/tree/main/packages/babel-plugin-proposal-await-operations",
+    },
+  },
   decimal: {
     syntax: {
       name: "@babel/plugin-syntax-decimal",
@@ -32,6 +42,12 @@ const pluginNameMap: Record<
     transform: {
       name: "@babel/plugin-proposal-do-expressions",
       url: "https://github.com/babel/babel/tree/main/packages/babel-plugin-proposal-do-expressions",
+    },
+  },
+  explicitResourceManagement: {
+    syntax: {
+      name: "@babel/plugin-syntax-explicit-resource-management",
+      url: "https://github.com/babel/babel/tree/main/packages/babel-plugin-syntax-explicit-resource-management",
     },
   },
   exportDefaultFrom: {
@@ -88,6 +104,12 @@ const pluginNameMap: Record<
     syntax: {
       name: "@babel/plugin-syntax-import-assertions",
       url: "https://github.com/babel/babel/tree/main/packages/babel-plugin-syntax-import-assertions",
+    },
+  },
+  importReflection: {
+    syntax: {
+      name: "@babel/plugin-syntax-import-assertions",
+      url: "https://github.com/babel/babel/tree/main/packages/babel-plugin-syntax-import-reflection",
     },
   },
   pipelineOperator: {

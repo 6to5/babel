@@ -274,6 +274,8 @@ export default {
     "Illegal expression. Wrap left hand side or entire exponentiation in parentheses.",
   UnexpectedUsingDeclaration:
     "Using declaration cannot appear in the top level when source type is `script`.",
+  UnsupportedAwaitOperation: ({ operation }: { operation: string }) =>
+    `The only valid await operations are "all", "allSettled", "any" and "race", but got "${operation}".`,
   UnsupportedBind: "Binding should be performed on object property.",
   UnsupportedDecoratorExport:
     "A decorated export must export a class declaration.",

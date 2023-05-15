@@ -78,4 +78,12 @@ describe("stage-1 preset", () => {
     }).code;
     expect(output).toMatchInlineSnapshot(`"Tuple(Record({}));"`);
   });
+  it("should support await.ops", () => {
+    const output = Babel.transform("async () => await.all []", {
+      presets: [["stage-1", { decoratorsVersion: "2022-03" }]],
+    }).code;
+    expect(output).toMatchInlineSnapshot(
+      `"async () => await Promise.all([]);"`,
+    );
+  });
 });

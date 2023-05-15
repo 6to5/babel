@@ -1,0 +1,4 @@
+{
+  "targets": "safari 10",
+  "plugins": ["proposal-await-operations", "transform-async-to-generator"]
+}

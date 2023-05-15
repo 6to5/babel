@@ -1,0 +1,146 @@
+{
+  "type": "File",
+  "start":0,"end":151,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":7,"column":1,"index":151}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":151,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":7,"column":1,"index":151}},
+    "sourceType": "script",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ExpressionStatement",
+        "start":0,"end":151,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":7,"column":1,"index":151}},
+        "expression": {
+          "type": "ArrowFunctionExpression",
+          "start":0,"end":151,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":7,"column":1,"index":151}},
+          "id": null,
+          "generator": false,
+          "async": true,
+          "params": [],
+          "body": {
+            "type": "BlockStatement",
+            "start":12,"end":151,"loc":{"start":{"line":1,"column":12,"index":12},"end":{"line":7,"column":1,"index":151}},
+            "body": [
+              {
+                "type": "VariableDeclaration",
+                "start":16,"end":53,"loc":{"start":{"line":2,"column":2,"index":16},"end":{"line":2,"column":39,"index":53}},
+                "declarations": [
+                  {
+                    "type": "VariableDeclarator",
+                    "start":22,"end":52,"loc":{"start":{"line":2,"column":8,"index":22},"end":{"line":2,"column":38,"index":52}},
+                    "id": {
+                      "type": "Identifier",
+                      "start":22,"end":30,"loc":{"start":{"line":2,"column":8,"index":22},"end":{"line":2,"column":16,"index":30},"identifierName":"promises"},
+                      "name": "promises"
+                    },
+                    "init": {
+                      "type": "ArrayExpression",
+                      "start":33,"end":52,"loc":{"start":{"line":2,"column":19,"index":33},"end":{"line":2,"column":38,"index":52}},
+                      "elements": [
+                        {
+                          "type": "CallExpression",
+                          "start":34,"end":51,"loc":{"start":{"line":2,"column":20,"index":34},"end":{"line":2,"column":37,"index":51}},
+                          "callee": {
+                            "type": "MemberExpression",
+                            "start":34,"end":49,"loc":{"start":{"line":2,"column":20,"index":34},"end":{"line":2,"column":35,"index":49}},
+                            "object": {
+                              "type": "Identifier",
+                              "start":34,"end":41,"loc":{"start":{"line":2,"column":20,"index":34},"end":{"line":2,"column":27,"index":41},"identifierName":"Promise"},
+                              "name": "Promise"
+                            },
+                            "computed": false,
+                            "property": {
+                              "type": "Identifier",
+                              "start":42,"end":49,"loc":{"start":{"line":2,"column":28,"index":42},"end":{"line":2,"column":35,"index":49},"identifierName":"resolve"},
+                              "name": "resolve"
+                            }
+                          },
+                          "arguments": []
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "kind": "const"
+              },
+              {
+                "type": "ExpressionStatement",
+                "start":56,"end":75,"loc":{"start":{"line":3,"column":2,"index":56},"end":{"line":3,"column":21,"index":75}},
+                "expression": {
+                  "type": "AwaitExpression",
+                  "start":56,"end":74,"loc":{"start":{"line":3,"column":2,"index":56},"end":{"line":3,"column":20,"index":74}},
+                  "operation": {
+                    "type": "Identifier",
+                    "start":62,"end":65,"loc":{"start":{"line":3,"column":8,"index":62},"end":{"line":3,"column":11,"index":65},"identifierName":"all"},
+                    "name": "all"
+                  },
+                  "argument": {
+                    "type": "Identifier",
+                    "start":66,"end":74,"loc":{"start":{"line":3,"column":12,"index":66},"end":{"line":3,"column":20,"index":74},"identifierName":"promises"},
+                    "name": "promises"
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "start":78,"end":104,"loc":{"start":{"line":4,"column":2,"index":78},"end":{"line":4,"column":28,"index":104}},
+                "expression": {
+                  "type": "AwaitExpression",
+                  "start":78,"end":103,"loc":{"start":{"line":4,"column":2,"index":78},"end":{"line":4,"column":27,"index":103}},
+                  "operation": {
+                    "type": "Identifier",
+                    "start":84,"end":94,"loc":{"start":{"line":4,"column":8,"index":84},"end":{"line":4,"column":18,"index":94},"identifierName":"allSettled"},
+                    "name": "allSettled"
+                  },
+                  "argument": {
+                    "type": "Identifier",
+                    "start":95,"end":103,"loc":{"start":{"line":4,"column":19,"index":95},"end":{"line":4,"column":27,"index":103},"identifierName":"promises"},
+                    "name": "promises"
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "start":107,"end":126,"loc":{"start":{"line":5,"column":2,"index":107},"end":{"line":5,"column":21,"index":126}},
+                "expression": {
+                  "type": "AwaitExpression",
+                  "start":107,"end":125,"loc":{"start":{"line":5,"column":2,"index":107},"end":{"line":5,"column":20,"index":125}},
+                  "operation": {
+                    "type": "Identifier",
+                    "start":113,"end":116,"loc":{"start":{"line":5,"column":8,"index":113},"end":{"line":5,"column":11,"index":116},"identifierName":"any"},
+                    "name": "any"
+                  },
+                  "argument": {
+                    "type": "Identifier",
+                    "start":117,"end":125,"loc":{"start":{"line":5,"column":12,"index":117},"end":{"line":5,"column":20,"index":125},"identifierName":"promises"},
+                    "name": "promises"
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "start":129,"end":149,"loc":{"start":{"line":6,"column":2,"index":129},"end":{"line":6,"column":22,"index":149}},
+                "expression": {
+                  "type": "AwaitExpression",
+                  "start":129,"end":148,"loc":{"start":{"line":6,"column":2,"index":129},"end":{"line":6,"column":21,"index":148}},
+                  "operation": {
+                    "type": "Identifier",
+                    "start":135,"end":139,"loc":{"start":{"line":6,"column":8,"index":135},"end":{"line":6,"column":12,"index":139},"identifierName":"race"},
+                    "name": "race"
+                  },
+                  "argument": {
+                    "type": "Identifier",
+                    "start":140,"end":148,"loc":{"start":{"line":6,"column":13,"index":140},"end":{"line":6,"column":21,"index":148},"identifierName":"promises"},
+                    "name": "promises"
+                  }
+                }
+              }
+            ],
+            "directives": []
+          }
+        }
+      }
+    ],
+    "directives": []
+  }
+}

@@ -20,6 +20,7 @@
   ],
   "externalPlugins": [
     "external-helpers",
+    "syntax-await-operations",
     "syntax-decimal",
     "syntax-decorators",
     "syntax-destructuring-private",
@@ -37,6 +38,7 @@
     "syntax-record-and-tuple",
     "syntax-typescript",
     "proposal-async-generator-functions",
+    "proposal-await-operations",
     "proposal-class-properties",
     "proposal-class-static-block",
     "proposal-decorators",

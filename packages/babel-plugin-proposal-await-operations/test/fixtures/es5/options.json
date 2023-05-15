@@ -1,0 +1,15 @@
+{
+  "targets": "safari 6",
+  "plugins": [
+    "proposal-await-operations",
+    "transform-async-to-generator",
+    "transform-regenerator",
+    [
+      "babel-plugin-polyfill-corejs3",
+      {
+        "method": "usage-global",
+        "version": "3.20"
+      }
+    ]
+  ]
+}

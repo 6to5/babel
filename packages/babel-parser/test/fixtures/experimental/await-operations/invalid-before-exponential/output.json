@@ -1,0 +1,98 @@
+{
+  "type": "File",
+  "start":0,"end":54,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":3,"column":1,"index":54}},
+  "errors": [
+    "SyntaxError: Illegal expression. Wrap left hand side or entire exponentiation in parentheses. (2:12)"
+  ],
+  "program": {
+    "type": "Program",
+    "start":0,"end":54,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":3,"column":1,"index":54}},
+    "sourceType": "script",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ExpressionStatement",
+        "start":0,"end":54,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":3,"column":1,"index":54}},
+        "expression": {
+          "type": "ArrowFunctionExpression",
+          "start":0,"end":54,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":3,"column":1,"index":54}},
+          "id": null,
+          "generator": false,
+          "async": true,
+          "params": [],
+          "body": {
+            "type": "BlockStatement",
+            "start":12,"end":54,"loc":{"start":{"line":1,"column":12,"index":12},"end":{"line":3,"column":1,"index":54}},
+            "body": [
+              {
+                "type": "ExpressionStatement",
+                "start":16,"end":52,"loc":{"start":{"line":2,"column":2,"index":16},"end":{"line":2,"column":38,"index":52}},
+                "expression": {
+                  "type": "BinaryExpression",
+                  "start":16,"end":51,"loc":{"start":{"line":2,"column":2,"index":16},"end":{"line":2,"column":37,"index":51}},
+                  "left": {
+                    "type": "AwaitExpression",
+                    "start":16,"end":46,"loc":{"start":{"line":2,"column":2,"index":16},"end":{"line":2,"column":32,"index":46}},
+                    "operation": {
+                      "type": "Identifier",
+                      "start":22,"end":25,"loc":{"start":{"line":2,"column":8,"index":22},"end":{"line":2,"column":11,"index":25},"identifierName":"all"},
+                      "name": "all"
+                    },
+                    "argument": {
+                      "type": "ArrayExpression",
+                      "start":26,"end":46,"loc":{"start":{"line":2,"column":12,"index":26},"end":{"line":2,"column":32,"index":46}},
+                      "elements": [
+                        {
+                          "type": "CallExpression",
+                          "start":27,"end":45,"loc":{"start":{"line":2,"column":13,"index":27},"end":{"line":2,"column":31,"index":45}},
+                          "callee": {
+                            "type": "MemberExpression",
+                            "start":27,"end":42,"loc":{"start":{"line":2,"column":13,"index":27},"end":{"line":2,"column":28,"index":42}},
+                            "object": {
+                              "type": "Identifier",
+                              "start":27,"end":34,"loc":{"start":{"line":2,"column":13,"index":27},"end":{"line":2,"column":20,"index":34},"identifierName":"Promise"},
+                              "name": "Promise"
+                            },
+                            "computed": false,
+                            "property": {
+                              "type": "Identifier",
+                              "start":35,"end":42,"loc":{"start":{"line":2,"column":21,"index":35},"end":{"line":2,"column":28,"index":42},"identifierName":"resolve"},
+                              "name": "resolve"
+                            }
+                          },
+                          "arguments": [
+                            {
+                              "type": "NumericLiteral",
+                              "start":43,"end":44,"loc":{"start":{"line":2,"column":29,"index":43},"end":{"line":2,"column":30,"index":44}},
+                              "extra": {
+                                "rawValue": 1,
+                                "raw": "1"
+                              },
+                              "value": 1
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "operator": "**",
+                  "right": {
+                    "type": "NumericLiteral",
+                    "start":50,"end":51,"loc":{"start":{"line":2,"column":36,"index":50},"end":{"line":2,"column":37,"index":51}},
+                    "extra": {
+                      "rawValue": 2,
+                      "raw": "2"
+                    },
+                    "value": 2
+                  }
+                }
+              }
+            ],
+            "directives": []
+          }
+        }
+      }
+    ],
+    "directives": []
+  }
+}

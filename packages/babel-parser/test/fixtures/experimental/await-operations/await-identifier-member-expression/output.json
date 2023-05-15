@@ -1,0 +1,75 @@
+{
+  "type": "File",
+  "start":0,"end":41,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":3,"column":24,"index":41}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":41,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":3,"column":24,"index":41}},
+    "sourceType": "script",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ExpressionStatement",
+        "start":0,"end":15,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":15,"index":15}},
+        "expression": {
+          "type": "MemberExpression",
+          "start":0,"end":15,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":15,"index":15}},
+          "object": {
+            "type": "MemberExpression",
+            "start":0,"end":11,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":11,"index":11}},
+            "object": {
+              "type": "Identifier",
+              "start":0,"end":5,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":5,"index":5},"identifierName":"await"},
+              "name": "await"
+            },
+            "computed": false,
+            "property": {
+              "type": "Identifier",
+              "start":8,"end":11,"loc":{"start":{"line":1,"column":8,"index":8},"end":{"line":1,"column":11,"index":11},"identifierName":"all"},
+              "name": "all"
+            }
+          },
+          "computed": true,
+          "property": {
+            "type": "NumericLiteral",
+            "start":13,"end":14,"loc":{"start":{"line":1,"column":13,"index":13},"end":{"line":1,"column":14,"index":14}},
+            "extra": {
+              "rawValue": 0,
+              "raw": "0"
+            },
+            "value": 0
+          }
+        }
+      },
+      {
+        "type": "ForOfStatement",
+        "start":17,"end":41,"loc":{"start":{"line":3,"column":0,"index":17},"end":{"line":3,"column":24,"index":41}},
+        "await": false,
+        "left": {
+          "type": "MemberExpression",
+          "start":22,"end":33,"loc":{"start":{"line":3,"column":5,"index":22},"end":{"line":3,"column":16,"index":33}},
+          "object": {
+            "type": "Identifier",
+            "start":22,"end":27,"loc":{"start":{"line":3,"column":5,"index":22},"end":{"line":3,"column":10,"index":27},"identifierName":"await"},
+            "name": "await"
+          },
+          "computed": false,
+          "property": {
+            "type": "Identifier",
+            "start":30,"end":33,"loc":{"start":{"line":3,"column":13,"index":30},"end":{"line":3,"column":16,"index":33},"identifierName":"all"},
+            "name": "all"
+          }
+        },
+        "right": {
+          "type": "ArrayExpression",
+          "start":37,"end":39,"loc":{"start":{"line":3,"column":20,"index":37},"end":{"line":3,"column":22,"index":39}},
+          "elements": []
+        },
+        "body": {
+          "type": "EmptyStatement",
+          "start":40,"end":41,"loc":{"start":{"line":3,"column":23,"index":40},"end":{"line":3,"column":24,"index":41}}
+        }
+      }
+    ],
+    "directives": []
+  }
+}

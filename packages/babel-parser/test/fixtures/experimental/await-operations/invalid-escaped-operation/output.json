@@ -1,0 +1,152 @@
+{
+  "type": "File",
+  "start":0,"end":171,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":7,"column":1,"index":171}},
+  "errors": [
+    "SyntaxError: The only valid await operations are \"all\", \"allSettled\", \"any\" and \"race\", but got \"\\u0061ll\". (3:2)",
+    "SyntaxError: The only valid await operations are \"all\", \"allSettled\", \"any\" and \"race\", but got \"\\u0061llSettled\". (4:2)",
+    "SyntaxError: The only valid await operations are \"all\", \"allSettled\", \"any\" and \"race\", but got \"\\u0061ny\". (5:2)",
+    "SyntaxError: The only valid await operations are \"all\", \"allSettled\", \"any\" and \"race\", but got \"r\\u0061ce\". (6:2)"
+  ],
+  "program": {
+    "type": "Program",
+    "start":0,"end":171,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":7,"column":1,"index":171}},
+    "sourceType": "script",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ExpressionStatement",
+        "start":0,"end":171,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":7,"column":1,"index":171}},
+        "expression": {
+          "type": "ArrowFunctionExpression",
+          "start":0,"end":171,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":7,"column":1,"index":171}},
+          "id": null,
+          "generator": false,
+          "async": true,
+          "params": [],
+          "body": {
+            "type": "BlockStatement",
+            "start":12,"end":171,"loc":{"start":{"line":1,"column":12,"index":12},"end":{"line":7,"column":1,"index":171}},
+            "body": [
+              {
+                "type": "VariableDeclaration",
+                "start":16,"end":53,"loc":{"start":{"line":2,"column":2,"index":16},"end":{"line":2,"column":39,"index":53}},
+                "declarations": [
+                  {
+                    "type": "VariableDeclarator",
+                    "start":22,"end":52,"loc":{"start":{"line":2,"column":8,"index":22},"end":{"line":2,"column":38,"index":52}},
+                    "id": {
+                      "type": "Identifier",
+                      "start":22,"end":30,"loc":{"start":{"line":2,"column":8,"index":22},"end":{"line":2,"column":16,"index":30},"identifierName":"promises"},
+                      "name": "promises"
+                    },
+                    "init": {
+                      "type": "ArrayExpression",
+                      "start":33,"end":52,"loc":{"start":{"line":2,"column":19,"index":33},"end":{"line":2,"column":38,"index":52}},
+                      "elements": [
+                        {
+                          "type": "CallExpression",
+                          "start":34,"end":51,"loc":{"start":{"line":2,"column":20,"index":34},"end":{"line":2,"column":37,"index":51}},
+                          "callee": {
+                            "type": "MemberExpression",
+                            "start":34,"end":49,"loc":{"start":{"line":2,"column":20,"index":34},"end":{"line":2,"column":35,"index":49}},
+                            "object": {
+                              "type": "Identifier",
+                              "start":34,"end":41,"loc":{"start":{"line":2,"column":20,"index":34},"end":{"line":2,"column":27,"index":41},"identifierName":"Promise"},
+                              "name": "Promise"
+                            },
+                            "computed": false,
+                            "property": {
+                              "type": "Identifier",
+                              "start":42,"end":49,"loc":{"start":{"line":2,"column":28,"index":42},"end":{"line":2,"column":35,"index":49},"identifierName":"resolve"},
+                              "name": "resolve"
+                            }
+                          },
+                          "arguments": []
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "kind": "const"
+              },
+              {
+                "type": "ExpressionStatement",
+                "start":56,"end":80,"loc":{"start":{"line":3,"column":2,"index":56},"end":{"line":3,"column":26,"index":80}},
+                "expression": {
+                  "type": "AwaitExpression",
+                  "start":56,"end":79,"loc":{"start":{"line":3,"column":2,"index":56},"end":{"line":3,"column":25,"index":79}},
+                  "operation": {
+                    "type": "Identifier",
+                    "start":62,"end":70,"loc":{"start":{"line":3,"column":8,"index":62},"end":{"line":3,"column":16,"index":70},"identifierName":"all"},
+                    "name": "all"
+                  },
+                  "argument": {
+                    "type": "Identifier",
+                    "start":71,"end":79,"loc":{"start":{"line":3,"column":17,"index":71},"end":{"line":3,"column":25,"index":79},"identifierName":"promises"},
+                    "name": "promises"
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "start":83,"end":114,"loc":{"start":{"line":4,"column":2,"index":83},"end":{"line":4,"column":33,"index":114}},
+                "expression": {
+                  "type": "AwaitExpression",
+                  "start":83,"end":113,"loc":{"start":{"line":4,"column":2,"index":83},"end":{"line":4,"column":32,"index":113}},
+                  "operation": {
+                    "type": "Identifier",
+                    "start":89,"end":104,"loc":{"start":{"line":4,"column":8,"index":89},"end":{"line":4,"column":23,"index":104},"identifierName":"allSettled"},
+                    "name": "allSettled"
+                  },
+                  "argument": {
+                    "type": "Identifier",
+                    "start":105,"end":113,"loc":{"start":{"line":4,"column":24,"index":105},"end":{"line":4,"column":32,"index":113},"identifierName":"promises"},
+                    "name": "promises"
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "start":117,"end":141,"loc":{"start":{"line":5,"column":2,"index":117},"end":{"line":5,"column":26,"index":141}},
+                "expression": {
+                  "type": "AwaitExpression",
+                  "start":117,"end":140,"loc":{"start":{"line":5,"column":2,"index":117},"end":{"line":5,"column":25,"index":140}},
+                  "operation": {
+                    "type": "Identifier",
+                    "start":123,"end":131,"loc":{"start":{"line":5,"column":8,"index":123},"end":{"line":5,"column":16,"index":131},"identifierName":"any"},
+                    "name": "any"
+                  },
+                  "argument": {
+                    "type": "Identifier",
+                    "start":132,"end":140,"loc":{"start":{"line":5,"column":17,"index":132},"end":{"line":5,"column":25,"index":140},"identifierName":"promises"},
+                    "name": "promises"
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "start":144,"end":169,"loc":{"start":{"line":6,"column":2,"index":144},"end":{"line":6,"column":27,"index":169}},
+                "expression": {
+                  "type": "AwaitExpression",
+                  "start":144,"end":168,"loc":{"start":{"line":6,"column":2,"index":144},"end":{"line":6,"column":26,"index":168}},
+                  "operation": {
+                    "type": "Identifier",
+                    "start":150,"end":159,"loc":{"start":{"line":6,"column":8,"index":150},"end":{"line":6,"column":17,"index":159},"identifierName":"race"},
+                    "name": "race"
+                  },
+                  "argument": {
+                    "type": "Identifier",
+                    "start":160,"end":168,"loc":{"start":{"line":6,"column":18,"index":160},"end":{"line":6,"column":26,"index":168},"identifierName":"promises"},
+                    "name": "promises"
+                  }
+                }
+              }
+            ],
+            "directives": []
+          }
+        }
+      }
+    ],
+    "directives": []
+  }
+}

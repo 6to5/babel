@@ -964,6 +964,7 @@ export interface YieldExpression extends BaseNode {
 export interface AwaitExpression extends BaseNode {
   type: "AwaitExpression";
   argument: Expression;
+  operation?: Identifier | null;
 }
 
 export interface Import extends BaseNode {

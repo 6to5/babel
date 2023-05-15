@@ -1263,6 +1263,22 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@babel/plugin-proposal-await-operations@workspace:^, @babel/plugin-proposal-await-operations@workspace:packages/babel-plugin-proposal-await-operations":
+  version: 0.0.0-use.local
+  resolution: "@babel/plugin-proposal-await-operations@workspace:packages/babel-plugin-proposal-await-operations"
+  dependencies:
+    "@babel/core": "workspace:^"
+    "@babel/helper-plugin-test-runner": "workspace:^"
+    "@babel/helper-plugin-utils": "workspace:^"
+    "@babel/plugin-syntax-await-operations": "workspace:^"
+    "@babel/plugin-transform-async-to-generator": "workspace:^"
+    "@babel/plugin-transform-regenerator": "workspace:^"
+    babel-plugin-polyfill-corejs3: ^0.6.0
+  peerDependencies:
+    "@babel/core": ^7.0.0-0
+  languageName: unknown
+  linkType: soft
+
 "@babel/plugin-proposal-class-properties@npm:^7.18.6":
   version: 7.18.6
   resolution: "@babel/plugin-proposal-class-properties@npm:7.18.6"
@@ -1842,6 +1858,17 @@ __metadata:
   checksum: 7ed1c1d9b9e5b64ef028ea5e755c0be2d4e5e4e3d6cf7df757b9a8c4cfa4193d268176d0f1f7fbecdda6fe722885c7fda681f480f3741d8a2d26854736f05367
   languageName: node
   linkType: hard
+
+"@babel/plugin-syntax-await-operations@workspace:^, @babel/plugin-syntax-await-operations@workspace:packages/babel-plugin-syntax-await-operations":
+  version: 0.0.0-use.local
+  resolution: "@babel/plugin-syntax-await-operations@workspace:packages/babel-plugin-syntax-await-operations"
+  dependencies:
+    "@babel/core": "workspace:^"
+    "@babel/helper-plugin-utils": "workspace:^"
+  peerDependencies:
+    "@babel/core": ^7.0.0-0
+  languageName: unknown
+  linkType: soft
 
 "@babel/plugin-syntax-bigint@npm:^7.8.3":
   version: 7.8.3
@@ -3671,6 +3698,7 @@ __metadata:
     "@babel/core": "workspace:^"
     "@babel/plugin-external-helpers": "workspace:^"
     "@babel/plugin-proposal-async-generator-functions": "workspace:^"
+    "@babel/plugin-proposal-await-operations": "workspace:^"
     "@babel/plugin-proposal-class-properties": "workspace:^"
     "@babel/plugin-proposal-class-static-block": "workspace:^"
     "@babel/plugin-proposal-decorators": "workspace:^"
@@ -3697,6 +3725,7 @@ __metadata:
     "@babel/plugin-proposal-throw-expressions": "workspace:^"
     "@babel/plugin-proposal-unicode-property-regex": "workspace:^"
     "@babel/plugin-proposal-unicode-sets-regex": "workspace:^"
+    "@babel/plugin-syntax-await-operations": "workspace:^"
     "@babel/plugin-syntax-decimal": "workspace:^"
     "@babel/plugin-syntax-decorators": "workspace:^"
     "@babel/plugin-syntax-destructuring-private": "workspace:^"

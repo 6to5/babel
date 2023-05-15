@@ -1,0 +1,95 @@
+{
+  "type": "File",
+  "start":0,"end":81,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":4,"column":1,"index":81}},
+  "errors": [
+    "SyntaxError: The only valid await operations are \"all\", \"allSettled\", \"any\" and \"race\", but got \"resolve\". (3:2)"
+  ],
+  "program": {
+    "type": "Program",
+    "start":0,"end":81,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":4,"column":1,"index":81}},
+    "sourceType": "script",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ExpressionStatement",
+        "start":0,"end":81,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":4,"column":1,"index":81}},
+        "expression": {
+          "type": "ArrowFunctionExpression",
+          "start":0,"end":81,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":4,"column":1,"index":81}},
+          "id": null,
+          "generator": false,
+          "async": true,
+          "params": [],
+          "body": {
+            "type": "BlockStatement",
+            "start":12,"end":81,"loc":{"start":{"line":1,"column":12,"index":12},"end":{"line":4,"column":1,"index":81}},
+            "body": [
+              {
+                "type": "VariableDeclaration",
+                "start":16,"end":53,"loc":{"start":{"line":2,"column":2,"index":16},"end":{"line":2,"column":39,"index":53}},
+                "declarations": [
+                  {
+                    "type": "VariableDeclarator",
+                    "start":22,"end":52,"loc":{"start":{"line":2,"column":8,"index":22},"end":{"line":2,"column":38,"index":52}},
+                    "id": {
+                      "type": "Identifier",
+                      "start":22,"end":30,"loc":{"start":{"line":2,"column":8,"index":22},"end":{"line":2,"column":16,"index":30},"identifierName":"promises"},
+                      "name": "promises"
+                    },
+                    "init": {
+                      "type": "ArrayExpression",
+                      "start":33,"end":52,"loc":{"start":{"line":2,"column":19,"index":33},"end":{"line":2,"column":38,"index":52}},
+                      "elements": [
+                        {
+                          "type": "CallExpression",
+                          "start":34,"end":51,"loc":{"start":{"line":2,"column":20,"index":34},"end":{"line":2,"column":37,"index":51}},
+                          "callee": {
+                            "type": "MemberExpression",
+                            "start":34,"end":49,"loc":{"start":{"line":2,"column":20,"index":34},"end":{"line":2,"column":35,"index":49}},
+                            "object": {
+                              "type": "Identifier",
+                              "start":34,"end":41,"loc":{"start":{"line":2,"column":20,"index":34},"end":{"line":2,"column":27,"index":41},"identifierName":"Promise"},
+                              "name": "Promise"
+                            },
+                            "computed": false,
+                            "property": {
+                              "type": "Identifier",
+                              "start":42,"end":49,"loc":{"start":{"line":2,"column":28,"index":42},"end":{"line":2,"column":35,"index":49},"identifierName":"resolve"},
+                              "name": "resolve"
+                            }
+                          },
+                          "arguments": []
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "kind": "const"
+              },
+              {
+                "type": "ExpressionStatement",
+                "start":56,"end":79,"loc":{"start":{"line":3,"column":2,"index":56},"end":{"line":3,"column":25,"index":79}},
+                "expression": {
+                  "type": "AwaitExpression",
+                  "start":56,"end":78,"loc":{"start":{"line":3,"column":2,"index":56},"end":{"line":3,"column":24,"index":78}},
+                  "operation": {
+                    "type": "Identifier",
+                    "start":62,"end":69,"loc":{"start":{"line":3,"column":8,"index":62},"end":{"line":3,"column":15,"index":69},"identifierName":"resolve"},
+                    "name": "resolve"
+                  },
+                  "argument": {
+                    "type": "Identifier",
+                    "start":70,"end":78,"loc":{"start":{"line":3,"column":16,"index":70},"end":{"line":3,"column":24,"index":78},"identifierName":"promises"},
+                    "name": "promises"
+                  }
+                }
+              }
+            ],
+            "directives": []
+          }
+        }
+      }
+    ],
+    "directives": []
+  }
+}

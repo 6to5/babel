@@ -43,6 +43,7 @@
     "./packages/babel-plugin-external-helpers/src/**/*.ts",
     "./packages/babel-plugin-proposal-async-do-expressions/src/**/*.ts",
     "./packages/babel-plugin-proposal-async-generator-functions/src/**/*.ts",
+    "./packages/babel-plugin-proposal-await-operations/src/**/*.ts",
     "./packages/babel-plugin-proposal-class-properties/src/**/*.ts",
     "./packages/babel-plugin-proposal-class-static-block/src/**/*.ts",
     "./packages/babel-plugin-proposal-decorators/src/**/*.ts",
@@ -71,6 +72,7 @@
     "./packages/babel-plugin-proposal-unicode-property-regex/src/**/*.ts",
     "./packages/babel-plugin-proposal-unicode-sets-regex/src/**/*.ts",
     "./packages/babel-plugin-syntax-async-do-expressions/src/**/*.ts",
+    "./packages/babel-plugin-syntax-await-operations/src/**/*.ts",
     "./packages/babel-plugin-syntax-decimal/src/**/*.ts",
     "./packages/babel-plugin-syntax-decorators/src/**/*.ts",
     "./packages/babel-plugin-syntax-destructuring-private/src/**/*.ts",
@@ -295,6 +297,9 @@
       "@babel/plugin-proposal-async-generator-functions": [
         "./packages/babel-plugin-proposal-async-generator-functions/src"
       ],
+      "@babel/plugin-proposal-await-operations": [
+        "./packages/babel-plugin-proposal-await-operations/src"
+      ],
       "@babel/plugin-proposal-class-properties": [
         "./packages/babel-plugin-proposal-class-properties/src"
       ],
@@ -378,6 +383,9 @@
       ],
       "@babel/plugin-syntax-async-do-expressions": [
         "./packages/babel-plugin-syntax-async-do-expressions/src"
+      ],
+      "@babel/plugin-syntax-await-operations": [
+        "./packages/babel-plugin-syntax-await-operations/src"
       ],
       "@babel/plugin-syntax-decimal": [
         "./packages/babel-plugin-syntax-decimal/src"

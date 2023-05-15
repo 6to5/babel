@@ -294,6 +294,12 @@ export const tt = {
   _static: createKeywordLike("static", { startsExpr }),
   _using: createKeywordLike("using", { startsExpr }),
   _yield: createKeywordLike("yield", { startsExpr }),
+  // start: isAwaitOperation
+  _all: createKeywordLike("all", { startsExpr }),
+  _allSettled: createKeywordLike("allSettled", { startsExpr }),
+  _any: createKeywordLike("any", { startsExpr }),
+  _race: createKeywordLike("race", { startsExpr }),
+  // end: isAwaitOperation
 
   // Flow and TypeScript Keywordlike
   _asserts: createKeywordLike("asserts", { startsExpr }),
@@ -349,6 +355,10 @@ export const tt = {
 
 export function tokenIsIdentifier(token: TokenType): boolean {
   return token >= tt._as && token <= tt.name;
+}
+
+export function tokenIsAwaitOperation(token: TokenType): boolean {
+  return token >= tt._all && token <= tt._race;
 }
 
 export function tokenKeywordOrIdentifierIsKeyword(token: TokenType): boolean {

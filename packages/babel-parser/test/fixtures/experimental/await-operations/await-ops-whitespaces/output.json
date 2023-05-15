@@ -1,0 +1,95 @@
+{
+  "type": "File",
+  "start":0,"end":54,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":6,"column":1,"index":54}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":54,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":6,"column":1,"index":54}},
+    "sourceType": "script",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ExpressionStatement",
+        "start":0,"end":54,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":6,"column":1,"index":54}},
+        "expression": {
+          "type": "ArrowFunctionExpression",
+          "start":0,"end":54,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":6,"column":1,"index":54}},
+          "id": null,
+          "generator": false,
+          "async": true,
+          "params": [],
+          "body": {
+            "type": "BlockStatement",
+            "start":12,"end":54,"loc":{"start":{"line":1,"column":12,"index":12},"end":{"line":6,"column":1,"index":54}},
+            "body": [
+              {
+                "type": "ExpressionStatement",
+                "start":16,"end":52,"loc":{"start":{"line":2,"column":2,"index":16},"end":{"line":5,"column":5,"index":52}},
+                "expression": {
+                  "type": "AwaitExpression",
+                  "start":16,"end":51,"loc":{"start":{"line":2,"column":2,"index":16},"end":{"line":5,"column":4,"index":51}},
+                  "operation": {
+                    "type": "Identifier",
+                    "start":38,"end":41,"loc":{"start":{"line":4,"column":2,"index":38},"end":{"line":4,"column":5,"index":41},"identifierName":"all"},
+                    "name": "all",
+                    "trailingComments": [
+                      {
+                        "type": "CommentLine",
+                        "value": " 3",
+                        "start":42,"end":46,"loc":{"start":{"line":4,"column":6,"index":42},"end":{"line":4,"column":10,"index":46}}
+                      }
+                    ],
+                    "leadingComments": [
+                      {
+                        "type": "CommentLine",
+                        "value": " 2",
+                        "start":31,"end":35,"loc":{"start":{"line":3,"column":4,"index":31},"end":{"line":3,"column":8,"index":35}}
+                      }
+                    ]
+                  },
+                  "argument": {
+                    "type": "ArrayExpression",
+                    "start":49,"end":51,"loc":{"start":{"line":5,"column":2,"index":49},"end":{"line":5,"column":4,"index":51}},
+                    "elements": [],
+                    "leadingComments": [
+                      {
+                        "type": "CommentLine",
+                        "value": " 3",
+                        "start":42,"end":46,"loc":{"start":{"line":4,"column":6,"index":42},"end":{"line":4,"column":10,"index":46}}
+                      }
+                    ]
+                  },
+                  "innerComments": [
+                    {
+                      "type": "CommentLine",
+                      "value": " 1",
+                      "start":22,"end":26,"loc":{"start":{"line":2,"column":8,"index":22},"end":{"line":2,"column":12,"index":26}}
+                    }
+                  ]
+                }
+              }
+            ],
+            "directives": []
+          }
+        }
+      }
+    ],
+    "directives": []
+  },
+  "comments": [
+    {
+      "type": "CommentLine",
+      "value": " 1",
+      "start":22,"end":26,"loc":{"start":{"line":2,"column":8,"index":22},"end":{"line":2,"column":12,"index":26}}
+    },
+    {
+      "type": "CommentLine",
+      "value": " 2",
+      "start":31,"end":35,"loc":{"start":{"line":3,"column":4,"index":31},"end":{"line":3,"column":8,"index":35}}
+    },
+    {
+      "type": "CommentLine",
+      "value": " 3",
+      "start":42,"end":46,"loc":{"start":{"line":4,"column":6,"index":42},"end":{"line":4,"column":10,"index":46}}
+    }
+  ]
+}

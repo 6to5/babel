@@ -235,6 +235,11 @@ export function Import(this: Printer) {
 export function AwaitExpression(this: Printer, node: t.AwaitExpression) {
   this.word("await");
 
+  if (node.operation) {
+    this.token(".");
+    this.print(node.operation, node);
+  }
+
   if (node.argument) {
     this.space();
     this.printTerminatorless(node.argument, node, false);

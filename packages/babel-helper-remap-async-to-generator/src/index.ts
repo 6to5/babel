@@ -8,8 +8,10 @@ import { traverse } from "@babel/core";
 import {
   callExpression,
   cloneNode,
+  identifier,
   isIdentifier,
   isThisExpression,
+  memberExpression,
   yieldExpression,
 } from "@babel/types";
 import type * as t from "@babel/types";
@@ -21,13 +23,22 @@ const awaitVisitor = traverse.visitors.merge<{ wrapAwait: t.Expression }>([
     },
 
     AwaitExpression(path, { wrapAwait }) {
-      const argument = path.get("argument");
+      const { node } = path;
+      if (node.operation != null) {
+        node.argument = callExpression(
+          memberExpression(identifier("Promise"), node.operation),
+          [node.argument],
+        );
+        node.operation = null;
+      }
+
+      const { argument } = node;
 
       path.replaceWith(
         yieldExpression(
           wrapAwait
-            ? callExpression(cloneNode(wrapAwait), [argument.node])
-            : argument.node,
+            ? callExpression(cloneNode(wrapAwait), [argument])
+            : argument,
         ),
       );
     },

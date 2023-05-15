@@ -126,7 +126,9 @@
           },
           {
             "enum": [
+              "asyncDoExpressions",
               "asyncGenerators",
+              "awaitOperations",
               "bigInt",
               "classPrivateMethods",
               "classPrivateProperties",

@@ -1,0 +1,50 @@
+{
+  "name": "@babel/plugin-proposal-await-operations",
+  "version": "7.18.6",
+  "description": "Transform await operations",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/babel/babel.git",
+    "directory": "packages/babel-plugin-proposal-await-operations"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "keywords": [
+    "babel-plugin"
+  ],
+  "dependencies": {
+    "@babel/helper-plugin-utils": "workspace:^",
+    "@babel/plugin-syntax-await-operations": "workspace:^"
+  },
+  "peerDependencies": {
+    "@babel/core": "^7.0.0-0"
+  },
+  "devDependencies": {
+    "@babel/core": "workspace:^",
+    "@babel/helper-plugin-test-runner": "workspace:^",
+    "@babel/plugin-transform-async-to-generator": "workspace:^",
+    "@babel/plugin-transform-regenerator": "workspace:^",
+    "babel-plugin-polyfill-corejs3": "^0.6.0"
+  },
+  "homepage": "https://babel.dev/docs/en/next/babel-plugin-proposal-await-operations",
+  "engines": {
+    "node": ">=6.9.0"
+  },
+  "author": "The Babel Team (https://babel.dev/team)",
+  "type": "commonjs",
+  "conditions": {
+    "USE_ESM": [
+      {
+        "type": "module"
+      },
+      null
+    ]
+  }
+}

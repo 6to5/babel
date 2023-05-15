@@ -422,6 +422,7 @@ export interface YieldExpression extends NodeBase {
 export interface AwaitExpression extends NodeBase {
   type: "AwaitExpression";
   argument: Expression;
+  operation?: Identifier | null;
 }
 
 export interface ArrayExpression extends NodeBase {
