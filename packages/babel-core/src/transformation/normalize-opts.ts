@@ -58,7 +58,12 @@ export default function normalizeOptions(config: ResolvedConfig): {} {
       sourceMaps,
 
       sourceRoot,
-      sourceFileName,
+      sourceFileName:
+        sourceRoot === undefined
+          ? sourceFileName
+          : // @babel/generator will prepend sourceFileName with sourceRoot,
+            // so we need to remove it here.
+            path.relative(sourceRoot, sourceFileName),
       ...opts.generatorOpts,
     },
   };
