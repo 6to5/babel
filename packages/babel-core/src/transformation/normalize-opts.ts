@@ -4,6 +4,11 @@ import type { ResolvedConfig } from "../config/index.ts";
 export default function normalizeOptions(config: ResolvedConfig): {} {
   // TODO: Everything in this function is basically typed as `any`. Improve it.
 
+  // TODO(@nicolo-ribaudo): Currently, soure map's `sources` is generated taking
+  // into account both the options passed to the parser and the options passed
+  // to the generator. If they disagree, both are included. Clean this up, so
+  // that there is a single source of thruth.
+
   const {
     filename,
     cwd,
