@@ -18,7 +18,7 @@ function fixture(...args) {
 describe("parseSync", function () {
   it("should parse using configuration from .babelrc when a filename is provided", function () {
     const input = fs.readFileSync(fixture("input.js"), "utf8");
-    const output = require(fixture("output"));
+    const output = require(fixture("output-with-filename.json"));
 
     const result = parseSync(input, {
       filename: fixture("input.js"),
