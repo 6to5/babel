@@ -2,7 +2,6 @@
   "type": "File",
   "start": 0,
   "end": 91,
-  "errors": [],
   "loc": {
     "start": {
       "line": 1,
@@ -13,8 +12,10 @@
       "line": 7,
       "column": 0,
       "index": 91
-    }
+    },
+    "filename": "input.js"
   },
+  "errors": [],
   "program": {
     "type": "Program",
     "start": 0,
@@ -29,10 +30,11 @@
         "line": 7,
         "column": 0,
         "index": 91
-      }
+      },
+      "filename": "input.js"
     },
-    "interpreter": null,
     "sourceType": "module",
+    "interpreter": null,
     "body": [
       {
         "type": "ClassDeclaration",
@@ -48,7 +50,8 @@
             "line": 2,
             "column": 17,
             "index": 29
-          }
+          },
+          "filename": "input.js"
         },
         "decorators": [
           {
@@ -65,7 +68,8 @@
                 "line": 1,
                 "column": 11,
                 "index": 11
-              }
+              },
+              "filename": "input.js"
             },
             "expression": {
               "type": "Identifier",
@@ -82,6 +86,7 @@
                   "column": 11,
                   "index": 11
                 },
+                "filename": "input.js",
                 "identifierName": "annotation"
               },
               "name": "annotation"
@@ -103,6 +108,7 @@
               "column": 13,
               "index": 25
             },
+            "filename": "input.js",
             "identifierName": "MyClass"
           },
           "name": "MyClass"
@@ -122,7 +128,8 @@
               "line": 2,
               "column": 17,
               "index": 29
-            }
+            },
+            "filename": "input.js"
           },
           "body": []
         }
@@ -141,7 +148,8 @@
             "line": 6,
             "column": 1,
             "index": 90
-          }
+          },
+          "filename": "input.js"
         },
         "id": {
           "type": "Identifier",
@@ -158,6 +166,7 @@
               "column": 19,
               "index": 50
             },
+            "filename": "input.js",
             "identifierName": "annotation"
           },
           "name": "annotation"
@@ -180,6 +189,7 @@
                 "column": 26,
                 "index": 57
               },
+              "filename": "input.js",
               "identifierName": "target"
             },
             "name": "target"
@@ -199,7 +209,8 @@
               "line": 6,
               "column": 1,
               "index": 90
-            }
+            },
+            "filename": "input.js"
           },
           "body": [
             {
@@ -216,7 +227,8 @@
                   "line": 5,
                   "column": 27,
                   "index": 88
-                }
+                },
+                "filename": "input.js"
               },
               "expression": {
                 "type": "AssignmentExpression",
@@ -232,7 +244,8 @@
                     "line": 5,
                     "column": 26,
                     "index": 87
-                  }
+                  },
+                  "filename": "input.js"
                 },
                 "operator": "=",
                 "left": {
@@ -249,7 +262,8 @@
                       "line": 5,
                       "column": 19,
                       "index": 80
-                    }
+                    },
+                    "filename": "input.js"
                   },
                   "object": {
                     "type": "Identifier",
@@ -266,10 +280,12 @@
                         "column": 9,
                         "index": 70
                       },
+                      "filename": "input.js",
                       "identifierName": "target"
                     },
                     "name": "target"
                   },
+                  "computed": false,
                   "property": {
                     "type": "Identifier",
                     "start": 71,
@@ -285,11 +301,11 @@
                         "column": 19,
                         "index": 80
                       },
+                      "filename": "input.js",
                       "identifierName": "annotated"
                     },
                     "name": "annotated"
-                  },
-                  "computed": false
+                  }
                 },
                 "right": {
                   "type": "BooleanLiteral",
@@ -305,7 +321,8 @@
                       "line": 5,
                       "column": 26,
                       "index": 87
-                    }
+                    },
+                    "filename": "input.js"
                   },
                   "value": true
                 }
