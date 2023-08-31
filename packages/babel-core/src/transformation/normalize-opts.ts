@@ -17,7 +17,9 @@ export default function normalizeOptions(config: ResolvedConfig): {} {
       ? undefined
       : config.options.moduleRoot,
 
-    sourceFileName = path.basename(filenameRelative),
+    sourceFileName = filenameRelative === "unknown"
+      ? undefined
+      : filenameRelative,
 
     comments = true,
     compact = "auto",
@@ -35,10 +37,7 @@ export default function normalizeOptions(config: ResolvedConfig): {} {
       // TODO: @babel/parser uses sourceFilename, while @babel/generator and
       // @babel/core use sourceFileName. Eventualy align them.
       // https://github.com/babel/babel/pull/13518
-      // We use the relative filename here so that source maps do not include
-      // absolute paths, and are thus portable.
-      sourceFilename:
-        filenameRelative === "unknown" ? undefined : filenameRelative,
+      sourceFilename: sourceFileName,
       plugins: [],
       ...opts.parserOpts,
     },
