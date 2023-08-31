@@ -59,7 +59,13 @@ export default function normalizeOptions(config: ResolvedConfig): {} {
 
       sourceRoot,
       sourceFileName:
-        sourceRoot === undefined
+        // If there is no filename, we use `"unknown"` in the source map
+        // `sources` array as a fallback. Due to how @babel/generator works,
+        // if we passed `undefined` there would be no generated mappings.
+        // Additionally, `undefined` isn't JSON-serializable.
+        sourceFileName == null
+          ? "unknown"
+          : sourceRoot == null
           ? sourceFileName
           : // @babel/generator will prepend sourceFileName with sourceRoot,
             // so we need to remove it here.
