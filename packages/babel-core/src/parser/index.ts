@@ -64,11 +64,16 @@ export default function* parser(
         },
       );
       if (missingPlugin) {
-        err.message =
-          `${filename}: ` +
-          generateMissingPluginMessage(missingPlugin[0], loc, codeFrame);
+        err.message = generateMissingPluginMessage(
+          missingPlugin[0],
+          loc,
+          codeFrame,
+        );
       } else {
-        err.message = `${filename}: ${err.message}\n\n` + codeFrame;
+        err.message += "\n\n" + codeFrame;
+      }
+      if (!process.env.BABEL_8_BREAKING) {
+        err.message = `${filename}: ${err.message}`;
       }
       err.code = "BABEL_PARSE_ERROR";
     }
