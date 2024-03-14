@@ -6,9 +6,11 @@ import splitExportDeclaration from "@babel/helper-split-export-declaration";
 import type { NodePath } from "@babel/traverse";
 
 export interface ModuleMetadata {
+  // `undefined` means legacy behavior, `boolean` means emit `exports.x = y` for `cjs-module-lexer` compat.
+  implicitAssignmentExports: boolean | undefined;
+  programPath: NodePath<t.Program>;
   exportName: string;
-  // The name of the variable that will reference an object containing export names.
-  exportNameListName: null | string;
+  exportNameList?: string[];
   hasExports: boolean;
   // Lookup from local binding to export information.
   local: Map<string, LocalExportMetadata>;
@@ -179,8 +181,9 @@ export default function normalizeModuleAndLoadMetadata(
   }
 
   return {
+    implicitAssignmentExports: undefined,
+    programPath,
     exportName,
-    exportNameListName: null,
     hasExports,
     local,
     source: sources,

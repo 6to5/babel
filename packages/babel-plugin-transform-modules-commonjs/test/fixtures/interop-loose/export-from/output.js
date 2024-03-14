@@ -1,9 +1,12 @@
 "use strict";
 
 exports.__esModule = true;
-var _foo = require("foo");
-Object.keys(_foo).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  if (key in exports && exports[key] === _foo[key]) return;
-  exports[key] = _foo[key];
-});
+__exportStar(require("foo"));
+function __exportStar(mod) {
+  Object.keys(mod).forEach(function (k) {
+    if (["default", "__esModule"].indexOf(k) < 0 && !(k in exports && exports[k] === mod[k])) {
+      exports[k] = mod[k];
+    }
+  });
+  return mod;
+}

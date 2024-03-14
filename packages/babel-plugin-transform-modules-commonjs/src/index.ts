@@ -8,6 +8,7 @@ import {
   ensureStatementsHoisted,
   wrapInterop,
   getModuleName,
+  addPrivateHelper,
 } from "@babel/helper-module-transforms";
 import simplifyAccess from "@babel/helper-simple-access";
 import { template, types as t, type PluginPass } from "@babel/core";
@@ -224,9 +225,9 @@ export default declare((api, options: Options) => {
 
           const hooks = makeInvokers(this.file);
 
-          const { meta, headers } = rewriteModuleStatementsAndPrepareHeader(
-            path,
-            {
+          const { meta, headers, namedReexports } =
+            rewriteModuleStatementsAndPrepareHeader(path, {
+              implicitAssignmentExports: lazy ? undefined : false,
               exportName: "exports",
               constantReexports,
               enumerableModuleMeta,
@@ -244,56 +245,192 @@ export default declare((api, options: Options) => {
                   : strictNamespace,
               noIncompleteNsImportDetection,
               filename: this.file.opts.filename,
-            },
-          );
+            });
+
+          const interopTypes = new Map<number, t.CallExpression>();
+          const exportStarFnBody = t.blockStatement([]);
+          let exportStarBody: t.Statement[];
+
+          let interopTypeId: t.Identifier;
+          let lastInteropType: number;
+
+          const hasExportStar = path.scope.hasBinding("__exportStar");
 
           for (const [source, metadata] of meta.source) {
             const loadExpr = t.callExpression(t.identifier("require"), [
               t.stringLiteral(source),
             ]);
 
-            let header: t.Statement;
-            if (isSideEffectImport(metadata)) {
-              if (lazy && metadata.wrap === "function") {
-                throw new Error("Assertion failure");
+            if (metadata.reexportAll && !lazy && !hasExportStar) {
+              const interopType = (
+                {
+                  none: 0,
+                  "node-default": 0,
+                  namespace: 1,
+                  "node-namespace": 2,
+                  default: 3,
+                } as const
+              )[metadata.interop];
+
+              if (lastInteropType !== interopType) {
+                if (lastInteropType != null) {
+                  if (!interopTypeId) {
+                    interopTypeId = path.scope.generateUidIdentifier("interop");
+                    path.scope.push({
+                      id: interopTypeId,
+                      kind: "var",
+                    });
+                  }
+                  headers.push(
+                    t.expressionStatement(
+                      t.assignmentExpression(
+                        "=",
+                        t.cloneNode(interopTypeId),
+                        t.numericLiteral(interopType),
+                      ),
+                    ),
+                  );
+                }
+                lastInteropType = interopType;
               }
 
-              header = t.expressionStatement(loadExpr);
+              headers.push(
+                ...buildNamespaceInitStatements(
+                  meta,
+                  metadata,
+                  constantReexports,
+                  hooks.wrapReference,
+                  body => {
+                    exportStarBody ??= body;
+
+                    if (interopType && !interopTypes.has(interopType)) {
+                      interopTypes.set(
+                        interopType,
+                        wrapInterop(
+                          path,
+                          t.identifier("mod"),
+                          metadata.interop,
+                        ),
+                      );
+                    }
+
+                    const exportStarHelper = addPrivateHelper(
+                      path,
+                      "_exportStar",
+                      () =>
+                        t.functionExpression(
+                          null,
+                          [t.identifier("mod")],
+                          exportStarFnBody,
+                        ),
+                    );
+                    const interopRequire = t.callExpression(exportStarHelper, [
+                      loadExpr,
+                    ]);
+                    interopRequire.loc = metadata.loc;
+
+                    if (
+                      metadata.importsNamespace.size ||
+                      metadata.imports.size ||
+                      metadata.reexports.size ||
+                      metadata.reexportNamespace.size
+                    ) {
+                      return t.variableDeclaration("var", [
+                        t.variableDeclarator(
+                          t.identifier(metadata.name),
+                          interopRequire,
+                        ),
+                      ]);
+                    } else {
+                      return t.expressionStatement(interopRequire);
+                    }
+                  },
+                ),
+              );
             } else {
-              const init =
-                wrapInterop(path, loadExpr, metadata.interop) || loadExpr;
+              let header: t.Statement;
+              if (isSideEffectImport(metadata)) {
+                if (lazy && metadata.wrap === "function") {
+                  throw new Error("Assertion failure");
+                }
 
-              if (metadata.wrap) {
-                const res = hooks.buildRequireWrapper(
-                  metadata.name,
-                  init,
-                  metadata.wrap,
-                  metadata.referenced,
-                );
-                if (res === false) continue;
-                else header = res;
-              }
-              header ??= template.statement.ast`
+                header = t.expressionStatement(loadExpr);
+              } else {
+                const init =
+                  wrapInterop(path, loadExpr, metadata.interop) || loadExpr;
+
+                if (metadata.wrap) {
+                  const res = hooks.buildRequireWrapper(
+                    metadata.name,
+                    init,
+                    metadata.wrap,
+                    metadata.referenced,
+                  );
+                  if (res === false) continue;
+                  else header = res;
+                }
+                header ??= template.statement.ast`
                 var ${metadata.name} = ${init};
               `;
-            }
-            header.loc = metadata.loc;
+              }
+              header.loc = metadata.loc;
 
-            headers.push(header);
-            headers.push(
-              ...buildNamespaceInitStatements(
-                meta,
-                metadata,
-                constantReexports,
-                hooks.wrapReference,
-              ),
-            );
+              headers.push(header);
+              headers.push(
+                ...buildNamespaceInitStatements(
+                  meta,
+                  metadata,
+                  constantReexports,
+                  hooks.wrapReference,
+                ),
+              );
+            }
           }
 
-          ensureStatementsHoisted(headers);
-          path.unshiftContainer("body", headers);
+          if (exportStarBody) {
+            let cond: t.Identifier | t.ConditionalExpression =
+              t.identifier("mod");
+
+            if (interopTypeId) {
+              interopTypes.forEach((call, type) => {
+                cond = t.conditionalExpression(
+                  t.binaryExpression(
+                    "==",
+                    t.cloneNode(interopTypeId),
+                    t.numericLiteral(type),
+                  ),
+                  call,
+                  cond,
+                );
+              });
+
+              exportStarFnBody.body.push(
+                t.expressionStatement(
+                  t.assignmentExpression("=", t.identifier("mod"), cond),
+                ),
+              );
+            } else if (lastInteropType) {
+              exportStarFnBody.body.push(
+                t.expressionStatement(
+                  t.assignmentExpression(
+                    "=",
+                    t.identifier("mod"),
+                    interopTypes.get(lastInteropType),
+                  ),
+                ),
+              );
+            }
+            exportStarFnBody.body.push(...exportStarBody);
+          }
+
+          const newHeaders = headers
+            .filter(header => !namedReexports.has(header as any))
+            .concat(Array.from(namedReexports.values()));
+
+          ensureStatementsHoisted(newHeaders);
+          path.unshiftContainer("body", newHeaders);
           path.get("body").forEach(path => {
-            if (headers.indexOf(path.node) === -1) return;
+            if (newHeaders.indexOf(path.node) === -1) return;
             if (path.isVariableDeclaration()) {
               path.scope.registerDeclaration(path);
             }

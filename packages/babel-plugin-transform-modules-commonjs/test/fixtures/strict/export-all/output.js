@@ -3,38 +3,34 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var _exportNames = {
-  z: true,
-  a: true,
-  b: true,
-  d: true,
-  e: true,
-  f: true,
-  c: true
-};
 exports.a = void 0;
 exports.b = b;
-Object.defineProperty(exports, "c", {
-  enumerable: true,
-  get: function () {
-    return _mod.c;
-  }
-});
-exports.d = void 0;
+exports.d = exports.c = void 0;
 exports.default = _default;
 exports.z = exports.f = exports.e = void 0;
-var _mod = require("mod");
-Object.keys(_mod).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
-  if (key in exports && exports[key] === _mod[key]) return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function () {
-      return _mod[key];
+var _mod = __exportStar(require("mod"));
+_export("c", _mod);
+function __exportStar(mod) {
+  Object.keys(mod).forEach(function (k) {
+    if (["default", "__esModule", "z", "a", "b", "d", "e", "f", "c"].indexOf(k) < 0 && !(k in exports && exports[k] === mod[k])) {
+      Object.defineProperty(exports, k, {
+        get: function () {
+          return mod[k];
+        },
+        enumerable: true
+      });
     }
   });
-});
+  return mod;
+}
+function _export(name, mod, name2) {
+  Object.defineProperty(exports, name, {
+    enumerable: true,
+    get: function () {
+      return mod[name2 == null ? name : name2];
+    }
+  });
+}
 var z = exports.z = 100;
 class a {}
 exports.a = a;
