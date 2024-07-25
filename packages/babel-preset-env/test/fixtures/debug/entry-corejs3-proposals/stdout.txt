@@ -31,7 +31,6 @@ Using plugins:
   transform-literals { ie }
   transform-function-name { ie }
   transform-arrow-functions { ie }
-  transform-block-scoped-functions { ie < 11 }
   transform-classes { ie }
   transform-object-super { ie }
   transform-shorthand-properties { ie }
@@ -44,6 +43,7 @@ Using plugins:
   transform-spread { ie }
   transform-destructuring { ie }
   transform-block-scoping { ie }
+  transform-block-scoped-functions { ie < 11 }
   transform-typeof-symbol { ie }
   transform-new-target { ie }
   transform-regenerator { ie }
@@ -53,7 +53,6 @@ Using plugins:
   transform-export-namespace-from { ie }
   transform-modules-commonjs
   transform-dynamic-import
-  syntax-import-meta
 corejs3: `DEBUG` option
 
 Using targets: {

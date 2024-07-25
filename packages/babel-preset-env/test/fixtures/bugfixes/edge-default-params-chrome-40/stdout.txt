@@ -30,7 +30,6 @@ Using plugins:
   transform-template-literals { chrome < 41 }
   transform-literals { chrome < 44 }
   transform-function-name { chrome < 51 }
-  transform-block-scoped-functions { chrome < 41 }
   transform-classes { chrome < 46 }
   transform-object-super { chrome < 46 }
   transform-shorthand-properties { chrome < 43 }
@@ -42,6 +41,7 @@ Using plugins:
   transform-unicode-regex { chrome < 50 }
   transform-spread { chrome < 46 }
   transform-block-scoping { chrome < 50 }
+  transform-block-scoped-functions { chrome < 41 }
   transform-new-target { chrome < 46 }
   transform-regenerator { chrome < 50 }
   transform-export-namespace-from { chrome < 72 }

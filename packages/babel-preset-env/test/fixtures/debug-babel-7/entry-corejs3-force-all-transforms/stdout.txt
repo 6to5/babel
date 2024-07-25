@@ -31,7 +31,6 @@ Using plugins:
   transform-literals { }
   transform-function-name { }
   transform-arrow-functions { }
-  transform-block-scoped-functions { }
   transform-classes { }
   transform-object-super { }
   transform-shorthand-properties { }
@@ -44,6 +43,7 @@ Using plugins:
   transform-spread { }
   transform-destructuring { }
   transform-block-scoping { }
+  transform-block-scoped-functions { }
   transform-typeof-symbol { }
   transform-new-target { }
   transform-regenerator { }

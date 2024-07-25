@@ -28,7 +28,6 @@ Using plugins:
   transform-async-to-generator { safari < 10.1 }
   transform-exponentiation-operator { safari < 10.1 }
   transform-function-name { safari < 10 }
-  transform-block-scoped-functions { safari < 10 }
   transform-classes { safari < 10 }
   transform-object-super { safari < 10 }
   transform-sticky-regex { safari < 10 }
@@ -36,6 +35,7 @@ Using plugins:
   transform-spread { safari < 10 }
   transform-destructuring { safari < 10 }
   transform-block-scoping { safari < 10 }
+  transform-block-scoped-functions { safari < 10 }
   transform-new-target { safari < 10 }
   transform-regenerator { safari < 10 }
   transform-export-namespace-from { safari < 14.1 }

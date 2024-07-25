@@ -36,7 +36,6 @@ Using plugins:
   transform-literals { firefox < 53, ie, safari < 9 }
   transform-function-name { edge < 14, firefox < 53, ie, ios < 10, safari < 10 }
   transform-arrow-functions { ie, ios < 10, safari < 10 }
-  transform-block-scoped-functions { ie < 11, ios < 10, safari < 10 }
   transform-classes { ie, ios < 10, safari < 10 }
   transform-object-super { ie, ios < 10, safari < 10 }
   transform-shorthand-properties { ie, safari < 9 }
@@ -49,6 +48,7 @@ Using plugins:
   transform-spread { ie, ios < 10, safari < 10 }
   transform-destructuring { edge < 15, firefox < 53, ie, ios < 10, safari < 10 }
   transform-block-scoping { edge < 14, firefox < 53, ie, ios < 10, safari < 10 }
+  transform-block-scoped-functions { ie < 11, ios < 10, safari < 10 }
   transform-typeof-symbol { ie, safari < 9 }
   transform-new-target { edge < 14, ie, ios < 10, safari < 10 }
   transform-regenerator { firefox < 53, ie, ios < 10, safari < 10 }

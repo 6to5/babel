@@ -34,7 +34,6 @@ Using plugins:
   transform-literals { ie }
   transform-function-name { electron < 1.2, ie, node < 6.5 }
   transform-arrow-functions { ie }
-  transform-block-scoped-functions { ie < 11 }
   transform-classes { ie }
   transform-object-super { ie }
   transform-shorthand-properties { ie }
@@ -47,6 +46,7 @@ Using plugins:
   transform-spread { ie }
   transform-destructuring { electron < 1.2, ie, node < 6.5 }
   transform-block-scoping { electron < 1.1, ie }
+  transform-block-scoped-functions { ie < 11 }
   transform-typeof-symbol { ie }
   transform-new-target { ie }
   transform-regenerator { electron < 1.1, ie }

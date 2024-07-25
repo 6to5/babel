@@ -33,7 +33,6 @@ Using plugins:
   transform-literals { ie }
   transform-function-name { ie, node < 6.5 }
   transform-arrow-functions { ie }
-  transform-block-scoped-functions { ie < 11 }
   transform-classes { ie }
   transform-object-super { ie }
   transform-shorthand-properties { ie }
@@ -46,13 +45,13 @@ Using plugins:
   transform-spread { ie }
   transform-destructuring { ie, node < 6.5 }
   transform-block-scoping { ie }
+  transform-block-scoped-functions { ie < 11 }
   transform-typeof-symbol { ie }
   transform-new-target { ie }
   transform-regenerator { ie }
   transform-export-namespace-from { chrome < 72, ie, node < 13.2 }
   transform-modules-commonjs
   transform-dynamic-import
-  syntax-import-meta
 corejs3: `DEBUG` option
 
 Using targets: {
