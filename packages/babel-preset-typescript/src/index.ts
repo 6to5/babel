@@ -6,14 +6,18 @@ import normalizeOptions from "./normalize-options.ts";
 import type { Options } from "./normalize-options.ts";
 import pluginRewriteTSImports from "./plugin-rewrite-ts-imports.ts";
 
+export type { Options };
+
 export default declarePreset((api, opts: Options) => {
   api.assertVersion(REQUIRED_VERSION(7));
 
   const {
+    // @ts-expect-error Babel 7 only
     allExtensions,
     ignoreExtensions,
     allowNamespaces,
     disallowAmbiguousJSXLike,
+    // @ts-expect-error Babel 7 only
     isTSX,
     jsxPragma,
     jsxPragmaFrag,

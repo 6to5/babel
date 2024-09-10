@@ -78,9 +78,11 @@ export default function _usingCtx(): UsingCtxReturn {
       if (typeof dispose !== "function") {
         throw new TypeError("Object is not disposable.");
       }
+      // @ts-expect-error use before assignment
       if (inner) {
         dispose = function () {
           try {
+            // eslint-disable-next-line @typescript-eslint/no-floating-promises
             inner.call(value);
           } catch (e) {
             // eslint-disable-next-line @typescript-eslint/prefer-promise-reject-errors
@@ -144,6 +146,7 @@ export default function _usingCtx(): UsingCtxReturn {
           }
         }
 
+        // eslint-disable-next-line @typescript-eslint/only-throw-error
         if (error !== empty) throw error;
       }
 

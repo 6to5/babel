@@ -11,10 +11,6 @@ export interface Options {
   onlyRemoveTypeImports?: boolean;
   optimizeConstEnums?: boolean;
   rewriteImportExtensions?: boolean;
-
-  // TODO: Remove in Babel 8
-  allExtensions?: boolean;
-  isTSX?: boolean;
 }
 
 export default function normalizeOptions(options: Options = {}) {
@@ -33,6 +29,7 @@ export default function normalizeOptions(options: Options = {}) {
     rewriteImportExtensions: "rewriteImportExtensions",
 
     // TODO: Remove in Babel 8
+    // @ts-expect-error Babel 7 only
     allExtensions: "allExtensions",
     isTSX: "isTSX",
   };
@@ -78,14 +75,18 @@ export default function normalizeOptions(options: Options = {}) {
   if (!process.env.BABEL_8_BREAKING) {
     // eslint-disable-next-line no-var
     var allExtensions = v.validateBooleanOption(
+      // @ts-expect-error Babel 7 only
       TopLevelOptions.allExtensions,
+      // @ts-expect-error Babel 7 only
       options.allExtensions,
       false,
     );
 
     // eslint-disable-next-line no-var
     var isTSX = v.validateBooleanOption(
+      // @ts-expect-error Babel 7 only
       TopLevelOptions.isTSX,
+      // @ts-expect-error Babel 7 only
       options.isTSX,
       false,
     );
@@ -142,7 +143,9 @@ export default function normalizeOptions(options: Options = {}) {
     rewriteImportExtensions,
   };
   if (!process.env.BABEL_8_BREAKING) {
+    // @ts-expect-error Babel 7 only
     normalized.allExtensions = allExtensions;
+    // @ts-expect-error Babel 7 only
     normalized.isTSX = isTSX;
   }
   return normalized;

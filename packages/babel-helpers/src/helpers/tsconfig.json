@@ -13,5 +13,5 @@
     "strict": true
   },
   "include": ["./*.ts"],
-  "exclude": ["./applyDecs2305.ts", "./construct.ts", "./usingCtx.ts"]
+  "exclude": ["./applyDecs2305.ts"]
 }

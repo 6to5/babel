@@ -2,6 +2,8 @@ import { declarePreset } from "@babel/helper-plugin-utils";
 import transformFlowStripTypes from "@babel/plugin-transform-flow-strip-types";
 import normalizeOptions from "./normalize-options.ts";
 
+export type { Options } from "./normalize-options.ts";
+
 export default declarePreset((api, opts) => {
   api.assertVersion(REQUIRED_VERSION(7));
   const {

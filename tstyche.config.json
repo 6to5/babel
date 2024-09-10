@@ -1,0 +1,4 @@
+{
+  "$schema": "https://tstyche.org/schemas/config.json",
+  "testFileMatch": ["packages/*/test/*.tst.ts", "eslint/*/test/*.tst.ts"]
+}

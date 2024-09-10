@@ -82,7 +82,8 @@
     "semver": "^6.3.1",
     "shelljs": "^0.8.5",
     "test262-stream": "^1.4.0",
-    "typescript": "5.5.3",
+    "tstyche": "^2.1.1",
+    "typescript": "5.5.4",
     "typescript-eslint": "8.0.0-alpha.39"
   },
   "workspaces": [

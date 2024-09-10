@@ -10,7 +10,11 @@
   "include": [
     "./lib/libdom-minimal.d.ts",
     "packages/babel-parser/typings/*.d.ts",
-    "dts/**/*.d.ts"
+    "dts/**/*.d.ts",
+    "packages/*/test/*.tst.ts"
+  ],
+  "exclude": [
+    "dts/**/test/*.tst.d.ts"
   ],
   "references": [
     {

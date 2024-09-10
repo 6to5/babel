@@ -1,8 +1,15 @@
 import { OptionValidator } from "@babel/helper-validator-option";
 const v = new OptionValidator("@babel/preset-flow");
 
-export default function normalizeOptions(options: any = {}) {
+export type Options = {
+  all?: boolean;
+  ignoreExtensions?: boolean;
+  experimental_useHermesParser?: boolean;
+};
+
+export default function normalizeOptions(options: Options = {}) {
   let { all, ignoreExtensions, experimental_useHermesParser } = options;
+  // @ts-expect-error Babel 7 only
   const { allowDeclareFields } = options;
 
   if (process.env.BABEL_8_BREAKING) {
