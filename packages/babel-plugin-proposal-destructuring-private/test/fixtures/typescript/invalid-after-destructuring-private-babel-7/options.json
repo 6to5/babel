@@ -3,6 +3,5 @@
   "throws": [
     "TypeScript features must first be transformed by @babel/plugin-transform-typescript."
   ],
-  "sortPlugins": false,
-  "BABEL_8_BREAKING": true
+  "BABEL_8_BREAKING": false
 }

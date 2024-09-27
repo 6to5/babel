@@ -219,7 +219,7 @@ export function assertBoolean(
 export function assertObject(
   loc: GeneralPath,
   value: unknown,
-): { readonly [key: string]: unknown } | void {
+): { readonly [key: string]: unknown } | undefined {
   if (
     value !== undefined &&
     (typeof value !== "object" || Array.isArray(value) || !value)

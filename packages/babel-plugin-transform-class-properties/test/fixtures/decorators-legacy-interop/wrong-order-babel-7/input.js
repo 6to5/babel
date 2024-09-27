@@ -1,0 +1,2 @@
+@deco
+class Foo {}

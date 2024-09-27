@@ -56,6 +56,8 @@ const ROOT_VALIDATORS: ValidatorSet = {
   cloneInputAst: assertBoolean as Validator<ValidatedOptions["cloneInputAst"]>,
 
   envName: assertString as Validator<ValidatedOptions["envName"]>,
+
+  sortPlugins: assertBoolean as Validator<ValidatedOptions["sortPlugins"]>,
 };
 
 const BABELRC_VALIDATORS: ValidatorSet = {
@@ -192,6 +194,7 @@ export type ValidatedOptions = {
   parserOpts?: ParserOptions;
   // Deprecate top level generatorOpts
   generatorOpts?: GeneratorOptions;
+  sortPlugins?: boolean;
 };
 
 export type NormalizedOptions = {

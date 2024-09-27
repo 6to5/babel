@@ -15,6 +15,7 @@ import generateCode from "./file/generate.ts";
 import type File from "./file/file.ts";
 
 import { flattenToSet } from "../config/helpers/deep-array.ts";
+import { isThenable } from "../gensync-utils/async.ts";
 
 export type FileResultCallback = {
   (err: Error, file: null): void;
@@ -144,13 +145,4 @@ function* transformFile(file: File, pluginPasses: PluginPasses): Handler<void> {
       }
     }
   }
-}
-
-function isThenable<T extends PromiseLike<any>>(val: any): val is T {
-  return (
-    !!val &&
-    (typeof val === "object" || typeof val === "function") &&
-    !!val.then &&
-    typeof val.then === "function"
-  );
 }

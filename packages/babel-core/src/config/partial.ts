@@ -112,6 +112,9 @@ export default function* loadPrivatePartialConfig(
   const merged: ValidatedOptions = {
     assumptions: {},
   };
+
+  if (process.env.BABEL_8_BREAKING) merged.sortPlugins = true;
+
   configChain.options.forEach(opts => {
     mergeOptions(merged as any, opts);
   });

@@ -16,6 +16,8 @@ export default class Plugin {
 
   externalDependencies: ReadonlyDeepArray<string>;
 
+  orderData?: PluginObject["orderData"];
+
   constructor(
     plugin: PluginObject,
     options: object,
@@ -30,6 +32,7 @@ export default class Plugin {
     this.visitor = plugin.visitor || {};
     this.parserOverride = plugin.parserOverride;
     this.generatorOverride = plugin.generatorOverride;
+    this.orderData = plugin.orderData;
 
     this.options = options;
     this.externalDependencies = externalDependencies;

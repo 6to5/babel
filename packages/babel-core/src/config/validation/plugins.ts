@@ -33,7 +33,26 @@ const VALIDATORS: ValidatorSet = {
   generatorOverride: assertFunction as Validator<
     PluginObject["generatorOverride"]
   >,
+
+  orderData: assertOrderData as Validator<PluginObject["orderData"]>,
 };
+
+function assertOrderData(loc: OptionPath, value: unknown) {
+  const obj = assertObject(loc, value);
+  if (obj) {
+    if (typeof obj.id !== "string") {
+      throw new Error(
+        `${msg(loc)} must have an "id" property that is a string`,
+      );
+    }
+    if (typeof obj.version !== "number") {
+      throw new Error(
+        `${msg(loc)} must have a "version" property that is a number`,
+      );
+    }
+  }
+  return value as PluginObject["orderData"];
+}
 
 function assertVisitorMap(loc: OptionPath, value: unknown): Visitor {
   const obj = assertObject(loc, value);
@@ -95,6 +114,15 @@ export type PluginObject<S extends PluginPass = PluginPass> = {
   visitor?: Visitor<S>;
   parserOverride?: Function;
   generatorOverride?: Function;
+  orderData?: {
+    id: string;
+    version: number;
+    data: () => {
+      type: "list";
+      before?: string;
+      list: string[];
+    };
+  };
 };
 
 export function validatePluginObject(obj: {

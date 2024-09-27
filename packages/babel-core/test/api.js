@@ -367,9 +367,11 @@ describe("api", function () {
       plugins: ["@babel/plugin-syntax-jsx"],
     });
 
-    expect(result.options.plugins[0].manipulateOptions.toString()).toEqual(
-      expect.stringContaining("jsx"),
-    );
+    expect(
+      result.options.plugins
+        .find(v => v.key === "syntax-jsx")
+        .manipulateOptions.toString(),
+    ).toEqual(expect.stringContaining("jsx"));
   });
 
   it("option wrapPluginVisitorMethod", function () {

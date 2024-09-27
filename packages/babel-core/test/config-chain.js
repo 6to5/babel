@@ -4,6 +4,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import * as babel from "../lib/index.js";
 import rimraf from "rimraf";
+import { IS_BABEL_8 } from "$repo-utils";
 
 import _getTargets from "@babel/helper-compilation-targets";
 const getTargets = _getTargets.default || _getTargets;
@@ -1128,6 +1129,7 @@ describe("buildConfigChain", function () {
       cloneInputAst: true,
       targets: defaultTargets,
       assumptions: {},
+      ...(IS_BABEL_8() ? { sortPlugins: true } : {}),
     });
     const realEnv = process.env.NODE_ENV;
     const realBabelEnv = process.env.BABEL_ENV;

@@ -2,6 +2,5 @@
   "presets": ["typescript"],
   "plugins": ["transform-class-properties"],
   "throws": "TypeScript 'declare' fields must first be transformed by @babel/plugin-transform-typescript.",
-  "sortPlugins": false,
-  "BABEL_8_BREAKING": true
+  "BABEL_8_BREAKING": false
 }

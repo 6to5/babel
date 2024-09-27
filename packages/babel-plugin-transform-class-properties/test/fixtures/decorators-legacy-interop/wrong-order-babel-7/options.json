@@ -4,6 +4,5 @@
     ["proposal-decorators", { "version": "legacy" }]
   ],
   "throws": "Decorators are not enabled.",
-  "sortPlugins": false,
-  "BABEL_8_BREAKING": true
+  "BABEL_8_BREAKING": false
 }

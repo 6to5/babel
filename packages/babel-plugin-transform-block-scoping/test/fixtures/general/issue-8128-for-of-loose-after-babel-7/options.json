@@ -1,8 +1,7 @@
 {
   "plugins": [
     ["transform-block-scoping", { "loose": true }],
-    "transform-for-of"
+    ["transform-for-of", { "loose": true }]
   ],
-  "sortPlugins": false,
-  "BABEL_8_BREAKING": true
+  "BABEL_8_BREAKING": false
 }
