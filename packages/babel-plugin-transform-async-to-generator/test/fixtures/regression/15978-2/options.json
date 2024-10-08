@@ -1,0 +1,15 @@
+{
+  "parserOpts": {
+    "allowReturnOutsideFunction": true
+  },
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "node": "4"
+        }
+      }
+    ]
+  ]
+}

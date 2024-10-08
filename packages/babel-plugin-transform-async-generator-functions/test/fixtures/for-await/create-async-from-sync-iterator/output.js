@@ -1,8 +1,5 @@
 function fn() {
-  return _fn.apply(this, arguments);
-}
-function _fn() {
-  _fn = babelHelpers.wrapAsyncGenerator(function* () {
+  return babelHelpers.newAsyncGenerator(function* () {
     var _iteratorAbruptCompletion = false;
     var _didIteratorError = false;
     var _iteratorError;
@@ -29,6 +26,5 @@ function _fn() {
         }
       }
     }
-  });
-  return _fn.apply(this, arguments);
+  }, this, arguments);
 }

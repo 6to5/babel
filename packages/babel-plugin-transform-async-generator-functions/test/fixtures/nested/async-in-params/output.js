@@ -1,12 +1,8 @@
 function g() {
-  return _g.apply(this, arguments);
-}
-function _g() {
-  _g = babelHelpers.wrapAsyncGenerator(function* (x = /*#__PURE__*/babelHelpers.asyncToGenerator(function* () {
+  return babelHelpers.newAsyncGenerator(function* (x = /*#__PURE__*/babelHelpers.asyncToGenerator(function* () {
     yield 1;
   })) {
     yield babelHelpers.awaitAsyncGenerator(2);
     yield 3;
-  });
-  return _g.apply(this, arguments);
+  }, this, arguments);
 }

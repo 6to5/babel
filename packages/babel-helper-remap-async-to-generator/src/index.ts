@@ -1,5 +1,3 @@
-/* @noflow */
-
 import type { NodePath } from "@babel/core";
 import wrapFunction from "@babel/helper-wrap-function";
 import annotateAsPure from "@babel/helper-annotate-as-pure";
@@ -13,7 +11,9 @@ const {
   yieldExpression,
 } = t;
 
-const awaitVisitor = visitors.environmentVisitor<{ wrapAwait: t.Expression }>({
+const awaitVisitor = visitors.environmentVisitor<{
+  wrapAwait: t.Expression | (() => t.Expression);
+}>({
   ArrowFunctionExpression(path) {
     path.skip();
   },
@@ -24,7 +24,12 @@ const awaitVisitor = visitors.environmentVisitor<{ wrapAwait: t.Expression }>({
     path.replaceWith(
       yieldExpression(
         wrapAwait
-          ? callExpression(cloneNode(wrapAwait), [argument.node])
+          ? callExpression(
+              typeof wrapAwait === "function"
+                ? wrapAwait()
+                : cloneNode(wrapAwait),
+              [argument.node],
+            )
           : argument.node,
       ),
     );
@@ -34,8 +39,9 @@ const awaitVisitor = visitors.environmentVisitor<{ wrapAwait: t.Expression }>({
 export default function (
   path: NodePath<t.Function>,
   helpers: {
-    wrapAsync: t.Expression;
-    wrapAwait?: t.Expression;
+    wrapAsync: t.Expression | (() => t.Expression);
+    wrapAwait?: t.Expression | (() => t.Expression);
+    callAsync?: () => t.Expression;
   },
   noNewArrows?: boolean,
   ignoreFunctionLength?: boolean,
@@ -51,9 +57,10 @@ export default function (
 
   wrapFunction(
     path,
-    cloneNode(helpers.wrapAsync),
+    helpers.wrapAsync,
     noNewArrows,
     ignoreFunctionLength,
+    helpers.callAsync,
   );
 
   const isProperty =
@@ -62,7 +69,7 @@ export default function (
     path.parentPath.isObjectProperty() ||
     path.parentPath.isClassProperty();
 
-  if (!isProperty && !isIIFE && path.isExpression()) {
+  if (!isProperty && !isIIFE && path.isCallExpression()) {
     annotateAsPure(path);
   }
 
@@ -96,3 +103,5 @@ export default function (
     return false;
   }
 }
+
+export { buildOnCallExpression } from "@babel/helper-wrap-function";

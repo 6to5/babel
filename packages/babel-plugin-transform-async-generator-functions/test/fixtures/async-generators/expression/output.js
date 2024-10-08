@@ -1,12 +1,8 @@
-/*#__PURE__*/(function () {
-  var _agf = babelHelpers.wrapAsyncGenerator(function* () {
+(function agf() {
+  return babelHelpers.newAsyncGenerator(function* () {
     this;
     yield babelHelpers.awaitAsyncGenerator(1);
     yield 2;
     return 3;
-  });
-  function agf() {
-    return _agf.apply(this, arguments);
-  }
-  return agf;
-})();
+  }, this, arguments);
+});

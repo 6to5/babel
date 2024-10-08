@@ -458,7 +458,7 @@ function validateFile(
     throw new Error(
       `Expected ${expectedLoc} to match transform output.\n` +
         `To autogenerate a passing version of this file, delete ` +
-        ` the file and re-run the tests.\n\n` +
+        `the file and re-run the tests.\n\n` +
         `Diff:\n\n${diff(expectedCode, actualCode, { expand: false })}`,
     );
   }

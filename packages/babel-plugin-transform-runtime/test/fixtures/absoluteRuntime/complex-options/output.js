@@ -1,10 +1,8 @@
 var _regeneratorRuntime = require("<CWD>/packages/babel-runtime/helpers/regeneratorRuntime.js")["default"];
-var _asyncToGenerator = require("<CWD>/packages/babel-runtime/helpers/asyncToGenerator.js")["default"];
+var _callAsync = require("<CWD>/packages/babel-runtime/helpers/callAsync.js")["default"];
+var _ref, _ref2;
 function test() {
-  return _test.apply(this, arguments);
-}
-function _test() {
-  _test = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+  return _callAsync(_ref = _ref || /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
@@ -14,14 +12,10 @@ function _test() {
           return _context.stop();
       }
     }, _callee);
-  }));
-  return _test.apply(this, arguments);
+  }), this, arguments);
 }
 function main() {
-  return _main.apply(this, arguments);
-}
-function _main() {
-  _main = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+  return _callAsync(_ref2 = _ref2 || /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
@@ -36,7 +30,6 @@ function _main() {
           return _context2.stop();
       }
     }, _callee2);
-  }));
-  return _main.apply(this, arguments);
+  }), this, arguments);
 }
 main();

@@ -22,13 +22,9 @@ negative:
 expect(() => {
   switch (0) {
     default:
-      var _x2 = function () {
-        return _x.apply(this, arguments);
+      var _x = function () {
+        return babelHelpers.newAsyncGenerator(function* () {}, this, arguments);
       };
-      function _x() {
-        _x = babelHelpers.wrapAsyncGenerator(function* () {});
-        return _x.apply(this, arguments);
-      }
   }
   x;
 }).toThrow(ReferenceError);

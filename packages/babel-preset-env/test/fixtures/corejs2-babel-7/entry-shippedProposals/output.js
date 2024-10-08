@@ -1,3 +1,4 @@
+var _ref;
 require("core-js/modules/es6.array.copy-within.js");
 require("core-js/modules/es6.array.every.js");
 require("core-js/modules/es6.array.fill.js");
@@ -162,10 +163,7 @@ var n = babelHelpers.objectSpread2({
   y: y
 }, z);
 function agf() {
-  return _agf.apply(this, arguments);
-}
-function _agf() {
-  _agf = babelHelpers.wrapAsyncGenerator(/*#__PURE__*/babelHelpers.regeneratorRuntime().mark(function _callee() {
+  return babelHelpers.newAsyncGenerator(_ref = _ref || /*#__PURE__*/babelHelpers.regeneratorRuntime().mark(function _callee() {
     return babelHelpers.regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
@@ -179,6 +177,5 @@ function _agf() {
           return _context.stop();
       }
     }, _callee);
-  }));
-  return _agf.apply(this, arguments);
+  }), this, arguments);
 }

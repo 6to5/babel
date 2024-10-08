@@ -126,6 +126,24 @@
       "./helpers/awaitAsyncGenerator.js"
     ],
     "./helpers/esm/awaitAsyncGenerator": "./helpers/esm/awaitAsyncGenerator.js",
+    "./helpers/callAsync": [
+      {
+        "node": "./helpers/callAsync.js",
+        "import": "./helpers/esm/callAsync.js",
+        "default": "./helpers/callAsync.js"
+      },
+      "./helpers/callAsync.js"
+    ],
+    "./helpers/esm/callAsync": "./helpers/esm/callAsync.js",
+    "./helpers/callSkipFirstGeneratorNext": [
+      {
+        "node": "./helpers/callSkipFirstGeneratorNext.js",
+        "import": "./helpers/esm/callSkipFirstGeneratorNext.js",
+        "default": "./helpers/callSkipFirstGeneratorNext.js"
+      },
+      "./helpers/callSkipFirstGeneratorNext.js"
+    ],
+    "./helpers/esm/callSkipFirstGeneratorNext": "./helpers/esm/callSkipFirstGeneratorNext.js",
     "./helpers/callSuper": [
       {
         "node": "./helpers/callSuper.js",
@@ -504,6 +522,15 @@
       "./helpers/newArrowCheck.js"
     ],
     "./helpers/esm/newArrowCheck": "./helpers/esm/newArrowCheck.js",
+    "./helpers/newAsyncGenerator": [
+      {
+        "node": "./helpers/newAsyncGenerator.js",
+        "import": "./helpers/esm/newAsyncGenerator.js",
+        "default": "./helpers/newAsyncGenerator.js"
+      },
+      "./helpers/newAsyncGenerator.js"
+    ],
+    "./helpers/esm/newAsyncGenerator": "./helpers/esm/newAsyncGenerator.js",
     "./helpers/nonIterableRest": [
       {
         "node": "./helpers/nonIterableRest.js",

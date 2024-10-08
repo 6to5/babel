@@ -1,8 +1,5 @@
 function fn() {
-  return _fn.apply(this, arguments);
-}
-function _fn() {
-  _fn = babelHelpers.asyncToGenerator(function* () {
+  return babelHelpers.callAsync(function* () {
     yield 0;
     try {
       var _usingCtx = babelHelpers.usingCtx();
@@ -13,6 +10,5 @@ function _fn() {
     } finally {
       yield _usingCtx.d();
     }
-  });
-  return _fn.apply(this, arguments);
+  }, this, arguments);
 }

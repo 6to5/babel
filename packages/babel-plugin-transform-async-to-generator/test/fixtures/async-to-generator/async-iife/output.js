@@ -4,15 +4,11 @@ babelHelpers.asyncToGenerator(function* () {
 babelHelpers.asyncToGenerator(function* () {
   yield 'ok';
 })();
-/*#__PURE__*/(function () {
-  var _notIIFE = babelHelpers.asyncToGenerator(function* () {
+(function notIIFE() {
+  return babelHelpers.callAsync(function* () {
     yield 'ok';
-  });
-  function notIIFE() {
-    return _notIIFE.apply(this, arguments);
-  }
-  return notIIFE;
-})();
+  }, this, arguments);
+});
 /*#__PURE__*/babelHelpers.asyncToGenerator(function* () {
   yield 'not iife';
 });

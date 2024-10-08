@@ -1,24 +1,15 @@
-var foo = /*#__PURE__*/function () {
-  var _ref = babelHelpers.asyncToGenerator(function* () {
+var foo = function foo() {
+  return babelHelpers.callAsync(function* () {
     var wat = yield bar();
-  });
-  return function foo() {
-    return _ref.apply(this, arguments);
-  };
-}();
-var foo2 = /*#__PURE__*/function () {
-    var _ref2 = babelHelpers.asyncToGenerator(function* () {
+  }, this, arguments);
+};
+var foo2 = function foo2() {
+    return babelHelpers.callAsync(function* () {
       var wat = yield bar();
-    });
-    return function foo2() {
-      return _ref2.apply(this, arguments);
-    };
-  }(),
-  bar = /*#__PURE__*/function () {
-    var _ref3 = babelHelpers.asyncToGenerator(function* () {
+    }, this, arguments);
+  },
+  bar = function bar() {
+    return babelHelpers.callAsync(function* () {
       var wat = yield foo();
-    });
-    return function bar() {
-      return _ref3.apply(this, arguments);
-    };
-  }();
+    }, this, arguments);
+  };

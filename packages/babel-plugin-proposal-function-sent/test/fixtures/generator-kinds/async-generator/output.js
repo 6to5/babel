@@ -1,10 +1,7 @@
+var _ref;
 function foo() {
-  return _foo.apply(this, arguments);
-}
-function _foo() {
-  _foo = babelHelpers.wrapAsyncGenerator(babelHelpers.skipFirstGeneratorNext(function* () {
+  return babelHelpers.newAsyncGenerator(_ref = _ref || babelHelpers.skipFirstGeneratorNext(function* () {
     let _functionSent = yield;
     _functionSent = yield babelHelpers.awaitAsyncGenerator(_functionSent);
-  }));
-  return _foo.apply(this, arguments);
+  }), this, arguments);
 }

@@ -212,6 +212,30 @@ const helpers: Record<string, Helper> = {
       dependencies: { OverloadYield: ["body.0.body.body.0.argument.callee"] },
     },
   ),
+  // size: 298, gzip size: 205
+  callAsync: helper(
+    "7.24.4",
+    "function _callAsync(n,e,r){return new Promise((function(t,a){var o=n.apply(e,r),c=asyncGeneratorStep.bind(null,1),l=asyncGeneratorStep.bind(null,0);function asyncGeneratorStep(n,e){try{var r=n?o.next(e):o.throw(e),u=r.value}catch(n){return void a(n)}r.done?t(u):Promise.resolve(u).then(c,l)}c()}))}",
+    {
+      globals: ["Promise"],
+      locals: { _callAsync: ["body.0.id"] },
+      exportBindingAssignments: [],
+      exportName: "_callAsync",
+      dependencies: {},
+    },
+  ),
+  // size: 81, gzip size: 97
+  callSkipFirstGeneratorNext: helper(
+    "7.20.5",
+    "function _callSkipFirstGeneratorNext(t,e,r){var a=t.apply(e,r);return a.next(),a}",
+    {
+      globals: [],
+      locals: { _callSkipFirstGeneratorNext: ["body.0.id"] },
+      exportBindingAssignments: [],
+      exportName: "_callSkipFirstGeneratorNext",
+      dependencies: {},
+    },
+  ),
   // size: 180, gzip size: 144
   callSuper: helper(
     "7.23.8",
@@ -886,6 +910,32 @@ const helpers: Record<string, Helper> = {
       exportBindingAssignments: [],
       exportName: "_newArrowCheck",
       dependencies: {},
+    },
+  ),
+  // size: 1145, gzip size: 516
+  newAsyncGenerator: helper(
+    "7.24.4",
+    'function _newAsyncGenerator(e,r,t){return new AsyncGenerator(e.apply(r,t))}function AsyncGenerator(e){var r,t;function resume(r,t){try{var n=e[r](t),o=n.value,u=o instanceof OverloadYield;Promise.resolve(u?o.v:o).then((function(t){if(u){var i="return"===r?"return":"next";if(!o.k||t.done)return resume(i,t);t=e[i](t).value}settle(n.done?"return":"normal",t)}),(function(e){resume("throw",e)}))}catch(e){settle("throw",e)}}function settle(e,n){switch(e){case"return":r.resolve({value:n,done:!0});break;case"throw":r.reject(n);break;default:r.resolve({value:n,done:!1})}(r=r.next)?resume(r.key,r.arg):t=null}this._invoke=function(e,n){return new Promise((function(o,u){var i={key:e,arg:n,resolve:o,reject:u,next:null};t?t=t.next=i:(r=t=i,resume(e,n))}))},"function"!=typeof e.return&&(this.return=void 0)}AsyncGenerator.prototype["function"==typeof Symbol&&Symbol.asyncIterator||"@@asyncIterator"]=function(){return this},AsyncGenerator.prototype.next=function(e){return this._invoke("next",e)},AsyncGenerator.prototype.throw=function(e){return this._invoke("throw",e)},AsyncGenerator.prototype.return=function(e){return this._invoke("return",e)};',
+    {
+      globals: ["Promise", "Symbol"],
+      locals: {
+        _newAsyncGenerator: ["body.0.id"],
+        AsyncGenerator: [
+          "body.1.id",
+          "body.0.body.body.0.argument.callee",
+          "body.2.expression.expressions.0.left.object.object",
+          "body.2.expression.expressions.1.left.object.object",
+          "body.2.expression.expressions.2.left.object.object",
+          "body.2.expression.expressions.3.left.object.object",
+        ],
+      },
+      exportBindingAssignments: [],
+      exportName: "_newAsyncGenerator",
+      dependencies: {
+        OverloadYield: [
+          "body.1.body.body.1.body.body.0.block.body.0.declarations.2.init.right",
+        ],
+      },
     },
   ),
   // size: 189, gzip size: 160

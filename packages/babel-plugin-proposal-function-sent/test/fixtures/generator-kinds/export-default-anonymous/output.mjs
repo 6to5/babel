@@ -1,10 +1,6 @@
 export default function () {
-  return _ref.apply(this, arguments);
-}
-function _ref() {
-  _ref = babelHelpers.skipFirstGeneratorNext(function* () {
+  return babelHelpers.callSkipFirstGeneratorNext(function* () {
     let _functionSent = yield;
     return _functionSent;
-  });
-  return _ref.apply(this, arguments);
+  }, this, arguments);
 }

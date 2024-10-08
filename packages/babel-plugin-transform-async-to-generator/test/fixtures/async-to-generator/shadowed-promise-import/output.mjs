@@ -1,10 +1,6 @@
 import Promise from 'somewhere';
 function foo() {
-  return _foo.apply(this, arguments);
-}
-function _foo() {
-  _foo = babelHelpers.asyncToGenerator(function* () {
+  return babelHelpers.callAsync(function* () {
     yield Promise.resolve();
-  });
-  return _foo.apply(this, arguments);
+  }, this, arguments);
 }

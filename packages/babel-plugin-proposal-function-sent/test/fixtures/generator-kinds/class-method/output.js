@@ -1,8 +1,8 @@
 class Foo {
   gen() {
-    return babelHelpers.skipFirstGeneratorNext(function* () {
+    return babelHelpers.callSkipFirstGeneratorNext(function* () {
       let _functionSent = yield;
       return _functionSent;
-    })();
+    });
   }
 }

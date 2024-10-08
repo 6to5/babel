@@ -1,10 +1,10 @@
-var Example = /*#__PURE__*/function () {
+var Example = /*#__PURE__*/function (_ref) {
   "use strict";
 
   function Example() {}
   var _proto = Example.prototype;
-  _proto.test1 = /*#__PURE__*/function () {
-    var _test = babelHelpers.asyncToGenerator(/*#__PURE__*/babelHelpers.regeneratorRuntime().mark(function _callee() {
+  _proto.test1 = function test1() {
+    return babelHelpers.callAsync(_ref = _ref || /*#__PURE__*/babelHelpers.regeneratorRuntime().mark(function _callee() {
       return babelHelpers.regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
@@ -15,12 +15,8 @@ var Example = /*#__PURE__*/function () {
             return _context.stop();
         }
       }, _callee);
-    }));
-    function test1() {
-      return _test.apply(this, arguments);
-    }
-    return test1;
-  }();
+    }), this, arguments);
+  };
   _proto.test2 = /*#__PURE__*/babelHelpers.regeneratorRuntime().mark(function test2() {
     return babelHelpers.regeneratorRuntime().wrap(function test2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
