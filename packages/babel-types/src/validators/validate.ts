@@ -53,7 +53,7 @@ export function validateField(
 
 export function validateChild(
   node: t.Node | undefined | null,
-  key: string,
+  key: string | { toString(): string },
   val?: unknown,
 ) {
   const type = (val as t.Node)?.type;

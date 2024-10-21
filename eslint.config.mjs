@@ -76,6 +76,7 @@ export default [
         requireConfigFile: false,
         babelOptions: {
           babelrc: false,
+          browserslistConfigFile: false,
           configFile: false,
           // Todo: Remove the parserOpts here after the proposal gets stage 4.
           parserOpts: {
