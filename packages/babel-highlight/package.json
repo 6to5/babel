@@ -14,6 +14,10 @@
     "directory": "packages/babel-highlight"
   },
   "main": "./lib/index.js",
+  "browser": {
+    "./lib/index.js": "./lib/index-browser.js",
+    "./src/index.ts": "./src/index-browser.ts"
+  },
   "dependencies": {
     "@babel/helper-validator-identifier": "workspace:^",
     "chalk": "condition:BABEL_8_BREAKING ? : ^2.4.2",
