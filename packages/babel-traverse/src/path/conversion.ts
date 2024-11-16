@@ -991,7 +991,12 @@ export function ensureFunctionName<
 
   if (!state.needsRename) {
     this.node.id = id;
-    scope.getProgramParent().references[id.name] = true;
+    if (process.env.BABEL_8_BREAKING) {
+      scope.getProgramParent().references.add(id.name);
+    } else {
+      // @ts-expect-error Babel 7
+      scope.getProgramParent().references[id.name] = true;
+    }
     return this;
   }
 
@@ -999,7 +1004,12 @@ export function ensureFunctionName<
     // we can just munge the local binding
     scope.rename(id.name);
     this.node.id = id;
-    scope.getProgramParent().references[id.name] = true;
+    if (process.env.BABEL_8_BREAKING) {
+      scope.getProgramParent().references.add(id.name);
+    } else {
+      // @ts-expect-error Babel 7
+      scope.getProgramParent().references[id.name] = true;
+    }
     return this;
   }
 

@@ -599,7 +599,7 @@ describe("scope", () => {
       path.scope.crawl();
       path.scope.crawl();
 
-      expect(path.scope.references._jsx).toBe(true);
+      expect(path.scope.hasReference("_jsx")).toBe(true);
     });
 
     test("generateUid collision check after re-crawling", function () {
