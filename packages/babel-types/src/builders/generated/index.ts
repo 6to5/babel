@@ -3023,7 +3023,7 @@ export function tsParenthesizedType(
 export { tsParenthesizedType as tSParenthesizedType };
 export function tsTypeOperator(
   typeAnnotation: t.TSType,
-  operator: "keyof" | "readonly" | "unique",
+  operator: string,
 ): t.TSTypeOperator {
   const node: t.TSTypeOperator = {
     type: "TSTypeOperator",
