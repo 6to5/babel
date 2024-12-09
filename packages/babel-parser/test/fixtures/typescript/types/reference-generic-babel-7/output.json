@@ -1,0 +1,56 @@
+{
+  "type": "File",
+  "start":0,"end":21,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":21,"index":21}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":21,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":21,"index":21}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "VariableDeclaration",
+        "start":0,"end":21,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":21,"index":21}},
+        "declarations": [
+          {
+            "type": "VariableDeclarator",
+            "start":4,"end":20,"loc":{"start":{"line":1,"column":4,"index":4},"end":{"line":1,"column":20,"index":20}},
+            "id": {
+              "type": "Identifier",
+              "start":4,"end":20,"loc":{"start":{"line":1,"column":4,"index":4},"end":{"line":1,"column":20,"index":20},"identifierName":"x"},
+              "name": "x",
+              "typeAnnotation": {
+                "type": "TSTypeAnnotation",
+                "start":5,"end":20,"loc":{"start":{"line":1,"column":5,"index":5},"end":{"line":1,"column":20,"index":20}},
+                "typeAnnotation": {
+                  "type": "TSTypeReference",
+                  "start":7,"end":20,"loc":{"start":{"line":1,"column":7,"index":7},"end":{"line":1,"column":20,"index":20}},
+                  "typeName": {
+                    "type": "Identifier",
+                    "start":7,"end":12,"loc":{"start":{"line":1,"column":7,"index":7},"end":{"line":1,"column":12,"index":12},"identifierName":"Array"},
+                    "name": "Array"
+                  },
+                  "typeParameters": {
+                    "type": "TSTypeParameterInstantiation",
+                    "start":12,"end":20,"loc":{"start":{"line":1,"column":12,"index":12},"end":{"line":1,"column":20,"index":20}},
+                    "params": [
+                      {
+                        "type": "TSNumberKeyword",
+                        "start":13,"end":19,"loc":{"start":{"line":1,"column":13,"index":13},"end":{"line":1,"column":19,"index":19}}
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "init": null
+          }
+        ],
+        "kind": "let"
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

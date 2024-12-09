@@ -6,6 +6,9 @@ language/import/import-attributes/json-named-bindings.js(default)
 language/import/import-attributes/json-named-bindings.js(strict mode)
 
 
-# 0 valid programs produced a parsing error
+# 4 valid programs produced a parsing error
 
-
+language/import/import-defer/errors/resolution-error/import-defer-of-missing-module-fails.js(default)
+language/import/import-defer/errors/resolution-error/import-defer-of-missing-module-fails.js(strict mode)
+language/import/import-defer/errors/syntax-error/import-defer-of-syntax-error-fails.js(default)
+language/import/import-defer/errors/syntax-error/import-defer-of-syntax-error-fails.js(strict mode)

@@ -5,7 +5,6 @@ import { createRequire } from "module";
 import { fileURLToPath } from "url";
 import { Transform as TransformStream } from "stream";
 import { callbackify } from "util";
-import plumber from "gulp-plumber";
 import colors from "picocolors";
 import gulp from "gulp";
 import { rollup } from "rollup";
@@ -92,42 +91,20 @@ function getIndexFromPackage(name) {
   }
 }
 
-function errorsLogger() {
-  return plumber({
-    errorHandler(err) {
-      log(err.stack);
-    },
-  });
-}
-
 /**
  * @param {string} generator
  * @param {string} pkg
  * @param {string} filename
  * @param {string} message
  */
-function generateHelpers(generator, dest, filename, message) {
-  const stream = gulp
-    .src(".", { base: monorepoRoot })
-    .pipe(errorsLogger())
-    .pipe(
-      new TransformStream({
-        objectMode: true,
-        transform: callbackify(async file => {
-          const { default: generateCode } = await import(generator);
-
-          file.path = filename;
-          file.contents = Buffer.from(
-            await formatCode(await generateCode(filename), dest + file.path)
-          );
-          log(`${colors.green("✔")} Generated ${message}`);
-          return file;
-        }),
-      })
-    )
-    .pipe(gulp.dest(dest, { mode: 0o644 }));
-
-  return finish(stream);
+async function generateHelpers(generator, dest, filename, message) {
+  const { default: generateCode } = await import(generator);
+  const result = await formatCode(
+    await generateCode(filename),
+    path.join(dest, filename)
+  );
+  fs.writeFileSync(path.join(dest, filename), result, { mode: 0o644 });
+  log(`${colors.green("✔")} Generated ${message}`);
 }
 
 /**
@@ -162,7 +139,7 @@ function generateTraverseHelpers(helperKind, outBase = "") {
 async function generateRuntimeHelpers() {
   await generateHelpers(
     `./packages/babel-helpers/scripts/generate-regenerator-runtime.js`,
-    `./packages/babel-helpers/src/helpers`,
+    `./packages/babel-helpers/src/helpers/`,
     "regeneratorRuntime.js",
     "@babel/helpers -> regeneratorRuntime"
   );
@@ -223,14 +200,6 @@ function generateStandalone() {
       })
     )
     .pipe(gulp.dest(dest));
-}
-
-function finish(stream) {
-  return new Promise((resolve, reject) => {
-    stream.on("end", resolve);
-    stream.on("finish", resolve);
-    stream.on("error", reject);
-  });
 }
 
 function createWorker(useWorker) {
@@ -926,7 +895,7 @@ gulp.task(
     gulp.parallel("generate-type-helpers", "generate-runtime-helpers"),
     // rebuild @babel/types and @babel/helpers since
     // type-helpers and generated helpers may be changed
-    "build-babel",
+    gulp.parallel("build-rollup", "build-babel"),
     gulp.parallel("generate-standalone", "build-cjs-bundles")
   )
 );

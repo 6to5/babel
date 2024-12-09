@@ -58,20 +58,26 @@ export default function removeTypeDuplicates(
     }
 
     // todo: support merging tuples: number[]
-    if (isTSTypeReference(node) && node.typeParameters) {
+    const typeArgumentsKey = process.env.BABEL_8_BREAKING
+      ? "typeArguments"
+      : "typeParameters";
+    // @ts-ignore(Babel 7 vs Babel 8) Babel 8 AST
+    if (isTSTypeReference(node) && node[typeArgumentsKey]) {
+      // @ts-ignore(Babel 7 vs Babel 8) Babel 8 AST
+      const typeArguments = node[typeArgumentsKey];
       const name = getQualifiedName(node.typeName);
 
       if (generics.has(name)) {
         let existing: t.TypeScript = generics.get(name);
-        if (existing.typeParameters) {
-          if (node.typeParameters) {
-            existing.typeParameters.params.push(...node.typeParameters.params);
-            existing.typeParameters.params = removeTypeDuplicates(
-              existing.typeParameters.params,
-            );
-          }
+        // @ts-ignore(Babel 7 vs Babel 8) Babel 8 AST
+        const existingTypeArguments = existing[typeArgumentsKey];
+        if (existingTypeArguments) {
+          existingTypeArguments.params.push(...typeArguments.params);
+          existingTypeArguments.params = removeTypeDuplicates(
+            existingTypeArguments.params,
+          );
         } else {
-          existing = node.typeParameters;
+          existing = typeArguments;
         }
       } else {
         generics.set(name, node);

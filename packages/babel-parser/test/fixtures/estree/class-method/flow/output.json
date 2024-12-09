@@ -37,7 +37,7 @@
               "kind": "method",
               "value": {
                 "type": "FunctionExpression",
-                "start":65,"end":100,"loc":{"start":{"line":2,"column":28},"end":{"line":4,"column":3}},
+                "start":51,"end":100,"loc":{"start":{"line":2,"column":14},"end":{"line":4,"column":3}},
                 "id": null,
                 "generator": false,
                 "async": false,

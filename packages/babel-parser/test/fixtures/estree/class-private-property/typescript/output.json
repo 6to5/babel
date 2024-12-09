@@ -74,7 +74,7 @@
                     "start":63,"end":68,"loc":{"start":{"line":4,"column":16},"end":{"line":4,"column":21},"identifierName":"Array"},
                     "name": "Array"
                   },
-                  "typeParameters": {
+                  "typeArguments": {
                     "type": "TSTypeParameterInstantiation",
                     "start":68,"end":76,"loc":{"start":{"line":4,"column":21},"end":{"line":4,"column":29}},
                     "params": [

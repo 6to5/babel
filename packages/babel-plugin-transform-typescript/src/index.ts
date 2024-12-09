@@ -545,7 +545,13 @@ export default declare((api, opts: Options) => {
         const { node }: { node: typeof path.node & ExtraNodeProps } = path;
 
         if (node.typeParameters) node.typeParameters = null;
-        if (node.superTypeParameters) node.superTypeParameters = null;
+        if (process.env.BABEL_8_BREAKING) {
+          // @ts-ignore(Babel 7 vs Babel 8) Renamed
+          if (node.superTypeArguments) node.superTypeArguments = null;
+        } else {
+          // @ts-ignore(Babel 7 vs Babel 8) Renamed
+          if (node.superTypeParameters) node.superTypeParameters = null;
+        }
         if (node.implements) node.implements = null;
         if (node.abstract) node.abstract = null;
 

@@ -138,7 +138,7 @@
               "start":122,"end":129,"loc":{"start":{"line":6,"column":19,"index":122},"end":{"line":6,"column":26,"index":129},"identifierName":"Exclude"},
               "name": "Exclude"
             },
-            "typeParameters": {
+            "typeArguments": {
               "type": "TSTypeParameterInstantiation",
               "start":129,"end":140,"loc":{"start":{"line":6,"column":26,"index":129},"end":{"line":6,"column":37,"index":140}},
               "params": [

@@ -117,7 +117,14 @@ class Referencer extends OriginalReferencer {
 
     // Flow super types.
     this._visitTypeAnnotation(node.implements);
-    this._visitTypeAnnotation(node.superTypeParameters?.params);
+    this._visitTypeAnnotation(
+      (process.env.BABEL_8_BREAKING
+        ? // @ts-ignore(Babel 7 vs Babel 8) Renamed
+          node.superTypeArguments
+        : // @ts-ignore(Babel 7 vs Babel 8) Renamed
+          node.superTypeParameters
+      )?.params,
+    );
 
     // Basic.
     super.visitClass(node);

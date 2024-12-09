@@ -1,6 +1,8 @@
 {
   "sourceType": "module",
-  "plugins": ["typescript"],
+  "plugins": [
+    "typescript"
+  ],
   "tokens": true,
   "BABEL_8_BREAKING": false
 }

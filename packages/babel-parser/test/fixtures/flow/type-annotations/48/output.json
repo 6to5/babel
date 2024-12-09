@@ -32,7 +32,7 @@
           "start":21,"end":24,"loc":{"start":{"line":1,"column":21,"index":21},"end":{"line":1,"column":24,"index":24},"identifierName":"Bar"},
           "name": "Bar"
         },
-        "superTypeParameters": {
+        "superTypeArguments": {
           "type": "TypeParameterInstantiation",
           "start":24,"end":27,"loc":{"start":{"line":1,"column":24,"index":24},"end":{"line":1,"column":27,"index":27}},
           "params": [

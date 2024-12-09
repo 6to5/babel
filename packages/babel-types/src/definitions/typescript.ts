@@ -217,10 +217,14 @@ defineType("TSConstructorType", {
 
 defineType("TSTypeReference", {
   aliases: ["TSType"],
-  visitor: ["typeName", "typeParameters"],
+  visitor: [
+    "typeName",
+    process.env.BABEL_8_BREAKING ? "typeArguments" : "typeParameters",
+  ],
   fields: {
     typeName: validateType("TSEntityName"),
-    typeParameters: validateOptionalType("TSTypeParameterInstantiation"),
+    [process.env.BABEL_8_BREAKING ? "typeArguments" : "typeParameters"]:
+      validateOptionalType("TSTypeParameterInstantiation"),
   },
 });
 

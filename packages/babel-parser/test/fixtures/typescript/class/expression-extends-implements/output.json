@@ -24,7 +24,7 @@
             },
             "arguments": []
           },
-          "superTypeParameters": {
+          "superTypeArguments": {
             "type": "TSTypeParameterInstantiation",
             "start":18,"end":21,"loc":{"start":{"line":1,"column":18,"index":18},"end":{"line":1,"column":21,"index":21}},
             "params": [
@@ -106,7 +106,7 @@
             },
             "arguments": []
           },
-          "superTypeParameters": {
+          "superTypeArguments": {
             "type": "TSTypeParameterInstantiation",
             "start":65,"end":68,"loc":{"start":{"line":2,"column":20,"index":65},"end":{"line":2,"column":23,"index":68}},
             "params": [

@@ -1,0 +1,85 @@
+{
+  "type": "File",
+  "start":0,"end":127,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":3,"column":4,"index":127}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":127,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":3,"column":4,"index":127}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ClassDeclaration",
+        "start":99,"end":122,"loc":{"start":{"line":2,"column":0,"index":99},"end":{"line":2,"column":23,"index":122}},
+        "id": {
+          "type": "Identifier",
+          "start":105,"end":106,"loc":{"start":{"line":2,"column":6,"index":105},"end":{"line":2,"column":7,"index":106},"identifierName":"C"},
+          "name": "C"
+        },
+        "superClass": {
+          "type": "Identifier",
+          "start":115,"end":116,"loc":{"start":{"line":2,"column":16,"index":115},"end":{"line":2,"column":17,"index":116},"identifierName":"D"},
+          "name": "D"
+        },
+        "superTypeParameters": {
+          "type": "TSTypeParameterInstantiation",
+          "start":116,"end":119,"loc":{"start":{"line":2,"column":17,"index":116},"end":{"line":2,"column":20,"index":119}},
+          "params": [
+            {
+              "type": "TSTypeReference",
+              "start":117,"end":118,"loc":{"start":{"line":2,"column":18,"index":117},"end":{"line":2,"column":19,"index":118}},
+              "typeName": {
+                "type": "Identifier",
+                "start":117,"end":118,"loc":{"start":{"line":2,"column":18,"index":117},"end":{"line":2,"column":19,"index":118},"identifierName":"T"},
+                "name": "T"
+              }
+            }
+          ]
+        },
+        "body": {
+          "type": "ClassBody",
+          "start":120,"end":122,"loc":{"start":{"line":2,"column":21,"index":120},"end":{"line":2,"column":23,"index":122}},
+          "body": []
+        },
+        "leadingComments": [
+          {
+            "type": "CommentLine",
+            "value": " Regression test for tokenizer bug where the `{` after `<T>` was considered a JSX interpolation.",
+            "start":0,"end":98,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":98,"index":98}}
+          }
+        ]
+      },
+      {
+        "type": "ExpressionStatement",
+        "start":123,"end":127,"loc":{"start":{"line":3,"column":0,"index":123},"end":{"line":3,"column":4,"index":127}},
+        "expression": {
+          "type": "JSXElement",
+          "start":123,"end":127,"loc":{"start":{"line":3,"column":0,"index":123},"end":{"line":3,"column":4,"index":127}},
+          "openingElement": {
+            "type": "JSXOpeningElement",
+            "start":123,"end":127,"loc":{"start":{"line":3,"column":0,"index":123},"end":{"line":3,"column":4,"index":127}},
+            "name": {
+              "type": "JSXIdentifier",
+              "start":124,"end":125,"loc":{"start":{"line":3,"column":1,"index":124},"end":{"line":3,"column":2,"index":125}},
+              "name": "C"
+            },
+            "attributes": [],
+            "selfClosing": true
+          },
+          "closingElement": null,
+          "children": []
+        }
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  },
+  "comments": [
+    {
+      "type": "CommentLine",
+      "value": " Regression test for tokenizer bug where the `{` after `<T>` was considered a JSX interpolation.",
+      "start":0,"end":98,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":98,"index":98}}
+    }
+  ]
+}

@@ -20,7 +20,7 @@
           "start":115,"end":116,"loc":{"start":{"line":2,"column":16,"index":115},"end":{"line":2,"column":17,"index":116},"identifierName":"D"},
           "name": "D"
         },
-        "superTypeParameters": {
+        "superTypeArguments": {
           "type": "TSTypeParameterInstantiation",
           "start":116,"end":119,"loc":{"start":{"line":2,"column":17,"index":116},"end":{"line":2,"column":20,"index":119}},
           "params": [

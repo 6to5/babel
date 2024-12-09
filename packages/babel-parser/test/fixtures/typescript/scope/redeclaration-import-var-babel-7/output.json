@@ -1,0 +1,263 @@
+{
+  "type": "File",
+  "start":0,"end":179,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":7,"column":13,"index":179}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":179,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":7,"column":13,"index":179}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ImportDeclaration",
+        "start":0,"end":39,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":39,"index":39}},
+        "importKind": "value",
+        "specifiers": [
+          {
+            "type": "ImportDefaultSpecifier",
+            "start":7,"end":12,"loc":{"start":{"line":1,"column":7,"index":7},"end":{"line":1,"column":12,"index":12}},
+            "local": {
+              "type": "Identifier",
+              "start":7,"end":12,"loc":{"start":{"line":1,"column":7,"index":7},"end":{"line":1,"column":12,"index":12},"identifierName":"React"},
+              "name": "React"
+            }
+          },
+          {
+            "type": "ImportSpecifier",
+            "start":16,"end":23,"loc":{"start":{"line":1,"column":16,"index":16},"end":{"line":1,"column":23,"index":23}},
+            "imported": {
+              "type": "Identifier",
+              "start":16,"end":23,"loc":{"start":{"line":1,"column":16,"index":16},"end":{"line":1,"column":23,"index":23},"identifierName":"Context"},
+              "name": "Context"
+            },
+            "importKind": "value",
+            "local": {
+              "type": "Identifier",
+              "start":16,"end":23,"loc":{"start":{"line":1,"column":16,"index":16},"end":{"line":1,"column":23,"index":23},"identifierName":"Context"},
+              "name": "Context"
+            }
+          }
+        ],
+        "source": {
+          "type": "StringLiteral",
+          "start":31,"end":38,"loc":{"start":{"line":1,"column":31,"index":31},"end":{"line":1,"column":38,"index":38}},
+          "extra": {
+            "rawValue": "react",
+            "raw": "'react'"
+          },
+          "value": "react"
+        },
+        "attributes": []
+      },
+      {
+        "type": "ImportDeclaration",
+        "start":40,"end":66,"loc":{"start":{"line":2,"column":0,"index":40},"end":{"line":2,"column":26,"index":66}},
+        "importKind": "value",
+        "specifiers": [
+          {
+            "type": "ImportSpecifier",
+            "start":49,"end":50,"loc":{"start":{"line":2,"column":9,"index":49},"end":{"line":2,"column":10,"index":50}},
+            "imported": {
+              "type": "Identifier",
+              "start":49,"end":50,"loc":{"start":{"line":2,"column":9,"index":49},"end":{"line":2,"column":10,"index":50},"identifierName":"a"},
+              "name": "a"
+            },
+            "importKind": "value",
+            "local": {
+              "type": "Identifier",
+              "start":49,"end":50,"loc":{"start":{"line":2,"column":9,"index":49},"end":{"line":2,"column":10,"index":50},"identifierName":"a"},
+              "name": "a"
+            }
+          }
+        ],
+        "source": {
+          "type": "StringLiteral",
+          "start":58,"end":65,"loc":{"start":{"line":2,"column":18,"index":58},"end":{"line":2,"column":25,"index":65}},
+          "extra": {
+            "rawValue": "react",
+            "raw": "'react'"
+          },
+          "value": "react"
+        },
+        "attributes": []
+      },
+      {
+        "type": "ImportDeclaration",
+        "start":67,"end":98,"loc":{"start":{"line":3,"column":0,"index":67},"end":{"line":3,"column":31,"index":98}},
+        "importKind": "value",
+        "specifiers": [
+          {
+            "type": "ImportSpecifier",
+            "start":76,"end":82,"loc":{"start":{"line":3,"column":9,"index":76},"end":{"line":3,"column":15,"index":82}},
+            "imported": {
+              "type": "Identifier",
+              "start":76,"end":77,"loc":{"start":{"line":3,"column":9,"index":76},"end":{"line":3,"column":10,"index":77},"identifierName":"a"},
+              "name": "a"
+            },
+            "importKind": "value",
+            "local": {
+              "type": "Identifier",
+              "start":81,"end":82,"loc":{"start":{"line":3,"column":14,"index":81},"end":{"line":3,"column":15,"index":82},"identifierName":"b"},
+              "name": "b"
+            }
+          }
+        ],
+        "source": {
+          "type": "StringLiteral",
+          "start":90,"end":97,"loc":{"start":{"line":3,"column":23,"index":90},"end":{"line":3,"column":30,"index":97}},
+          "extra": {
+            "rawValue": "react",
+            "raw": "'react'"
+          },
+          "value": "react"
+        },
+        "attributes": []
+      },
+      {
+        "type": "VariableDeclaration",
+        "start":100,"end":151,"loc":{"start":{"line":5,"column":0,"index":100},"end":{"line":5,"column":51,"index":151}},
+        "declarations": [
+          {
+            "type": "VariableDeclarator",
+            "start":104,"end":150,"loc":{"start":{"line":5,"column":4,"index":104},"end":{"line":5,"column":50,"index":150}},
+            "id": {
+              "type": "Identifier",
+              "start":104,"end":124,"loc":{"start":{"line":5,"column":4,"index":104},"end":{"line":5,"column":24,"index":124},"identifierName":"Context"},
+              "name": "Context",
+              "typeAnnotation": {
+                "type": "TSTypeAnnotation",
+                "start":111,"end":124,"loc":{"start":{"line":5,"column":11,"index":111},"end":{"line":5,"column":24,"index":124}},
+                "typeAnnotation": {
+                  "type": "TSTypeReference",
+                  "start":113,"end":124,"loc":{"start":{"line":5,"column":13,"index":113},"end":{"line":5,"column":24,"index":124}},
+                  "typeName": {
+                    "type": "Identifier",
+                    "start":113,"end":120,"loc":{"start":{"line":5,"column":13,"index":113},"end":{"line":5,"column":20,"index":120},"identifierName":"Context"},
+                    "name": "Context"
+                  },
+                  "typeParameters": {
+                    "type": "TSTypeParameterInstantiation",
+                    "start":120,"end":124,"loc":{"start":{"line":5,"column":20,"index":120},"end":{"line":5,"column":24,"index":124}},
+                    "params": [
+                      {
+                        "type": "TSTypeLiteral",
+                        "start":121,"end":123,"loc":{"start":{"line":5,"column":21,"index":121},"end":{"line":5,"column":23,"index":123}},
+                        "members": []
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "init": {
+              "type": "CallExpression",
+              "start":127,"end":150,"loc":{"start":{"line":5,"column":27,"index":127},"end":{"line":5,"column":50,"index":150}},
+              "callee": {
+                "type": "MemberExpression",
+                "start":127,"end":146,"loc":{"start":{"line":5,"column":27,"index":127},"end":{"line":5,"column":46,"index":146}},
+                "object": {
+                  "type": "Identifier",
+                  "start":127,"end":132,"loc":{"start":{"line":5,"column":27,"index":127},"end":{"line":5,"column":32,"index":132},"identifierName":"React"},
+                  "name": "React"
+                },
+                "computed": false,
+                "property": {
+                  "type": "Identifier",
+                  "start":133,"end":146,"loc":{"start":{"line":5,"column":33,"index":133},"end":{"line":5,"column":46,"index":146},"identifierName":"createContext"},
+                  "name": "createContext"
+                }
+              },
+              "arguments": [
+                {
+                  "type": "ObjectExpression",
+                  "start":147,"end":149,"loc":{"start":{"line":5,"column":47,"index":147},"end":{"line":5,"column":49,"index":149}},
+                  "properties": []
+                }
+              ]
+            }
+          }
+        ],
+        "kind": "var"
+      },
+      {
+        "type": "VariableDeclaration",
+        "start":152,"end":165,"loc":{"start":{"line":6,"column":0,"index":152},"end":{"line":6,"column":13,"index":165}},
+        "declarations": [
+          {
+            "type": "VariableDeclarator",
+            "start":156,"end":164,"loc":{"start":{"line":6,"column":4,"index":156},"end":{"line":6,"column":12,"index":164}},
+            "id": {
+              "type": "Identifier",
+              "start":156,"end":160,"loc":{"start":{"line":6,"column":4,"index":156},"end":{"line":6,"column":8,"index":160},"identifierName":"a"},
+              "name": "a",
+              "typeAnnotation": {
+                "type": "TSTypeAnnotation",
+                "start":157,"end":160,"loc":{"start":{"line":6,"column":5,"index":157},"end":{"line":6,"column":8,"index":160}},
+                "typeAnnotation": {
+                  "type": "TSTypeReference",
+                  "start":159,"end":160,"loc":{"start":{"line":6,"column":7,"index":159},"end":{"line":6,"column":8,"index":160}},
+                  "typeName": {
+                    "type": "Identifier",
+                    "start":159,"end":160,"loc":{"start":{"line":6,"column":7,"index":159},"end":{"line":6,"column":8,"index":160},"identifierName":"a"},
+                    "name": "a"
+                  }
+                }
+              }
+            },
+            "init": {
+              "type": "NumericLiteral",
+              "start":163,"end":164,"loc":{"start":{"line":6,"column":11,"index":163},"end":{"line":6,"column":12,"index":164}},
+              "extra": {
+                "rawValue": 1,
+                "raw": "1"
+              },
+              "value": 1
+            }
+          }
+        ],
+        "kind": "var"
+      },
+      {
+        "type": "VariableDeclaration",
+        "start":166,"end":179,"loc":{"start":{"line":7,"column":0,"index":166},"end":{"line":7,"column":13,"index":179}},
+        "declarations": [
+          {
+            "type": "VariableDeclarator",
+            "start":170,"end":178,"loc":{"start":{"line":7,"column":4,"index":170},"end":{"line":7,"column":12,"index":178}},
+            "id": {
+              "type": "Identifier",
+              "start":170,"end":174,"loc":{"start":{"line":7,"column":4,"index":170},"end":{"line":7,"column":8,"index":174},"identifierName":"b"},
+              "name": "b",
+              "typeAnnotation": {
+                "type": "TSTypeAnnotation",
+                "start":171,"end":174,"loc":{"start":{"line":7,"column":5,"index":171},"end":{"line":7,"column":8,"index":174}},
+                "typeAnnotation": {
+                  "type": "TSTypeReference",
+                  "start":173,"end":174,"loc":{"start":{"line":7,"column":7,"index":173},"end":{"line":7,"column":8,"index":174}},
+                  "typeName": {
+                    "type": "Identifier",
+                    "start":173,"end":174,"loc":{"start":{"line":7,"column":7,"index":173},"end":{"line":7,"column":8,"index":174},"identifierName":"b"},
+                    "name": "b"
+                  }
+                }
+              }
+            },
+            "init": {
+              "type": "NumericLiteral",
+              "start":177,"end":178,"loc":{"start":{"line":7,"column":11,"index":177},"end":{"line":7,"column":12,"index":178}},
+              "extra": {
+                "rawValue": 1,
+                "raw": "1"
+              },
+              "value": 1
+            }
+          }
+        ],
+        "kind": "var"
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

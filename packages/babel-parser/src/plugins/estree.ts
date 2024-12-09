@@ -191,10 +191,18 @@ export default (superClass: typeof Parser) =>
         "ClassMethod",
         true,
       );
-      if (method.typeParameters) {
-        // @ts-expect-error mutate AST types
-        method.value.typeParameters = method.typeParameters;
+
+      const { typeParameters } = method;
+      if (typeParameters) {
         delete method.typeParameters;
+
+        const fn: N.FunctionExpression = (
+          method as unknown as N.EstreeMethodDefinition
+        ).value;
+
+        fn.typeParameters = typeParameters;
+        fn.start = typeParameters.start;
+        fn.loc.start = typeParameters.loc.start;
       }
       classBody.body.push(method);
     }

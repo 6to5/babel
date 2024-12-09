@@ -601,7 +601,11 @@ export default (superClass: ClassWithMixin<typeof Parser, IJSXParserMixin>) =>
       const node = this.startNode<N.TsTypeReference>();
       node.typeName = this.tsParseEntityName();
       if (!this.hasPrecedingLineBreak() && this.match(tt.lt)) {
-        node.typeParameters = this.tsParseTypeArguments();
+        if (process.env.BABEL_8_BREAKING) {
+          node.typeArguments = this.tsParseTypeArguments();
+        } else {
+          node.typeParameters = this.tsParseTypeArguments();
+        }
       }
       return this.finishNode(node, "TSTypeReference");
     }
@@ -3352,7 +3356,11 @@ export default (superClass: ClassWithMixin<typeof Parser, IJSXParserMixin>) =>
       super.parseClassSuper(node);
       // handle `extends f<<T>
       if (node.superClass && (this.match(tt.lt) || this.match(tt.bitShiftL))) {
-        node.superTypeParameters = this.tsParseTypeArgumentsInExpression();
+        if (process.env.BABEL_8_BREAKING) {
+          node.superTypeArguments = this.tsParseTypeArgumentsInExpression();
+        } else {
+          node.superTypeParameters = this.tsParseTypeArgumentsInExpression();
+        }
       }
       if (this.eatContextual(tt._implements)) {
         node.implements = this.tsParseHeritageClause("implements");

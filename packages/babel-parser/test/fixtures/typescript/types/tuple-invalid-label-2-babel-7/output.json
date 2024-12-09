@@ -1,0 +1,72 @@
+{
+  "type": "File",
+  "start":0,"end":19,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":19,"index":19}},
+  "errors": [
+    "SyntaxError: Tuple members must be labeled with a simple identifier. (1:10)"
+  ],
+  "program": {
+    "type": "Program",
+    "start":0,"end":19,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":19,"index":19}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "TSTypeAliasDeclaration",
+        "start":0,"end":19,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":19,"index":19}},
+        "id": {
+          "type": "Identifier",
+          "start":5,"end":6,"loc":{"start":{"line":1,"column":5,"index":5},"end":{"line":1,"column":6,"index":6},"identifierName":"T"},
+          "name": "T"
+        },
+        "typeAnnotation": {
+          "type": "TSTupleType",
+          "start":9,"end":18,"loc":{"start":{"line":1,"column":9,"index":9},"end":{"line":1,"column":18,"index":18}},
+          "elementTypes": [
+            {
+              "type": "TSNamedTupleMember",
+              "start":10,"end":17,"loc":{"start":{"line":1,"column":10,"index":10},"end":{"line":1,"column":17,"index":17}},
+              "optional": false,
+              "label": {
+                "type": "TSTypeReference",
+                "start":10,"end":14,"loc":{"start":{"line":1,"column":10,"index":10},"end":{"line":1,"column":14,"index":14}},
+                "typeName": {
+                  "type": "Identifier",
+                  "start":10,"end":11,"loc":{"start":{"line":1,"column":10,"index":10},"end":{"line":1,"column":11,"index":11},"identifierName":"x"},
+                  "name": "x"
+                },
+                "typeParameters": {
+                  "type": "TSTypeParameterInstantiation",
+                  "start":11,"end":14,"loc":{"start":{"line":1,"column":11,"index":11},"end":{"line":1,"column":14,"index":14}},
+                  "params": [
+                    {
+                      "type": "TSTypeReference",
+                      "start":12,"end":13,"loc":{"start":{"line":1,"column":12,"index":12},"end":{"line":1,"column":13,"index":13}},
+                      "typeName": {
+                        "type": "Identifier",
+                        "start":12,"end":13,"loc":{"start":{"line":1,"column":12,"index":12},"end":{"line":1,"column":13,"index":13},"identifierName":"y"},
+                        "name": "y"
+                      }
+                    }
+                  ]
+                }
+              },
+              "elementType": {
+                "type": "TSTypeReference",
+                "start":16,"end":17,"loc":{"start":{"line":1,"column":16,"index":16},"end":{"line":1,"column":17,"index":17}},
+                "typeName": {
+                  "type": "Identifier",
+                  "start":16,"end":17,"loc":{"start":{"line":1,"column":16,"index":16},"end":{"line":1,"column":17,"index":17},"identifierName":"A"},
+                  "name": "A"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

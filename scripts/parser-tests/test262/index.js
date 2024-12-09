@@ -33,6 +33,7 @@ const ignoredTests = ["built-ins/RegExp/", "language/literals/regexp/"];
 const featuresToPlugins = new Map([
   ["import-assertions", "importAssertions"],
   ["import-attributes", "importAttributes"],
+  ["import-defer", "deferredImportEvaluation"],
   [
     "decorators",
     [

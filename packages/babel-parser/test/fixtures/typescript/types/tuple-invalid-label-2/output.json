@@ -34,7 +34,7 @@
                   "start":10,"end":11,"loc":{"start":{"line":1,"column":10,"index":10},"end":{"line":1,"column":11,"index":11},"identifierName":"x"},
                   "name": "x"
                 },
-                "typeParameters": {
+                "typeArguments": {
                   "type": "TSTypeParameterInstantiation",
                   "start":11,"end":14,"loc":{"start":{"line":1,"column":11,"index":11},"end":{"line":1,"column":14,"index":14}},
                   "params": [

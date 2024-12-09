@@ -1,0 +1,97 @@
+{
+  "type": "File",
+  "start":0,"end":79,"loc":{"start":{"line":1,"column":0},"end":{"line":5,"column":1}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":79,"loc":{"start":{"line":1,"column":0},"end":{"line":5,"column":1}},
+    "sourceType": "script",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ClassDeclaration",
+        "start":0,"end":79,"loc":{"start":{"line":1,"column":0},"end":{"line":5,"column":1}},
+        "id": {
+          "type": "Identifier",
+          "start":6,"end":7,"loc":{"start":{"line":1,"column":6},"end":{"line":1,"column":7},"identifierName":"A"},
+          "name": "A"
+        },
+        "superClass": null,
+        "body": {
+          "type": "ClassBody",
+          "start":8,"end":79,"loc":{"start":{"line":1,"column":8},"end":{"line":5,"column":1}},
+          "body": [
+            {
+              "type": "PropertyDefinition",
+              "start":12,"end":25,"loc":{"start":{"line":2,"column":2},"end":{"line":2,"column":15}},
+              "static": false,
+              "key": {
+                "type": "PrivateIdentifier",
+                "start":12,"end":16,"loc":{"start":{"line":2,"column":2},"end":{"line":2,"column":6}},
+                "name": "foo"
+              },
+              "value": {
+                "type": "Literal",
+                "start":19,"end":24,"loc":{"start":{"line":2,"column":9},"end":{"line":2,"column":14}},
+                "value": "bar",
+                "raw": "\"bar\""
+              },
+              "computed": false
+            },
+            {
+              "type": "PropertyDefinition",
+              "start":28,"end":46,"loc":{"start":{"line":3,"column":2},"end":{"line":3,"column":20}},
+              "static": true,
+              "key": {
+                "type": "PrivateIdentifier",
+                "start":35,"end":39,"loc":{"start":{"line":3,"column":9},"end":{"line":3,"column":13}},
+                "name": "bar"
+              },
+              "value": {
+                "type": "Identifier",
+                "start":42,"end":45,"loc":{"start":{"line":3,"column":16},"end":{"line":3,"column":19},"identifierName":"foo"},
+                "name": "foo"
+              },
+              "computed": false
+            },
+            {
+              "type": "PropertyDefinition",
+              "start":49,"end":77,"loc":{"start":{"line":4,"column":2},"end":{"line":4,"column":30}},
+              "declare": true,
+              "static": false,
+              "key": {
+                "type": "PrivateIdentifier",
+                "start":57,"end":61,"loc":{"start":{"line":4,"column":10},"end":{"line":4,"column":14}},
+                "name": "qux"
+              },
+              "typeAnnotation": {
+                "type": "TSTypeAnnotation",
+                "start":61,"end":76,"loc":{"start":{"line":4,"column":14},"end":{"line":4,"column":29}},
+                "typeAnnotation": {
+                  "type": "TSTypeReference",
+                  "start":63,"end":76,"loc":{"start":{"line":4,"column":16},"end":{"line":4,"column":29}},
+                  "typeName": {
+                    "type": "Identifier",
+                    "start":63,"end":68,"loc":{"start":{"line":4,"column":16},"end":{"line":4,"column":21},"identifierName":"Array"},
+                    "name": "Array"
+                  },
+                  "typeParameters": {
+                    "type": "TSTypeParameterInstantiation",
+                    "start":68,"end":76,"loc":{"start":{"line":4,"column":21},"end":{"line":4,"column":29}},
+                    "params": [
+                      {
+                        "type": "TSStringKeyword",
+                        "start":69,"end":75,"loc":{"start":{"line":4,"column":22},"end":{"line":4,"column":28}}
+                      }
+                    ]
+                  }
+                }
+              },
+              "value": null,
+              "computed": false
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -16,6 +16,26 @@ This file contains the changelog starting from v8.0.0-alpha.0.
 
 <!-- DO NOT CHANGE THESE COMMENTS -->
 <!-- insert-new-changelog-here -->
+## v8.0.0-alpha.14 (2024-12-06)
+
+#### :boom: Breaking Change
+* `babel-generator`, `babel-parser`, `babel-types`
+  * [#17008](https://github.com/babel/babel/pull/17008) Rename `TSTypeReference.typeParameters` to `typeArguments` ([@JLHwung](https://github.com/JLHwung))
+  * [#16952](https://github.com/babel/babel/pull/16952) [Babel 8] Remove `TSModuleDeclaration.global` ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
+* `babel-generator`, `babel-parser`, `babel-plugin-transform-flow-comments`, `babel-plugin-transform-typescript`, `babel-types`
+  * [#16997](https://github.com/babel/babel/pull/16997) [babel 8] Rename `superTypeParameters` -> `superTypeArguments` ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+* `babel-generator`, `babel-parser`, `babel-plugin-transform-typescript`, `babel-types`
+  * [#16982](https://github.com/babel/babel/pull/16982) [Babel 8] Use `TSQualifiedName` for `namespace X.Y {}`'s name ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
+
+#### :bug: Bug Fix
+* Other
+  * [#17010](https://github.com/babel/babel/pull/17010) fix: build updated babel-type helpers ([@JLHwung](https://github.com/JLHwung))
+* `babel-preset-react`, `babel-standalone`
+  * [#16927](https://github.com/babel/babel/pull/16927) [react] Make `development` option default to the configured env ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+
+#### :house: Internal
+* `babel-cli`, `babel-helper-transform-fixture-test-runner`
+  * [#17007](https://github.com/babel/babel/pull/17007) fix: migrate to dirent.parentPath ([@JLHwung](https://github.com/JLHwung))
 ## v8.0.0-alpha.13 (2024-10-25)
 
 #### :boom: Breaking Change

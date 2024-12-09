@@ -1,0 +1,63 @@
+{
+  "type": "File",
+  "start":0,"end":31,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":31,"index":31}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":31,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":31,"index":31}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ClassDeclaration",
+        "start":0,"end":31,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":31,"index":31}},
+        "id": {
+          "type": "Identifier",
+          "start":6,"end":9,"loc":{"start":{"line":1,"column":6,"index":6},"end":{"line":1,"column":9,"index":9},"identifierName":"Foo"},
+          "name": "Foo"
+        },
+        "typeParameters": {
+          "type": "TypeParameterDeclaration",
+          "start":9,"end":12,"loc":{"start":{"line":1,"column":9,"index":9},"end":{"line":1,"column":12,"index":12}},
+          "params": [
+            {
+              "type": "TypeParameter",
+              "start":10,"end":11,"loc":{"start":{"line":1,"column":10,"index":10},"end":{"line":1,"column":11,"index":11}},
+              "name": "T",
+              "variance": null
+            }
+          ]
+        },
+        "superClass": {
+          "type": "Identifier",
+          "start":21,"end":24,"loc":{"start":{"line":1,"column":21,"index":21},"end":{"line":1,"column":24,"index":24},"identifierName":"Bar"},
+          "name": "Bar"
+        },
+        "superTypeParameters": {
+          "type": "TypeParameterInstantiation",
+          "start":24,"end":27,"loc":{"start":{"line":1,"column":24,"index":24},"end":{"line":1,"column":27,"index":27}},
+          "params": [
+            {
+              "type": "GenericTypeAnnotation",
+              "start":25,"end":26,"loc":{"start":{"line":1,"column":25,"index":25},"end":{"line":1,"column":26,"index":26}},
+              "typeParameters": null,
+              "id": {
+                "type": "Identifier",
+                "start":25,"end":26,"loc":{"start":{"line":1,"column":25,"index":25},"end":{"line":1,"column":26,"index":26},"identifierName":"T"},
+                "name": "T"
+              }
+            }
+          ]
+        },
+        "body": {
+          "type": "ClassBody",
+          "start":28,"end":31,"loc":{"start":{"line":1,"column":28,"index":28},"end":{"line":1,"column":31,"index":31}},
+          "body": []
+        }
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

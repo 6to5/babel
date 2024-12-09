@@ -73,7 +73,7 @@
               "start":50,"end":62,"loc":{"start":{"line":1,"column":50,"index":50},"end":{"line":1,"column":62,"index":62},"identifierName":"MustBeNumber"},
               "name": "MustBeNumber"
             },
-            "typeParameters": {
+            "typeArguments": {
               "type": "TSTypeParameterInstantiation",
               "start":62,"end":65,"loc":{"start":{"line":1,"column":62,"index":62},"end":{"line":1,"column":65,"index":65}},
               "params": [
@@ -178,7 +178,7 @@
               "start":149,"end":161,"loc":{"start":{"line":2,"column":74,"index":149},"end":{"line":2,"column":86,"index":161},"identifierName":"MustBeNumber"},
               "name": "MustBeNumber"
             },
-            "typeParameters": {
+            "typeArguments": {
               "type": "TSTypeParameterInstantiation",
               "start":161,"end":164,"loc":{"start":{"line":2,"column":86,"index":161},"end":{"line":2,"column":89,"index":164}},
               "params": [
@@ -279,7 +279,7 @@
               "start":233,"end":245,"loc":{"start":{"line":3,"column":59,"index":233},"end":{"line":3,"column":71,"index":245},"identifierName":"MustBeNumber"},
               "name": "MustBeNumber"
             },
-            "typeParameters": {
+            "typeArguments": {
               "type": "TSTypeParameterInstantiation",
               "start":245,"end":248,"loc":{"start":{"line":3,"column":71,"index":245},"end":{"line":3,"column":74,"index":248}},
               "params": [
@@ -380,7 +380,7 @@
               "start":317,"end":329,"loc":{"start":{"line":4,"column":59,"index":317},"end":{"line":4,"column":71,"index":329},"identifierName":"MustBeNumber"},
               "name": "MustBeNumber"
             },
-            "typeParameters": {
+            "typeArguments": {
               "type": "TSTypeParameterInstantiation",
               "start":329,"end":332,"loc":{"start":{"line":4,"column":71,"index":329},"end":{"line":4,"column":74,"index":332}},
               "params": [

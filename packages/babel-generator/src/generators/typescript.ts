@@ -292,8 +292,13 @@ export function tsPrintFunctionOrConstructorType(
 }
 
 export function TSTypeReference(this: Printer, node: t.TSTypeReference) {
-  this.print(node.typeName, !!node.typeParameters);
-  this.print(node.typeParameters);
+  const typeArguments = process.env.BABEL_8_BREAKING
+    ? // @ts-ignore(Babel 7 vs Babel 8) Babel 8 AST shape
+      node.typeArguments
+    : // @ts-ignore(Babel 7 vs Babel 8) Babel 7 AST shape
+      node.typeParameters;
+  this.print(node.typeName, !!typeArguments);
+  this.print(typeArguments);
 }
 
 export function TSTypePredicate(this: Printer, node: t.TSTypePredicate) {

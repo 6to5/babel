@@ -1344,7 +1344,7 @@ defineType("ClassExpression", {
     "id",
     "typeParameters",
     "superClass",
-    "superTypeParameters",
+    process.env.BABEL_8_BREAKING ? "superTypeArguments" : "superTypeParameters",
     "mixins",
     "implements",
     "body",
@@ -1376,7 +1376,9 @@ defineType("ClassExpression", {
       optional: true,
       validate: assertNodeType("Expression"),
     },
-    superTypeParameters: {
+    [process.env.BABEL_8_BREAKING
+      ? "superTypeArguments"
+      : "superTypeParameters"]: {
       validate: assertNodeType(
         "TypeParameterInstantiation",
         "TSTypeParameterInstantiation",
@@ -1435,7 +1437,9 @@ defineType("ClassDeclaration", {
       optional: true,
       validate: assertNodeType("Expression"),
     },
-    superTypeParameters: {
+    [process.env.BABEL_8_BREAKING
+      ? "superTypeArguments"
+      : "superTypeParameters"]: {
       validate: assertNodeType(
         "TypeParameterInstantiation",
         "TSTypeParameterInstantiation",

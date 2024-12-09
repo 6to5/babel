@@ -1,0 +1,71 @@
+{
+  "type": "File",
+  "start":0,"end":28,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":28,"index":28}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":28,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":28,"index":28}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "VariableDeclaration",
+        "start":0,"end":28,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":28,"index":28}},
+        "declarations": [
+          {
+            "type": "VariableDeclarator",
+            "start":4,"end":27,"loc":{"start":{"line":1,"column":4,"index":4},"end":{"line":1,"column":27,"index":27}},
+            "id": {
+              "type": "Identifier",
+              "start":4,"end":27,"loc":{"start":{"line":1,"column":4,"index":4},"end":{"line":1,"column":27,"index":27},"identifierName":"x"},
+              "name": "x",
+              "typeAnnotation": {
+                "type": "TSTypeAnnotation",
+                "start":5,"end":27,"loc":{"start":{"line":1,"column":5,"index":5},"end":{"line":1,"column":27,"index":27}},
+                "typeAnnotation": {
+                  "type": "TSTypeReference",
+                  "start":7,"end":27,"loc":{"start":{"line":1,"column":7,"index":7},"end":{"line":1,"column":27,"index":27}},
+                  "typeName": {
+                    "type": "Identifier",
+                    "start":7,"end":12,"loc":{"start":{"line":1,"column":7,"index":7},"end":{"line":1,"column":12,"index":12},"identifierName":"Array"},
+                    "name": "Array"
+                  },
+                  "typeParameters": {
+                    "type": "TSTypeParameterInstantiation",
+                    "start":12,"end":27,"loc":{"start":{"line":1,"column":12,"index":12},"end":{"line":1,"column":27,"index":27}},
+                    "params": [
+                      {
+                        "type": "TSTypeReference",
+                        "start":13,"end":26,"loc":{"start":{"line":1,"column":13,"index":13},"end":{"line":1,"column":26,"index":26}},
+                        "typeName": {
+                          "type": "Identifier",
+                          "start":13,"end":18,"loc":{"start":{"line":1,"column":13,"index":13},"end":{"line":1,"column":18,"index":18},"identifierName":"Array"},
+                          "name": "Array"
+                        },
+                        "typeParameters": {
+                          "type": "TSTypeParameterInstantiation",
+                          "start":18,"end":26,"loc":{"start":{"line":1,"column":18,"index":18},"end":{"line":1,"column":26,"index":26}},
+                          "params": [
+                            {
+                              "type": "TSNumberKeyword",
+                              "start":19,"end":25,"loc":{"start":{"line":1,"column":19,"index":19},"end":{"line":1,"column":25,"index":25}}
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "init": null
+          }
+        ],
+        "kind": "let"
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

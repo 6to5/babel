@@ -1,0 +1,35 @@
+{
+  "type": "File",
+  "start":0,"end":20,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":20,"index":20}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":20,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":20,"index":20}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ExpressionStatement",
+        "start":0,"end":20,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":20,"index":20}},
+        "expression": {
+          "type": "ImportExpression",
+          "start":0,"end":19,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":19,"index":19}},
+          "phase": "defer",
+          "source": {
+            "type": "StringLiteral",
+            "start":13,"end":18,"loc":{"start":{"line":1,"column":13,"index":13},"end":{"line":1,"column":18,"index":18}},
+            "extra": {
+              "rawValue": "foo",
+              "raw": "\"foo\""
+            },
+            "value": "foo"
+          },
+          "options": null
+        }
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

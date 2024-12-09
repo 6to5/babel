@@ -1,0 +1,54 @@
+{
+  "type": "File",
+  "start":0,"end":13,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":13,"index":13}},
+  "errors": [
+    "SyntaxError: Type argument list cannot be empty. (1:10)"
+  ],
+  "program": {
+    "type": "Program",
+    "start":0,"end":13,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":13,"index":13}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "VariableDeclaration",
+        "start":0,"end":13,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":13,"index":13}},
+        "declarations": [
+          {
+            "type": "VariableDeclarator",
+            "start":4,"end":12,"loc":{"start":{"line":1,"column":4,"index":4},"end":{"line":1,"column":12,"index":12}},
+            "id": {
+              "type": "Identifier",
+              "start":4,"end":12,"loc":{"start":{"line":1,"column":4,"index":4},"end":{"line":1,"column":12,"index":12},"identifierName":"a"},
+              "name": "a",
+              "typeAnnotation": {
+                "type": "TSTypeAnnotation",
+                "start":5,"end":12,"loc":{"start":{"line":1,"column":5,"index":5},"end":{"line":1,"column":12,"index":12}},
+                "typeAnnotation": {
+                  "type": "TSTypeReference",
+                  "start":7,"end":12,"loc":{"start":{"line":1,"column":7,"index":7},"end":{"line":1,"column":12,"index":12}},
+                  "typeName": {
+                    "type": "Identifier",
+                    "start":7,"end":10,"loc":{"start":{"line":1,"column":7,"index":7},"end":{"line":1,"column":10,"index":10},"identifierName":"Foo"},
+                    "name": "Foo"
+                  },
+                  "typeParameters": {
+                    "type": "TSTypeParameterInstantiation",
+                    "start":10,"end":12,"loc":{"start":{"line":1,"column":10,"index":10},"end":{"line":1,"column":12,"index":12}},
+                    "params": []
+                  }
+                }
+              }
+            },
+            "init": null
+          }
+        ],
+        "kind": "let"
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

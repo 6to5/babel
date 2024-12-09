@@ -1630,11 +1630,6 @@ export default abstract class ExpressionParser extends LValParser {
     } else if (this.isContextual(tt._source) || this.isContextual(tt._defer)) {
       const isSource = this.isContextual(tt._source);
 
-      // TODO: The proposal doesn't mention import.defer yet because it was
-      // pending on a decision for import.source. Wait to enable it until it's
-      // included in the proposal.
-      if (!isSource) this.unexpected();
-
       this.expectPlugin(
         isSource ? "sourcePhaseImports" : "deferredImportEvaluation",
       );

@@ -2585,7 +2585,11 @@ export default (superClass: typeof Parser) =>
     parseClassSuper(node: N.Class): void {
       super.parseClassSuper(node);
       if (node.superClass && this.match(tt.lt)) {
-        node.superTypeParameters = this.flowParseTypeParameterInstantiation();
+        if (process.env.BABEL_8_BREAKING) {
+          node.superTypeArguments = this.flowParseTypeParameterInstantiation();
+        } else {
+          node.superTypeParameters = this.flowParseTypeParameterInstantiation();
+        }
       }
       if (this.isContextual(tt._implements)) {
         this.next();

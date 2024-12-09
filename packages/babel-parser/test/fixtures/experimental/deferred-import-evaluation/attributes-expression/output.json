@@ -1,0 +1,79 @@
+{
+  "type": "File",
+  "start":0,"end":45,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":45,"index":45}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":45,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":45,"index":45}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ExpressionStatement",
+        "start":0,"end":45,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":45,"index":45}},
+        "expression": {
+          "type": "ImportExpression",
+          "start":0,"end":44,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":44,"index":44}},
+          "phase": "defer",
+          "source": {
+            "type": "StringLiteral",
+            "start":13,"end":16,"loc":{"start":{"line":1,"column":13,"index":13},"end":{"line":1,"column":16,"index":16}},
+            "extra": {
+              "rawValue": "x",
+              "raw": "\"x\""
+            },
+            "value": "x"
+          },
+          "options": {
+            "type": "ObjectExpression",
+            "start":18,"end":43,"loc":{"start":{"line":1,"column":18,"index":18},"end":{"line":1,"column":43,"index":43}},
+            "properties": [
+              {
+                "type": "ObjectProperty",
+                "start":20,"end":41,"loc":{"start":{"line":1,"column":20,"index":20},"end":{"line":1,"column":41,"index":41}},
+                "method": false,
+                "key": {
+                  "type": "Identifier",
+                  "start":20,"end":24,"loc":{"start":{"line":1,"column":20,"index":20},"end":{"line":1,"column":24,"index":24},"identifierName":"with"},
+                  "name": "with"
+                },
+                "computed": false,
+                "shorthand": false,
+                "value": {
+                  "type": "ObjectExpression",
+                  "start":26,"end":41,"loc":{"start":{"line":1,"column":26,"index":26},"end":{"line":1,"column":41,"index":41}},
+                  "properties": [
+                    {
+                      "type": "ObjectProperty",
+                      "start":28,"end":39,"loc":{"start":{"line":1,"column":28,"index":28},"end":{"line":1,"column":39,"index":39}},
+                      "method": false,
+                      "key": {
+                        "type": "Identifier",
+                        "start":28,"end":32,"loc":{"start":{"line":1,"column":28,"index":28},"end":{"line":1,"column":32,"index":32},"identifierName":"attr"},
+                        "name": "attr"
+                      },
+                      "computed": false,
+                      "shorthand": false,
+                      "value": {
+                        "type": "StringLiteral",
+                        "start":34,"end":39,"loc":{"start":{"line":1,"column":34,"index":34},"end":{"line":1,"column":39,"index":39}},
+                        "extra": {
+                          "rawValue": "val",
+                          "raw": "\"val\""
+                        },
+                        "value": "val"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

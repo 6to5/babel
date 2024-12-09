@@ -277,18 +277,27 @@ export default declare(api => {
             comments = [];
           }
 
-          if (node.superTypeParameters) {
-            const superTypeParameters = path.get(
-              "superTypeParameters",
+          // superTypeParameters is for compatibility with Babel 7
+          if (
+            process.env.BABEL_8_BREAKING
+              ? // @ts-ignore(Babel 7 vs Babel 8) Renamed
+                node.superTypeArguments
+              : // @ts-ignore(Babel 7 vs Babel 8) Renamed
+                node.superTypeParameters
+          ) {
+            const superTypeArguments = path.get(
+              process.env.BABEL_8_BREAKING
+                ? "superTypeArguments"
+                : "superTypeParameters",
             ) as NodePath<t.TypeParameterInstantiation>;
             comments.push(
               generateComment(
-                superTypeParameters,
+                superTypeArguments,
                 // @ts-expect-error optional is not in TypeParameterInstantiation
-                superTypeParameters.node.optional,
+                superTypeArguments.node.optional,
               ),
             );
-            superTypeParameters.remove();
+            superTypeArguments.remove();
           }
         }
 

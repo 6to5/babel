@@ -81,7 +81,7 @@
             "start":29,"end":30,"loc":{"start":{"line":3,"column":9,"index":29},"end":{"line":3,"column":10,"index":30},"identifierName":"T"},
             "name": "T"
           },
-          "typeParameters": {
+          "typeArguments": {
             "type": "TSTypeParameterInstantiation",
             "start":30,"end":33,"loc":{"start":{"line":3,"column":10,"index":30},"end":{"line":3,"column":13,"index":33}},
             "params": [

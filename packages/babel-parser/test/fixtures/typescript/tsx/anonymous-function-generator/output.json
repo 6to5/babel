@@ -71,7 +71,7 @@
                     "start":36,"end":45,"loc":{"start":{"line":1,"column":36,"index":36},"end":{"line":1,"column":45,"index":45},"identifierName":"Generator"},
                     "name": "Generator"
                   },
-                  "typeParameters": {
+                  "typeArguments": {
                     "type": "TSTypeParameterInstantiation",
                     "start":45,"end":53,"loc":{"start":{"line":1,"column":45,"index":45},"end":{"line":1,"column":53,"index":53}},
                     "params": [

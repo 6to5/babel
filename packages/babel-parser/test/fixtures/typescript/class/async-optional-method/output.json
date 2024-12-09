@@ -65,7 +65,7 @@
                     "start":50,"end":57,"loc":{"start":{"line":2,"column":30,"index":50},"end":{"line":2,"column":37,"index":57},"identifierName":"Promise"},
                     "name": "Promise"
                   },
-                  "typeParameters": {
+                  "typeArguments": {
                     "type": "TSTypeParameterInstantiation",
                     "start":57,"end":63,"loc":{"start":{"line":2,"column":37,"index":57},"end":{"line":2,"column":43,"index":63}},
                     "params": [

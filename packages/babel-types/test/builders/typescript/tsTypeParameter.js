@@ -11,30 +11,30 @@ describe("builders", function () {
           t.identifier("foo"),
         );
         expect(tsTypeParameter).toMatchInlineSnapshot(`
-            Object {
-              "constraint": Object {
-                "type": "TSTypeReference",
-                "typeName": Object {
-                  "name": "bar",
-                  "type": "Identifier",
-                },
-                "typeParameters": null,
-              },
-              "default": Object {
-                "type": "TSTypeReference",
-                "typeName": Object {
-                  "name": "baz",
-                  "type": "Identifier",
-                },
-                "typeParameters": null,
-              },
-              "name": Object {
-                "name": "foo",
+          Object {
+            "constraint": Object {
+              "type": "TSTypeReference",
+              "typeArguments": null,
+              "typeName": Object {
+                "name": "bar",
                 "type": "Identifier",
               },
-              "type": "TSTypeParameter",
-            }
-          `);
+            },
+            "default": Object {
+              "type": "TSTypeReference",
+              "typeArguments": null,
+              "typeName": Object {
+                "name": "baz",
+                "type": "Identifier",
+              },
+            },
+            "name": Object {
+              "name": "foo",
+              "type": "Identifier",
+            },
+            "type": "TSTypeParameter",
+          }
+        `);
       });
       it("throws when name is missing", function () {
         expect(() => {

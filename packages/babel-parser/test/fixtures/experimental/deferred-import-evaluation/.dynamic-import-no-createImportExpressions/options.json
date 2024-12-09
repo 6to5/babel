@@ -1,4 +1,0 @@
-{
-  "plugins": ["deferredImportEvaluation"],
-  "throws": "TODO (disabled test)"
-}

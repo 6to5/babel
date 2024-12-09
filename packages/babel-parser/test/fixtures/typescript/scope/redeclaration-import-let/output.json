@@ -134,7 +134,7 @@
                     "start":113,"end":120,"loc":{"start":{"line":5,"column":13,"index":113},"end":{"line":5,"column":20,"index":120},"identifierName":"Context"},
                     "name": "Context"
                   },
-                  "typeParameters": {
+                  "typeArguments": {
                     "type": "TSTypeParameterInstantiation",
                     "start":120,"end":124,"loc":{"start":{"line":5,"column":20,"index":120},"end":{"line":5,"column":24,"index":124}},
                     "params": [

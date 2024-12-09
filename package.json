@@ -1,7 +1,7 @@
 {
   "name": "babel",
   "version": "7.26.4",
-  "version_babel8": "8.0.0-alpha.13",
+  "version_babel8": "8.0.0-alpha.14",
   "private": true,
   "type": "commonjs",
   "scripts": {
@@ -64,7 +64,6 @@
     "glob": "^10.3.10",
     "globals": "^15.9.0",
     "gulp": "^5.0.0",
-    "gulp-plumber": "^1.2.1",
     "husky": "^9.0.11",
     "import-meta-resolve": "^4.1.0",
     "is-ci": "^3.0.1",
