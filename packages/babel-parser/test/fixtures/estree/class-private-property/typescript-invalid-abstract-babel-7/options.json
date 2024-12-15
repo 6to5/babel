@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    "typescript",
+    [
+      "estree",
+      {
+        "classFeatures": true
+      }
+    ]
+  ],
+  "BABEL_8_BREAKING": false
+}

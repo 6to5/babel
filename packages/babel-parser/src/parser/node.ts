@@ -1,6 +1,7 @@
 import UtilParser from "./util.ts";
 import { SourceLocation, type Position } from "../util/location.ts";
 import type { Comment, Node as NodeType, NodeBase } from "../types.ts";
+import { OptionFlags } from "../options.ts";
 
 // Start an AST node, attaching a start offset.
 
@@ -9,7 +10,7 @@ class Node implements NodeBase {
     this.start = pos;
     this.end = 0;
     this.loc = new SourceLocation(loc);
-    if (parser?.options.ranges) this.range = [pos, 0];
+    if (parser?.optionFlags & OptionFlags.Ranges) this.range = [pos, 0];
     if (parser?.filename) this.loc.filename = parser.filename;
   }
 
@@ -134,15 +135,17 @@ export abstract class NodeUtils extends UtilParser {
     (node as T).type = type;
     node.end = endLoc.index;
     node.loc.end = endLoc;
-    if (this.options.ranges) node.range[1] = endLoc.index;
-    if (this.options.attachComment) this.processComment(node as T);
+    if (this.optionFlags & OptionFlags.Ranges) node.range[1] = endLoc.index;
+    if (this.optionFlags & OptionFlags.AttachComment) {
+      this.processComment(node as T);
+    }
     return node as T;
   }
 
   resetStartLocation(node: NodeBase, startLoc: Position): void {
     node.start = startLoc.index;
     node.loc.start = startLoc;
-    if (this.options.ranges) node.range[0] = startLoc.index;
+    if (this.optionFlags & OptionFlags.Ranges) node.range[0] = startLoc.index;
   }
 
   resetEndLocation(
@@ -151,7 +154,7 @@ export abstract class NodeUtils extends UtilParser {
   ): void {
     node.end = endLoc.index;
     node.loc.end = endLoc;
-    if (this.options.ranges) node.range[1] = endLoc.index;
+    if (this.optionFlags & OptionFlags.Ranges) node.range[1] = endLoc.index;
   }
 
   /**

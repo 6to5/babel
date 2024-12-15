@@ -1,4 +1,4 @@
-import type { Options } from "../options.ts";
+import type { OptionFlags, Options } from "../options.ts";
 import type State from "../tokenizer/state.ts";
 import type { PluginsMap } from "./index.ts";
 import type ScopeHandler from "../util/scope.ts";
@@ -15,6 +15,7 @@ import type * as N from "../types.ts";
 export default class BaseParser {
   // Properties set by constructor in index.js
   declare options: Options;
+  declare optionFlags: OptionFlags;
   declare inModule: boolean;
   declare scope: ScopeHandler<any>;
   declare classScope: ClassScopeHandler;

@@ -241,10 +241,14 @@ defineType("TSTypePredicate", {
 
 defineType("TSTypeQuery", {
   aliases: ["TSType"],
-  visitor: ["exprName", "typeParameters"],
+  visitor: [
+    "exprName",
+    process.env.BABEL_8_BREAKING ? "typeArguments" : "typeParameters",
+  ],
   fields: {
     exprName: validateType("TSEntityName", "TSImportType"),
-    typeParameters: validateOptionalType("TSTypeParameterInstantiation"),
+    [process.env.BABEL_8_BREAKING ? "typeArguments" : "typeParameters"]:
+      validateOptionalType("TSTypeParameterInstantiation"),
   },
 });
 
@@ -432,20 +436,32 @@ defineType("TSLiteralType", {
   },
 });
 
-const expressionWithTypeArguments = {
-  aliases: ["TSType"],
-  visitor: ["expression", "typeParameters"],
-  fields: {
-    expression: validateType("TSEntityName"),
-    typeParameters: validateOptionalType("TSTypeParameterInstantiation"),
-  },
-};
-
 if (process.env.BABEL_8_BREAKING) {
-  defineType("TSClassImplements", expressionWithTypeArguments);
-  defineType("TSInterfaceHeritage", expressionWithTypeArguments);
+  defineType("TSClassImplements", {
+    aliases: ["TSType"],
+    visitor: ["expression", "typeArguments"],
+    fields: {
+      expression: validateType("TSEntityName"),
+      typeArguments: validateOptionalType("TSTypeParameterInstantiation"),
+    },
+  });
+  defineType("TSInterfaceHeritage", {
+    aliases: ["TSType"],
+    visitor: ["expression", "typeArguments"],
+    fields: {
+      expression: validateType("TSEntityName"),
+      typeArguments: validateOptionalType("TSTypeParameterInstantiation"),
+    },
+  });
 } else {
-  defineType("TSExpressionWithTypeArguments", expressionWithTypeArguments);
+  defineType("TSExpressionWithTypeArguments", {
+    aliases: ["TSType"],
+    visitor: ["expression", "typeParameters"],
+    fields: {
+      expression: validateType("TSEntityName"),
+      typeParameters: validateOptionalType("TSTypeParameterInstantiation"),
+    },
+  });
 }
 
 defineType("TSInterfaceDeclaration", {
@@ -565,7 +581,8 @@ defineType("TSModuleBlock", {
 
 defineType("TSImportType", {
   aliases: ["TSType"],
-  visitor: ["argument", "qualifier", "typeParameters"],
+  builder: ["argument", "qualifier", "typeParameters"],
+  visitor: ["argument", "options", "qualifier", "typeParameters"],
   fields: {
     argument: validateType("StringLiteral"),
     qualifier: validateOptionalType("TSEntityName"),
@@ -647,7 +664,9 @@ defineType("TSTypeParameterDeclaration", {
 
 defineType("TSTypeParameter", {
   builder: ["constraint", "default", "name"],
-  visitor: ["constraint", "default"],
+  visitor: process.env.BABEL_8_BREAKING
+    ? ["name", "constraint", "default"]
+    : ["constraint", "default"],
   fields: {
     name: {
       validate: !process.env.BABEL_8_BREAKING

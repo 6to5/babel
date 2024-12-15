@@ -64,7 +64,7 @@ import { setInnerComments } from "./comments.ts";
 import { cloneIdentifier, type Undone } from "./node.ts";
 import type Parser from "./index.ts";
 
-import type { SourceType } from "../options.ts";
+import { OptionFlags, type SourceType } from "../options.ts";
 
 export default abstract class ExpressionParser extends LValParser {
   // Forward-declaration: defined in statement.js
@@ -174,7 +174,7 @@ export default abstract class ExpressionParser extends LValParser {
     this.finalizeRemainingComments();
     expr.comments = this.comments;
     expr.errors = this.state.errors;
-    if (this.options.tokens) {
+    if (this.optionFlags & OptionFlags.Tokens) {
       expr.tokens = this.tokens;
     }
     return expr;
@@ -1079,7 +1079,7 @@ export default abstract class ExpressionParser extends LValParser {
         }
 
         if (this.match(tt.parenL)) {
-          if (this.options.createImportExpressions) {
+          if (this.optionFlags & OptionFlags.CreateImportExpressions) {
             return this.parseImportCall(node as Undone<N.ImportExpression>);
           } else {
             return this.finishNode(node, "Import");
@@ -1522,12 +1522,12 @@ export default abstract class ExpressionParser extends LValParser {
     if (
       this.match(tt.parenL) &&
       !this.scope.allowDirectSuper &&
-      !this.options.allowSuperOutsideMethod
+      !(this.optionFlags & OptionFlags.AllowSuperOutsideMethod)
     ) {
       this.raise(Errors.SuperNotAllowed, node);
     } else if (
       !this.scope.allowSuper &&
-      !this.options.allowSuperOutsideMethod
+      !(this.optionFlags & OptionFlags.AllowSuperOutsideMethod)
     ) {
       this.raise(Errors.UnexpectedSuper, node);
     }
@@ -1633,7 +1633,7 @@ export default abstract class ExpressionParser extends LValParser {
       this.expectPlugin(
         isSource ? "sourcePhaseImports" : "deferredImportEvaluation",
       );
-      if (!this.options.createImportExpressions) {
+      if (!(this.optionFlags & OptionFlags.CreateImportExpressions)) {
         throw this.raise(
           Errors.DynamicImportPhaseRequiresImportExpressions,
           this.state.startLoc,
@@ -1826,7 +1826,7 @@ export default abstract class ExpressionParser extends LValParser {
   }
 
   wrapParenthesis(startLoc: Position, expression: N.Expression): N.Expression {
-    if (!this.options.createParenthesizedExpressions) {
+    if (!(this.optionFlags & OptionFlags.CreateParenthesizedExpressions)) {
       this.addExtra(expression, "parenthesized", true);
       this.addExtra(expression, "parenStart", startLoc.index);
 
@@ -1885,7 +1885,7 @@ export default abstract class ExpressionParser extends LValParser {
       if (
         !this.scope.inNonArrowFunction &&
         !this.scope.inClass &&
-        !this.options.allowNewTargetOutsideFunction
+        !(this.optionFlags & OptionFlags.AllowNewTargetOutsideFunction)
       ) {
         this.raise(Errors.UnexpectedNewTarget, metaProp);
       }
@@ -2843,7 +2843,8 @@ export default abstract class ExpressionParser extends LValParser {
   recordAwaitIfAllowed(): boolean {
     const isAwaitAllowed =
       this.prodParam.hasAwait ||
-      (this.options.allowAwaitOutsideFunction && !this.scope.inFunction);
+      (this.optionFlags & OptionFlags.AllowAwaitOutsideFunction &&
+        !this.scope.inFunction);
 
     if (isAwaitAllowed && !this.scope.inFunction) {
       this.state.hasTopLevelAwait = true;
@@ -2867,7 +2868,10 @@ export default abstract class ExpressionParser extends LValParser {
       this.raise(Errors.ObsoleteAwaitStar, node);
     }
 
-    if (!this.scope.inFunction && !this.options.allowAwaitOutsideFunction) {
+    if (
+      !this.scope.inFunction &&
+      !(this.optionFlags & OptionFlags.AllowAwaitOutsideFunction)
+    ) {
       if (this.isAmbiguousAwait()) {
         this.ambiguousScriptDifferentAst = true;
       } else {

@@ -411,7 +411,14 @@ export const functionDeclarationCommon = () => ({
 
 defineType("FunctionDeclaration", {
   builder: ["id", "params", "body", "generator", "async"],
-  visitor: ["id", "typeParameters", "params", "returnType", "body"],
+  visitor: [
+    "id",
+    "typeParameters",
+    "params",
+    "predicate",
+    "returnType",
+    "body",
+  ],
   fields: {
     ...functionDeclarationCommon(),
     ...functionTypeAnnotationCommon(),
@@ -1295,7 +1302,7 @@ defineType("ArrayPattern", {
 
 defineType("ArrowFunctionExpression", {
   builder: ["params", "body", "async"],
-  visitor: ["typeParameters", "params", "returnType", "body"],
+  visitor: ["typeParameters", "params", "predicate", "returnType", "body"],
   aliases: [
     "Scopable",
     "Function",
@@ -2216,7 +2223,7 @@ defineType("OptionalCallExpression", {
 
 // --- ES2022 ---
 defineType("ClassProperty", {
-  visitor: ["decorators", "key", "typeAnnotation", "value"],
+  visitor: ["decorators", "variance", "key", "typeAnnotation", "value"],
   builder: [
     "key",
     "value",
@@ -2345,7 +2352,7 @@ defineType("ClassAccessorProperty", {
 });
 
 defineType("ClassPrivateProperty", {
-  visitor: ["decorators", "key", "typeAnnotation", "value"],
+  visitor: ["decorators", "variance", "key", "typeAnnotation", "value"],
   builder: ["key", "value", "decorators", "static"],
   aliases: ["Property", "Private"],
   fields: {

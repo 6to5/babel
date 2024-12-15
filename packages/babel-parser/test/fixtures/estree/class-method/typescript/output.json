@@ -22,7 +22,7 @@
           "start":31,"end":73,"loc":{"start":{"line":1,"column":31},"end":{"line":3,"column":1}},
           "body": [
             {
-              "type": "MethodDefinition",
+              "type": "TSAbstractMethodDefinition",
               "start":35,"end":71,"loc":{"start":{"line":2,"column":2},"end":{"line":2,"column":38}},
               "abstract": true,
               "static": false,
@@ -34,7 +34,7 @@
               "computed": false,
               "kind": "method",
               "value": {
-                "type": "FunctionExpression",
+                "type": "TSEmptyBodyFunctionExpression",
                 "start":47,"end":71,"loc":{"start":{"line":2,"column":14},"end":{"line":2,"column":38}},
                 "id": null,
                 "generator": false,

@@ -12,14 +12,19 @@ describe("Printer", () => {
 
     Object.keys(Printer.prototype).forEach(function (type) {
       if (IS_BABEL_8()) {
-        if (type === "TSExpressionWithTypeArguments") return;
+        // Babel 7 AST
+        if (
+          type === "DecimalLiteral" ||
+          type === "TSExpressionWithTypeArguments"
+        ) {
+          return;
+        }
       } else {
+        // Babel 8 AST
         if (type === "TSClassImplements" || type === "TSInterfaceHeritage") {
           return;
         }
       }
-
-      if (type === "DecimalLiteral") return;
 
       if (!/[A-Z]/.test(type[0])) return;
 

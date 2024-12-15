@@ -2875,7 +2875,7 @@
               "start":2348,"end":2354,"loc":{"start":{"line":129,"column":40,"index":2348},"end":{"line":129,"column":46,"index":2354},"identifierName":"Parent"},
               "name": "Parent"
             },
-            "typeParameters": {
+            "typeArguments": {
               "type": "TSTypeParameterInstantiation",
               "start":2354,"end":2357,"loc":{"start":{"line":129,"column":46,"index":2354},"end":{"line":129,"column":49,"index":2357}},
               "params": [

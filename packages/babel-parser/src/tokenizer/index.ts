@@ -1,6 +1,6 @@
 /*:: declare var invariant; */
 
-import type { Options } from "../options.ts";
+import { OptionFlags, type Options } from "../options.ts";
 import {
   Position,
   SourceLocation,
@@ -112,7 +112,7 @@ export default abstract class Tokenizer extends CommentsParser {
 
   next(): void {
     this.checkKeywordEscapes();
-    if (this.options.tokens) {
+    if (this.optionFlags & OptionFlags.Tokens) {
       this.pushToken(new Token(this.state));
     }
 
@@ -308,7 +308,7 @@ export default abstract class Tokenizer extends CommentsParser {
       end: this.sourceToOffsetPos(end + commentEnd.length),
       loc: new SourceLocation(startLoc, this.state.curPosition()),
     };
-    if (this.options.tokens) this.pushToken(comment);
+    if (this.optionFlags & OptionFlags.Tokens) this.pushToken(comment);
     return comment;
   }
 
@@ -337,7 +337,7 @@ export default abstract class Tokenizer extends CommentsParser {
       end: this.sourceToOffsetPos(end),
       loc: new SourceLocation(startLoc, this.state.curPosition()),
     };
-    if (this.options.tokens) this.pushToken(comment);
+    if (this.optionFlags & OptionFlags.Tokens) this.pushToken(comment);
     return comment;
   }
 
@@ -346,7 +346,8 @@ export default abstract class Tokenizer extends CommentsParser {
 
   skipSpace(): void {
     const spaceStart = this.state.pos;
-    const comments = [];
+    const comments: N.Comment[] =
+      this.optionFlags & OptionFlags.AttachComment ? [] : null;
     loop: while (this.state.pos < this.length) {
       const ch = this.input.charCodeAt(this.state.pos);
       switch (ch) {
@@ -376,7 +377,7 @@ export default abstract class Tokenizer extends CommentsParser {
               const comment = this.skipBlockComment("*/");
               if (comment !== undefined) {
                 this.addComment(comment);
-                if (this.options.attachComment) comments.push(comment);
+                comments?.push(comment);
               }
               break;
             }
@@ -385,7 +386,7 @@ export default abstract class Tokenizer extends CommentsParser {
               const comment = this.skipLineComment(2);
               if (comment !== undefined) {
                 this.addComment(comment);
-                if (this.options.attachComment) comments.push(comment);
+                comments?.push(comment);
               }
               break;
             }
@@ -401,7 +402,7 @@ export default abstract class Tokenizer extends CommentsParser {
           } else if (
             ch === charCodes.dash &&
             !this.inModule &&
-            this.options.annexB
+            this.optionFlags & OptionFlags.AnnexB
           ) {
             const pos = this.state.pos;
             if (
@@ -413,7 +414,7 @@ export default abstract class Tokenizer extends CommentsParser {
               const comment = this.skipLineComment(3);
               if (comment !== undefined) {
                 this.addComment(comment);
-                if (this.options.attachComment) comments.push(comment);
+                comments?.push(comment);
               }
             } else {
               break loop;
@@ -421,7 +422,7 @@ export default abstract class Tokenizer extends CommentsParser {
           } else if (
             ch === charCodes.lessThan &&
             !this.inModule &&
-            this.options.annexB
+            this.optionFlags & OptionFlags.AnnexB
           ) {
             const pos = this.state.pos;
             if (
@@ -433,7 +434,7 @@ export default abstract class Tokenizer extends CommentsParser {
               const comment = this.skipLineComment(4);
               if (comment !== undefined) {
                 this.addComment(comment);
-                if (this.options.attachComment) comments.push(comment);
+                comments?.push(comment);
               }
             } else {
               break loop;
@@ -444,7 +445,7 @@ export default abstract class Tokenizer extends CommentsParser {
       }
     }
 
-    if (comments.length > 0) {
+    if (comments?.length > 0) {
       const end = this.state.pos;
       const commentWhitespace: CommentWhitespace = {
         start: this.sourceToOffsetPos(spaceStart),
@@ -1495,7 +1496,7 @@ export default abstract class Tokenizer extends CommentsParser {
     const loc = at instanceof Position ? at : at.loc.start;
     const error = toParseError(loc, details);
 
-    if (!this.options.errorRecovery) throw error;
+    if (!(this.optionFlags & OptionFlags.ErrorRecovery)) throw error;
     if (!this.isLookahead) this.state.errors.push(error);
 
     return error;
@@ -1572,7 +1573,7 @@ export default abstract class Tokenizer extends CommentsParser {
 
   errorHandlers_readInt: IntErrorHandlers = {
     invalidDigit: (pos, lineStart, curLine, radix) => {
-      if (!this.options.errorRecovery) return false;
+      if (!(this.optionFlags & OptionFlags.ErrorRecovery)) return false;
 
       this.raise(Errors.InvalidDigit, buildPosition(pos, lineStart, curLine), {
         radix,

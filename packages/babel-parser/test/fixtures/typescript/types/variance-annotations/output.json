@@ -2809,7 +2809,7 @@
               "start":2313,"end":2319,"loc":{"start":{"line":126,"column":40,"index":2313},"end":{"line":126,"column":46,"index":2319},"identifierName":"Parent"},
               "name": "Parent"
             },
-            "typeParameters": {
+            "typeArguments": {
               "type": "TSTypeParameterInstantiation",
               "start":2319,"end":2322,"loc":{"start":{"line":126,"column":46,"index":2319},"end":{"line":126,"column":49,"index":2322}},
               "params": [

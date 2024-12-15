@@ -320,8 +320,13 @@ export function TSTypeQuery(this: Printer, node: t.TSTypeQuery) {
   this.space();
   this.print(node.exprName);
 
-  if (node.typeParameters) {
-    this.print(node.typeParameters);
+  const typeArguments = process.env.BABEL_8_BREAKING
+    ? //@ts-ignore(Babel 7 vs Babel 8) Babel 8 AST
+      node.typeArguments
+    : //@ts-ignore(Babel 7 vs Babel 8) Babel 7 AST
+      node.typeParameters;
+  if (typeArguments) {
+    this.print(typeArguments);
   }
 }
 
@@ -500,20 +505,16 @@ export function TSLiteralType(this: Printer, node: t.TSLiteralType) {
 export function TSClassImplements(
   this: Printer,
   // TODO(Babel 8): Just use t.TSClassImplements
-  node: Extract<
-    t.Node,
-    { type: "TSClassImplements" | "TSExpressionWithTypeArguments" }
-  >,
+  node: t.Node & {
+    expression: t.TSEntityName;
+    typeArguments?: t.TSTypeParameterInstantiation;
+  },
 ) {
   this.print(node.expression);
-  this.print(node.typeParameters);
+  this.print(node.typeArguments);
 }
 
-export {
-  // TODO: Remove this in Babel 8
-  TSClassImplements as TSExpressionWithTypeArguments,
-  TSClassImplements as TSInterfaceHeritage,
-};
+export { TSClassImplements as TSInterfaceHeritage };
 
 export function TSInterfaceDeclaration(
   this: Printer,
@@ -691,10 +692,14 @@ export function TSModuleBlock(this: Printer, node: t.TSModuleBlock) {
 }
 
 export function TSImportType(this: Printer, node: t.TSImportType) {
-  const { argument, qualifier, typeParameters } = node;
+  const { argument, qualifier, typeParameters, options } = node;
   this.word("import");
   this.token("(");
   this.print(argument);
+  if (options) {
+    this.token(",");
+    this.print(options);
+  }
   this.token(")");
   if (qualifier) {
     this.token(".");

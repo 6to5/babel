@@ -32,7 +32,7 @@
                   "start":14,"end":30,"loc":{"start":{"line":2,"column":2,"index":14},"end":{"line":2,"column":18,"index":30}},
                   "expression": {
                     "type": "CallExpression",
-                    "start":16,"end":30,"loc":{"start":{"line":2,"column":4,"index":16},"end":{"line":2,"column":18,"index":30}},
+                    "start":15,"end":30,"loc":{"start":{"line":2,"column":3,"index":15},"end":{"line":2,"column":18,"index":30}},
                     "callee": {
                       "type": "MemberExpression",
                       "start":16,"end":24,"loc":{"start":{"line":2,"column":4,"index":16},"end":{"line":2,"column":12,"index":24}},

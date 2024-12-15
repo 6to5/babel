@@ -48,7 +48,7 @@ function assignJSONFile(jsonFile, inputProperties) {
     }
   }
   try {
-    writeFileSync(jsonFile, JSON.stringify(options, null, 2), {
+    writeFileSync(jsonFile, JSON.stringify(options, null, 2) + "\n", {
       recursive: true,
     });
     console.log(`${jsonFileExists ? "Updated" : "Created"} ${jsonFile}`);

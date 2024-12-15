@@ -28,6 +28,22 @@ export interface Options {
   annexB?: boolean;
 }
 
+export const enum OptionFlags {
+  AllowAwaitOutsideFunction = 1 << 0,
+  AllowReturnOutsideFunction = 1 << 1,
+  AllowNewTargetOutsideFunction = 1 << 2,
+  AllowImportExportEverywhere = 1 << 3,
+  AllowSuperOutsideMethod = 1 << 4,
+  AllowUndeclaredExports = 1 << 5,
+  Ranges = 1 << 6,
+  Tokens = 1 << 7,
+  CreateImportExpressions = 1 << 8,
+  CreateParenthesizedExpressions = 1 << 9,
+  ErrorRecovery = 1 << 10,
+  AttachComment = 1 << 11,
+  AnnexB = 1 << 12,
+}
+
 type OptionsWithDefaults = { [P in keyof Options]-?: Options[P] };
 
 function createDefaultOptions(): OptionsWithDefaults {

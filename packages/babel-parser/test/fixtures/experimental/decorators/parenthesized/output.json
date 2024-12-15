@@ -153,7 +153,7 @@
                   "start":93,"end":109,"loc":{"start":{"line":7,"column":2,"index":93},"end":{"line":7,"column":18,"index":109}},
                   "expression": {
                     "type": "CallExpression",
-                    "start":95,"end":109,"loc":{"start":{"line":7,"column":4,"index":95},"end":{"line":7,"column":18,"index":109}},
+                    "start":94,"end":109,"loc":{"start":{"line":7,"column":3,"index":94},"end":{"line":7,"column":18,"index":109}},
                     "callee": {
                       "type": "MemberExpression",
                       "start":95,"end":103,"loc":{"start":{"line":7,"column":4,"index":95},"end":{"line":7,"column":12,"index":103}},

@@ -27,6 +27,7 @@ import type { Pattern } from "../../types.ts";
 import type { Expression } from "../../types.ts";
 import type { IJSXParserMixin } from "../jsx/index.ts";
 import { ParseBindingListFlags } from "../../parser/lval.ts";
+import { OptionFlags } from "../../options.ts";
 
 type TsModifier =
   | "readonly"
@@ -634,7 +635,11 @@ export default (superClass: ClassWithMixin<typeof Parser, IJSXParserMixin>) =>
         node.exprName = this.tsParseEntityName();
       }
       if (!this.hasPrecedingLineBreak() && this.match(tt.lt)) {
-        node.typeParameters = this.tsParseTypeArguments();
+        if (process.env.BABEL_8_BREAKING) {
+          node.typeArguments = this.tsParseTypeArguments();
+        } else {
+          node.typeParameters = this.tsParseTypeArguments();
+        }
       }
       return this.finishNode(node, "TSTypeQuery");
     }
@@ -1261,7 +1266,9 @@ export default (superClass: ClassWithMixin<typeof Parser, IJSXParserMixin>) =>
           return this.tsParseTupleType();
         case tt.parenL:
           if (process.env.BABEL_8_BREAKING) {
-            if (!this.options.createParenthesizedExpressions) {
+            if (
+              !(this.optionFlags & OptionFlags.CreateParenthesizedExpressions)
+            ) {
               const startLoc = this.state.startLoc;
               this.next();
               const type = this.tsParseType();
@@ -1704,19 +1711,26 @@ export default (superClass: ClassWithMixin<typeof Parser, IJSXParserMixin>) =>
             N.TSClassImplements | N.TSInterfaceHeritage
           >();
           node.expression = this.tsParseEntityName();
-          if (this.match(tt.lt)) {
-            node.typeParameters = this.tsParseTypeArguments();
-          }
+          if (process.env.BABEL_8_BREAKING) {
+            if (this.match(tt.lt)) {
+              node.typeArguments = this.tsParseTypeArguments();
+            }
+            return this.finishNode(
+              node,
+              token === "extends" ? "TSInterfaceHeritage" : "TSClassImplements",
+            );
+          } else {
+            if (this.match(tt.lt)) {
+              // @ts-expect-error Babel 7 vs Babel 8
+              node.typeParameters = this.tsParseTypeArguments();
+            }
 
-          return this.finishNode(
-            node,
-            // @ts-expect-error Babel 7 vs Babel 8
-            process.env.BABEL_8_BREAKING
-              ? token === "extends"
-                ? "TSInterfaceHeritage"
-                : "TSClassImplements"
-              : "TSExpressionWithTypeArguments",
-          );
+            return this.finishNode(
+              node,
+              // @ts-expect-error Babel 7 vs Babel 8
+              "TSExpressionWithTypeArguments",
+            );
+          }
         },
       );
 
@@ -3261,15 +3275,12 @@ export default (superClass: ClassWithMixin<typeof Parser, IJSXParserMixin>) =>
     parseClassPrivateProperty(
       node: N.ClassPrivateProperty,
     ): N.ClassPrivateProperty {
-      // @ts-expect-error abstract may not index node
       if (node.abstract) {
         this.raise(TSErrors.PrivateElementHasAbstract, node);
       }
 
-      // @ts-expect-error accessibility may not index node
       if (node.accessibility) {
         this.raise(TSErrors.PrivateElementHasAccessibility, node, {
-          // @ts-expect-error refine typings
           modifier: node.accessibility,
         });
       }
@@ -3752,7 +3763,10 @@ export default (superClass: ClassWithMixin<typeof Parser, IJSXParserMixin>) =>
       return super.parseBindingAtom();
     }
 
-    parseMaybeDecoratorArguments(expr: N.Expression): N.Expression {
+    parseMaybeDecoratorArguments(
+      expr: N.Expression,
+      startLoc: Position,
+    ): N.Expression {
       // handles `@f<<T>`
       if (this.match(tt.lt) || this.match(tt.bitShiftL)) {
         const typeArguments = this.tsParseTypeArgumentsInExpression();
@@ -3760,6 +3774,7 @@ export default (superClass: ClassWithMixin<typeof Parser, IJSXParserMixin>) =>
         if (this.match(tt.parenL)) {
           const call = super.parseMaybeDecoratorArguments(
             expr,
+            startLoc,
           ) as N.CallExpression;
           call.typeParameters = typeArguments;
           return call;
@@ -3768,7 +3783,7 @@ export default (superClass: ClassWithMixin<typeof Parser, IJSXParserMixin>) =>
         this.unexpected(null, tt.parenL);
       }
 
-      return super.parseMaybeDecoratorArguments(expr);
+      return super.parseMaybeDecoratorArguments(expr, startLoc);
     }
 
     checkCommaAfterRest(
@@ -4009,11 +4024,12 @@ export default (superClass: ClassWithMixin<typeof Parser, IJSXParserMixin>) =>
       );
       // @ts-expect-error todo(flow->ts) property not defined for all types in union
       if (method.abstract) {
-        const hasBody = this.hasPlugin("estree")
+        const hasEstreePlugin = this.hasPlugin("estree");
+        const methodFn = hasEstreePlugin
           ? // @ts-expect-error estree typings
-            !!method.value.body
-          : !!method.body;
-        if (hasBody) {
+            method.value
+          : method;
+        if (methodFn.body) {
           const { key } = method;
           this.raise(TSErrors.AbstractMethodHasImplementation, method, {
             methodName:

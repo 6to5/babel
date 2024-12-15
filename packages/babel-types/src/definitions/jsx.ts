@@ -129,7 +129,7 @@ defineType("JSXNamespacedName", {
 
 defineType("JSXOpeningElement", {
   builder: ["name", "attributes", "selfClosing"],
-  visitor: ["name", "attributes"],
+  visitor: ["name", "typeParameters", "attributes"],
   aliases: ["Immutable"],
   fields: {
     name: {

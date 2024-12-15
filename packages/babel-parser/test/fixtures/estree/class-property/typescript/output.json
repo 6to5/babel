@@ -1,0 +1,50 @@
+{
+  "type": "File",
+  "start":0,"end":59,"loc":{"start":{"line":1,"column":0},"end":{"line":3,"column":1}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":59,"loc":{"start":{"line":1,"column":0},"end":{"line":3,"column":1}},
+    "sourceType": "script",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ClassDeclaration",
+        "start":0,"end":59,"loc":{"start":{"line":1,"column":0},"end":{"line":3,"column":1}},
+        "abstract": true,
+        "id": {
+          "type": "Identifier",
+          "start":15,"end":30,"loc":{"start":{"line":1,"column":15},"end":{"line":1,"column":30},"identifierName":"TSAbstractClass"},
+          "name": "TSAbstractClass"
+        },
+        "superClass": null,
+        "body": {
+          "type": "ClassBody",
+          "start":31,"end":59,"loc":{"start":{"line":1,"column":31},"end":{"line":3,"column":1}},
+          "body": [
+            {
+              "type": "TSAbstractPropertyDefinition",
+              "start":35,"end":57,"loc":{"start":{"line":2,"column":2},"end":{"line":2,"column":24}},
+              "abstract": true,
+              "static": false,
+              "key": {
+                "type": "Identifier",
+                "start":44,"end":47,"loc":{"start":{"line":2,"column":11},"end":{"line":2,"column":14},"identifierName":"foo"},
+                "name": "foo"
+              },
+              "computed": false,
+              "typeAnnotation": {
+                "type": "TSTypeAnnotation",
+                "start":47,"end":56,"loc":{"start":{"line":2,"column":14},"end":{"line":2,"column":23}},
+                "typeAnnotation": {
+                  "type": "TSBooleanKeyword",
+                  "start":49,"end":56,"loc":{"start":{"line":2,"column":16},"end":{"line":2,"column":23}}
+                }
+              },
+              "value": null
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

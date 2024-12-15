@@ -1,6 +1,6 @@
 import type { Options } from "../options.ts";
 import type * as N from "../types.ts";
-import { getOptions } from "../options.ts";
+import { getOptions, OptionFlags } from "../options.ts";
 import StatementParser from "./statement.ts";
 import ScopeHandler from "../util/scope.ts";
 
@@ -31,6 +31,49 @@ export default class Parser extends StatementParser {
     this.plugins = pluginsMap;
     this.filename = options.sourceFilename;
     this.startIndex = options.startIndex;
+
+    let optionFlags = 0;
+    if (options.allowAwaitOutsideFunction) {
+      optionFlags |= OptionFlags.AllowAwaitOutsideFunction;
+    }
+    if (options.allowReturnOutsideFunction) {
+      optionFlags |= OptionFlags.AllowReturnOutsideFunction;
+    }
+    if (options.allowImportExportEverywhere) {
+      optionFlags |= OptionFlags.AllowImportExportEverywhere;
+    }
+    if (options.allowSuperOutsideMethod) {
+      optionFlags |= OptionFlags.AllowSuperOutsideMethod;
+    }
+    if (options.allowUndeclaredExports) {
+      optionFlags |= OptionFlags.AllowUndeclaredExports;
+    }
+    if (options.allowNewTargetOutsideFunction) {
+      optionFlags |= OptionFlags.AllowNewTargetOutsideFunction;
+    }
+    if (options.ranges) {
+      optionFlags |= OptionFlags.Ranges;
+    }
+    if (options.tokens) {
+      optionFlags |= OptionFlags.Tokens;
+    }
+    if (options.createImportExpressions) {
+      optionFlags |= OptionFlags.CreateImportExpressions;
+    }
+    if (options.createParenthesizedExpressions) {
+      optionFlags |= OptionFlags.CreateParenthesizedExpressions;
+    }
+    if (options.errorRecovery) {
+      optionFlags |= OptionFlags.ErrorRecovery;
+    }
+    if (options.attachComment) {
+      optionFlags |= OptionFlags.AttachComment;
+    }
+    if (options.annexB) {
+      optionFlags |= OptionFlags.AnnexB;
+    }
+
+    this.optionFlags = optionFlags;
   }
 
   // This can be overwritten, for example, by the TypeScript plugin.

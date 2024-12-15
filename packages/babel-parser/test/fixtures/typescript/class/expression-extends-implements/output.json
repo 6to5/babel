@@ -57,7 +57,7 @@
                   "name": "Y"
                 }
               },
-              "typeParameters": {
+              "typeArguments": {
                 "type": "TSTypeParameterInstantiation",
                 "start":36,"end":39,"loc":{"start":{"line":1,"column":36,"index":36},"end":{"line":1,"column":39,"index":39}},
                 "params": [
@@ -139,7 +139,7 @@
                   "name": "Y"
                 }
               },
-              "typeParameters": {
+              "typeArguments": {
                 "type": "TSTypeParameterInstantiation",
                 "start":83,"end":86,"loc":{"start":{"line":2,"column":38,"index":83},"end":{"line":2,"column":41,"index":86}},
                 "params": [

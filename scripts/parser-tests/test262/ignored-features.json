@@ -106,6 +106,7 @@
   "import.meta",
   "intl-normative-optional",
   "iterator-helpers",
+  "iterator-sequencing",
   "json-modules",
   "json-parse-with-source",
   "json-superset",

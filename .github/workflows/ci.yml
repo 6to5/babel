@@ -510,11 +510,17 @@ jobs:
           node-version: 16.6
       - name: Test Node.js 16.6
         run: node test/runtime-integration/node.cjs
-      - name: Use Node.js 22
+      - name: Use Node.js 22.11
         uses: actions/setup-node@v4
         with:
-          node-version: 22
-      - name: Test Node.js 22
+          node-version: 22.11
+      - name: Test Node.js 22.11
+        run: node test/runtime-integration/node.cjs
+      - name: Use Node.js 22.12
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.12
+      - name: Test Node.js 22.12
         run: node test/runtime-integration/node.cjs
 
   eslint7-test:

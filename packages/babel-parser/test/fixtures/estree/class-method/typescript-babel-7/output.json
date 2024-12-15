@@ -1,0 +1,73 @@
+{
+  "type": "File",
+  "start":0,"end":73,"loc":{"start":{"line":1,"column":0},"end":{"line":3,"column":1}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":73,"loc":{"start":{"line":1,"column":0},"end":{"line":3,"column":1}},
+    "sourceType": "script",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ClassDeclaration",
+        "start":0,"end":73,"loc":{"start":{"line":1,"column":0},"end":{"line":3,"column":1}},
+        "abstract": true,
+        "id": {
+          "type": "Identifier",
+          "start":15,"end":30,"loc":{"start":{"line":1,"column":15},"end":{"line":1,"column":30},"identifierName":"TSAbstractClass"},
+          "name": "TSAbstractClass"
+        },
+        "superClass": null,
+        "body": {
+          "type": "ClassBody",
+          "start":31,"end":73,"loc":{"start":{"line":1,"column":31},"end":{"line":3,"column":1}},
+          "body": [
+            {
+              "type": "MethodDefinition",
+              "start":35,"end":71,"loc":{"start":{"line":2,"column":2},"end":{"line":2,"column":38}},
+              "abstract": true,
+              "static": false,
+              "key": {
+                "type": "Identifier",
+                "start":44,"end":47,"loc":{"start":{"line":2,"column":11},"end":{"line":2,"column":14},"identifierName":"foo"},
+                "name": "foo"
+              },
+              "computed": false,
+              "kind": "method",
+              "value": {
+                "type": "FunctionExpression",
+                "start":47,"end":71,"loc":{"start":{"line":2,"column":14},"end":{"line":2,"column":38}},
+                "id": null,
+                "generator": false,
+                "async": false,
+                "expression": false,
+                "params": [
+                  {
+                    "type": "Identifier",
+                    "start":48,"end":60,"loc":{"start":{"line":2,"column":15},"end":{"line":2,"column":27},"identifierName":"name"},
+                    "name": "name",
+                    "typeAnnotation": {
+                      "type": "TSTypeAnnotation",
+                      "start":52,"end":60,"loc":{"start":{"line":2,"column":19},"end":{"line":2,"column":27}},
+                      "typeAnnotation": {
+                        "type": "TSStringKeyword",
+                        "start":54,"end":60,"loc":{"start":{"line":2,"column":21},"end":{"line":2,"column":27}}
+                      }
+                    }
+                  }
+                ],
+                "returnType": {
+                  "type": "TSTypeAnnotation",
+                  "start":61,"end":70,"loc":{"start":{"line":2,"column":28},"end":{"line":2,"column":37}},
+                  "typeAnnotation": {
+                    "type": "TSBooleanKeyword",
+                    "start":63,"end":70,"loc":{"start":{"line":2,"column":30},"end":{"line":2,"column":37}}
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

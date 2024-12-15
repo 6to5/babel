@@ -1,0 +1,7 @@
+{
+  "plugins": [
+    "typescript",
+    "estree"
+  ],
+  "BABEL_8_BREAKING": false
+}

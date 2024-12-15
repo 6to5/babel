@@ -14,8 +14,8 @@ if (
       ? "expected-esm-13.2.txt"
       : major < 16 || (major === 16 && minor <= 5)
         ? "expected-esm-16.0.txt"
-        : major < 23
-          ? "expected-esm-22.txt"
+        : major < 22 || (major === 22 && minor <= 11)
+          ? "expected-esm-22.11.txt"
           : "expected-esm.txt";
 
   test("ESM", "./src/main-esm.mjs", expectedEsm);
@@ -32,8 +32,8 @@ const expectedCjs =
         ? "expected-cjs-13.2.txt"
         : major < 16 || (major === 16 && minor <= 5)
           ? "expected-cjs-16.0.txt"
-          : major < 23
-            ? "expected-cjs-22.txt"
+          : major < 22 || (major === 22 && minor <= 11)
+            ? "expected-cjs-22.11.txt"
             : "expected-cjs.txt";
 
 test("CJS", "./src/main-cjs.cjs", expectedCjs);
@@ -47,8 +47,8 @@ const expectedCjsAbsolute =
         ? "expected-cjs-absolute-13.2.txt"
         : major < 16 || (major === 16 && minor <= 5)
           ? "expected-cjs-absolute-16.0.txt"
-          : major < 23
-            ? "expected-cjs-absolute-22.txt"
+          : major < 22 || (major === 22 && minor <= 11)
+            ? "expected-cjs-absolute-22.11.txt"
             : "expected-cjs-absolute.txt";
 
 test(
@@ -65,7 +65,9 @@ function test(title, command, expectedName) {
   const out = normalize(
     cp.execSync(
       `node ${
-        major >= 23 ? "--disable-warning=ExperimentalWarning " : ""
+        major > 22 || (major === 22 && minor >= 12)
+          ? "--disable-warning=ExperimentalWarning "
+          : ""
       }${command}`,
       {
         cwd: __dirname,
