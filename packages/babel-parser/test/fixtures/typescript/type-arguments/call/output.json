@@ -19,7 +19,7 @@
             "name": "f"
           },
           "arguments": [],
-          "typeParameters": {
+          "typeArguments": {
             "type": "TSTypeParameterInstantiation",
             "start":1,"end":4,"loc":{"start":{"line":1,"column":1,"index":1},"end":{"line":1,"column":4,"index":4}},
             "params": [
@@ -48,7 +48,7 @@
             "name": "f"
           },
           "arguments": [],
-          "typeParameters": {
+          "typeArguments": {
             "type": "TSTypeParameterInstantiation",
             "start":9,"end":15,"loc":{"start":{"line":2,"column":1,"index":9},"end":{"line":2,"column":7,"index":15}},
             "params": [

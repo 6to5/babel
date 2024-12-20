@@ -716,6 +716,9 @@ export interface CallOrNewBase extends NodeBase {
   callee: Expression | Super | Import;
   arguments: Array<Expression | SpreadElement>; // TODO: $ReadOnlyArray,
   typeArguments: TypeParameterInstantiationBase | undefined | null;
+  /**
+   * @deprecated
+   */
   typeParameters?: TypeParameterInstantiationBase | null; // TODO: Not in spec
 }
 
@@ -799,6 +802,10 @@ export interface TaggedTemplateExpression extends NodeBase {
   type: "TaggedTemplateExpression";
   tag: Expression;
   quasi: TemplateLiteral;
+  typeArguments?: TypeParameterInstantiationBase | null; // TODO: Not in spec
+  /**
+   * @deprecated
+   */
   typeParameters?: TypeParameterInstantiationBase | null; // TODO: Not in spec
 }
 
@@ -1127,6 +1134,10 @@ export type JSXSpreadAttribute = NodeAny<"JSXSpreadAttribute">;
 export interface JSXOpeningElement extends NodeBase {
   type: "JSXOpeningElement";
   name: JSXNamespacedName | JSXMemberExpression;
+  typeArguments?: TypeParameterInstantiationBase | null; // TODO: Not in spec,
+  /**
+   * @deprecated
+   */
   typeParameters?: TypeParameterInstantiationBase | null; // TODO: Not in spec,
   attributes: (JSXAttribute | JSXSpreadAttribute)[];
   selfClosing: boolean;
@@ -1886,7 +1897,11 @@ export interface TsNonNullExpression extends NodeBase {
 export interface TsInstantiationExpression extends NodeBase {
   type: "TSInstantiationExpression";
   expression: Expression;
-  typeParameters: TsTypeParameterInstantiation;
+  typeArguments?: TsTypeParameterInstantiation;
+  /**
+   * @deprecated
+   */
+  typeParameters?: TsTypeParameterInstantiation;
 }
 
 // ================

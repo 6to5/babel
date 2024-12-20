@@ -268,7 +268,11 @@ export function TSInstantiationExpression(
       parentType === "OptionalCallExpression" ||
       parentType === "NewExpression" ||
       parentType === "TSInstantiationExpression") &&
-    !!parent.typeParameters
+    !!(process.env.BABEL_8_BREAKING
+      ? // @ts-ignore(Babel 7 vs Babel 8) Babel 8 AST
+        parent.typeArguments
+      : // @ts-ignore(Babel 7 vs Babel 8) Babel 7 AST
+        parent.typeParameters)
   );
 }
 

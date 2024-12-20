@@ -1,0 +1,57 @@
+{
+  "type": "File",
+  "start":0,"end":34,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":13,"index":34}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":34,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":13,"index":34}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ClassDeclaration",
+        "start":0,"end":34,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":13,"index":34}},
+        "decorators": [
+          {
+            "type": "Decorator",
+            "start":0,"end":20,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":20,"index":20}},
+            "expression": {
+              "type": "CallExpression",
+              "start":1,"end":20,"loc":{"start":{"line":1,"column":1,"index":1},"end":{"line":1,"column":20,"index":20}},
+              "callee": {
+                "type": "Identifier",
+                "start":1,"end":10,"loc":{"start":{"line":1,"column":1,"index":1},"end":{"line":1,"column":10,"index":10},"identifierName":"decorator"},
+                "name": "decorator"
+              },
+              "arguments": [],
+              "typeParameters": {
+                "type": "TSTypeParameterInstantiation",
+                "start":10,"end":18,"loc":{"start":{"line":1,"column":10,"index":10},"end":{"line":1,"column":18,"index":18}},
+                "params": [
+                  {
+                    "type": "TSStringKeyword",
+                    "start":11,"end":17,"loc":{"start":{"line":1,"column":11,"index":11},"end":{"line":1,"column":17,"index":17}}
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "id": {
+          "type": "Identifier",
+          "start":27,"end":31,"loc":{"start":{"line":2,"column":6,"index":27},"end":{"line":2,"column":10,"index":31},"identifierName":"Test"},
+          "name": "Test"
+        },
+        "superClass": null,
+        "body": {
+          "type": "ClassBody",
+          "start":32,"end":34,"loc":{"start":{"line":2,"column":11,"index":32},"end":{"line":2,"column":13,"index":34}},
+          "body": []
+        }
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

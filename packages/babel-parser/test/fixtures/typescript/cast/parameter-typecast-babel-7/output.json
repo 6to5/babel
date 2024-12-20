@@ -1,0 +1,109 @@
+{
+  "type": "File",
+  "start":0,"end":26,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":14,"index":26}},
+  "errors": [
+    "SyntaxError: Did not expect a type annotation here. (1:6)",
+    "SyntaxError: Did not expect a type annotation here. (2:9)"
+  ],
+  "program": {
+    "type": "Program",
+    "start":0,"end":26,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":14,"index":26}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ExpressionStatement",
+        "start":0,"end":11,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":11,"index":11}},
+        "expression": {
+          "type": "CallExpression",
+          "start":0,"end":10,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":10,"index":10}},
+          "callee": {
+            "type": "Identifier",
+            "start":0,"end":4,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":4,"index":4},"identifierName":"func"},
+            "name": "func"
+          },
+          "arguments": [
+            {
+              "type": "TSTypeCastExpression",
+              "start":5,"end":9,"loc":{"start":{"line":1,"column":5,"index":5},"end":{"line":1,"column":9,"index":9}},
+              "expression": {
+                "type": "Identifier",
+                "start":5,"end":6,"loc":{"start":{"line":1,"column":5,"index":5},"end":{"line":1,"column":6,"index":6},"identifierName":"a"},
+                "name": "a"
+              },
+              "typeAnnotation": {
+                "type": "TSTypeAnnotation",
+                "start":6,"end":9,"loc":{"start":{"line":1,"column":6,"index":6},"end":{"line":1,"column":9,"index":9}},
+                "typeAnnotation": {
+                  "type": "TSTypeReference",
+                  "start":8,"end":9,"loc":{"start":{"line":1,"column":8,"index":8},"end":{"line":1,"column":9,"index":9}},
+                  "typeName": {
+                    "type": "Identifier",
+                    "start":8,"end":9,"loc":{"start":{"line":1,"column":8,"index":8},"end":{"line":1,"column":9,"index":9},"identifierName":"T"},
+                    "name": "T"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "ExpressionStatement",
+        "start":12,"end":26,"loc":{"start":{"line":2,"column":0,"index":12},"end":{"line":2,"column":14,"index":26}},
+        "expression": {
+          "type": "CallExpression",
+          "start":12,"end":25,"loc":{"start":{"line":2,"column":0,"index":12},"end":{"line":2,"column":13,"index":25}},
+          "callee": {
+            "type": "Identifier",
+            "start":12,"end":16,"loc":{"start":{"line":2,"column":0,"index":12},"end":{"line":2,"column":4,"index":16},"identifierName":"func"},
+            "name": "func"
+          },
+          "arguments": [
+            {
+              "type": "TSTypeCastExpression",
+              "start":20,"end":24,"loc":{"start":{"line":2,"column":8,"index":20},"end":{"line":2,"column":12,"index":24}},
+              "expression": {
+                "type": "Identifier",
+                "start":20,"end":21,"loc":{"start":{"line":2,"column":8,"index":20},"end":{"line":2,"column":9,"index":21},"identifierName":"a"},
+                "name": "a"
+              },
+              "typeAnnotation": {
+                "type": "TSTypeAnnotation",
+                "start":21,"end":24,"loc":{"start":{"line":2,"column":9,"index":21},"end":{"line":2,"column":12,"index":24}},
+                "typeAnnotation": {
+                  "type": "TSTypeReference",
+                  "start":23,"end":24,"loc":{"start":{"line":2,"column":11,"index":23},"end":{"line":2,"column":12,"index":24}},
+                  "typeName": {
+                    "type": "Identifier",
+                    "start":23,"end":24,"loc":{"start":{"line":2,"column":11,"index":23},"end":{"line":2,"column":12,"index":24},"identifierName":"T"},
+                    "name": "T"
+                  }
+                }
+              }
+            }
+          ],
+          "typeParameters": {
+            "type": "TSTypeParameterInstantiation",
+            "start":16,"end":19,"loc":{"start":{"line":2,"column":4,"index":16},"end":{"line":2,"column":7,"index":19}},
+            "params": [
+              {
+                "type": "TSTypeReference",
+                "start":17,"end":18,"loc":{"start":{"line":2,"column":5,"index":17},"end":{"line":2,"column":6,"index":18}},
+                "typeName": {
+                  "type": "Identifier",
+                  "start":17,"end":18,"loc":{"start":{"line":2,"column":5,"index":17},"end":{"line":2,"column":6,"index":18},"identifierName":"T"},
+                  "name": "T"
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

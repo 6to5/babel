@@ -29,7 +29,7 @@
             },
             "optional": true
           },
-          "typeParameters": {
+          "typeArguments": {
             "type": "TSTypeParameterInstantiation",
             "start":4,"end":7,"loc":{"start":{"line":1,"column":4,"index":4},"end":{"line":1,"column":7,"index":7}},
             "params": [
@@ -69,7 +69,7 @@
             "optional": true
           },
           "arguments": [],
-          "typeParameters": {
+          "typeArguments": {
             "type": "TSTypeParameterInstantiation",
             "start":13,"end":16,"loc":{"start":{"line":2,"column":4,"index":13},"end":{"line":2,"column":7,"index":16}},
             "params": [

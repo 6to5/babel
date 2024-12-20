@@ -6,7 +6,13 @@ export function TaggedTemplateExpression(
   node: t.TaggedTemplateExpression,
 ) {
   this.print(node.tag);
-  this.print(node.typeParameters); // TS
+  if (process.env.BABEL_8_BREAKING) {
+    // @ts-ignore(Babel 7 vs Babel 8) Babel 8 AST
+    this.print(node.typeArguments);
+  } else {
+    // @ts-ignore(Babel 7 vs Babel 8) Babel 7 AST
+    this.print(node.typeParameters);
+  }
   this.print(node.quasi);
 }
 

@@ -40,7 +40,7 @@
             "optional": true
           },
           "arguments": [],
-          "typeParameters": {
+          "typeArguments": {
             "type": "TSTypeParameterInstantiation",
             "start":20,"end":28,"loc":{"start":{"line":1,"column":20,"index":20},"end":{"line":1,"column":28,"index":28}},
             "params": [

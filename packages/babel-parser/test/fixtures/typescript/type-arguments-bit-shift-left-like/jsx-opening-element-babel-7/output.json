@@ -1,0 +1,83 @@
+{
+  "type": "File",
+  "start":0,"end":32,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":32,"index":32}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":32,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":32,"index":32}},
+    "sourceType": "script",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ExpressionStatement",
+        "start":0,"end":32,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":32,"index":32}},
+        "expression": {
+          "type": "JSXElement",
+          "start":0,"end":32,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":32,"index":32}},
+          "openingElement": {
+            "type": "JSXOpeningElement",
+            "start":0,"end":32,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":32,"index":32}},
+            "name": {
+              "type": "JSXIdentifier",
+              "start":1,"end":10,"loc":{"start":{"line":1,"column":1,"index":1},"end":{"line":1,"column":10,"index":10}},
+              "name": "Component"
+            },
+            "typeParameters": {
+              "type": "TSTypeParameterInstantiation",
+              "start":10,"end":29,"loc":{"start":{"line":1,"column":10,"index":10},"end":{"line":1,"column":29,"index":29}},
+              "params": [
+                {
+                  "type": "TSFunctionType",
+                  "start":11,"end":28,"loc":{"start":{"line":1,"column":11,"index":11},"end":{"line":1,"column":28,"index":28}},
+                  "typeParameters": {
+                    "type": "TSTypeParameterDeclaration",
+                    "start":11,"end":14,"loc":{"start":{"line":1,"column":11,"index":11},"end":{"line":1,"column":14,"index":14}},
+                    "params": [
+                      {
+                        "type": "TSTypeParameter",
+                        "start":12,"end":13,"loc":{"start":{"line":1,"column":12,"index":12},"end":{"line":1,"column":13,"index":13}},
+                        "name": "T"
+                      }
+                    ]
+                  },
+                  "parameters": [
+                    {
+                      "type": "Identifier",
+                      "start":15,"end":19,"loc":{"start":{"line":1,"column":15,"index":15},"end":{"line":1,"column":19,"index":19},"identifierName":"v"},
+                      "name": "v",
+                      "typeAnnotation": {
+                        "type": "TSTypeAnnotation",
+                        "start":16,"end":19,"loc":{"start":{"line":1,"column":16,"index":16},"end":{"line":1,"column":19,"index":19}},
+                        "typeAnnotation": {
+                          "type": "TSTypeReference",
+                          "start":18,"end":19,"loc":{"start":{"line":1,"column":18,"index":18},"end":{"line":1,"column":19,"index":19}},
+                          "typeName": {
+                            "type": "Identifier",
+                            "start":18,"end":19,"loc":{"start":{"line":1,"column":18,"index":18},"end":{"line":1,"column":19,"index":19},"identifierName":"T"},
+                            "name": "T"
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "typeAnnotation": {
+                    "type": "TSTypeAnnotation",
+                    "start":21,"end":28,"loc":{"start":{"line":1,"column":21,"index":21},"end":{"line":1,"column":28,"index":28}},
+                    "typeAnnotation": {
+                      "type": "TSVoidKeyword",
+                      "start":24,"end":28,"loc":{"start":{"line":1,"column":24,"index":24},"end":{"line":1,"column":28,"index":28}}
+                    }
+                  }
+                }
+              ]
+            },
+            "attributes": [],
+            "selfClosing": true
+          },
+          "closingElement": null,
+          "children": []
+        }
+      }
+    ],
+    "directives": []
+  }
+}

@@ -26,7 +26,7 @@
                   "name": "f"
                 },
                 "arguments": [],
-                "typeParameters": {
+                "typeArguments": {
                   "type": "TSTypeParameterInstantiation",
                   "start":3,"end":22,"loc":{"start":{"line":1,"column":3,"index":3},"end":{"line":1,"column":22,"index":22}},
                   "params": [

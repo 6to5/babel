@@ -1,0 +1,86 @@
+{
+  "type": "File",
+  "start":0,"end":30,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":13,"index":30}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":30,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":13,"index":30}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ExpressionStatement",
+        "start":0,"end":16,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":16,"index":16}},
+        "expression": {
+          "type": "JSXElement",
+          "start":0,"end":15,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":15,"index":15}},
+          "openingElement": {
+            "type": "JSXOpeningElement",
+            "start":0,"end":11,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":11,"index":11}},
+            "name": {
+              "type": "JSXIdentifier",
+              "start":1,"end":2,"loc":{"start":{"line":1,"column":1,"index":1},"end":{"line":1,"column":2,"index":2}},
+              "name": "C"
+            },
+            "typeParameters": {
+              "type": "TSTypeParameterInstantiation",
+              "start":2,"end":10,"loc":{"start":{"line":1,"column":2,"index":2},"end":{"line":1,"column":10,"index":10}},
+              "params": [
+                {
+                  "type": "TSNumberKeyword",
+                  "start":3,"end":9,"loc":{"start":{"line":1,"column":3,"index":3},"end":{"line":1,"column":9,"index":9}}
+                }
+              ]
+            },
+            "attributes": [],
+            "selfClosing": false
+          },
+          "closingElement": {
+            "type": "JSXClosingElement",
+            "start":11,"end":15,"loc":{"start":{"line":1,"column":11,"index":11},"end":{"line":1,"column":15,"index":15}},
+            "name": {
+              "type": "JSXIdentifier",
+              "start":13,"end":14,"loc":{"start":{"line":1,"column":13,"index":13},"end":{"line":1,"column":14,"index":14}},
+              "name": "C"
+            }
+          },
+          "children": []
+        }
+      },
+      {
+        "type": "ExpressionStatement",
+        "start":17,"end":30,"loc":{"start":{"line":2,"column":0,"index":17},"end":{"line":2,"column":13,"index":30}},
+        "expression": {
+          "type": "JSXElement",
+          "start":17,"end":29,"loc":{"start":{"line":2,"column":0,"index":17},"end":{"line":2,"column":12,"index":29}},
+          "openingElement": {
+            "type": "JSXOpeningElement",
+            "start":17,"end":29,"loc":{"start":{"line":2,"column":0,"index":17},"end":{"line":2,"column":12,"index":29}},
+            "name": {
+              "type": "JSXIdentifier",
+              "start":18,"end":19,"loc":{"start":{"line":2,"column":1,"index":18},"end":{"line":2,"column":2,"index":19}},
+              "name": "C"
+            },
+            "typeParameters": {
+              "type": "TSTypeParameterInstantiation",
+              "start":19,"end":27,"loc":{"start":{"line":2,"column":2,"index":19},"end":{"line":2,"column":10,"index":27}},
+              "params": [
+                {
+                  "type": "TSNumberKeyword",
+                  "start":20,"end":26,"loc":{"start":{"line":2,"column":3,"index":20},"end":{"line":2,"column":9,"index":26}}
+                }
+              ]
+            },
+            "attributes": [],
+            "selfClosing": true
+          },
+          "closingElement": null,
+          "children": []
+        }
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

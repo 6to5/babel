@@ -27,7 +27,7 @@
                 "start":11,"end":12,"loc":{"start":{"line":1,"column":11,"index":11},"end":{"line":1,"column":12,"index":12},"identifierName":"f"},
                 "name": "f"
               },
-              "typeParameters": {
+              "typeArguments": {
                 "type": "TSTypeParameterInstantiation",
                 "start":12,"end":18,"loc":{"start":{"line":1,"column":12,"index":12},"end":{"line":1,"column":18,"index":18}},
                 "params": [
@@ -92,7 +92,7 @@
                 "start":43,"end":44,"loc":{"start":{"line":4,"column":11,"index":43},"end":{"line":4,"column":12,"index":44},"identifierName":"f"},
                 "name": "f"
               },
-              "typeParameters": {
+              "typeArguments": {
                 "type": "TSTypeParameterInstantiation",
                 "start":44,"end":50,"loc":{"start":{"line":4,"column":12,"index":44},"end":{"line":4,"column":18,"index":50}},
                 "params": [
@@ -146,7 +146,7 @@
                 "start":77,"end":78,"loc":{"start":{"line":7,"column":10,"index":77},"end":{"line":7,"column":11,"index":78},"identifierName":"f"},
                 "name": "f"
               },
-              "typeParameters": {
+              "typeArguments": {
                 "type": "TSTypeParameterInstantiation",
                 "start":78,"end":84,"loc":{"start":{"line":7,"column":11,"index":78},"end":{"line":7,"column":17,"index":84}},
                 "params": [
@@ -209,7 +209,7 @@
                 "start":107,"end":108,"loc":{"start":{"line":10,"column":10,"index":107},"end":{"line":10,"column":11,"index":108},"identifierName":"f"},
                 "name": "f"
               },
-              "typeParameters": {
+              "typeArguments": {
                 "type": "TSTypeParameterInstantiation",
                 "start":108,"end":114,"loc":{"start":{"line":10,"column":11,"index":108},"end":{"line":10,"column":17,"index":114}},
                 "params": [
@@ -267,7 +267,7 @@
                 "start":144,"end":145,"loc":{"start":{"line":13,"column":10,"index":144},"end":{"line":13,"column":11,"index":145},"identifierName":"f"},
                 "name": "f"
               },
-              "typeParameters": {
+              "typeArguments": {
                 "type": "TSTypeParameterInstantiation",
                 "start":145,"end":151,"loc":{"start":{"line":13,"column":11,"index":145},"end":{"line":13,"column":17,"index":151}},
                 "params": [
@@ -322,7 +322,7 @@
                 "start":174,"end":175,"loc":{"start":{"line":16,"column":10,"index":174},"end":{"line":16,"column":11,"index":175},"identifierName":"f"},
                 "name": "f"
               },
-              "typeParameters": {
+              "typeArguments": {
                 "type": "TSTypeParameterInstantiation",
                 "start":175,"end":181,"loc":{"start":{"line":16,"column":11,"index":175},"end":{"line":16,"column":17,"index":181}},
                 "params": [
@@ -376,7 +376,7 @@
                 "start":199,"end":200,"loc":{"start":{"line":19,"column":10,"index":199},"end":{"line":19,"column":11,"index":200},"identifierName":"f"},
                 "name": "f"
               },
-              "typeParameters": {
+              "typeArguments": {
                 "type": "TSTypeParameterInstantiation",
                 "start":200,"end":206,"loc":{"start":{"line":19,"column":11,"index":200},"end":{"line":19,"column":17,"index":206}},
                 "params": [
@@ -447,7 +447,7 @@
                   "start":254,"end":255,"loc":{"start":{"line":23,"column":24,"index":254},"end":{"line":23,"column":25,"index":255},"identifierName":"f"},
                   "name": "f"
                 },
-                "typeParameters": {
+                "typeArguments": {
                   "type": "TSTypeParameterInstantiation",
                   "start":255,"end":263,"loc":{"start":{"line":23,"column":25,"index":255},"end":{"line":23,"column":33,"index":263}},
                   "params": [
@@ -514,7 +514,7 @@
                   "start":323,"end":324,"loc":{"start":{"line":28,"column":24,"index":323},"end":{"line":28,"column":25,"index":324},"identifierName":"f"},
                   "name": "f"
                 },
-                "typeParameters": {
+                "typeArguments": {
                   "type": "TSTypeParameterInstantiation",
                   "start":324,"end":332,"loc":{"start":{"line":28,"column":25,"index":324},"end":{"line":28,"column":33,"index":332}},
                   "params": [
@@ -582,7 +582,7 @@
                   "start":393,"end":394,"loc":{"start":{"line":33,"column":25,"index":393},"end":{"line":33,"column":26,"index":394},"identifierName":"f"},
                   "name": "f"
                 },
-                "typeParameters": {
+                "typeArguments": {
                   "type": "TSTypeParameterInstantiation",
                   "start":394,"end":402,"loc":{"start":{"line":33,"column":26,"index":394},"end":{"line":33,"column":34,"index":402}},
                   "params": [
@@ -650,7 +650,7 @@
                   "start":466,"end":467,"loc":{"start":{"line":38,"column":27,"index":466},"end":{"line":38,"column":28,"index":467},"identifierName":"f"},
                   "name": "f"
                 },
-                "typeParameters": {
+                "typeArguments": {
                   "type": "TSTypeParameterInstantiation",
                   "start":467,"end":475,"loc":{"start":{"line":38,"column":28,"index":467},"end":{"line":38,"column":36,"index":475}},
                   "params": [

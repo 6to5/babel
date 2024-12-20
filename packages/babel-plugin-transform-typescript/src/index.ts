@@ -694,23 +694,50 @@ export default declare((api, opts: Options) => {
       },
 
       CallExpression(path) {
-        path.node.typeParameters = null;
+        if (process.env.BABEL_8_BREAKING) {
+          path.node.typeArguments = null;
+        } else {
+          // @ts-ignore(Babel 7 vs Babel 8) Removed in Babel 8
+          path.node.typeParameters = null;
+        }
       },
 
       OptionalCallExpression(path) {
-        path.node.typeParameters = null;
+        if (process.env.BABEL_8_BREAKING) {
+          path.node.typeArguments = null;
+        } else {
+          // @ts-ignore(Babel 7 vs Babel 8) Removed in Babel 8
+          path.node.typeParameters = null;
+        }
       },
 
       NewExpression(path) {
-        path.node.typeParameters = null;
+        if (process.env.BABEL_8_BREAKING) {
+          path.node.typeArguments = null;
+        } else {
+          // @ts-ignore(Babel 7 vs Babel 8) Removed in Babel 8
+          path.node.typeParameters = null;
+        }
       },
 
       JSXOpeningElement(path) {
-        path.node.typeParameters = null;
+        if (process.env.BABEL_8_BREAKING) {
+          //@ts-ignore(Babel 7 vs Babel 8) Babel 8 AST
+          path.node.typeArguments = null;
+        } else {
+          // @ts-ignore(Babel 7 vs Babel 8) Removed in Babel 8
+          path.node.typeParameters = null;
+        }
       },
 
       TaggedTemplateExpression(path) {
-        path.node.typeParameters = null;
+        if (process.env.BABEL_8_BREAKING) {
+          // @ts-ignore(Babel 7 vs Babel 8) Babel 8 AST
+          path.node.typeArguments = null;
+        } else {
+          // @ts-ignore(Babel 7 vs Babel 8) Removed in Babel 8
+          path.node.typeParameters = null;
+        }
       },
     },
   };

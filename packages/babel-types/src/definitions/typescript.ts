@@ -504,10 +504,13 @@ defineType("TSTypeAliasDeclaration", {
 
 defineType("TSInstantiationExpression", {
   aliases: ["Expression"],
-  visitor: ["expression", "typeParameters"],
+  visitor: process.env.BABEL_8_BREAKING
+    ? ["expression", "typeArguments"]
+    : ["expression", "typeParameters"],
   fields: {
     expression: validateType("Expression"),
-    typeParameters: validateOptionalType("TSTypeParameterInstantiation"),
+    [process.env.BABEL_8_BREAKING ? "typeArguments" : "typeParameters"]:
+      validateOptionalType("TSTypeParameterInstantiation"),
   },
 });
 

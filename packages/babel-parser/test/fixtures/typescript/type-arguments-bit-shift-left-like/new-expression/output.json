@@ -18,7 +18,7 @@
             "start":4,"end":5,"loc":{"start":{"line":1,"column":4,"index":4},"end":{"line":1,"column":5,"index":5},"identifierName":"f"},
             "name": "f"
           },
-          "typeParameters": {
+          "typeArguments": {
             "type": "TSTypeParameterInstantiation",
             "start":5,"end":24,"loc":{"start":{"line":1,"column":5,"index":5},"end":{"line":1,"column":24,"index":24}},
             "params": [

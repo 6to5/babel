@@ -93,11 +93,5 @@ jobs:
           path: /tmp
       - name: Unpack published packages
         run: tar -C /tmp -xf /tmp/verdaccio-workspace.tar
-      # Remove this step when https://github.com/prettier/prettier/issues/16930 is resolved
-      - name: Use Node.js 22.11 for prettier test
-        if: matrix.project == 'prettier'
-        uses: actions/setup-node@v4
-        with:
-          node-version: "22.11"
       - name: Test
         run: ./scripts/integration-tests/e2e-${{ matrix.project }}.sh

@@ -1,0 +1,54 @@
+{
+  "type": "File",
+  "start":0,"end":13,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":1,"index":13}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":13,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":1,"index":13}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ExpressionStatement",
+        "start":0,"end":11,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":11,"index":11}},
+        "expression": {
+          "type": "NewExpression",
+          "start":0,"end":11,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":11,"index":11}},
+          "callee": {
+            "type": "Identifier",
+            "start":4,"end":5,"loc":{"start":{"line":1,"column":4,"index":4},"end":{"line":1,"column":5,"index":5},"identifierName":"A"},
+            "name": "A"
+          },
+          "typeParameters": {
+            "type": "TSTypeParameterInstantiation",
+            "start":6,"end":11,"loc":{"start":{"line":1,"column":6,"index":6},"end":{"line":1,"column":11,"index":11}},
+            "params": [
+              {
+                "type": "TSTypeReference",
+                "start":8,"end":9,"loc":{"start":{"line":1,"column":8,"index":8},"end":{"line":1,"column":9,"index":9}},
+                "typeName": {
+                  "type": "Identifier",
+                  "start":8,"end":9,"loc":{"start":{"line":1,"column":8,"index":8},"end":{"line":1,"column":9,"index":9},"identifierName":"B"},
+                  "name": "B"
+                }
+              }
+            ]
+          },
+          "arguments": []
+        }
+      },
+      {
+        "type": "ExpressionStatement",
+        "start":12,"end":13,"loc":{"start":{"line":2,"column":0,"index":12},"end":{"line":2,"column":1,"index":13}},
+        "expression": {
+          "type": "Identifier",
+          "start":12,"end":13,"loc":{"start":{"line":2,"column":0,"index":12},"end":{"line":2,"column":1,"index":13},"identifierName":"C"},
+          "name": "C"
+        }
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

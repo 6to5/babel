@@ -83,7 +83,7 @@
               }
             }
           ],
-          "typeParameters": {
+          "typeArguments": {
             "type": "TSTypeParameterInstantiation",
             "start":16,"end":19,"loc":{"start":{"line":2,"column":4,"index":16},"end":{"line":2,"column":7,"index":19}},
             "params": [

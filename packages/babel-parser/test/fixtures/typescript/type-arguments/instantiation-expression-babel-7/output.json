@@ -1,0 +1,39 @@
+{
+  "type": "File",
+  "start":0,"end":15,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":15,"index":15}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":15,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":15,"index":15}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ExpressionStatement",
+        "start":0,"end":15,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":15,"index":15}},
+        "expression": {
+          "type": "TSInstantiationExpression",
+          "start":0,"end":15,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":15,"index":15}},
+          "expression": {
+            "type": "Identifier",
+            "start":0,"end":7,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":7,"index":7},"identifierName":"makeBox"},
+            "name": "makeBox"
+          },
+          "typeParameters": {
+            "type": "TSTypeParameterInstantiation",
+            "start":7,"end":15,"loc":{"start":{"line":1,"column":7,"index":7},"end":{"line":1,"column":15,"index":15}},
+            "params": [
+              {
+                "type": "TSNumberKeyword",
+                "start":8,"end":14,"loc":{"start":{"line":1,"column":8,"index":8},"end":{"line":1,"column":14,"index":14}}
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

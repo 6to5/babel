@@ -129,7 +129,9 @@ defineType("JSXNamespacedName", {
 
 defineType("JSXOpeningElement", {
   builder: ["name", "attributes", "selfClosing"],
-  visitor: ["name", "typeParameters", "attributes"],
+  visitor: process.env.BABEL_8_BREAKING
+    ? ["name", "typeArguments", "attributes"]
+    : ["name", "typeParameters", "attributes"],
   aliases: ["Immutable"],
   fields: {
     name: {
@@ -143,7 +145,7 @@ defineType("JSXOpeningElement", {
       default: false,
     },
     attributes: validateArrayOfType("JSXAttribute", "JSXSpreadAttribute"),
-    typeParameters: {
+    [process.env.BABEL_8_BREAKING ? "typeArguments" : "typeParameters"]: {
       validate: assertNodeType(
         "TypeParameterInstantiation",
         "TSTypeParameterInstantiation",

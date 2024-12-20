@@ -594,7 +594,13 @@ export function TSInstantiationExpression(
   node: t.TSInstantiationExpression,
 ) {
   this.print(node.expression);
-  this.print(node.typeParameters);
+  if (process.env.BABEL_8_BREAKING) {
+    // @ts-ignore(Babel 7 vs Babel 8) Babel 8 AST
+    this.print(node.typeArguments);
+  } else {
+    // @ts-ignore(Babel 7 vs Babel 8) Removed in Babel 8
+    this.print(node.typeParameters);
+  }
 }
 
 export function TSEnumDeclaration(this: Printer, node: t.TSEnumDeclaration) {

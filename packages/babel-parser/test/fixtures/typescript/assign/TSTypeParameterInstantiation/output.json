@@ -246,7 +246,7 @@
                               "name": "myFunc"
                             }
                           },
-                          "typeParameters": {
+                          "typeArguments": {
                             "type": "TSTypeParameterInstantiation",
                             "start":317,"end":332,"loc":{"start":{"line":15,"column":14,"index":317},"end":{"line":15,"column":29,"index":332}},
                             "params": [

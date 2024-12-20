@@ -1,0 +1,60 @@
+{
+  "type": "File",
+  "start":0,"end":7,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":7,"index":7}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":7,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":7,"index":7}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ExpressionStatement",
+        "start":0,"end":7,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":7,"index":7}},
+        "expression": {
+          "type": "TaggedTemplateExpression",
+          "start":0,"end":6,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":6,"index":6}},
+          "tag": {
+            "type": "Identifier",
+            "start":0,"end":1,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":1,"index":1},"identifierName":"f"},
+            "name": "f"
+          },
+          "quasi": {
+            "type": "TemplateLiteral",
+            "start":4,"end":6,"loc":{"start":{"line":1,"column":4,"index":4},"end":{"line":1,"column":6,"index":6}},
+            "expressions": [],
+            "quasis": [
+              {
+                "type": "TemplateElement",
+                "start":5,"end":5,"loc":{"start":{"line":1,"column":5,"index":5},"end":{"line":1,"column":5,"index":5}},
+                "value": {
+                  "raw": "",
+                  "cooked": ""
+                },
+                "tail": true
+              }
+            ]
+          },
+          "typeParameters": {
+            "type": "TSTypeParameterInstantiation",
+            "start":1,"end":4,"loc":{"start":{"line":1,"column":1,"index":1},"end":{"line":1,"column":4,"index":4}},
+            "params": [
+              {
+                "type": "TSTypeReference",
+                "start":2,"end":3,"loc":{"start":{"line":1,"column":2,"index":2},"end":{"line":1,"column":3,"index":3}},
+                "typeName": {
+                  "type": "Identifier",
+                  "start":2,"end":3,"loc":{"start":{"line":1,"column":2,"index":2},"end":{"line":1,"column":3,"index":3},"identifierName":"T"},
+                  "name": "T"
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

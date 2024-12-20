@@ -21,7 +21,7 @@
               "start":1,"end":10,"loc":{"start":{"line":1,"column":1,"index":1},"end":{"line":1,"column":10,"index":10}},
               "name": "Component"
             },
-            "typeParameters": {
+            "typeArguments": {
               "type": "TSTypeParameterInstantiation",
               "start":10,"end":29,"loc":{"start":{"line":1,"column":10,"index":10},"end":{"line":1,"column":29,"index":29}},
               "params": [

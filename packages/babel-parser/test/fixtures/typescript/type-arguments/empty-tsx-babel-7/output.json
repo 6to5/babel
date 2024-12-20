@@ -1,0 +1,65 @@
+{
+  "type": "File",
+  "start":0,"end":23,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":23,"index":23}},
+  "errors": [
+    "SyntaxError: Type argument list cannot be empty. (1:13)"
+  ],
+  "program": {
+    "type": "Program",
+    "start":0,"end":23,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":23,"index":23}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "VariableDeclaration",
+        "start":0,"end":23,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":23,"index":23}},
+        "declarations": [
+          {
+            "type": "VariableDeclarator",
+            "start":4,"end":23,"loc":{"start":{"line":1,"column":4,"index":4},"end":{"line":1,"column":23,"index":23}},
+            "id": {
+              "type": "Identifier",
+              "start":4,"end":5,"loc":{"start":{"line":1,"column":4,"index":4},"end":{"line":1,"column":5,"index":5},"identifierName":"a"},
+              "name": "a"
+            },
+            "init": {
+              "type": "JSXElement",
+              "start":8,"end":23,"loc":{"start":{"line":1,"column":8,"index":8},"end":{"line":1,"column":23,"index":23}},
+              "openingElement": {
+                "type": "JSXOpeningElement",
+                "start":8,"end":16,"loc":{"start":{"line":1,"column":8,"index":8},"end":{"line":1,"column":16,"index":16}},
+                "name": {
+                  "type": "JSXIdentifier",
+                  "start":9,"end":13,"loc":{"start":{"line":1,"column":9,"index":9},"end":{"line":1,"column":13,"index":13}},
+                  "name": "Comp"
+                },
+                "typeParameters": {
+                  "type": "TSTypeParameterInstantiation",
+                  "start":13,"end":15,"loc":{"start":{"line":1,"column":13,"index":13},"end":{"line":1,"column":15,"index":15}},
+                  "params": []
+                },
+                "attributes": [],
+                "selfClosing": false
+              },
+              "closingElement": {
+                "type": "JSXClosingElement",
+                "start":16,"end":23,"loc":{"start":{"line":1,"column":16,"index":16},"end":{"line":1,"column":23,"index":23}},
+                "name": {
+                  "type": "JSXIdentifier",
+                  "start":18,"end":22,"loc":{"start":{"line":1,"column":18,"index":18},"end":{"line":1,"column":22,"index":22}},
+                  "name": "Comp"
+                }
+              },
+              "children": []
+            }
+          }
+        ],
+        "kind": "var"
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

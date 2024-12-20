@@ -19,7 +19,7 @@
             "name": "f"
           },
           "arguments": [],
-          "typeParameters": {
+          "typeArguments": {
             "type": "TSTypeParameterInstantiation",
             "start":3,"end":6,"loc":{"start":{"line":1,"column":3,"index":3},"end":{"line":1,"column":6,"index":6}},
             "params": [
@@ -49,7 +49,7 @@
             "name": "f"
           },
           "arguments": [],
-          "typeParameters": {
+          "typeArguments": {
             "type": "TSTypeParameterInstantiation",
             "start":13,"end":19,"loc":{"start":{"line":2,"column":3,"index":13},"end":{"line":2,"column":9,"index":19}},
             "params": [
@@ -88,7 +88,7 @@
             "name": "f"
           },
           "arguments": [],
-          "typeParameters": {
+          "typeArguments": {
             "type": "TSTypeParameterInstantiation",
             "start":27,"end":30,"loc":{"start":{"line":4,"column":2,"index":27},"end":{"line":4,"column":5,"index":30}},
             "params": [

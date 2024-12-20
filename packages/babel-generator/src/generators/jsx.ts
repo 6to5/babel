@@ -82,7 +82,14 @@ function spaceSeparator(this: Printer) {
 export function JSXOpeningElement(this: Printer, node: t.JSXOpeningElement) {
   this.token("<");
   this.print(node.name);
-  this.print(node.typeParameters); // TS
+  if (process.env.BABEL_8_BREAKING) {
+    //@ts-ignore(Babel 7 vs Babel 8) Babel 8 AST
+    this.print(node.typeArguments);
+  } else {
+    // @ts-ignore(Babel 7 vs Babel 8) Removed in Babel 8
+    this.print(node.typeParameters); // Legacy TS AST
+  }
+
   if (node.attributes.length > 0) {
     this.space();
     this.printJoin(node.attributes, undefined, undefined, spaceSeparator);

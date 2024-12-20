@@ -3862,7 +3862,7 @@
               "name": "qq"
             }
           ],
-          "typeParameters": {
+          "typeArguments": {
             "type": "TSTypeParameterInstantiation",
             "start":3243,"end":3296,"loc":{"start":{"line":160,"column":13,"index":3243},"end":{"line":160,"column":66,"index":3296}},
             "params": [

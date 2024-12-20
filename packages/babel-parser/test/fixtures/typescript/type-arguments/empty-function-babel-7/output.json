@@ -1,0 +1,38 @@
+{
+  "type": "File",
+  "start":0,"end":7,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":7,"index":7}},
+  "errors": [
+    "SyntaxError: Type argument list cannot be empty. (1:3)"
+  ],
+  "program": {
+    "type": "Program",
+    "start":0,"end":7,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":7,"index":7}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ExpressionStatement",
+        "start":0,"end":7,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":7,"index":7}},
+        "expression": {
+          "type": "CallExpression",
+          "start":0,"end":7,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":7,"index":7}},
+          "callee": {
+            "type": "Identifier",
+            "start":0,"end":3,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":3,"index":3},"identifierName":"foo"},
+            "name": "foo"
+          },
+          "arguments": [],
+          "typeParameters": {
+            "type": "TSTypeParameterInstantiation",
+            "start":3,"end":5,"loc":{"start":{"line":1,"column":3,"index":3},"end":{"line":1,"column":5,"index":5}},
+            "params": []
+          }
+        }
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

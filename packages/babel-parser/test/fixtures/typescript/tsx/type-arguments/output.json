@@ -19,7 +19,7 @@
             "name": "f"
           },
           "arguments": [],
-          "typeParameters": {
+          "typeArguments": {
             "type": "TSTypeParameterInstantiation",
             "start":1,"end":4,"loc":{"start":{"line":1,"column":1,"index":1},"end":{"line":1,"column":4,"index":4}},
             "params": [
@@ -47,7 +47,7 @@
             "start":12,"end":13,"loc":{"start":{"line":2,"column":4,"index":12},"end":{"line":2,"column":5,"index":13},"identifierName":"C"},
             "name": "C"
           },
-          "typeParameters": {
+          "typeArguments": {
             "type": "TSTypeParameterInstantiation",
             "start":13,"end":16,"loc":{"start":{"line":2,"column":5,"index":13},"end":{"line":2,"column":8,"index":16}},
             "params": [

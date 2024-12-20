@@ -1,0 +1,62 @@
+{
+  "type": "File",
+  "start":0,"end":30,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":30,"index":30}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":30,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":30,"index":30}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ExpressionStatement",
+        "start":0,"end":30,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":30,"index":30}},
+        "expression": {
+          "type": "OptionalCallExpression",
+          "start":0,"end":30,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":30,"index":30}},
+          "callee": {
+            "type": "OptionalMemberExpression",
+            "start":0,"end":20,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":20,"index":20}},
+            "object": {
+              "type": "MemberExpression",
+              "start":0,"end":13,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":13,"index":13}},
+              "object": {
+                "type": "Identifier",
+                "start":0,"end":7,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":7,"index":7},"identifierName":"example"},
+                "name": "example"
+              },
+              "computed": false,
+              "property": {
+                "type": "Identifier",
+                "start":8,"end":13,"loc":{"start":{"line":1,"column":8,"index":8},"end":{"line":1,"column":13,"index":13},"identifierName":"inner"},
+                "name": "inner"
+              }
+            },
+            "computed": false,
+            "property": {
+              "type": "Identifier",
+              "start":15,"end":20,"loc":{"start":{"line":1,"column":15,"index":15},"end":{"line":1,"column":20,"index":20},"identifierName":"greet"},
+              "name": "greet"
+            },
+            "optional": true
+          },
+          "arguments": [],
+          "typeParameters": {
+            "type": "TSTypeParameterInstantiation",
+            "start":20,"end":28,"loc":{"start":{"line":1,"column":20,"index":20},"end":{"line":1,"column":28,"index":28}},
+            "params": [
+              {
+                "type": "TSStringKeyword",
+                "start":21,"end":27,"loc":{"start":{"line":1,"column":21,"index":21},"end":{"line":1,"column":27,"index":27}}
+              }
+            ]
+          },
+          "optional": false
+        }
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}
