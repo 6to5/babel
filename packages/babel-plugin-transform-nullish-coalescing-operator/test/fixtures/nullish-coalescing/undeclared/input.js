@@ -1,0 +1,2 @@
+globalThis ?? window;
+a ?? b;

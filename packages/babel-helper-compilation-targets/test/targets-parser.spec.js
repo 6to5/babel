@@ -4,6 +4,9 @@ const getTargets = _getTargets.default || _getTargets;
 import { itBabel8, itBabel7, commonJS } from "$repo-utils";
 const { require } = commonJS(import.meta.url);
 
+// Strip prerelease tag
+const nodeVersion = process.versions.node.split("-")[0];
+
 describe("getTargets", () => {
   it("parses", () => {
     expect(
@@ -155,7 +158,7 @@ describe("getTargets", () => {
           browsers: "current node, chrome 55, opera 42",
         }),
       ).toEqual({
-        node: process.versions.node,
+        node: nodeVersion,
         chrome: "55.0.0",
         opera: "42.0.0",
       });
@@ -175,7 +178,7 @@ describe("getTargets", () => {
           browsers: ["ie 11", "current node", "chrome 55"],
         }),
       ).toEqual({
-        node: process.versions.node,
+        node: nodeVersion,
         chrome: "55.0.0",
         ie: "11.0.0",
       });
@@ -361,7 +364,7 @@ describe("getTargets", () => {
           node: true,
         }),
       ).toEqual({
-        node: process.versions.node,
+        node: nodeVersion,
       });
     });
   });

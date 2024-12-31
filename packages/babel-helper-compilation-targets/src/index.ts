@@ -142,7 +142,8 @@ function semverifyTarget(target: Target, value: string) {
 function nodeTargetParser(value: true | string) {
   const parsed =
     value === true || value === "current"
-      ? process.versions.node
+      ? // Align with `browserslist` and strip prerelease tag.
+        process.versions.node.split("-")[0]
       : semverifyTarget("node", value);
   return ["node", parsed] as const;
 }

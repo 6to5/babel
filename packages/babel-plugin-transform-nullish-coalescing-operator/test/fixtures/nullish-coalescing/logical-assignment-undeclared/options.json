@@ -1,0 +1,6 @@
+{
+  "plugins": [
+    "transform-nullish-coalescing-operator",
+    "transform-logical-assignment-operators"
+  ]
+}

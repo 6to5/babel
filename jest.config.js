@@ -5,7 +5,10 @@ const supportsESMAndJestLightRunner = semver.satisfies(
   nodeVersion,
   // ^12.22 || >=14.17 : Node will throw "t.isIdentifier is not a function" when test is running in worker threads.
   // ^13.7: `resolve.exports` specifies conditional exports in package.json
-  "^12.22 || ^13.7 || >=14.17"
+  "^12.22 || ^13.7 || >=14.17",
+  {
+    includePrerelease: true,
+  }
 );
 const isPublishBundle = process.env.IS_PUBLISH;
 
