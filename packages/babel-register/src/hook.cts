@@ -1,20 +1,22 @@
-"use strict";
+import type { IClient, Options } from "./types.cts";
 
-const { addHook } = require("pirates");
-const sourceMapSupport = process.env.BABEL_8_BREAKING
+import pirates = require("pirates");
+const sourceMapSupport: typeof import("@cspotcode/source-map-support") = process
+  .env.BABEL_8_BREAKING
   ? require("@cspotcode/source-map-support")
   : require("source-map-support");
 
-let piratesRevert;
+let piratesRevert: () => void;
 const maps = Object.create(null);
 
 function installSourceMapSupport() {
-  installSourceMapSupport = () => {}; // eslint-disable-line no-func-assign
+  // @ts-expect-error assign to function
+  installSourceMapSupport = () => {};
 
   sourceMapSupport.install({
     handleUncaughtExceptions: false,
     environment: "node",
-    retrieveSourceMap(filename) {
+    retrieveSourceMap(filename: string) {
       const map = maps?.[filename];
       if (map) {
         return { url: null, map: map };
@@ -38,7 +40,12 @@ if (!process.env.BABEL_8_BREAKING) {
   const internalModuleCache = Module._cache;
 
   // eslint-disable-next-line no-var
-  var compileBabel7 = function compileBabel7(client, code, filename) {
+  var compileBabel7 = function compileBabel7(
+    client: IClient,
+    code: string,
+    filename: string,
+  ) {
+    // @ts-expect-error Babel 7 property
     if (!client.isLocalClient) return compile(client, code, filename);
 
     if (compiling) return code;
@@ -55,7 +62,7 @@ if (!process.env.BABEL_8_BREAKING) {
   };
 }
 
-function compile(client, inputCode, filename) {
+function compile(client: IClient, inputCode: string, filename: string) {
   const result = client.transform(inputCode, filename);
 
   if (result === null) return inputCode;
@@ -68,10 +75,10 @@ function compile(client, inputCode, filename) {
   return code;
 }
 
-exports.register = function register(client, opts = {}) {
+function register(client: IClient, opts: Options = {}) {
   if (piratesRevert) piratesRevert();
 
-  piratesRevert = addHook(
+  piratesRevert = pirates.addHook(
     (process.env.BABEL_8_BREAKING ? compile : compileBabel7).bind(null, client),
     {
       exts: opts.extensions ?? client.getDefaultExtensions(),
@@ -80,8 +87,10 @@ exports.register = function register(client, opts = {}) {
   );
 
   client.setOptions(opts);
-};
+}
 
-exports.revert = function revert() {
+function revert() {
   if (piratesRevert) piratesRevert();
-};
+}
+
+export = { register, revert };

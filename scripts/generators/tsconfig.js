@@ -92,13 +92,17 @@ function getTsPkgs(subRoot) {
           if (typeof exportPath === "object") {
             exportPath = exportPath.default;
           }
-          if (exportPath.startsWith("./lib") && exportPath.endsWith(".js")) {
+          if (
+            exportPath.startsWith("./lib") &&
+            (exportPath.endsWith(".js") || exportPath.endsWith(".cjs"))
+          ) {
             // remove the leading `.` and trailing `.js`
-            const subExport = _export.slice(1).replace(/\.js$/, "");
+            const subExport = _export.slice(1).replace(/\.c?js$/, "");
             const subExportPath = exportPath
               .replace("./lib", "/src")
               .replace(/\.js$/, ".ts")
-              .replace(/\/index\.ts$/, "");
+              .replace(/\.cjs$/, ".cts")
+              .replace(/\/index\.c?ts$/, "");
             return [[subExport, subExportPath]];
           }
           return [];
@@ -254,7 +258,7 @@ function buildTSConfig(pkgs, allDeps, hasOverrides) {
     ].filter(Boolean),
     include: pkgs
       .map(({ name, relative }) => {
-        return name === "@babel/eslint-parser"
+        return name === "@babel/eslint-parser" || name === "@babel/register"
           ? `../../${relative.slice(2)}/src/**/*.cts`
           : `../../${relative.slice(2)}/src/**/*.ts`;
       })

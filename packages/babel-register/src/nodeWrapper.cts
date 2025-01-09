@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * This file wraps the implementation of register so all modules `require()`-ed
  * internally within register are stored in a separate module cache.
@@ -13,7 +15,7 @@ const globalModuleCache = Module._cache;
 const internalModuleCache = Object.create(null);
 
 Module._cache = internalModuleCache;
-const node = require("./node.js");
+const node = require("./node.cjs");
 
 // NOTE: This Module._cache set is intercepted by the beforeEach hook in
 // packages/babel-register/test/index.js to install dependencies mocks.

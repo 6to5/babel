@@ -337,6 +337,7 @@ function enforceExports({ Yarn }) {
         "@babel/plugin-transform-react-jsx", // TODO: Remove in Babel 8
         "@babel/standalone",
         "@babel/types", // @babel/types has types exports
+        "@babel/register", // index.cjs
       ].includes(packageName) ||
       packageName.startsWith("@babel/eslint-") ||
       packageName.startsWith("@babel/runtime")

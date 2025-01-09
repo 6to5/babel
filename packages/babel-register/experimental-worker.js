@@ -1,1 +1,1 @@
-module.exports = require("./lib/experimental-worker");
+module.exports = require("./lib/experimental-worker.cjs");

@@ -1,21 +1,22 @@
-"use strict";
+// @ts-expect-error no types
+import cloneDeep = require("clone-deep");
+import path = require("path");
+import fs = require("fs");
 
-const cloneDeep = require("clone-deep");
-const path = require("path");
-const fs = require("fs");
-
-const babel = require("./babel-core.js");
-const registerCache = require("../cache.js");
+const babel = require("./babel-core.cjs");
+const registerCache = require("./cache.cjs");
 
 const nmRE = escapeRegExp(path.sep + "node_modules" + path.sep);
 
-function escapeRegExp(string) {
+function escapeRegExp(string: string) {
   return string.replace(/[|\\{}()[\]^$+*?.]/g, "\\$&");
 }
 
-let cache;
-let transformOpts;
-exports.setOptions = function (opts) {
+type CacheItem = { value: { code: string; map: any }; mtime: number };
+
+let cache: Record<string, CacheItem>;
+let transformOpts: any;
+function setOptions(opts: any) {
   if (opts.cache === false && cache) {
     registerCache.clear();
     cache = null;
@@ -51,9 +52,9 @@ exports.setOptions = function (opts) {
       new RegExp(`^${cwdRE}(?:${path.sep}.*)?${nmRE}`, "i"),
     ];
   }
-};
+}
 
-exports.transform = async function (input, filename) {
+async function transform(input: string, filename: string) {
   const opts = await babel.loadOptionsAsync({
     // sourceRoot can be overwritten
     sourceRoot: path.dirname(filename) + path.sep,
@@ -74,10 +75,12 @@ exports.transform = async function (input, filename) {
   });
 
   return store({ code, map });
-};
+}
+
+export = { setOptions, transform };
 
 if (!process.env.BABEL_8_BREAKING) {
-  exports.transformSync = function (input, filename) {
+  module.exports.transformSync = function (input: string, filename: string) {
     const opts = new babel.OptionManager().init({
       // sourceRoot can be overwritten
       sourceRoot: path.dirname(filename) + path.sep,
@@ -101,9 +104,9 @@ if (!process.env.BABEL_8_BREAKING) {
   };
 }
 
-const id = value => value;
+const id = (value: unknown) => value;
 
-function cacheLookup(opts, filename) {
+function cacheLookup(opts: unknown, filename: string) {
   if (!cache) return { cached: null, store: id };
 
   let cacheKey = `${JSON.stringify(opts)}:${babel.version}`;
@@ -120,7 +123,7 @@ function cacheLookup(opts, filename) {
 
   return {
     cached: null,
-    store(value) {
+    store(value: CacheItem["value"]) {
       cache[cacheKey] = { value, mtime: fileMtime };
       registerCache.setDirty();
       return value;

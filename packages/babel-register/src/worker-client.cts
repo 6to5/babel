@@ -1,42 +1,33 @@
-const path = require("path");
+import type { IClient, Options } from "./types.cts";
 
-const ACTIONS = {
-  GET_DEFAULT_EXTENSIONS: "GET_DEFAULT_EXTENSIONS",
-  SET_OPTIONS: "SET_OPTIONS",
-  TRANSFORM: "TRANSFORM",
-  TRANSFORM_SYNC: "TRANSFORM_SYNC",
-};
+import path = require("path");
+import types = require("./types.cts");
 
-class Client {
+import ACTIONS = types.ACTIONS;
+
+class Client implements IClient {
   #send;
 
-  constructor(send) {
+  constructor(send: (action: ACTIONS, payload: any) => any) {
     this.#send = send;
   }
 
-  #eCache;
-  /** @return {string[]} */
-  getDefaultExtensions() {
+  #eCache: string[];
+  getDefaultExtensions(): string[] {
     return (this.#eCache ??= this.#send(
       ACTIONS.GET_DEFAULT_EXTENSIONS,
       undefined,
     ));
   }
 
-  /**
-   * @param {object} options
-   * @return {void}
-   */
-  setOptions(options) {
+  setOptions(options: Options): void {
     return this.#send(ACTIONS.SET_OPTIONS, options);
   }
 
-  /**
-   * @param {string} code
-   * @param {string} filename
-   * @return {{ code: string, map: object } | null}
-   */
-  transform(code, filename) {
+  transform(
+    code: string,
+    filename: string,
+  ): { code: string; map: object } | null {
     return this.#send(ACTIONS.TRANSFORM, { code, filename });
   }
 }
@@ -44,22 +35,21 @@ class Client {
 // We need to run Babel in a worker because require hooks must
 // run synchronously, but many steps of Babel's config loading
 // (which is done for each file) can be asynchronous
-exports.WorkerClient = class WorkerClient extends Client {
+class WorkerClient extends Client {
   // These two require() calls are in deferred so that they are not imported in
   // older Node.js versions (which don't support workers).
   // TODO: Hoist them in Babel 8.
 
-  /** @type {typeof import("worker_threads")} */
   static get #worker_threads() {
-    return require("worker_threads");
+    return require("worker_threads") as typeof import("worker_threads");
   }
 
   static get #markInRegisterWorker() {
-    return require("./is-in-register-worker.js").markInRegisterWorker;
+    return require("./is-in-register-worker.cjs").markInRegisterWorker;
   }
 
   #worker = new WorkerClient.#worker_threads.Worker(
-    path.resolve(__dirname, "./worker/index.js"),
+    path.resolve(__dirname, "./worker/index.cjs"),
     { env: WorkerClient.#markInRegisterWorker(process.env) },
   );
 
@@ -88,16 +78,18 @@ exports.WorkerClient = class WorkerClient extends Client {
     // the main process alive.
     this.#worker.unref();
   }
-};
+}
+
+export = { WorkerClient };
 
 if (!process.env.BABEL_8_BREAKING) {
-  exports.LocalClient = class LocalClient extends Client {
+  module.exports.LocalClient = class LocalClient extends Client {
     isLocalClient = true;
 
-    static #handleMessage;
+    static #handleMessage: (action: ACTIONS, payload: any) => any;
 
     constructor() {
-      LocalClient.#handleMessage ??= require("./worker/handle-message.js");
+      LocalClient.#handleMessage ??= require("./worker/handle-message.cjs");
 
       super((action, payload) => {
         return LocalClient.#handleMessage(

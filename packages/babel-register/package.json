@@ -13,7 +13,7 @@
   },
   "author": "The Babel Team (https://babel.dev/team)",
   "type": "commonjs",
-  "main": "./lib/index.js",
+  "main": "./lib/index.cjs",
   "dependencies": {
     "@cspotcode/source-map-support": "condition:BABEL_8_BREAKING ? ^0.8.1 :",
     "clone-deep": "^4.0.1",
@@ -37,7 +37,7 @@
     "node": ">=6.9.0"
   },
   "browser": {
-    "./lib/index.js": "./lib/browser.js"
+    "./lib/index.cjs": "./lib/browser.cjs"
   },
   "conditions": {
     "BABEL_8_BREAKING": [
@@ -55,7 +55,7 @@
   "exports": {
     ".": {
       "types": "./lib/index.d.ts",
-      "default": "./lib/index.js"
+      "default": "./lib/index.cjs"
     },
     "./package.json": "./package.json"
   }

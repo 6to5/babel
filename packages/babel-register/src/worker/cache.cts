@@ -12,11 +12,12 @@ let FILENAME = process.env.BABEL_CACHE_PATH;
 exports.initializeCacheFilename = function () {
   FILENAME ||= path.join(
     findCacheDir({ name: "@babel/register" }) || os.homedir() || os.tmpdir(),
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
     `.babel.${babel.version}.${babel.getEnv()}.json`,
   );
 };
 
-const babel = require("./babel-core.js");
+const babel = require("./babel-core.cjs");
 
 let data = {};
 
@@ -94,7 +95,7 @@ exports.load = function load() {
   let cacheContent;
 
   try {
-    cacheContent = fs.readFileSync(FILENAME);
+    cacheContent = fs.readFileSync(FILENAME, "utf8");
   } catch (e) {
     switch (e.code) {
       // check EACCES only as fs.readFileSync will never throw EPERM on Windows
