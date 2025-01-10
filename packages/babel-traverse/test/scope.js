@@ -387,6 +387,14 @@ describe("scope", () => {
       ).toBe("ImportSpecifier");
     });
 
+    it("enum", function () {
+      expect(
+        getPath("enum AnEnum { Foo }", {
+          plugins: ["typescript"],
+        }).scope.getBinding("AnEnum").path.type,
+      ).toBe("TSEnumDeclaration");
+    });
+
     it("import type and func with duplicate name", function () {
       expect(() => {
         getPath(
