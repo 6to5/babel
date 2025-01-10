@@ -3,8 +3,10 @@ import * as t from "@babel/types";
 
 import _traverse from "../lib/index.js";
 import _generate from "@babel/generator";
+import _template from "@babel/template";
 const traverse = _traverse.default || _traverse;
 const generate = _generate.default || _generate;
+const template = _template.default || _template;
 
 function getPath(code) {
   const ast = parse(code);
@@ -42,6 +44,38 @@ describe("path/replacement", function () {
       });
 
       expect(ast.program.body[0].declaration.type).toBe("ArrayExpression");
+    });
+
+    it("replaceWith can replace ClassDeclaration with another of the same name", function () {
+      const ast = parse("class Foo { }");
+      const replacementStatement = template.statement(
+        "class Foo { foo() { } }",
+      )();
+      traverse(ast, {
+        ClassDeclaration(path) {
+          const [replacement] = path.replaceWith(replacementStatement);
+          replacement.skip();
+        },
+      });
+
+      expect(generate(ast).code).toBe(generate(replacementStatement).code);
+    });
+
+    it("replaceWith removes old bindings from scope", function () {
+      const ast = parse("class Foo { }");
+      const replacementStatement = template.statement("class Bar { }")();
+      traverse(ast, {
+        ClassDeclaration(path) {
+          expect(path.scope.getBinding("Foo")).toBeDefined();
+          expect(path.scope.getBinding("Bar")).not.toBeDefined();
+          const [replacement] = path.replaceWith(replacementStatement);
+          replacement.skip();
+          expect(path.scope.getBinding("Foo")).not.toBeDefined();
+          expect(path.scope.getBinding("Bar")).toBeDefined();
+        },
+      });
+
+      expect(generate(ast).code).toBe(generate(replacementStatement).code);
     });
 
     it("throws error when trying to replace Program with a non-Program node", function () {
