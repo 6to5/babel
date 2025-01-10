@@ -49,6 +49,7 @@ export interface Options extends PluginOptions {
   noInterop?: boolean;
   strict?: boolean;
   strictMode?: boolean;
+  resolveGlobals?: boolean;
 }
 
 export default declare((api, options: Options) => {
@@ -62,12 +63,105 @@ export default declare((api, options: Options) => {
     strictMode,
     noInterop,
     importInterop,
+    resolveGlobals,
   } = options;
 
   const constantReexports =
     api.assumption("constantReexports") ?? options.loose;
   const enumerableModuleMeta =
     api.assumption("enumerableModuleMeta") ?? options.loose;
+
+  /**
+   * Eg:
+   * relative-path : ./X
+   * base-url      : /http:/example.com/a/b/c.js
+   * return.       : http://example.com/a/b/X
+   *
+   * relative-path : Y
+   * base-url      : /http:/example.com/a/b/c.js
+   * return.       : http://example.com/Y
+   */
+  function getAbsoluteURL(relativePath: string, base: string) {
+    const normalizedRelativePath =
+      relativePath.startsWith("/") || relativePath.startsWith(".")
+        ? relativePath
+        : "/" + relativePath;
+
+    return new URL(normalizedRelativePath, normalizeURL(base)).href;
+  }
+
+  /**
+   * More details: https://babeljs.io/docs/babel-plugin-transform-modules-umd
+   *
+   * http://example.com/src/App => srcAppIndexJs
+   * /http:/example.com/src/App/index.js => srcAppIndexJs
+   */
+  function getGlobalNameOfModule(path: string) {
+    const normalizedModuleLocation = normalizeModuleLocation(path);
+
+    const normalizedURL = normalizeURL(normalizedModuleLocation);
+    const pathname = new URL(normalizedURL).pathname;
+
+    return normalizeGlobalNameOfModule(pathname);
+  }
+
+  function normalizeGlobalNameOfModule(pathname: string) {
+    const result = pathname
+      .split("/")
+      .map(str => str.charAt(0).toUpperCase() + str.slice(1))
+      .join("")
+      .split(".")
+      .map(str => str.charAt(0).toUpperCase() + str.slice(1))
+      .join("");
+
+    return result.charAt(0).toLowerCase() + result.slice(1);
+  }
+
+  /**
+   * There are 2 case for import
+   *     - import App from "./App" => "./App/index.js"
+   *     - import App from "./App" => "./App.js"
+   *
+   * This method will transform:
+   *     - X.js => X/index.js
+   *     - X => X/index.js
+   */
+  function normalizeModuleLocation(path: string) {
+    if (!hasFileExtension(path)) {
+      return path + "/index.js";
+    }
+
+    if (getFileName(path) === "index.js") {
+      return path;
+    }
+
+    return path.replace(/.js$/, "/index.js");
+  }
+
+  function hasFileExtension(path: string) {
+    return getFileName(path).includes(".");
+  }
+
+  /**
+   * https://example.com/index.html => index.html
+   */
+  function getFileName(path: string) {
+    return path.split("/").pop();
+  }
+
+  /**
+   * /http:/example.com => http://example.com
+   * /https:/example.com => https://example.com
+   */
+  function normalizeURL(path: string) {
+    return path
+      .replace("http://", "http:/")
+      .replace("/http:/", "http:/")
+      .replace("http:/", "http://")
+      .replace("https://", "https:/")
+      .replace("/https:/", "https:/")
+      .replace("https:/", "https://");
+  }
 
   /**
    * Build the assignment statements that initialize the UMD global.
@@ -77,13 +171,20 @@ export default declare((api, options: Options) => {
     exactGlobals: boolean,
     filename: string,
     moduleName: t.StringLiteral | void,
+    resolveGlobals: boolean,
   ) {
     const moduleNameOrBasename = moduleName
       ? moduleName.value
       : basename(filename, extname(filename));
     let globalToAssign = t.memberExpression(
       t.identifier("global"),
-      t.identifier(t.toIdentifier(moduleNameOrBasename)),
+      t.identifier(
+        t.toIdentifier(
+          resolveGlobals && !moduleName
+            ? getGlobalNameOfModule(filename)
+            : moduleNameOrBasename,
+        ),
+      ),
     );
     let initAssignments = [];
 
@@ -128,6 +229,8 @@ export default declare((api, options: Options) => {
     browserGlobals: Record<string, string>,
     exactGlobals: boolean,
     source: string,
+    resolveGlobals: boolean,
+    filename: string,
   ) {
     let memberExpression: t.MemberExpression;
     if (exactGlobals) {
@@ -147,7 +250,9 @@ export default declare((api, options: Options) => {
         );
       }
     } else {
-      const requireName = basename(source, extname(source));
+      const requireName = resolveGlobals
+        ? getGlobalNameOfModule(getAbsoluteURL(source, normalizeURL(filename)))
+        : basename(source, extname(source));
       const globalName = browserGlobals[requireName] || requireName;
       memberExpression = t.memberExpression(
         t.identifier("global"),
@@ -207,7 +312,13 @@ export default declare((api, options: Options) => {
               ]),
             );
             browserArgs.push(
-              buildBrowserArg(browserGlobals, exactGlobals, source),
+              buildBrowserArg(
+                browserGlobals,
+                exactGlobals,
+                source,
+                resolveGlobals,
+                this.filename || "unknown",
+              ),
             );
             importNames.push(t.identifier(metadata.name));
 
@@ -261,6 +372,7 @@ export default declare((api, options: Options) => {
                 exactGlobals,
                 this.filename || "unknown",
                 moduleNameLiteral,
+                resolveGlobals,
               ),
             }) as t.Statement,
           ])[0] as NodePath<t.ExpressionStatement>;
