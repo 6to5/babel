@@ -35,6 +35,7 @@ Using plugins:
   transform-unicode-regex { electron < 1.1 }
   transform-destructuring { electron < 1.2 }
   transform-block-scoping { electron < 1.1 }
+  transform-typeof-symbol { electron < 0.37 }
   transform-regenerator { electron < 1.1 }
   transform-export-namespace-from { electron < 5.0 }
   transform-modules-commonjs

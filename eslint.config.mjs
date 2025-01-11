@@ -135,6 +135,7 @@ export default [
           allowDefaultProject: [
             "packages/babel-helpers/src/helpers/applyDecs2305.ts",
             "scripts/repo-utils/index.d.cts",
+            "scripts/babel-plugin-bit-decorator/types.d.ts",
             "eslint/babel-eslint-plugin/types.d.cts",
             "eslint/babel-eslint-parser/types.d.cts",
           ],
@@ -282,6 +283,7 @@ export default [
             "nodeGte20",
             "nodeGte22_12",
             "nodeLt22_12",
+            "nodeLt23_6",
             "nodeGte12NoESM",
             "testFn",
           ],

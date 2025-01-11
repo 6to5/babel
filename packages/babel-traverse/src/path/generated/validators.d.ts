@@ -836,6 +836,10 @@ interface BaseNodePathValidators {
     this: NodePath,
     opts?: Opts<t.TSEntityName>,
   ): this is NodePath<t.TSEntityName>;
+  isTSEnumBody(
+    this: NodePath,
+    opts?: Opts<t.TSEnumBody>,
+  ): this is NodePath<t.TSEnumBody>;
   isTSEnumDeclaration(
     this: NodePath,
     opts?: Opts<t.TSEnumDeclaration>,

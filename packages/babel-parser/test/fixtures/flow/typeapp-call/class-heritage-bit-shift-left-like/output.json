@@ -1,0 +1,103 @@
+{
+  "type": "File",
+  "start":0,"end":49,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":40,"index":49}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":49,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":40,"index":49}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ExpressionStatement",
+        "start":9,"end":49,"loc":{"start":{"line":2,"column":0,"index":9},"end":{"line":2,"column":40,"index":49}},
+        "expression": {
+          "type": "ClassExpression",
+          "start":10,"end":47,"loc":{"start":{"line":2,"column":1,"index":10},"end":{"line":2,"column":38,"index":47}},
+          "id": null,
+          "superClass": {
+            "type": "Identifier",
+            "start":24,"end":25,"loc":{"start":{"line":2,"column":15,"index":24},"end":{"line":2,"column":16,"index":25},"identifierName":"f"},
+            "name": "f"
+          },
+          "superTypeArguments": {
+            "type": "TypeParameterInstantiation",
+            "start":25,"end":44,"loc":{"start":{"line":2,"column":16,"index":25},"end":{"line":2,"column":35,"index":44}},
+            "params": [
+              {
+                "type": "FunctionTypeAnnotation",
+                "start":26,"end":43,"loc":{"start":{"line":2,"column":17,"index":26},"end":{"line":2,"column":34,"index":43}},
+                "typeParameters": {
+                  "type": "TypeParameterDeclaration",
+                  "start":26,"end":29,"loc":{"start":{"line":2,"column":17,"index":26},"end":{"line":2,"column":20,"index":29}},
+                  "params": [
+                    {
+                      "type": "TypeParameter",
+                      "start":27,"end":28,"loc":{"start":{"line":2,"column":18,"index":27},"end":{"line":2,"column":19,"index":28}},
+                      "name": "T",
+                      "variance": null
+                    }
+                  ]
+                },
+                "params": [
+                  {
+                    "type": "FunctionTypeParam",
+                    "start":30,"end":34,"loc":{"start":{"line":2,"column":21,"index":30},"end":{"line":2,"column":25,"index":34}},
+                    "name": {
+                      "type": "Identifier",
+                      "start":30,"end":31,"loc":{"start":{"line":2,"column":21,"index":30},"end":{"line":2,"column":22,"index":31},"identifierName":"v"},
+                      "name": "v"
+                    },
+                    "optional": false,
+                    "typeAnnotation": {
+                      "type": "GenericTypeAnnotation",
+                      "start":33,"end":34,"loc":{"start":{"line":2,"column":24,"index":33},"end":{"line":2,"column":25,"index":34}},
+                      "typeParameters": null,
+                      "id": {
+                        "type": "Identifier",
+                        "start":33,"end":34,"loc":{"start":{"line":2,"column":24,"index":33},"end":{"line":2,"column":25,"index":34},"identifierName":"T"},
+                        "name": "T"
+                      }
+                    }
+                  }
+                ],
+                "rest": null,
+                "this": null,
+                "returnType": {
+                  "type": "VoidTypeAnnotation",
+                  "start":39,"end":43,"loc":{"start":{"line":2,"column":30,"index":39},"end":{"line":2,"column":34,"index":43}}
+                }
+              }
+            ]
+          },
+          "body": {
+            "type": "ClassBody",
+            "start":45,"end":47,"loc":{"start":{"line":2,"column":36,"index":45},"end":{"line":2,"column":38,"index":47}},
+            "body": []
+          },
+          "extra": {
+            "parenthesized": true,
+            "parenStart": 9
+          }
+        },
+        "leadingComments": [
+          {
+            "type": "CommentLine",
+            "value": " @flow",
+            "start":0,"end":8,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":8,"index":8}}
+          }
+        ]
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  },
+  "comments": [
+    {
+      "type": "CommentLine",
+      "value": " @flow",
+      "start":0,"end":8,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":8,"index":8}}
+    }
+  ]
+}

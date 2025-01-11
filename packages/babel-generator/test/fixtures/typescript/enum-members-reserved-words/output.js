@@ -1,4 +1,4 @@
 enum E {
   const,
-  default,
+  default
 }

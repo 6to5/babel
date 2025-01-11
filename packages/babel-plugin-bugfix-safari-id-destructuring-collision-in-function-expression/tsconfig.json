@@ -5,7 +5,8 @@
     "../../tsconfig.paths.json"
   ],
   "include": [
-    "../../packages/babel-plugin-bugfix-safari-id-destructuring-collision-in-function-expression/src/**/*.ts",
+    "./src/**/*.ts",
+    "./src/**/*.cts",
     "../../lib/globals.d.ts",
     "../../scripts/repo-utils/*.d.ts"
   ],

@@ -1,0 +1,3 @@
+{
+  "plugins": ["transform-flow-strip-types", "syntax-jsx"]
+}

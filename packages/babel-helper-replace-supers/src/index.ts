@@ -524,7 +524,7 @@ export default class ReplaceSupers {
     this.constantSuper = process.env.BABEL_8_BREAKING
       ? opts.constantSuper
       : // Fallback to isLoose for backward compatibility
-        opts.constantSuper ?? (opts as any).isLoose;
+        (opts.constantSuper ?? (opts as any).isLoose);
     this.opts = opts;
   }
 

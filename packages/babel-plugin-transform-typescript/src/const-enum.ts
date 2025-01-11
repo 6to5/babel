@@ -2,6 +2,9 @@ import type { NodePath, types as t } from "@babel/core";
 
 import { translateEnumValues } from "./enum.ts";
 
+export const EXPORTED_CONST_ENUMS_IN_NAMESPACE =
+  new WeakSet<t.TSEnumDeclaration>();
+
 export type NodePathConstEnum = NodePath<t.TSEnumDeclaration & { const: true }>;
 export default function transpileConstEnum(
   path: NodePathConstEnum,
@@ -28,7 +31,7 @@ export default function transpileConstEnum(
 
   const { enumValues: entries } = translateEnumValues(path, t);
 
-  if (isExported) {
+  if (isExported || EXPORTED_CONST_ENUMS_IN_NAMESPACE.has(path.node)) {
     const obj = t.objectExpression(
       entries.map(([name, value]) =>
         t.objectProperty(

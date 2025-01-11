@@ -5,7 +5,8 @@
     "../../tsconfig.paths.json"
   ],
   "include": [
-    "../../packages/babel-plugin-transform-modules-amd/src/**/*.ts",
+    "./src/**/*.ts",
+    "./src/**/*.cts",
     "../../lib/globals.d.ts",
     "../../scripts/repo-utils/*.d.ts"
   ],

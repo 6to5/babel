@@ -1,0 +1,141 @@
+{
+  "type": "File",
+  "start":0,"end":89,"loc":{"start":{"line":1,"column":0},"end":{"line":3,"column":36}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":89,"loc":{"start":{"line":1,"column":0},"end":{"line":3,"column":36}},
+    "sourceType": "script",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "VariableDeclaration",
+        "start":0,"end":28,"loc":{"start":{"line":1,"column":0},"end":{"line":1,"column":28}},
+        "declarations": [
+          {
+            "type": "VariableDeclarator",
+            "start":4,"end":27,"loc":{"start":{"line":1,"column":4},"end":{"line":1,"column":27}},
+            "id": {
+              "type": "Identifier",
+              "start":4,"end":27,"loc":{"start":{"line":1,"column":4},"end":{"line":1,"column":27},"identifierName":"x"},
+              "name": "x",
+              "typeAnnotation": {
+                "type": "TSTypeAnnotation",
+                "start":5,"end":27,"loc":{"start":{"line":1,"column":5},"end":{"line":1,"column":27}},
+                "typeAnnotation": {
+                  "type": "TSTypeQuery",
+                  "start":7,"end":27,"loc":{"start":{"line":1,"column":7},"end":{"line":1,"column":27}},
+                  "exprName": {
+                    "type": "TSImportType",
+                    "start":14,"end":27,"loc":{"start":{"line":1,"column":14},"end":{"line":1,"column":27}},
+                    "argument": {
+                      "type": "Literal",
+                      "start":21,"end":26,"loc":{"start":{"line":1,"column":21},"end":{"line":1,"column":26}},
+                      "value": "./x",
+                      "raw": "'./x'"
+                    },
+                    "options": null
+                  }
+                }
+              }
+            },
+            "init": null
+          }
+        ],
+        "kind": "let"
+      },
+      {
+        "type": "VariableDeclaration",
+        "start":29,"end":52,"loc":{"start":{"line":2,"column":0},"end":{"line":2,"column":23}},
+        "declarations": [
+          {
+            "type": "VariableDeclarator",
+            "start":33,"end":51,"loc":{"start":{"line":2,"column":4},"end":{"line":2,"column":22}},
+            "id": {
+              "type": "Identifier",
+              "start":33,"end":51,"loc":{"start":{"line":2,"column":4},"end":{"line":2,"column":22},"identifierName":"Y"},
+              "name": "Y",
+              "typeAnnotation": {
+                "type": "TSTypeAnnotation",
+                "start":34,"end":51,"loc":{"start":{"line":2,"column":5},"end":{"line":2,"column":22}},
+                "typeAnnotation": {
+                  "type": "TSImportType",
+                  "start":36,"end":51,"loc":{"start":{"line":2,"column":7},"end":{"line":2,"column":22}},
+                  "argument": {
+                    "type": "Literal",
+                    "start":43,"end":48,"loc":{"start":{"line":2,"column":14},"end":{"line":2,"column":19}},
+                    "value": "./y",
+                    "raw": "'./y'"
+                  },
+                  "options": null,
+                  "qualifier": {
+                    "type": "Identifier",
+                    "start":50,"end":51,"loc":{"start":{"line":2,"column":21},"end":{"line":2,"column":22},"identifierName":"Y"},
+                    "name": "Y"
+                  }
+                }
+              }
+            },
+            "init": null
+          }
+        ],
+        "kind": "let"
+      },
+      {
+        "type": "VariableDeclaration",
+        "start":53,"end":89,"loc":{"start":{"line":3,"column":0},"end":{"line":3,"column":36}},
+        "declarations": [
+          {
+            "type": "VariableDeclarator",
+            "start":57,"end":88,"loc":{"start":{"line":3,"column":4},"end":{"line":3,"column":35}},
+            "id": {
+              "type": "Identifier",
+              "start":57,"end":88,"loc":{"start":{"line":3,"column":4},"end":{"line":3,"column":35},"identifierName":"z"},
+              "name": "z",
+              "typeAnnotation": {
+                "type": "TSTypeAnnotation",
+                "start":58,"end":88,"loc":{"start":{"line":3,"column":5},"end":{"line":3,"column":35}},
+                "typeAnnotation": {
+                  "type": "TSImportType",
+                  "start":60,"end":88,"loc":{"start":{"line":3,"column":7},"end":{"line":3,"column":35}},
+                  "argument": {
+                    "type": "Literal",
+                    "start":67,"end":71,"loc":{"start":{"line":3,"column":14},"end":{"line":3,"column":18}},
+                    "value": "/z",
+                    "raw": "\"/z\""
+                  },
+                  "options": null,
+                  "qualifier": {
+                    "type": "TSQualifiedName",
+                    "start":73,"end":80,"loc":{"start":{"line":3,"column":20},"end":{"line":3,"column":27}},
+                    "left": {
+                      "type": "Identifier",
+                      "start":73,"end":76,"loc":{"start":{"line":3,"column":20},"end":{"line":3,"column":23},"identifierName":"foo"},
+                      "name": "foo"
+                    },
+                    "right": {
+                      "type": "Identifier",
+                      "start":77,"end":80,"loc":{"start":{"line":3,"column":24},"end":{"line":3,"column":27},"identifierName":"bar"},
+                      "name": "bar"
+                    }
+                  },
+                  "typeParameters": {
+                    "type": "TSTypeParameterInstantiation",
+                    "start":80,"end":88,"loc":{"start":{"line":3,"column":27},"end":{"line":3,"column":35}},
+                    "params": [
+                      {
+                        "type": "TSStringKeyword",
+                        "start":81,"end":87,"loc":{"start":{"line":3,"column":28},"end":{"line":3,"column":34}}
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "init": null
+          }
+        ],
+        "kind": "let"
+      }
+    ]
+  }
+}

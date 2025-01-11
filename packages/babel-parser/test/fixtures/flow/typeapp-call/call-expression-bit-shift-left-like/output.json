@@ -1,0 +1,94 @@
+{
+  "type": "File",
+  "start":0,"end":32,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":23,"index":32}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":32,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":23,"index":32}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ExpressionStatement",
+        "start":9,"end":32,"loc":{"start":{"line":2,"column":0,"index":9},"end":{"line":2,"column":23,"index":32}},
+        "expression": {
+          "type": "CallExpression",
+          "start":9,"end":31,"loc":{"start":{"line":2,"column":0,"index":9},"end":{"line":2,"column":22,"index":31}},
+          "callee": {
+            "type": "Identifier",
+            "start":9,"end":10,"loc":{"start":{"line":2,"column":0,"index":9},"end":{"line":2,"column":1,"index":10},"identifierName":"f"},
+            "name": "f"
+          },
+          "typeArguments": {
+            "type": "TypeParameterInstantiation",
+            "start":10,"end":29,"loc":{"start":{"line":2,"column":1,"index":10},"end":{"line":2,"column":20,"index":29}},
+            "params": [
+              {
+                "type": "FunctionTypeAnnotation",
+                "start":11,"end":28,"loc":{"start":{"line":2,"column":2,"index":11},"end":{"line":2,"column":19,"index":28}},
+                "typeParameters": {
+                  "type": "TypeParameterDeclaration",
+                  "start":11,"end":14,"loc":{"start":{"line":2,"column":2,"index":11},"end":{"line":2,"column":5,"index":14}},
+                  "params": [
+                    {
+                      "type": "TypeParameter",
+                      "start":12,"end":13,"loc":{"start":{"line":2,"column":3,"index":12},"end":{"line":2,"column":4,"index":13}},
+                      "name": "T",
+                      "variance": null
+                    }
+                  ]
+                },
+                "params": [
+                  {
+                    "type": "FunctionTypeParam",
+                    "start":15,"end":19,"loc":{"start":{"line":2,"column":6,"index":15},"end":{"line":2,"column":10,"index":19}},
+                    "name": {
+                      "type": "Identifier",
+                      "start":15,"end":16,"loc":{"start":{"line":2,"column":6,"index":15},"end":{"line":2,"column":7,"index":16},"identifierName":"v"},
+                      "name": "v"
+                    },
+                    "optional": false,
+                    "typeAnnotation": {
+                      "type": "GenericTypeAnnotation",
+                      "start":18,"end":19,"loc":{"start":{"line":2,"column":9,"index":18},"end":{"line":2,"column":10,"index":19}},
+                      "typeParameters": null,
+                      "id": {
+                        "type": "Identifier",
+                        "start":18,"end":19,"loc":{"start":{"line":2,"column":9,"index":18},"end":{"line":2,"column":10,"index":19},"identifierName":"T"},
+                        "name": "T"
+                      }
+                    }
+                  }
+                ],
+                "rest": null,
+                "this": null,
+                "returnType": {
+                  "type": "VoidTypeAnnotation",
+                  "start":24,"end":28,"loc":{"start":{"line":2,"column":15,"index":24},"end":{"line":2,"column":19,"index":28}}
+                }
+              }
+            ]
+          },
+          "arguments": []
+        },
+        "leadingComments": [
+          {
+            "type": "CommentLine",
+            "value": " @flow",
+            "start":0,"end":8,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":8,"index":8}}
+          }
+        ]
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  },
+  "comments": [
+    {
+      "type": "CommentLine",
+      "value": " @flow",
+      "start":0,"end":8,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":8,"index":8}}
+    }
+  ]
+}

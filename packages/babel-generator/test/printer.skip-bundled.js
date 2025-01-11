@@ -21,7 +21,11 @@ describe("Printer", () => {
         }
       } else {
         // Babel 8 AST
-        if (type === "TSClassImplements" || type === "TSInterfaceHeritage") {
+        if (
+          type === "TSClassImplements" ||
+          type === "TSEnumBody" ||
+          type === "TSInterfaceHeritage"
+        ) {
           return;
         }
       }

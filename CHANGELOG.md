@@ -24,6 +24,31 @@ This file contains the changelog starting from v7.15.0.
 
 <!-- DO NOT CHANGE THESE COMMENTS - See .github/actions/trigger-github-release/update-changelog.js -->
 <!-- insert-new-changelog-here -->
+## v7.26.5 (2025-01-10)
+
+#### :eyeglasses: Spec Compliance
+* `babel-parser`
+  * [#17011](https://github.com/babel/babel/pull/17011) Allow the dynamic `import.defer()` form of `import defer` ([@babel-bot](https://github.com/babel-bot))
+
+#### :bug: Bug Fix
+* `babel-plugin-transform-block-scoped-functions`
+  * [#17024](https://github.com/babel/babel/pull/17024) chore: Avoid calling `isInStrictMode` in Babel 7 ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
+* `babel-plugin-transform-typescript`
+  * [#17026](https://github.com/babel/babel/pull/17026) fix: Correctly generate exported const enums in namespace ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
+* `babel-parser`
+  * [#17045](https://github.com/babel/babel/pull/17045) [estree] Unify method type parameters handling ([@JLHwung](https://github.com/JLHwung))
+  * [#17013](https://github.com/babel/babel/pull/17013) fix: Correctly set position for `@(a.b)()` ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
+  * [#16996](https://github.com/babel/babel/pull/16996) [estree] Adjust the start loc of class methods with type params ([@nicolo-ribaudo](https://github.com/nicolo-ribaudo))
+* `babel-generator`, `babel-parser`, `babel-plugin-transform-flow-strip-types`, `babel-types`
+  * [#17028](https://github.com/babel/babel/pull/17028) Support flow jsx opening element type arguments ([@JLHwung](https://github.com/JLHwung))
+* `babel-compat-data`, `babel-preset-env`
+  * [#17031](https://github.com/babel/babel/pull/17031) fix: More accurate `transform-typeof-symbol` compat data ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
+* `babel-generator`, `babel-parser`, `babel-types`
+  * [#17019](https://github.com/babel/babel/pull/17019) Fix incomplete visitor keys ([@JLHwung](https://github.com/JLHwung))
+
+#### :microscope: Output optimization
+* `babel-plugin-transform-nullish-coalescing-operator`
+  * [#16612](https://github.com/babel/babel/pull/16612) Improve nullish coalescing operator output ([@liuxingbaoyu](https://github.com/liuxingbaoyu))
 ## v7.26.4 (2024-12-05)
 
 #### :leftwards_arrow_with_hook: Revert

@@ -147,7 +147,7 @@ jobs:
       - name: Prepare artifacts
         run: |
           ./scripts/get-artifact-files.sh | tar --null -cvf babel-artifact.tar --files-from=-
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: babel-artifact
           path: babel-artifact.tar
@@ -195,7 +195,7 @@ jobs:
           cache: "yarn"
       - name: Install
         run: yarn install
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: babel-artifact
       - name: Extract artifacts
@@ -246,7 +246,7 @@ jobs:
           # Deduplicate dependencies, because duplicate copies of graceful-fs cause
           # problems with the "path" module: https://github.com/facebook/jest/issues/9656
           yarn dedupe
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: babel-artifact
       - name: Extract artifacts
@@ -304,7 +304,7 @@ jobs:
       - name: Prepare artifacts
         run: |
           ./scripts/get-artifact-files.sh | tar --null -cvf babel-artifact.tar --files-from=-
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: babel8-artifact
           path: babel-artifact.tar
@@ -328,7 +328,7 @@ jobs:
           cache: "yarn"
       - name: Install
         run: yarn install
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: babel8-artifact
       - name: Extract artifacts
@@ -365,7 +365,7 @@ jobs:
           cache: "yarn"
       - name: Install
         run: yarn install
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: babel-artifact
       - name: Extract artifacts
@@ -390,7 +390,7 @@ jobs:
           cache: "yarn"
       - name: Install
         run: yarn install
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: babel-artifact
       - name: Extract artifacts
@@ -439,7 +439,7 @@ jobs:
           # The "Support self-references on old Node.js" step mutates the
           # package.json file, causing a yarn.lock update.
           YARN_ENABLE_IMMUTABLE_INSTALLS: false
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: babel-artifact
       - name: Extract artifacts
@@ -538,7 +538,7 @@ jobs:
           cache: "yarn"
       - name: Install
         run: yarn install
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: babel-artifact
       - name: Extract artifacts
@@ -563,7 +563,7 @@ jobs:
           cache: "yarn"
       - name: Install
         run: yarn install
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: babel-artifact
       - name: Extract artifacts
@@ -601,7 +601,7 @@ jobs:
         env:
           TEST262_PATH: ../build/test262
       - name: Upload chunks artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test262-chunks
           path: ~/test262-chunks.json
@@ -624,7 +624,7 @@ jobs:
           check-latest: true
       - name: Install
         run: yarn install
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: babel-artifact
       - name: Extract artifacts
@@ -643,7 +643,7 @@ jobs:
       - name: Download test262
         run: make bootstrap-test262
       - name: Download chunks file
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: test262-chunks
       - name: Run test262
@@ -660,7 +660,7 @@ jobs:
           CHUNKS_FILE: ../test262-chunks.json
           CHUNK: ${{ matrix.chunk }}
       - name: Create artifact with report results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test262-result-${{ matrix.chunk }}
           path: ~/test262-${{ matrix.chunk }}.tap
@@ -671,21 +671,21 @@ jobs:
     runs-on: ubuntu-latest
     needs: test262
     steps:
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with: { name: test262-result-0 }
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with: { name: test262-result-1 }
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with: { name: test262-result-2 }
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with: { name: test262-result-3 }
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with: { name: test262-result-4 }
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with: { name: test262-result-5 }
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with: { name: test262-result-6 }
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with: { name: test262-result-7 }
       - name: Merge chunk results
         run: |
@@ -693,7 +693,7 @@ jobs:
               test262-4.tap test262-5.tap test262-6.tap test262-7.tap \
             | npx tap-merge > test262.tap
       - name: Create artifact with report results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test262-result
           path: test262.tap

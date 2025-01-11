@@ -1,0 +1,45 @@
+{
+  "type": "File",
+  "start":0,"end":21,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":3,"column":1,"index":21}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":21,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":3,"column":1,"index":21}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "TSEnumDeclaration",
+        "start":0,"end":21,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":3,"column":1,"index":21}},
+        "id": {
+          "type": "Identifier",
+          "start":5,"end":6,"loc":{"start":{"line":1,"column":5,"index":5},"end":{"line":1,"column":6,"index":6},"identifierName":"E"},
+          "name": "E"
+        },
+        "members": [
+          {
+            "type": "TSEnumMember",
+            "start":13,"end":18,"loc":{"start":{"line":2,"column":4,"index":13},"end":{"line":2,"column":9,"index":18}},
+            "id": {
+              "type": "Identifier",
+              "start":13,"end":14,"loc":{"start":{"line":2,"column":4,"index":13},"end":{"line":2,"column":5,"index":14},"identifierName":"A"},
+              "name": "A"
+            },
+            "initializer": {
+              "type": "NumericLiteral",
+              "start":17,"end":18,"loc":{"start":{"line":2,"column":8,"index":17},"end":{"line":2,"column":9,"index":18}},
+              "extra": {
+                "rawValue": 0,
+                "raw": "0"
+              },
+              "value": 0
+            }
+          }
+        ]
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

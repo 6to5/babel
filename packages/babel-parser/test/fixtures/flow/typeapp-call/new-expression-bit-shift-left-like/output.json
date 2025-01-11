@@ -1,0 +1,100 @@
+{
+  "type": "File",
+  "start":0,"end":36,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":27,"index":36}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":36,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":27,"index":36}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ExpressionStatement",
+        "start":9,"end":36,"loc":{"start":{"line":2,"column":0,"index":9},"end":{"line":2,"column":27,"index":36}},
+        "expression": {
+          "type": "CallExpression",
+          "start":9,"end":35,"loc":{"start":{"line":2,"column":0,"index":9},"end":{"line":2,"column":26,"index":35}},
+          "callee": {
+            "type": "NewExpression",
+            "start":9,"end":14,"loc":{"start":{"line":2,"column":0,"index":9},"end":{"line":2,"column":5,"index":14}},
+            "callee": {
+              "type": "Identifier",
+              "start":13,"end":14,"loc":{"start":{"line":2,"column":4,"index":13},"end":{"line":2,"column":5,"index":14},"identifierName":"f"},
+              "name": "f"
+            },
+            "typeArguments": null,
+            "arguments": []
+          },
+          "typeArguments": {
+            "type": "TypeParameterInstantiation",
+            "start":14,"end":33,"loc":{"start":{"line":2,"column":5,"index":14},"end":{"line":2,"column":24,"index":33}},
+            "params": [
+              {
+                "type": "FunctionTypeAnnotation",
+                "start":15,"end":32,"loc":{"start":{"line":2,"column":6,"index":15},"end":{"line":2,"column":23,"index":32}},
+                "typeParameters": {
+                  "type": "TypeParameterDeclaration",
+                  "start":15,"end":18,"loc":{"start":{"line":2,"column":6,"index":15},"end":{"line":2,"column":9,"index":18}},
+                  "params": [
+                    {
+                      "type": "TypeParameter",
+                      "start":16,"end":17,"loc":{"start":{"line":2,"column":7,"index":16},"end":{"line":2,"column":8,"index":17}},
+                      "name": "T",
+                      "variance": null
+                    }
+                  ]
+                },
+                "params": [
+                  {
+                    "type": "FunctionTypeParam",
+                    "start":19,"end":23,"loc":{"start":{"line":2,"column":10,"index":19},"end":{"line":2,"column":14,"index":23}},
+                    "name": {
+                      "type": "Identifier",
+                      "start":19,"end":20,"loc":{"start":{"line":2,"column":10,"index":19},"end":{"line":2,"column":11,"index":20},"identifierName":"v"},
+                      "name": "v"
+                    },
+                    "optional": false,
+                    "typeAnnotation": {
+                      "type": "GenericTypeAnnotation",
+                      "start":22,"end":23,"loc":{"start":{"line":2,"column":13,"index":22},"end":{"line":2,"column":14,"index":23}},
+                      "typeParameters": null,
+                      "id": {
+                        "type": "Identifier",
+                        "start":22,"end":23,"loc":{"start":{"line":2,"column":13,"index":22},"end":{"line":2,"column":14,"index":23},"identifierName":"T"},
+                        "name": "T"
+                      }
+                    }
+                  }
+                ],
+                "rest": null,
+                "this": null,
+                "returnType": {
+                  "type": "VoidTypeAnnotation",
+                  "start":28,"end":32,"loc":{"start":{"line":2,"column":19,"index":28},"end":{"line":2,"column":23,"index":32}}
+                }
+              }
+            ]
+          },
+          "arguments": []
+        },
+        "leadingComments": [
+          {
+            "type": "CommentLine",
+            "value": " @flow",
+            "start":0,"end":8,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":8,"index":8}}
+          }
+        ]
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  },
+  "comments": [
+    {
+      "type": "CommentLine",
+      "value": " @flow",
+      "start":0,"end":8,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":8,"index":8}}
+    }
+  ]
+}

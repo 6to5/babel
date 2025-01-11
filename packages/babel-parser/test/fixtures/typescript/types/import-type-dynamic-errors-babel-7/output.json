@@ -1,0 +1,93 @@
+{
+  "type": "File",
+  "start":0,"end":63,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":3,"column":19,"index":63}},
+  "errors": [
+    "SyntaxError: Argument in a type import must be a string literal. (1:16)",
+    "SyntaxError: Argument in a type import must be a string literal. (2:16)",
+    "SyntaxError: Argument in a type import must be a string literal. (3:16)"
+  ],
+  "program": {
+    "type": "Program",
+    "start":0,"end":63,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":3,"column":19,"index":63}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "TSTypeAliasDeclaration",
+        "start":0,"end":19,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":19,"index":19}},
+        "id": {
+          "type": "Identifier",
+          "start":5,"end":6,"loc":{"start":{"line":1,"column":5,"index":5},"end":{"line":1,"column":6,"index":6},"identifierName":"X"},
+          "name": "X"
+        },
+        "typeAnnotation": {
+          "type": "TSImportType",
+          "start":9,"end":18,"loc":{"start":{"line":1,"column":9,"index":9},"end":{"line":1,"column":18,"index":18}},
+          "argument": {
+            "type": "NumericLiteral",
+            "start":16,"end":17,"loc":{"start":{"line":1,"column":16,"index":16},"end":{"line":1,"column":17,"index":17}},
+            "extra": {
+              "rawValue": 3,
+              "raw": "3"
+            },
+            "value": 3
+          },
+          "options": null
+        }
+      },
+      {
+        "type": "TSTypeAliasDeclaration",
+        "start":20,"end":43,"loc":{"start":{"line":2,"column":0,"index":20},"end":{"line":2,"column":23,"index":43}},
+        "id": {
+          "type": "Identifier",
+          "start":25,"end":26,"loc":{"start":{"line":2,"column":5,"index":25},"end":{"line":2,"column":6,"index":26},"identifierName":"Y"},
+          "name": "Y"
+        },
+        "typeAnnotation": {
+          "type": "TSImportType",
+          "start":29,"end":42,"loc":{"start":{"line":2,"column":9,"index":29},"end":{"line":2,"column":22,"index":42}},
+          "argument": {
+            "type": "TemplateLiteral",
+            "start":36,"end":41,"loc":{"start":{"line":2,"column":16,"index":36},"end":{"line":2,"column":21,"index":41}},
+            "expressions": [],
+            "quasis": [
+              {
+                "type": "TemplateElement",
+                "start":37,"end":40,"loc":{"start":{"line":2,"column":17,"index":37},"end":{"line":2,"column":20,"index":40}},
+                "value": {
+                  "raw": "Foo",
+                  "cooked": "Foo"
+                },
+                "tail": true
+              }
+            ]
+          },
+          "options": null
+        }
+      },
+      {
+        "type": "TSTypeAliasDeclaration",
+        "start":44,"end":63,"loc":{"start":{"line":3,"column":0,"index":44},"end":{"line":3,"column":19,"index":63}},
+        "id": {
+          "type": "Identifier",
+          "start":49,"end":50,"loc":{"start":{"line":3,"column":5,"index":49},"end":{"line":3,"column":6,"index":50},"identifierName":"Z"},
+          "name": "Z"
+        },
+        "typeAnnotation": {
+          "type": "TSImportType",
+          "start":53,"end":62,"loc":{"start":{"line":3,"column":9,"index":53},"end":{"line":3,"column":18,"index":62}},
+          "argument": {
+            "type": "Identifier",
+            "start":60,"end":61,"loc":{"start":{"line":3,"column":16,"index":60},"end":{"line":3,"column":17,"index":61},"identifierName":"Y"},
+            "name": "Y"
+          },
+          "options": null
+        }
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

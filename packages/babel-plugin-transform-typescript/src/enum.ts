@@ -84,11 +84,11 @@ export default function transpileEnum(
   }
 }
 
-const buildStringAssignment = template(`
+const buildStringAssignment = template.statement(`
   ENUM["NAME"] = VALUE;
 `);
 
-const buildNumericAssignment = template(`
+const buildNumericAssignment = template.statement(`
   ENUM[ENUM["NAME"] = VALUE] = "NAME";
 `);
 
@@ -100,14 +100,25 @@ const buildEnumMember = (isString: boolean, options: Record<string, unknown>) =>
  * `(function (E) { ... assignments ... })(E || (E = {}));`
  */
 function enumFill(path: NodePath<t.TSEnumDeclaration>, t: t, id: t.Identifier) {
-  const { enumValues: x, data, isPure } = translateEnumValues(path, t);
-  const assignments = x.map(([memberName, memberValue]) =>
-    buildEnumMember(isSyntacticallyString(memberValue), {
-      ENUM: t.cloneNode(id),
-      NAME: memberName,
-      VALUE: memberValue,
-    }),
-  );
+  const { enumValues, data, isPure } = translateEnumValues(path, t);
+  const enumMembers: NodePath<t.TSEnumMember>[] = process.env.BABEL_8_BREAKING
+    ? // @ts-ignore(Babel 7 vs Babel 8) Babel 8 AST
+      path.get("body").get("members")
+    : path.get("members");
+  const assignments = [];
+  for (let i = 0; i < enumMembers.length; i++) {
+    const [memberName, memberValue] = enumValues[i];
+    assignments.push(
+      t.inheritsComments(
+        buildEnumMember(isSyntacticallyString(memberValue), {
+          ENUM: t.cloneNode(id),
+          NAME: memberName,
+          VALUE: memberValue,
+        }),
+        enumMembers[i].node,
+      ),
+    );
+  }
 
   return {
     fill: {
@@ -183,9 +194,13 @@ export function translateEnumValues(path: NodePath<t.TSEnumDeclaration>, t: t) {
   let lastName: string;
   let isPure = true;
 
-  const enumValues: Array<[name: string, value: t.Expression]> = path
-    .get("members")
-    .map(memberPath => {
+  const enumMembers: NodePath<t.TSEnumMember>[] = process.env.BABEL_8_BREAKING
+    ? // @ts-ignore(Babel 7 vs Babel 8) Babel 8 AST
+      path.get("body").get("members")
+    : path.get("members");
+
+  const enumValues: Array<[name: string, value: t.Expression]> =
+    enumMembers.map(memberPath => {
       const member = memberPath.node;
       const name = t.isIdentifier(member.id) ? member.id.name : member.id.value;
       const initializerPath = memberPath.get("initializer");

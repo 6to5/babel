@@ -111,7 +111,11 @@ const es2015 = {
     ],
   },
   "transform-typeof-symbol": {
-    features: ["Symbol / typeof support"],
+    features: [
+      "Symbol / typeof support",
+      "Symbol / can convert with String()",
+      "Symbol / Object(symbol)",
+    ],
   },
   "transform-new-target": {
     features: ["new.target", 'arrow functions / lexical "new.target" binding'],

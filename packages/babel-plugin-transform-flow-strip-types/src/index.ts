@@ -185,6 +185,11 @@ export default declare((api, opts: Options) => {
         node.typeArguments = null;
       },
 
+      JSXOpeningElement({ node }) {
+        if (skipStrip) return;
+        node.typeArguments = null;
+      },
+
       OptionalCallExpression({ node }) {
         if (skipStrip) return;
         node.typeArguments = null;

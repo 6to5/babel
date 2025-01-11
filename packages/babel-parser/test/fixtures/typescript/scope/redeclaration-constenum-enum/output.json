@@ -19,7 +19,11 @@
           "start":11,"end":12,"loc":{"start":{"line":1,"column":11,"index":11},"end":{"line":1,"column":12,"index":12},"identifierName":"X"},
           "name": "X"
         },
-        "members": []
+        "body": {
+          "type": "TSEnumBody",
+          "start":13,"end":15,"loc":{"start":{"line":1,"column":13,"index":13},"end":{"line":1,"column":15,"index":15}},
+          "members": []
+        }
       },
       {
         "type": "TSEnumDeclaration",
@@ -29,7 +33,11 @@
           "start":21,"end":22,"loc":{"start":{"line":2,"column":5,"index":21},"end":{"line":2,"column":6,"index":22},"identifierName":"X"},
           "name": "X"
         },
-        "members": []
+        "body": {
+          "type": "TSEnumBody",
+          "start":23,"end":25,"loc":{"start":{"line":2,"column":7,"index":23},"end":{"line":2,"column":9,"index":25}},
+          "members": []
+        }
       }
     ],
     "directives": [],

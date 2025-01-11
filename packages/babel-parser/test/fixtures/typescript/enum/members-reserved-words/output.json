@@ -15,26 +15,30 @@
           "start":5,"end":6,"loc":{"start":{"line":1,"column":5,"index":5},"end":{"line":1,"column":6,"index":6},"identifierName":"E"},
           "name": "E"
         },
-        "members": [
-          {
-            "type": "TSEnumMember",
-            "start":13,"end":18,"loc":{"start":{"line":2,"column":4,"index":13},"end":{"line":2,"column":9,"index":18}},
-            "id": {
-              "type": "Identifier",
-              "start":13,"end":18,"loc":{"start":{"line":2,"column":4,"index":13},"end":{"line":2,"column":9,"index":18},"identifierName":"const"},
-              "name": "const"
+        "body": {
+          "type": "TSEnumBody",
+          "start":7,"end":33,"loc":{"start":{"line":1,"column":7,"index":7},"end":{"line":4,"column":1,"index":33}},
+          "members": [
+            {
+              "type": "TSEnumMember",
+              "start":13,"end":18,"loc":{"start":{"line":2,"column":4,"index":13},"end":{"line":2,"column":9,"index":18}},
+              "id": {
+                "type": "Identifier",
+                "start":13,"end":18,"loc":{"start":{"line":2,"column":4,"index":13},"end":{"line":2,"column":9,"index":18},"identifierName":"const"},
+                "name": "const"
+              }
+            },
+            {
+              "type": "TSEnumMember",
+              "start":24,"end":31,"loc":{"start":{"line":3,"column":4,"index":24},"end":{"line":3,"column":11,"index":31}},
+              "id": {
+                "type": "Identifier",
+                "start":24,"end":31,"loc":{"start":{"line":3,"column":4,"index":24},"end":{"line":3,"column":11,"index":31},"identifierName":"default"},
+                "name": "default"
+              }
             }
-          },
-          {
-            "type": "TSEnumMember",
-            "start":24,"end":31,"loc":{"start":{"line":3,"column":4,"index":24},"end":{"line":3,"column":11,"index":31}},
-            "id": {
-              "type": "Identifier",
-              "start":24,"end":31,"loc":{"start":{"line":3,"column":4,"index":24},"end":{"line":3,"column":11,"index":31},"identifierName":"default"},
-              "name": "default"
-            }
-          }
-        ]
+          ]
+        }
       }
     ],
     "directives": [],

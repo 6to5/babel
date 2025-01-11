@@ -92,7 +92,11 @@
             "start":68,"end":69,"loc":{"start":{"line":5,"column":12,"index":68},"end":{"line":5,"column":13,"index":69},"identifierName":"D"},
             "name": "D"
           },
-          "members": []
+          "body": {
+            "type": "TSEnumBody",
+            "start":70,"end":72,"loc":{"start":{"line":5,"column":14,"index":70},"end":{"line":5,"column":16,"index":72}},
+            "members": []
+          }
         }
       },
       {

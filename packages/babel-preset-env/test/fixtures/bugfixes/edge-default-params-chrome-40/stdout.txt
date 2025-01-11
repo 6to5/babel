@@ -44,6 +44,7 @@ Using plugins:
   transform-unicode-regex { chrome < 50 }
   transform-spread { chrome < 46 }
   transform-block-scoping { chrome < 50 }
+  transform-typeof-symbol { chrome < 48 }
   transform-new-target { chrome < 46 }
   transform-regenerator { chrome < 50 }
   transform-export-namespace-from { chrome < 72 }

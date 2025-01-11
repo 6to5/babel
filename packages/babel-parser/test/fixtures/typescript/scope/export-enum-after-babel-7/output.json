@@ -1,0 +1,64 @@
+{
+  "type": "File",
+  "start":0,"end":87,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":5,"column":26,"index":87}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":87,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":5,"column":26,"index":87}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "TSEnumDeclaration",
+        "start":47,"end":59,"loc":{"start":{"line":3,"column":0,"index":47},"end":{"line":3,"column":12,"index":59}},
+        "id": {
+          "type": "Identifier",
+          "start":52,"end":56,"loc":{"start":{"line":3,"column":5,"index":52},"end":{"line":3,"column":9,"index":56},"identifierName":"Test"},
+          "name": "Test"
+        },
+        "members": [],
+        "leadingComments": [
+          {
+            "type": "CommentLine",
+            "value": " https://github.com/babel/babel/issues/9763",
+            "start":0,"end":45,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":45,"index":45}}
+          }
+        ]
+      },
+      {
+        "type": "ExportNamedDeclaration",
+        "start":61,"end":87,"loc":{"start":{"line":5,"column":0,"index":61},"end":{"line":5,"column":26,"index":87}},
+        "exportKind": "value",
+        "specifiers": [
+          {
+            "type": "ExportSpecifier",
+            "start":70,"end":85,"loc":{"start":{"line":5,"column":9,"index":70},"end":{"line":5,"column":24,"index":85}},
+            "local": {
+              "type": "Identifier",
+              "start":70,"end":74,"loc":{"start":{"line":5,"column":9,"index":70},"end":{"line":5,"column":13,"index":74},"identifierName":"Test"},
+              "name": "Test"
+            },
+            "exportKind": "value",
+            "exported": {
+              "type": "Identifier",
+              "start":78,"end":85,"loc":{"start":{"line":5,"column":17,"index":78},"end":{"line":5,"column":24,"index":85},"identifierName":"default"},
+              "name": "default"
+            }
+          }
+        ],
+        "source": null,
+        "declaration": null
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  },
+  "comments": [
+    {
+      "type": "CommentLine",
+      "value": " https://github.com/babel/babel/issues/9763",
+      "start":0,"end":45,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":45,"index":45}}
+    }
+  ]
+}

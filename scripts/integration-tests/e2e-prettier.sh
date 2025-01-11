@@ -41,7 +41,21 @@ if [ "$BABEL_8_BREAKING" = true ] ; then
   rm tests/format/typescript/comments/mapped_types.ts
   # https://github.com/babel/babel/pull/16817
   sed -i 's/node.type !== "MemberExpression" ||/node.type !== "MemberExpression" || \/\/@ts-expect-error/g' src/language-js/utils/is-node-matches.js
+  # https://github.com/babel/babel/pull/16979
+  rm tests/format/typescript/trailing-comma/format.test.js
+  rm tests/format/typescript/enum/format.test.js
+  rm tests/format/typescript/conformance/types/enumDeclaration/format.test.js
+  rm tests/format/typescript/conformance/types/constKeyword/format.test.js
+  rm tests/format/typescript/conformance/types/ambient/format.test.js
+  rm tests/format/typescript/conformance/internalModules/importDeclarations/format.test.js
+  rm tests/format/typescript/keywords/format.test.js
+  rm tests/format/typescript/declare/format.test.js
+  rm tests/format/typescript/const/format.test.js
 fi
+
+# Re-enable this test once prettier updated the snapshot
+# https://github.com/babel/babel/pull/17028
+rm -r tests/format/flow/jsx/format.test.js
 
 #==============================================================================#
 #                                 ENVIRONMENT                                  #

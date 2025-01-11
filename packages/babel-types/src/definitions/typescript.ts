@@ -535,18 +535,41 @@ defineType("TSTypeAssertion", {
   },
 });
 
-defineType("TSEnumDeclaration", {
-  // "Statement" alias prevents a semicolon from appearing after it in an export declaration.
-  aliases: ["Statement", "Declaration"],
-  visitor: ["id", "members"],
+defineType("TSEnumBody", {
+  visitor: ["members"],
   fields: {
-    declare: validateOptional(bool),
-    const: validateOptional(bool),
-    id: validateType("Identifier"),
     members: validateArrayOfType("TSEnumMember"),
-    initializer: validateOptionalType("Expression"),
   },
 });
+
+if (process.env.BABEL_8_BREAKING) {
+  defineType("TSEnumDeclaration", {
+    // "Statement" alias prevents a semicolon from appearing after it in an export declaration.
+    aliases: ["Statement", "Declaration"],
+    visitor: ["id", "body"],
+    fields: {
+      declare: validateOptional(bool),
+      const: validateOptional(bool),
+      id: validateType("Identifier"),
+      // @ts-ignore(Babel 7 vs Babel 8) Babel 8 AST
+      body: validateType("TSEnumBody"),
+    },
+  });
+} else {
+  defineType("TSEnumDeclaration", {
+    // "Statement" alias prevents a semicolon from appearing after it in an export declaration.
+    aliases: ["Statement", "Declaration"],
+    visitor: ["id", "members"],
+    fields: {
+      declare: validateOptional(bool),
+      const: validateOptional(bool),
+      id: validateType("Identifier"),
+      members: validateArrayOfType("TSEnumMember"),
+      initializer: validateOptionalType("Expression"),
+      body: validateOptionalType("TSEnumBody"),
+    },
+  });
+}
 
 defineType("TSEnumMember", {
   visitor: ["id", "initializer"],
@@ -584,12 +607,24 @@ defineType("TSModuleBlock", {
 
 defineType("TSImportType", {
   aliases: ["TSType"],
-  builder: ["argument", "qualifier", "typeParameters"],
-  visitor: ["argument", "options", "qualifier", "typeParameters"],
+  builder: [
+    "argument",
+    "qualifier",
+    process.env.BABEL_8_BREAKING ? "typeArguments" : "typeParameters",
+  ],
+  visitor: [
+    "argument",
+    "options",
+    "qualifier",
+    process.env.BABEL_8_BREAKING ? "typeArguments" : "typeParameters",
+  ],
   fields: {
-    argument: validateType("StringLiteral"),
+    argument: process.env.BABEL_8_BREAKING
+      ? validateType("TSLiteralType")
+      : validateType("StringLiteral"),
     qualifier: validateOptionalType("TSEntityName"),
-    typeParameters: validateOptionalType("TSTypeParameterInstantiation"),
+    [process.env.BABEL_8_BREAKING ? "typeArguments" : "typeParameters"]:
+      validateOptionalType("TSTypeParameterInstantiation"),
     options: {
       validate: assertNodeType("Expression"),
       optional: true,

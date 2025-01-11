@@ -1,0 +1,40 @@
+{
+  "type": "File",
+  "start":0,"end":25,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":15,"index":25}},
+  "errors": [
+    "SyntaxError: Identifier 'X' has already been declared. (2:11)"
+  ],
+  "program": {
+    "type": "Program",
+    "start":0,"end":25,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":15,"index":25}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "TSEnumDeclaration",
+        "start":0,"end":9,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":9,"index":9}},
+        "id": {
+          "type": "Identifier",
+          "start":5,"end":6,"loc":{"start":{"line":1,"column":5,"index":5},"end":{"line":1,"column":6,"index":6},"identifierName":"X"},
+          "name": "X"
+        },
+        "members": []
+      },
+      {
+        "type": "TSEnumDeclaration",
+        "start":10,"end":25,"loc":{"start":{"line":2,"column":0,"index":10},"end":{"line":2,"column":15,"index":25}},
+        "const": true,
+        "id": {
+          "type": "Identifier",
+          "start":21,"end":22,"loc":{"start":{"line":2,"column":11,"index":21},"end":{"line":2,"column":12,"index":22},"identifierName":"X"},
+          "name": "X"
+        },
+        "members": []
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

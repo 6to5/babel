@@ -1,0 +1,367 @@
+{
+  "type": "File",
+  "start":0,"end":325,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":15,"column":1,"index":325}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":325,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":15,"column":1,"index":325}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "TSModuleDeclaration",
+        "start":0,"end":325,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":15,"column":1,"index":325}},
+        "kind": "module",
+        "id": {
+          "type": "Identifier",
+          "start":15,"end":16,"loc":{"start":{"line":1,"column":15,"index":15},"end":{"line":1,"column":16,"index":16},"identifierName":"N"},
+          "name": "N"
+        },
+        "body": {
+          "type": "TSModuleBlock",
+          "start":17,"end":325,"loc":{"start":{"line":1,"column":17,"index":17},"end":{"line":15,"column":1,"index":325}},
+          "body": [
+            {
+              "type": "TSEnumDeclaration",
+              "start":21,"end":44,"loc":{"start":{"line":2,"column":2,"index":21},"end":{"line":4,"column":3,"index":44}},
+              "id": {
+                "type": "Identifier",
+                "start":26,"end":27,"loc":{"start":{"line":2,"column":7,"index":26},"end":{"line":2,"column":8,"index":27},"identifierName":"E"},
+                "name": "E"
+              },
+              "members": [
+                {
+                  "type": "TSEnumMember",
+                  "start":34,"end":40,"loc":{"start":{"line":3,"column":4,"index":34},"end":{"line":3,"column":10,"index":40}},
+                  "id": {
+                    "type": "Identifier",
+                    "start":34,"end":36,"loc":{"start":{"line":3,"column":4,"index":34},"end":{"line":3,"column":6,"index":36},"identifierName":"ok"},
+                    "name": "ok"
+                  },
+                  "initializer": {
+                    "type": "NumericLiteral",
+                    "start":39,"end":40,"loc":{"start":{"line":3,"column":9,"index":39},"end":{"line":3,"column":10,"index":40}},
+                    "extra": {
+                      "rawValue": 0,
+                      "raw": "0"
+                    },
+                    "value": 0
+                  }
+                }
+              ]
+            },
+            {
+              "type": "ExportNamedDeclaration",
+              "start":48,"end":74,"loc":{"start":{"line":6,"column":2,"index":48},"end":{"line":6,"column":28,"index":74}},
+              "exportKind": "value",
+              "specifiers": [],
+              "source": null,
+              "declaration": {
+                "type": "VariableDeclaration",
+                "start":55,"end":74,"loc":{"start":{"line":6,"column":9,"index":55},"end":{"line":6,"column":28,"index":74}},
+                "declarations": [
+                  {
+                    "type": "VariableDeclarator",
+                    "start":61,"end":73,"loc":{"start":{"line":6,"column":15,"index":61},"end":{"line":6,"column":27,"index":73}},
+                    "id": {
+                      "type": "Identifier",
+                      "start":61,"end":67,"loc":{"start":{"line":6,"column":15,"index":61},"end":{"line":6,"column":21,"index":67},"identifierName":"string"},
+                      "name": "string"
+                    },
+                    "init": {
+                      "type": "StringLiteral",
+                      "start":70,"end":73,"loc":{"start":{"line":6,"column":24,"index":70},"end":{"line":6,"column":27,"index":73}},
+                      "extra": {
+                        "rawValue": "2",
+                        "raw": "\"2\""
+                      },
+                      "value": "2"
+                    }
+                  }
+                ],
+                "kind": "const"
+              }
+            },
+            {
+              "type": "ExportNamedDeclaration",
+              "start":77,"end":102,"loc":{"start":{"line":7,"column":2,"index":77},"end":{"line":7,"column":27,"index":102}},
+              "exportKind": "value",
+              "specifiers": [],
+              "source": null,
+              "declaration": {
+                "type": "VariableDeclaration",
+                "start":84,"end":102,"loc":{"start":{"line":7,"column":9,"index":84},"end":{"line":7,"column":27,"index":102}},
+                "declarations": [
+                  {
+                    "type": "VariableDeclarator",
+                    "start":90,"end":101,"loc":{"start":{"line":7,"column":15,"index":90},"end":{"line":7,"column":26,"index":101}},
+                    "id": {
+                      "type": "Identifier",
+                      "start":90,"end":96,"loc":{"start":{"line":7,"column":15,"index":90},"end":{"line":7,"column":21,"index":96},"identifierName":"number"},
+                      "name": "number"
+                    },
+                    "init": {
+                      "type": "NumericLiteral",
+                      "start":99,"end":101,"loc":{"start":{"line":7,"column":24,"index":99},"end":{"line":7,"column":26,"index":101}},
+                      "extra": {
+                        "rawValue": 1,
+                        "raw": "1."
+                      },
+                      "value": 1
+                    }
+                  }
+                ],
+                "kind": "const"
+              }
+            },
+            {
+              "type": "ExportNamedDeclaration",
+              "start":105,"end":130,"loc":{"start":{"line":8,"column":2,"index":105},"end":{"line":8,"column":27,"index":130}},
+              "exportKind": "value",
+              "specifiers": [],
+              "source": null,
+              "declaration": {
+                "type": "VariableDeclaration",
+                "start":112,"end":130,"loc":{"start":{"line":8,"column":9,"index":112},"end":{"line":8,"column":27,"index":130}},
+                "declarations": [
+                  {
+                    "type": "VariableDeclarator",
+                    "start":118,"end":129,"loc":{"start":{"line":8,"column":15,"index":118},"end":{"line":8,"column":26,"index":129}},
+                    "id": {
+                      "type": "Identifier",
+                      "start":118,"end":124,"loc":{"start":{"line":8,"column":15,"index":118},"end":{"line":8,"column":21,"index":124},"identifierName":"bigint"},
+                      "name": "bigint"
+                    },
+                    "init": {
+                      "type": "BigIntLiteral",
+                      "start":127,"end":129,"loc":{"start":{"line":8,"column":24,"index":127},"end":{"line":8,"column":26,"index":129}},
+                      "extra": {
+                        "rawValue": "0",
+                        "raw": "0n"
+                      },
+                      "value": "0"
+                    }
+                  }
+                ],
+                "kind": "const"
+              }
+            },
+            {
+              "type": "ExportNamedDeclaration",
+              "start":133,"end":168,"loc":{"start":{"line":9,"column":2,"index":133},"end":{"line":9,"column":37,"index":168}},
+              "exportKind": "value",
+              "specifiers": [],
+              "source": null,
+              "declaration": {
+                "type": "VariableDeclaration",
+                "start":140,"end":168,"loc":{"start":{"line":9,"column":9,"index":140},"end":{"line":9,"column":37,"index":168}},
+                "declarations": [
+                  {
+                    "type": "VariableDeclarator",
+                    "start":146,"end":167,"loc":{"start":{"line":9,"column":15,"index":146},"end":{"line":9,"column":36,"index":167}},
+                    "id": {
+                      "type": "Identifier",
+                      "start":146,"end":161,"loc":{"start":{"line":9,"column":15,"index":146},"end":{"line":9,"column":30,"index":161},"identifierName":"negative_bigint"},
+                      "name": "negative_bigint"
+                    },
+                    "init": {
+                      "type": "UnaryExpression",
+                      "start":164,"end":167,"loc":{"start":{"line":9,"column":33,"index":164},"end":{"line":9,"column":36,"index":167}},
+                      "operator": "-",
+                      "prefix": true,
+                      "argument": {
+                        "type": "BigIntLiteral",
+                        "start":165,"end":167,"loc":{"start":{"line":9,"column":34,"index":165},"end":{"line":9,"column":36,"index":167}},
+                        "extra": {
+                          "rawValue": "0",
+                          "raw": "0n"
+                        },
+                        "value": "0"
+                      }
+                    }
+                  }
+                ],
+                "kind": "const"
+              }
+            },
+            {
+              "type": "ExportNamedDeclaration",
+              "start":171,"end":205,"loc":{"start":{"line":10,"column":2,"index":171},"end":{"line":10,"column":36,"index":205}},
+              "exportKind": "value",
+              "specifiers": [],
+              "source": null,
+              "declaration": {
+                "type": "VariableDeclaration",
+                "start":178,"end":205,"loc":{"start":{"line":10,"column":9,"index":178},"end":{"line":10,"column":36,"index":205}},
+                "declarations": [
+                  {
+                    "type": "VariableDeclarator",
+                    "start":184,"end":204,"loc":{"start":{"line":10,"column":15,"index":184},"end":{"line":10,"column":35,"index":204}},
+                    "id": {
+                      "type": "Identifier",
+                      "start":184,"end":199,"loc":{"start":{"line":10,"column":15,"index":184},"end":{"line":10,"column":30,"index":199},"identifierName":"negative_number"},
+                      "name": "negative_number"
+                    },
+                    "init": {
+                      "type": "UnaryExpression",
+                      "start":202,"end":204,"loc":{"start":{"line":10,"column":33,"index":202},"end":{"line":10,"column":35,"index":204}},
+                      "operator": "-",
+                      "prefix": true,
+                      "argument": {
+                        "type": "NumericLiteral",
+                        "start":203,"end":204,"loc":{"start":{"line":10,"column":34,"index":203},"end":{"line":10,"column":35,"index":204}},
+                        "extra": {
+                          "rawValue": 1,
+                          "raw": "1"
+                        },
+                        "value": 1
+                      }
+                    }
+                  }
+                ],
+                "kind": "const"
+              }
+            },
+            {
+              "type": "ExportNamedDeclaration",
+              "start":208,"end":237,"loc":{"start":{"line":11,"column":2,"index":208},"end":{"line":11,"column":31,"index":237}},
+              "exportKind": "value",
+              "specifiers": [],
+              "source": null,
+              "declaration": {
+                "type": "VariableDeclaration",
+                "start":215,"end":237,"loc":{"start":{"line":11,"column":9,"index":215},"end":{"line":11,"column":31,"index":237}},
+                "declarations": [
+                  {
+                    "type": "VariableDeclarator",
+                    "start":221,"end":236,"loc":{"start":{"line":11,"column":15,"index":221},"end":{"line":11,"column":30,"index":236}},
+                    "id": {
+                      "type": "Identifier",
+                      "start":221,"end":229,"loc":{"start":{"line":11,"column":15,"index":221},"end":{"line":11,"column":23,"index":229},"identifierName":"template"},
+                      "name": "template"
+                    },
+                    "init": {
+                      "type": "TemplateLiteral",
+                      "start":232,"end":236,"loc":{"start":{"line":11,"column":26,"index":232},"end":{"line":11,"column":30,"index":236}},
+                      "expressions": [],
+                      "quasis": [
+                        {
+                          "type": "TemplateElement",
+                          "start":233,"end":235,"loc":{"start":{"line":11,"column":27,"index":233},"end":{"line":11,"column":29,"index":235}},
+                          "value": {
+                            "raw": "-2",
+                            "cooked": "-2"
+                          },
+                          "tail": true
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "kind": "const"
+              }
+            },
+            {
+              "type": "ExportNamedDeclaration",
+              "start":240,"end":267,"loc":{"start":{"line":12,"column":2,"index":240},"end":{"line":12,"column":29,"index":267}},
+              "exportKind": "value",
+              "specifiers": [],
+              "source": null,
+              "declaration": {
+                "type": "VariableDeclaration",
+                "start":247,"end":267,"loc":{"start":{"line":12,"column":9,"index":247},"end":{"line":12,"column":29,"index":267}},
+                "declarations": [
+                  {
+                    "type": "VariableDeclarator",
+                    "start":253,"end":266,"loc":{"start":{"line":12,"column":15,"index":253},"end":{"line":12,"column":28,"index":266}},
+                    "id": {
+                      "type": "Identifier",
+                      "start":253,"end":258,"loc":{"start":{"line":12,"column":15,"index":253},"end":{"line":12,"column":20,"index":258},"identifierName":"False"},
+                      "name": "False"
+                    },
+                    "init": {
+                      "type": "BooleanLiteral",
+                      "start":261,"end":266,"loc":{"start":{"line":12,"column":23,"index":261},"end":{"line":12,"column":28,"index":266}},
+                      "value": false
+                    }
+                  }
+                ],
+                "kind": "const"
+              }
+            },
+            {
+              "type": "ExportNamedDeclaration",
+              "start":270,"end":295,"loc":{"start":{"line":13,"column":2,"index":270},"end":{"line":13,"column":27,"index":295}},
+              "exportKind": "value",
+              "specifiers": [],
+              "source": null,
+              "declaration": {
+                "type": "VariableDeclaration",
+                "start":277,"end":295,"loc":{"start":{"line":13,"column":9,"index":277},"end":{"line":13,"column":27,"index":295}},
+                "declarations": [
+                  {
+                    "type": "VariableDeclarator",
+                    "start":283,"end":294,"loc":{"start":{"line":13,"column":15,"index":283},"end":{"line":13,"column":26,"index":294}},
+                    "id": {
+                      "type": "Identifier",
+                      "start":283,"end":287,"loc":{"start":{"line":13,"column":15,"index":283},"end":{"line":13,"column":19,"index":287},"identifierName":"True"},
+                      "name": "True"
+                    },
+                    "init": {
+                      "type": "BooleanLiteral",
+                      "start":290,"end":294,"loc":{"start":{"line":13,"column":22,"index":290},"end":{"line":13,"column":26,"index":294}},
+                      "value": true
+                    }
+                  }
+                ],
+                "kind": "const"
+              }
+            },
+            {
+              "type": "ExportNamedDeclaration",
+              "start":298,"end":323,"loc":{"start":{"line":14,"column":2,"index":298},"end":{"line":14,"column":27,"index":323}},
+              "exportKind": "value",
+              "specifiers": [],
+              "source": null,
+              "declaration": {
+                "type": "VariableDeclaration",
+                "start":305,"end":323,"loc":{"start":{"line":14,"column":9,"index":305},"end":{"line":14,"column":27,"index":323}},
+                "declarations": [
+                  {
+                    "type": "VariableDeclarator",
+                    "start":311,"end":322,"loc":{"start":{"line":14,"column":15,"index":311},"end":{"line":14,"column":26,"index":322}},
+                    "id": {
+                      "type": "Identifier",
+                      "start":311,"end":315,"loc":{"start":{"line":14,"column":15,"index":311},"end":{"line":14,"column":19,"index":315},"identifierName":"E_ok"},
+                      "name": "E_ok"
+                    },
+                    "init": {
+                      "type": "MemberExpression",
+                      "start":318,"end":322,"loc":{"start":{"line":14,"column":22,"index":318},"end":{"line":14,"column":26,"index":322}},
+                      "object": {
+                        "type": "Identifier",
+                        "start":318,"end":319,"loc":{"start":{"line":14,"column":22,"index":318},"end":{"line":14,"column":23,"index":319},"identifierName":"E"},
+                        "name": "E"
+                      },
+                      "computed": false,
+                      "property": {
+                        "type": "Identifier",
+                        "start":320,"end":322,"loc":{"start":{"line":14,"column":24,"index":320},"end":{"line":14,"column":26,"index":322},"identifierName":"ok"},
+                        "name": "ok"
+                      }
+                    }
+                  }
+                ],
+                "kind": "const"
+              }
+            }
+          ]
+        },
+        "declare": true
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

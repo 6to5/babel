@@ -175,39 +175,6 @@ export default (superClass: typeof Parser) =>
       delete node.directives;
     }
 
-    pushClassMethod(
-      classBody: N.ClassBody,
-      method: N.ClassMethod,
-      isGenerator: boolean,
-      isAsync: boolean,
-      isConstructor: boolean,
-      allowsDirectSuper: boolean,
-    ): void {
-      this.parseMethod(
-        method,
-        isGenerator,
-        isAsync,
-        isConstructor,
-        allowsDirectSuper,
-        "ClassMethod",
-        true,
-      );
-
-      const { typeParameters } = method;
-      if (typeParameters) {
-        delete method.typeParameters;
-
-        const fn: N.FunctionExpression = (
-          method as unknown as N.EstreeMethodDefinition
-        ).value;
-
-        fn.typeParameters = typeParameters;
-        fn.start = typeParameters.start;
-        fn.loc.start = typeParameters.loc.start;
-      }
-      classBody.body.push(method);
-    }
-
     parsePrivateName(): any {
       const node = super.parsePrivateName();
       if (!process.env.BABEL_8_BREAKING) {
@@ -299,6 +266,13 @@ export default (superClass: typeof Parser) =>
       delete funcNode.kind;
       // @ts-expect-error mutate AST types
       node.value = funcNode;
+      const { typeParameters } = node;
+      if (typeParameters) {
+        delete node.typeParameters;
+        funcNode.typeParameters = typeParameters;
+        funcNode.start = typeParameters.start;
+        funcNode.loc.start = typeParameters.loc.start;
+      }
       if (type === "ClassPrivateMethod") {
         node.computed = false;
       }

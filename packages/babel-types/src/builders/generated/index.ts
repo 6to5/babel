@@ -3213,6 +3213,16 @@ export function tsTypeAssertion(
   return node;
 }
 export { tsTypeAssertion as tSTypeAssertion };
+export function tsEnumBody(members: Array<t.TSEnumMember>): t.TSEnumBody {
+  const node: t.TSEnumBody = {
+    type: "TSEnumBody",
+    members,
+  };
+  const defs = NODE_FIELDS.TSEnumBody;
+  validate(defs.members, node, "members", members, 1);
+  return node;
+}
+export { tsEnumBody as tSEnumBody };
 export function tsEnumDeclaration(
   id: t.Identifier,
   members: Array<t.TSEnumMember>,

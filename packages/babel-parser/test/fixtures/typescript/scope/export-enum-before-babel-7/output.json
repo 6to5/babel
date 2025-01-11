@@ -1,0 +1,50 @@
+{
+  "type": "File",
+  "start":0,"end":40,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":3,"column":12,"index":40}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":40,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":3,"column":12,"index":40}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ExportNamedDeclaration",
+        "start":0,"end":26,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":26,"index":26}},
+        "exportKind": "value",
+        "specifiers": [
+          {
+            "type": "ExportSpecifier",
+            "start":9,"end":24,"loc":{"start":{"line":1,"column":9,"index":9},"end":{"line":1,"column":24,"index":24}},
+            "local": {
+              "type": "Identifier",
+              "start":9,"end":13,"loc":{"start":{"line":1,"column":9,"index":9},"end":{"line":1,"column":13,"index":13},"identifierName":"Test"},
+              "name": "Test"
+            },
+            "exportKind": "value",
+            "exported": {
+              "type": "Identifier",
+              "start":17,"end":24,"loc":{"start":{"line":1,"column":17,"index":17},"end":{"line":1,"column":24,"index":24},"identifierName":"default"},
+              "name": "default"
+            }
+          }
+        ],
+        "source": null,
+        "declaration": null
+      },
+      {
+        "type": "TSEnumDeclaration",
+        "start":28,"end":40,"loc":{"start":{"line":3,"column":0,"index":28},"end":{"line":3,"column":12,"index":40}},
+        "id": {
+          "type": "Identifier",
+          "start":33,"end":37,"loc":{"start":{"line":3,"column":5,"index":33},"end":{"line":3,"column":9,"index":37},"identifierName":"Test"},
+          "name": "Test"
+        },
+        "members": []
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

@@ -39,7 +39,11 @@
           "start":33,"end":37,"loc":{"start":{"line":3,"column":5,"index":33},"end":{"line":3,"column":9,"index":37},"identifierName":"Test"},
           "name": "Test"
         },
-        "members": []
+        "body": {
+          "type": "TSEnumBody",
+          "start":38,"end":40,"loc":{"start":{"line":3,"column":10,"index":38},"end":{"line":3,"column":12,"index":40}},
+          "members": []
+        }
       }
     ],
     "directives": [],

@@ -1,0 +1,2 @@
+// @flow
+<Foo<T>></Foo>

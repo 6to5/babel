@@ -1,0 +1,168 @@
+{
+  "type": "File",
+  "start":0,"end":164,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":7,"column":27,"index":164}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":164,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":7,"column":27,"index":164}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ExportNamedDeclaration",
+        "start":0,"end":26,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":26,"index":26}},
+        "exportKind": "value",
+        "specifiers": [],
+        "source": null,
+        "declaration": {
+          "type": "ClassDeclaration",
+          "start":7,"end":26,"loc":{"start":{"line":1,"column":7,"index":7},"end":{"line":1,"column":26,"index":26}},
+          "abstract": true,
+          "id": {
+            "type": "Identifier",
+            "start":22,"end":23,"loc":{"start":{"line":1,"column":22,"index":22},"end":{"line":1,"column":23,"index":23},"identifierName":"A"},
+            "name": "A"
+          },
+          "superClass": null,
+          "body": {
+            "type": "ClassBody",
+            "start":24,"end":26,"loc":{"start":{"line":1,"column":24,"index":24},"end":{"line":1,"column":26,"index":26}},
+            "body": []
+          }
+        }
+      },
+      {
+        "type": "ExportNamedDeclaration",
+        "start":27,"end":56,"loc":{"start":{"line":2,"column":0,"index":27},"end":{"line":2,"column":29,"index":56}},
+        "exportKind": "type",
+        "specifiers": [],
+        "source": null,
+        "declaration": {
+          "type": "TSInterfaceDeclaration",
+          "start":34,"end":56,"loc":{"start":{"line":2,"column":7,"index":34},"end":{"line":2,"column":29,"index":56}},
+          "id": {
+            "type": "Identifier",
+            "start":52,"end":53,"loc":{"start":{"line":2,"column":25,"index":52},"end":{"line":2,"column":26,"index":53},"identifierName":"B"},
+            "name": "B"
+          },
+          "body": {
+            "type": "TSInterfaceBody",
+            "start":54,"end":56,"loc":{"start":{"line":2,"column":27,"index":54},"end":{"line":2,"column":29,"index":56}},
+            "body": []
+          },
+          "declare": true
+        }
+      },
+      {
+        "type": "ExportNamedDeclaration",
+        "start":57,"end":73,"loc":{"start":{"line":3,"column":0,"index":57},"end":{"line":3,"column":16,"index":73}},
+        "exportKind": "value",
+        "specifiers": [],
+        "source": null,
+        "declaration": {
+          "type": "TSEnumDeclaration",
+          "start":64,"end":73,"loc":{"start":{"line":3,"column":7,"index":64},"end":{"line":3,"column":16,"index":73}},
+          "id": {
+            "type": "Identifier",
+            "start":69,"end":70,"loc":{"start":{"line":3,"column":12,"index":69},"end":{"line":3,"column":13,"index":70},"identifierName":"C"},
+            "name": "C"
+          },
+          "members": []
+        }
+      },
+      {
+        "type": "ExportNamedDeclaration",
+        "start":74,"end":95,"loc":{"start":{"line":4,"column":0,"index":74},"end":{"line":4,"column":21,"index":95}},
+        "exportKind": "type",
+        "specifiers": [],
+        "source": null,
+        "declaration": {
+          "type": "TSInterfaceDeclaration",
+          "start":81,"end":95,"loc":{"start":{"line":4,"column":7,"index":81},"end":{"line":4,"column":21,"index":95}},
+          "id": {
+            "type": "Identifier",
+            "start":91,"end":92,"loc":{"start":{"line":4,"column":17,"index":91},"end":{"line":4,"column":18,"index":92},"identifierName":"D"},
+            "name": "D"
+          },
+          "body": {
+            "type": "TSInterfaceBody",
+            "start":93,"end":95,"loc":{"start":{"line":4,"column":19,"index":93},"end":{"line":4,"column":21,"index":95}},
+            "body": []
+          }
+        }
+      },
+      {
+        "type": "ExportNamedDeclaration",
+        "start":96,"end":114,"loc":{"start":{"line":5,"column":0,"index":96},"end":{"line":5,"column":18,"index":114}},
+        "exportKind": "value",
+        "specifiers": [],
+        "source": null,
+        "declaration": {
+          "type": "TSModuleDeclaration",
+          "start":103,"end":114,"loc":{"start":{"line":5,"column":7,"index":103},"end":{"line":5,"column":18,"index":114}},
+          "kind": "module",
+          "id": {
+            "type": "Identifier",
+            "start":110,"end":111,"loc":{"start":{"line":5,"column":14,"index":110},"end":{"line":5,"column":15,"index":111},"identifierName":"E"},
+            "name": "E"
+          },
+          "body": {
+            "type": "TSModuleBlock",
+            "start":112,"end":114,"loc":{"start":{"line":5,"column":16,"index":112},"end":{"line":5,"column":18,"index":114}},
+            "body": []
+          }
+        }
+      },
+      {
+        "type": "ExportNamedDeclaration",
+        "start":115,"end":136,"loc":{"start":{"line":6,"column":0,"index":115},"end":{"line":6,"column":21,"index":136}},
+        "exportKind": "value",
+        "specifiers": [],
+        "source": null,
+        "declaration": {
+          "type": "TSModuleDeclaration",
+          "start":122,"end":136,"loc":{"start":{"line":6,"column":7,"index":122},"end":{"line":6,"column":21,"index":136}},
+          "kind": "namespace",
+          "id": {
+            "type": "Identifier",
+            "start":132,"end":133,"loc":{"start":{"line":6,"column":17,"index":132},"end":{"line":6,"column":18,"index":133},"identifierName":"F"},
+            "name": "F"
+          },
+          "body": {
+            "type": "TSModuleBlock",
+            "start":134,"end":136,"loc":{"start":{"line":6,"column":19,"index":134},"end":{"line":6,"column":21,"index":136}},
+            "body": []
+          }
+        }
+      },
+      {
+        "type": "ExportNamedDeclaration",
+        "start":137,"end":164,"loc":{"start":{"line":7,"column":0,"index":137},"end":{"line":7,"column":27,"index":164}},
+        "exportKind": "type",
+        "specifiers": [],
+        "source": null,
+        "declaration": {
+          "type": "TSTypeAliasDeclaration",
+          "start":144,"end":164,"loc":{"start":{"line":7,"column":7,"index":144},"end":{"line":7,"column":27,"index":164}},
+          "id": {
+            "type": "Identifier",
+            "start":149,"end":150,"loc":{"start":{"line":7,"column":12,"index":149},"end":{"line":7,"column":13,"index":150},"identifierName":"G"},
+            "name": "G"
+          },
+          "typeAnnotation": {
+            "type": "TSTypeQuery",
+            "start":153,"end":163,"loc":{"start":{"line":7,"column":16,"index":153},"end":{"line":7,"column":26,"index":163}},
+            "exprName": {
+              "type": "Identifier",
+              "start":160,"end":163,"loc":{"start":{"line":7,"column":23,"index":160},"end":{"line":7,"column":26,"index":163},"identifierName":"foo"},
+              "name": "foo"
+            }
+          }
+        }
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

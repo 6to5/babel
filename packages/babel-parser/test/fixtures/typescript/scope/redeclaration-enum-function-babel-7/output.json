@@ -1,0 +1,47 @@
+{
+  "type": "File",
+  "start":0,"end":29,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":17,"index":29}},
+  "errors": [
+    "SyntaxError: Identifier 'Foo' has already been declared. (2:9)"
+  ],
+  "program": {
+    "type": "Program",
+    "start":0,"end":29,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":17,"index":29}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "TSEnumDeclaration",
+        "start":0,"end":11,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":11,"index":11}},
+        "id": {
+          "type": "Identifier",
+          "start":5,"end":8,"loc":{"start":{"line":1,"column":5,"index":5},"end":{"line":1,"column":8,"index":8},"identifierName":"Foo"},
+          "name": "Foo"
+        },
+        "members": []
+      },
+      {
+        "type": "FunctionDeclaration",
+        "start":12,"end":29,"loc":{"start":{"line":2,"column":0,"index":12},"end":{"line":2,"column":17,"index":29}},
+        "id": {
+          "type": "Identifier",
+          "start":21,"end":24,"loc":{"start":{"line":2,"column":9,"index":21},"end":{"line":2,"column":12,"index":24},"identifierName":"Foo"},
+          "name": "Foo"
+        },
+        "generator": false,
+        "async": false,
+        "params": [],
+        "body": {
+          "type": "BlockStatement",
+          "start":27,"end":29,"loc":{"start":{"line":2,"column":15,"index":27},"end":{"line":2,"column":17,"index":29}},
+          "body": [],
+          "directives": []
+        }
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

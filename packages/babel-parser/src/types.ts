@@ -1761,8 +1761,12 @@ export interface TsLiteralType extends TsTypeBase {
 
 export interface TsImportType extends TsTypeBase {
   type: "TSImportType";
-  argument: StringLiteral;
+  argument: TsLiteralType;
   qualifier?: TsEntityName;
+  typeArguments?: TsTypeParameterInstantiation;
+  /**
+   * @deprecated
+   */
   typeParameters?: TsTypeParameterInstantiation;
   options?: Expression | null;
 }
@@ -1808,6 +1812,15 @@ export interface TsEnumDeclaration extends DeclarationBase {
   type: "TSEnumDeclaration";
   const?: true;
   id: Identifier;
+  body: TsEnumBody;
+  /**
+   * @deprecated
+   */
+  members?: TsEnumMember[];
+}
+
+export interface TsEnumBody extends NodeBase {
+  type: "TSEnumBody";
   members: TsEnumMember[];
 }
 
@@ -2108,6 +2121,7 @@ export type Node =
   | TsConstructSignatureDeclaration
   | TsConstructorType
   | TsEnumDeclaration
+  | TsEnumBody
   | TsEnumMember
   | TsExportAssignment
   | TSClassImplements

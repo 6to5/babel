@@ -28,13 +28,17 @@
                     "type": "TSImportType",
                     "start":14,"end":54,"loc":{"start":{"line":1,"column":14,"index":14},"end":{"line":1,"column":54,"index":54}},
                     "argument": {
-                      "type": "StringLiteral",
+                      "type": "TSLiteralType",
                       "start":21,"end":26,"loc":{"start":{"line":1,"column":21,"index":21},"end":{"line":1,"column":26,"index":26}},
-                      "extra": {
-                        "rawValue": "./x",
-                        "raw": "'./x'"
-                      },
-                      "value": "./x"
+                      "literal": {
+                        "type": "StringLiteral",
+                        "start":21,"end":26,"loc":{"start":{"line":1,"column":21,"index":21},"end":{"line":1,"column":26,"index":26}},
+                        "extra": {
+                          "rawValue": "./x",
+                          "raw": "'./x'"
+                        },
+                        "value": "./x"
+                      }
                     },
                     "options": {
                       "type": "ObjectExpression",

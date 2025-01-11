@@ -252,21 +252,15 @@ function buildTSConfig(pkgs, allDeps, hasOverrides) {
       "../../tsconfig.paths.json",
       hasOverrides && "./tsconfig.overrides.json",
     ].filter(Boolean),
-    include: pkgs
-      .map(({ name, relative }) => {
-        return name === "@babel/eslint-parser"
-          ? `../../${relative.slice(2)}/src/**/*.cts`
-          : `../../${relative.slice(2)}/src/**/*.ts`;
-      })
-      .concat(
-        [
-          "../../lib/globals.d.ts",
-          "../../scripts/repo-utils/*.d.ts",
-          pkgs.some(p => p.name === "@babel/parser")
-            ? "../../packages/babel-parser/typings/*.d.ts"
-            : null,
-        ].filter(Boolean)
-      ),
+    include: [
+      "./src/**/*.ts",
+      "./src/**/*.cts",
+      "../../lib/globals.d.ts",
+      "../../scripts/repo-utils/*.d.ts",
+      pkgs.some(p => p.name === "@babel/parser")
+        ? "../../packages/babel-parser/typings/*.d.ts"
+        : null,
+    ].filter(Boolean),
     references: Array.from(referencePaths, path => ({ path })),
   };
 }

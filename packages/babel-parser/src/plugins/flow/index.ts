@@ -22,6 +22,7 @@ import type { ExpressionErrors } from "../../parser/util.ts";
 import type { ParseStatementFlag } from "../../parser/statement.ts";
 import { Errors, ParseErrorEnum } from "../../parse-error.ts";
 import { cloneIdentifier, type Undone } from "../../parser/node.ts";
+import type { ClassWithMixin, IJSXParserMixin } from "../jsx/index.ts";
 
 const reservedTypes = new Set([
   "_",
@@ -296,7 +297,7 @@ type EnumMemberInit =
       loc: Position;
     };
 
-export default (superClass: typeof Parser) =>
+export default (superClass: ClassWithMixin<typeof Parser, IJSXParserMixin>) =>
   class FlowParserMixin extends superClass implements Parser {
     // The value of the @flow/@noflow pragma. Initially undefined, transitions
     // to "@flow" or "@noflow" if we see a pragma. Transitions to null if we are
@@ -918,31 +919,62 @@ export default (superClass: typeof Parser) =>
       return this.finishNode(node, "TypeParameterDeclaration");
     }
 
+    // Parse in top level normal context if we are in a JSX context
+    flowInTopLevelContext<T>(cb: () => T): T {
+      if (this.curContext() !== tc.brace) {
+        const oldContext = this.state.context;
+        this.state.context = [oldContext[0]];
+        try {
+          return cb();
+        } finally {
+          this.state.context = oldContext;
+        }
+      } else {
+        return cb();
+      }
+    }
+
+    // Used when parsing type arguments from ES or JSX productions, where the first token
+    // has been created without state.inType. Thus we need to re-scan the lt token.
+    flowParseTypeParameterInstantiationInExpression():
+      | N.TypeParameterInstantiation
+      | undefined {
+      if (this.reScan_lt() !== tt.lt) return;
+      return this.flowParseTypeParameterInstantiation();
+    }
+
     flowParseTypeParameterInstantiation(): N.TypeParameterInstantiation {
       const node = this.startNode<N.TypeParameterInstantiation>();
       const oldInType = this.state.inType;
-      node.params = [];
 
       this.state.inType = true;
-
-      this.expect(tt.lt);
-      const oldNoAnonFunctionType = this.state.noAnonFunctionType;
-      this.state.noAnonFunctionType = false;
-      while (!this.match(tt.gt)) {
-        node.params.push(this.flowParseType());
-        if (!this.match(tt.gt)) {
-          this.expect(tt.comma);
+      node.params = [];
+      this.flowInTopLevelContext(() => {
+        this.expect(tt.lt);
+        const oldNoAnonFunctionType = this.state.noAnonFunctionType;
+        this.state.noAnonFunctionType = false;
+        while (!this.match(tt.gt)) {
+          node.params.push(this.flowParseType());
+          if (!this.match(tt.gt)) {
+            this.expect(tt.comma);
+          }
         }
-      }
-      this.state.noAnonFunctionType = oldNoAnonFunctionType;
-      this.expect(tt.gt);
+        this.state.noAnonFunctionType = oldNoAnonFunctionType;
+      });
 
       this.state.inType = oldInType;
+      if (!this.state.inType && this.curContext() === tc.brace) {
+        // rescan `>` when we are no longer in type context and JSX parsing context
+        // since it was tokenized when `inType` is `true`.
+        this.reScan_lt_gt();
+      }
+      this.expect(tt.gt);
 
       return this.finishNode(node, "TypeParameterInstantiation");
     }
 
     flowParseTypeParameterInstantiationCallOrNew(): N.TypeParameterInstantiation {
+      if (this.reScan_lt() !== tt.lt) return;
       const node = this.startNode<N.TypeParameterInstantiation>();
       const oldInType = this.state.inType;
       node.params = [];
@@ -2584,11 +2616,18 @@ export default (superClass: typeof Parser) =>
     // parse a the super class type parameters and implements
     parseClassSuper(node: N.Class): void {
       super.parseClassSuper(node);
-      if (node.superClass && this.match(tt.lt)) {
+      if (
+        node.superClass &&
+        (this.match(tt.lt) ||
+          // handles `class extends C<<T>`
+          this.match(tt.bitShiftL))
+      ) {
         if (process.env.BABEL_8_BREAKING) {
-          node.superTypeArguments = this.flowParseTypeParameterInstantiation();
+          node.superTypeArguments =
+            this.flowParseTypeParameterInstantiationInExpression();
         } else {
-          node.superTypeParameters = this.flowParseTypeParameterInstantiation();
+          node.superTypeParameters =
+            this.flowParseTypeParameterInstantiationInExpression();
         }
       }
       if (this.isContextual(tt._implements)) {
@@ -3157,7 +3196,6 @@ export default (superClass: typeof Parser) =>
 
     parseSubscripts(
       base: N.Expression,
-
       startLoc: Position,
       noCalls?: boolean | null,
     ): N.Expression {
@@ -3227,12 +3265,19 @@ export default (superClass: typeof Parser) =>
         this.next();
         const node = this.startNodeAt<N.OptionalCallExpression>(startLoc);
         node.callee = base;
-        node.typeArguments = this.flowParseTypeParameterInstantiation();
+        node.typeArguments =
+          this.flowParseTypeParameterInstantiationInExpression();
         this.expect(tt.parenL);
         node.arguments = this.parseCallExpressionArguments(tt.parenR);
         node.optional = true;
         return this.finishCallExpression(node, /* optional */ true);
-      } else if (!noCalls && this.shouldParseTypes() && this.match(tt.lt)) {
+      } else if (
+        !noCalls &&
+        this.shouldParseTypes() &&
+        (this.match(tt.lt) ||
+          // also handles `new C<<T>`
+          this.match(tt.bitShiftL))
+      ) {
         const node = this.startNodeAt<
           N.OptionalCallExpression | N.CallExpression
         >(startLoc);
@@ -3793,6 +3838,19 @@ export default (superClass: typeof Parser) =>
       return this.finishNode(node, "EnumDeclaration");
     }
 
+    jsxParseOpeningElementAfterName(
+      node: N.JSXOpeningElement,
+    ): N.JSXOpeningElement {
+      if (this.shouldParseTypes()) {
+        if (this.match(tt.lt) || this.match(tt.bitShiftL)) {
+          node.typeArguments =
+            this.flowParseTypeParameterInstantiationInExpression();
+        }
+      }
+
+      return super.jsxParseOpeningElementAfterName(node);
+    }
+
     // check if the next token is a tt.lt
     isLookaheadToken_lt(): boolean {
       const next = this.nextTokenStart();
@@ -3803,6 +3861,28 @@ export default (superClass: typeof Parser) =>
         );
       }
       return false;
+    }
+
+    // used after we have finished parsing types
+    reScan_lt_gt() {
+      const { type } = this.state;
+      if (type === tt.lt) {
+        this.state.pos -= 1;
+        this.readToken_lt();
+      } else if (type === tt.gt) {
+        this.state.pos -= 1;
+        this.readToken_gt();
+      }
+    }
+
+    reScan_lt() {
+      const { type } = this.state;
+      if (type === tt.bitShiftL) {
+        this.state.pos -= 2;
+        this.finishOp(tt.lt, 1);
+        return tt.lt;
+      }
+      return type;
     }
 
     maybeUnwrapTypeCastExpression(node: N.Node) {

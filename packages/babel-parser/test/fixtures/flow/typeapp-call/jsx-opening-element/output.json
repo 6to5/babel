@@ -1,0 +1,67 @@
+{
+  "type": "File",
+  "start":0,"end":24,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":15,"index":24}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":24,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":15,"index":24}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ExpressionStatement",
+        "start":9,"end":24,"loc":{"start":{"line":2,"column":0,"index":9},"end":{"line":2,"column":15,"index":24}},
+        "expression": {
+          "type": "JSXElement",
+          "start":9,"end":24,"loc":{"start":{"line":2,"column":0,"index":9},"end":{"line":2,"column":15,"index":24}},
+          "openingElement": {
+            "type": "JSXOpeningElement",
+            "start":9,"end":24,"loc":{"start":{"line":2,"column":0,"index":9},"end":{"line":2,"column":15,"index":24}},
+            "name": {
+              "type": "JSXIdentifier",
+              "start":10,"end":19,"loc":{"start":{"line":2,"column":1,"index":10},"end":{"line":2,"column":10,"index":19}},
+              "name": "Component"
+            },
+            "typeArguments": {
+              "type": "TypeParameterInstantiation",
+              "start":19,"end":22,"loc":{"start":{"line":2,"column":10,"index":19},"end":{"line":2,"column":13,"index":22}},
+              "params": [
+                {
+                  "type": "GenericTypeAnnotation",
+                  "start":20,"end":21,"loc":{"start":{"line":2,"column":11,"index":20},"end":{"line":2,"column":12,"index":21}},
+                  "typeParameters": null,
+                  "id": {
+                    "type": "Identifier",
+                    "start":20,"end":21,"loc":{"start":{"line":2,"column":11,"index":20},"end":{"line":2,"column":12,"index":21},"identifierName":"T"},
+                    "name": "T"
+                  }
+                }
+              ]
+            },
+            "attributes": [],
+            "selfClosing": true
+          },
+          "closingElement": null,
+          "children": []
+        },
+        "leadingComments": [
+          {
+            "type": "CommentLine",
+            "value": " @flow",
+            "start":0,"end":8,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":8,"index":8}}
+          }
+        ]
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  },
+  "comments": [
+    {
+      "type": "CommentLine",
+      "value": " @flow",
+      "start":0,"end":8,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":8,"index":8}}
+    }
+  ]
+}

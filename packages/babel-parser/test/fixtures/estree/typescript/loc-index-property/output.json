@@ -22,32 +22,36 @@
             "start":26,"end":29,"loc":{"start":{"line":1,"column":26},"end":{"line":1,"column":29},"identifierName":"Foo"},
             "name": "Foo"
           },
-          "members": [
-            {
-              "type": "TSEnumMember",
-              "start":36,"end":43,"loc":{"start":{"line":2,"column":4},"end":{"line":2,"column":11}},
-              "id": {
-                "type": "Identifier",
-                "start":36,"end":39,"loc":{"start":{"line":2,"column":4},"end":{"line":2,"column":7},"identifierName":"foo"},
-                "name": "foo"
+          "body": {
+            "type": "TSEnumBody",
+            "start":30,"end":54,"loc":{"start":{"line":1,"column":30},"end":{"line":4,"column":1}},
+            "members": [
+              {
+                "type": "TSEnumMember",
+                "start":36,"end":43,"loc":{"start":{"line":2,"column":4},"end":{"line":2,"column":11}},
+                "id": {
+                  "type": "Identifier",
+                  "start":36,"end":39,"loc":{"start":{"line":2,"column":4},"end":{"line":2,"column":7},"identifierName":"foo"},
+                  "name": "foo"
+                },
+                "initializer": {
+                  "type": "Literal",
+                  "start":42,"end":43,"loc":{"start":{"line":2,"column":10},"end":{"line":2,"column":11}},
+                  "value": 1,
+                  "raw": "1"
+                }
               },
-              "initializer": {
-                "type": "Literal",
-                "start":42,"end":43,"loc":{"start":{"line":2,"column":10},"end":{"line":2,"column":11}},
-                "value": 1,
-                "raw": "1"
+              {
+                "type": "TSEnumMember",
+                "start":49,"end":52,"loc":{"start":{"line":3,"column":4},"end":{"line":3,"column":7}},
+                "id": {
+                  "type": "Identifier",
+                  "start":49,"end":52,"loc":{"start":{"line":3,"column":4},"end":{"line":3,"column":7},"identifierName":"bar"},
+                  "name": "bar"
+                }
               }
-            },
-            {
-              "type": "TSEnumMember",
-              "start":49,"end":52,"loc":{"start":{"line":3,"column":4},"end":{"line":3,"column":7}},
-              "id": {
-                "type": "Identifier",
-                "start":49,"end":52,"loc":{"start":{"line":3,"column":4},"end":{"line":3,"column":7},"identifierName":"bar"},
-                "name": "bar"
-              }
-            }
-          ],
+            ]
+          },
           "declare": true
         }
       },

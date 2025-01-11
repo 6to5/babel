@@ -1,0 +1,99 @@
+{
+  "type": "File",
+  "start":0,"end":55,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":55,"index":55}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":55,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":55,"index":55}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "VariableDeclaration",
+        "start":0,"end":55,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":55,"index":55}},
+        "declarations": [
+          {
+            "type": "VariableDeclarator",
+            "start":4,"end":54,"loc":{"start":{"line":1,"column":4,"index":4},"end":{"line":1,"column":54,"index":54}},
+            "id": {
+              "type": "Identifier",
+              "start":4,"end":54,"loc":{"start":{"line":1,"column":4,"index":4},"end":{"line":1,"column":54,"index":54},"identifierName":"x"},
+              "name": "x",
+              "typeAnnotation": {
+                "type": "TSTypeAnnotation",
+                "start":5,"end":54,"loc":{"start":{"line":1,"column":5,"index":5},"end":{"line":1,"column":54,"index":54}},
+                "typeAnnotation": {
+                  "type": "TSTypeQuery",
+                  "start":7,"end":54,"loc":{"start":{"line":1,"column":7,"index":7},"end":{"line":1,"column":54,"index":54}},
+                  "exprName": {
+                    "type": "TSImportType",
+                    "start":14,"end":54,"loc":{"start":{"line":1,"column":14,"index":14},"end":{"line":1,"column":54,"index":54}},
+                    "argument": {
+                      "type": "StringLiteral",
+                      "start":21,"end":26,"loc":{"start":{"line":1,"column":21,"index":21},"end":{"line":1,"column":26,"index":26}},
+                      "extra": {
+                        "rawValue": "./x",
+                        "raw": "'./x'"
+                      },
+                      "value": "./x"
+                    },
+                    "options": {
+                      "type": "ObjectExpression",
+                      "start":28,"end":53,"loc":{"start":{"line":1,"column":28,"index":28},"end":{"line":1,"column":53,"index":53}},
+                      "properties": [
+                        {
+                          "type": "ObjectProperty",
+                          "start":30,"end":52,"loc":{"start":{"line":1,"column":30,"index":30},"end":{"line":1,"column":52,"index":52}},
+                          "method": false,
+                          "key": {
+                            "type": "Identifier",
+                            "start":30,"end":34,"loc":{"start":{"line":1,"column":30,"index":30},"end":{"line":1,"column":34,"index":34},"identifierName":"with"},
+                            "name": "with"
+                          },
+                          "computed": false,
+                          "shorthand": false,
+                          "value": {
+                            "type": "ObjectExpression",
+                            "start":36,"end":52,"loc":{"start":{"line":1,"column":36,"index":36},"end":{"line":1,"column":52,"index":52}},
+                            "properties": [
+                              {
+                                "type": "ObjectProperty",
+                                "start":38,"end":50,"loc":{"start":{"line":1,"column":38,"index":38},"end":{"line":1,"column":50,"index":50}},
+                                "method": false,
+                                "key": {
+                                  "type": "Identifier",
+                                  "start":38,"end":42,"loc":{"start":{"line":1,"column":38,"index":38},"end":{"line":1,"column":42,"index":42},"identifierName":"type"},
+                                  "name": "type"
+                                },
+                                "computed": false,
+                                "shorthand": false,
+                                "value": {
+                                  "type": "StringLiteral",
+                                  "start":44,"end":50,"loc":{"start":{"line":1,"column":44,"index":44},"end":{"line":1,"column":50,"index":50}},
+                                  "extra": {
+                                    "rawValue": "json",
+                                    "raw": "\"json\""
+                                  },
+                                  "value": "json"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "init": null
+          }
+        ],
+        "kind": "let"
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

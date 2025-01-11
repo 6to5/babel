@@ -704,18 +704,17 @@
     "electron": "1.1"
   },
   "transform-typeof-symbol": {
-    "chrome": "38",
-    "opera": "25",
+    "chrome": "48",
+    "opera": "35",
     "edge": "12",
     "firefox": "36",
     "safari": "9",
-    "node": "0.12",
+    "node": "6",
     "deno": "1",
     "ios": "9",
-    "samsung": "3",
-    "rhino": "1.7.13",
-    "opera_mobile": "25",
-    "electron": "0.20"
+    "samsung": "5",
+    "opera_mobile": "35",
+    "electron": "0.37"
   },
   "transform-new-target": {
     "chrome": "46",

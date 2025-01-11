@@ -1,6 +1,6 @@
 {
   "name": "@babel/eslint-parser",
-  "version": "7.25.9",
+  "version": "7.26.5",
   "description": "ESLint parser that allows for linting of experimental syntax transformed by Babel",
   "author": "The Babel Team (https://babel.dev/team)",
   "license": "MIT",

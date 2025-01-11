@@ -1,0 +1,101 @@
+{
+  "type": "File",
+  "start":0,"end":41,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":32,"index":41}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":41,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":32,"index":41}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "ExpressionStatement",
+        "start":9,"end":41,"loc":{"start":{"line":2,"column":0,"index":9},"end":{"line":2,"column":32,"index":41}},
+        "expression": {
+          "type": "JSXElement",
+          "start":9,"end":41,"loc":{"start":{"line":2,"column":0,"index":9},"end":{"line":2,"column":32,"index":41}},
+          "openingElement": {
+            "type": "JSXOpeningElement",
+            "start":9,"end":41,"loc":{"start":{"line":2,"column":0,"index":9},"end":{"line":2,"column":32,"index":41}},
+            "name": {
+              "type": "JSXIdentifier",
+              "start":10,"end":19,"loc":{"start":{"line":2,"column":1,"index":10},"end":{"line":2,"column":10,"index":19}},
+              "name": "Component"
+            },
+            "typeArguments": {
+              "type": "TypeParameterInstantiation",
+              "start":19,"end":38,"loc":{"start":{"line":2,"column":10,"index":19},"end":{"line":2,"column":29,"index":38}},
+              "params": [
+                {
+                  "type": "FunctionTypeAnnotation",
+                  "start":20,"end":37,"loc":{"start":{"line":2,"column":11,"index":20},"end":{"line":2,"column":28,"index":37}},
+                  "typeParameters": {
+                    "type": "TypeParameterDeclaration",
+                    "start":20,"end":23,"loc":{"start":{"line":2,"column":11,"index":20},"end":{"line":2,"column":14,"index":23}},
+                    "params": [
+                      {
+                        "type": "TypeParameter",
+                        "start":21,"end":22,"loc":{"start":{"line":2,"column":12,"index":21},"end":{"line":2,"column":13,"index":22}},
+                        "name": "T",
+                        "variance": null
+                      }
+                    ]
+                  },
+                  "params": [
+                    {
+                      "type": "FunctionTypeParam",
+                      "start":24,"end":28,"loc":{"start":{"line":2,"column":15,"index":24},"end":{"line":2,"column":19,"index":28}},
+                      "name": {
+                        "type": "Identifier",
+                        "start":24,"end":25,"loc":{"start":{"line":2,"column":15,"index":24},"end":{"line":2,"column":16,"index":25},"identifierName":"v"},
+                        "name": "v"
+                      },
+                      "optional": false,
+                      "typeAnnotation": {
+                        "type": "GenericTypeAnnotation",
+                        "start":27,"end":28,"loc":{"start":{"line":2,"column":18,"index":27},"end":{"line":2,"column":19,"index":28}},
+                        "typeParameters": null,
+                        "id": {
+                          "type": "Identifier",
+                          "start":27,"end":28,"loc":{"start":{"line":2,"column":18,"index":27},"end":{"line":2,"column":19,"index":28},"identifierName":"T"},
+                          "name": "T"
+                        }
+                      }
+                    }
+                  ],
+                  "rest": null,
+                  "this": null,
+                  "returnType": {
+                    "type": "VoidTypeAnnotation",
+                    "start":33,"end":37,"loc":{"start":{"line":2,"column":24,"index":33},"end":{"line":2,"column":28,"index":37}}
+                  }
+                }
+              ]
+            },
+            "attributes": [],
+            "selfClosing": true
+          },
+          "closingElement": null,
+          "children": []
+        },
+        "leadingComments": [
+          {
+            "type": "CommentLine",
+            "value": " @flow",
+            "start":0,"end":8,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":8,"index":8}}
+          }
+        ]
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  },
+  "comments": [
+    {
+      "type": "CommentLine",
+      "value": " @flow",
+      "start":0,"end":8,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":8,"index":8}}
+    }
+  ]
+}

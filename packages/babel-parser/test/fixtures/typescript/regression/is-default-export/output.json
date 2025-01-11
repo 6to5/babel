@@ -41,7 +41,11 @@
             "start":36,"end":37,"loc":{"start":{"line":2,"column":12,"index":36},"end":{"line":2,"column":13,"index":37},"identifierName":"E"},
             "name": "E"
           },
-          "members": []
+          "body": {
+            "type": "TSEnumBody",
+            "start":38,"end":40,"loc":{"start":{"line":2,"column":14,"index":38},"end":{"line":2,"column":16,"index":40}},
+            "members": []
+          }
         }
       },
       {

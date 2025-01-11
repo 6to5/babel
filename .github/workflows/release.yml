@@ -152,7 +152,7 @@ jobs:
       - name: Upload babel-types docs
         continue-on-error: true
         if: needs.check-release-type.outputs.is-babel-8 == 'false'
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: babel-types-docs
           path: build/types.md
@@ -301,7 +301,7 @@ jobs:
           fetch-depth: 0 # Otherwise we cannot push
           persist-credentials: false # So that we can push with BOT_TOKEN, otherwise it doesn't trigger CI
       - name: Download babel-types docs
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: babel-types-docs
           # Downloaded as ./docs/types.md

@@ -15,6 +15,7 @@ var Bar = function (Bar) {
 var Baz = function (Baz) {
   Baz[Baz["a"] = 0] = "a";
   Baz[Baz["b"] = 1] = "b";
+  // @ts-ignore
   Baz[Baz["x"] = Baz.a.toString()] = "x";
   return Baz;
 }(Baz || {});
@@ -24,8 +25,9 @@ var A = function (A) {
     let a = 1;
     return a + 1;
   })()] = "b";
+  // a is shadowed
   A[A["c"] = (() => {
     return A.a + 2;
-  })()] = "c";
+  })()] = "c"; // a refers to A.a
   return A;
-}(A || {}); // a refers to A.a
+}(A || {});

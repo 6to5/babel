@@ -1,0 +1,7 @@
+{
+  "plugins": [
+    "exportDefaultFrom",
+    "typescript"
+  ],
+  "BABEL_8_BREAKING": false
+}

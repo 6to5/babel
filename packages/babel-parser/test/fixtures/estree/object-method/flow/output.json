@@ -1,0 +1,118 @@
+{
+  "type": "File",
+  "start":0,"end":45,"loc":{"start":{"line":1,"column":0},"end":{"line":3,"column":2}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":45,"loc":{"start":{"line":1,"column":0},"end":{"line":3,"column":2}},
+    "sourceType": "script",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "VariableDeclaration",
+        "start":0,"end":45,"loc":{"start":{"line":1,"column":0},"end":{"line":3,"column":2}},
+        "declarations": [
+          {
+            "type": "VariableDeclarator",
+            "start":4,"end":44,"loc":{"start":{"line":1,"column":4},"end":{"line":3,"column":1}},
+            "id": {
+              "type": "Identifier",
+              "start":4,"end":7,"loc":{"start":{"line":1,"column":4},"end":{"line":1,"column":7},"identifierName":"bar"},
+              "name": "bar"
+            },
+            "init": {
+              "type": "ObjectExpression",
+              "start":10,"end":44,"loc":{"start":{"line":1,"column":10},"end":{"line":3,"column":1}},
+              "properties": [
+                {
+                  "type": "Property",
+                  "start":14,"end":42,"loc":{"start":{"line":2,"column":2},"end":{"line":2,"column":30}},
+                  "method": true,
+                  "key": {
+                    "type": "Identifier",
+                    "start":14,"end":17,"loc":{"start":{"line":2,"column":2},"end":{"line":2,"column":5},"identifierName":"foo"},
+                    "name": "foo"
+                  },
+                  "computed": false,
+                  "kind": "init",
+                  "value": {
+                    "type": "FunctionExpression",
+                    "start":20,"end":42,"loc":{"start":{"line":2,"column":8},"end":{"line":2,"column":30}},
+                    "id": null,
+                    "generator": false,
+                    "async": false,
+                    "expression": false,
+                    "params": [
+                      {
+                        "type": "Identifier",
+                        "start":21,"end":25,"loc":{"start":{"line":2,"column":9},"end":{"line":2,"column":13},"identifierName":"x"},
+                        "name": "x",
+                        "typeAnnotation": {
+                          "type": "TypeAnnotation",
+                          "start":22,"end":25,"loc":{"start":{"line":2,"column":10},"end":{"line":2,"column":13}},
+                          "typeAnnotation": {
+                            "type": "GenericTypeAnnotation",
+                            "start":24,"end":25,"loc":{"start":{"line":2,"column":12},"end":{"line":2,"column":13}},
+                            "typeParameters": null,
+                            "id": {
+                              "type": "Identifier",
+                              "start":24,"end":25,"loc":{"start":{"line":2,"column":12},"end":{"line":2,"column":13},"identifierName":"T"},
+                              "name": "T"
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "predicate": null,
+                    "returnType": {
+                      "type": "TypeAnnotation",
+                      "start":26,"end":29,"loc":{"start":{"line":2,"column":14},"end":{"line":2,"column":17}},
+                      "typeAnnotation": {
+                        "type": "GenericTypeAnnotation",
+                        "start":28,"end":29,"loc":{"start":{"line":2,"column":16},"end":{"line":2,"column":17}},
+                        "typeParameters": null,
+                        "id": {
+                          "type": "Identifier",
+                          "start":28,"end":29,"loc":{"start":{"line":2,"column":16},"end":{"line":2,"column":17},"identifierName":"T"},
+                          "name": "T"
+                        }
+                      }
+                    },
+                    "body": {
+                      "type": "BlockStatement",
+                      "start":30,"end":42,"loc":{"start":{"line":2,"column":18},"end":{"line":2,"column":30}},
+                      "body": [
+                        {
+                          "type": "ReturnStatement",
+                          "start":32,"end":40,"loc":{"start":{"line":2,"column":20},"end":{"line":2,"column":28}},
+                          "argument": {
+                            "type": "Identifier",
+                            "start":39,"end":40,"loc":{"start":{"line":2,"column":27},"end":{"line":2,"column":28},"identifierName":"x"},
+                            "name": "x"
+                          }
+                        }
+                      ]
+                    },
+                    "typeParameters": {
+                      "type": "TypeParameterDeclaration",
+                      "start":17,"end":20,"loc":{"start":{"line":2,"column":5},"end":{"line":2,"column":8}},
+                      "params": [
+                        {
+                          "type": "TypeParameter",
+                          "start":18,"end":19,"loc":{"start":{"line":2,"column":6},"end":{"line":2,"column":7}},
+                          "name": "T",
+                          "variance": null
+                        }
+                      ]
+                    }
+                  },
+                  "shorthand": false
+                }
+              ]
+            }
+          }
+        ],
+        "kind": "var"
+      }
+    ]
+  }
+}

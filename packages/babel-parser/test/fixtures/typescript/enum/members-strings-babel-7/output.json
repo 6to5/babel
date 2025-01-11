@@ -1,0 +1,62 @@
+{
+  "type": "File",
+  "start":0,"end":35,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":4,"column":1,"index":35}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":35,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":4,"column":1,"index":35}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "TSEnumDeclaration",
+        "start":0,"end":35,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":4,"column":1,"index":35}},
+        "id": {
+          "type": "Identifier",
+          "start":5,"end":6,"loc":{"start":{"line":1,"column":5,"index":5},"end":{"line":1,"column":6,"index":6},"identifierName":"E"},
+          "name": "E"
+        },
+        "members": [
+          {
+            "type": "TSEnumMember",
+            "start":13,"end":18,"loc":{"start":{"line":2,"column":4,"index":13},"end":{"line":2,"column":9,"index":18}},
+            "id": {
+              "type": "StringLiteral",
+              "start":13,"end":18,"loc":{"start":{"line":2,"column":4,"index":13},"end":{"line":2,"column":9,"index":18}},
+              "extra": {
+                "rawValue": "foo",
+                "raw": "\"foo\""
+              },
+              "value": "foo"
+            }
+          },
+          {
+            "type": "TSEnumMember",
+            "start":24,"end":33,"loc":{"start":{"line":3,"column":4,"index":24},"end":{"line":3,"column":13,"index":33}},
+            "id": {
+              "type": "StringLiteral",
+              "start":24,"end":29,"loc":{"start":{"line":3,"column":4,"index":24},"end":{"line":3,"column":9,"index":29}},
+              "extra": {
+                "rawValue": "bar",
+                "raw": "\"bar\""
+              },
+              "value": "bar"
+            },
+            "initializer": {
+              "type": "NumericLiteral",
+              "start":32,"end":33,"loc":{"start":{"line":3,"column":12,"index":32},"end":{"line":3,"column":13,"index":33}},
+              "extra": {
+                "rawValue": 1,
+                "raw": "1"
+              },
+              "value": 1
+            }
+          }
+        ]
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

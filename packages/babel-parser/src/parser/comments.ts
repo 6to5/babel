@@ -201,6 +201,16 @@ export default class CommentsParser extends BaseParser {
           case "ImportDeclaration":
             adjustInnerComments(node, node.specifiers, commentWS);
             break;
+          case "TSEnumDeclaration":
+            if (!process.env.BABEL_8_BREAKING) {
+              adjustInnerComments(node, node.members, commentWS);
+            } else {
+              setInnerComments(node, comments);
+            }
+            break;
+          case "TSEnumBody":
+            adjustInnerComments(node, node.members, commentWS);
+            break;
           default: {
             setInnerComments(node, comments);
           }

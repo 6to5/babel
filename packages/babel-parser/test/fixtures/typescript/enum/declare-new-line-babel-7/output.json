@@ -1,0 +1,27 @@
+{
+  "type": "File",
+  "start":0,"end":17,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":3,"column":2,"index":17}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":17,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":3,"column":2,"index":17}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "TSEnumDeclaration",
+        "start":0,"end":17,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":3,"column":2,"index":17}},
+        "declare": true,
+        "id": {
+          "type": "Identifier",
+          "start":13,"end":14,"loc":{"start":{"line":2,"column":0,"index":13},"end":{"line":2,"column":1,"index":14},"identifierName":"E"},
+          "name": "E"
+        },
+        "members": []
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

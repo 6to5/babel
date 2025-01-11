@@ -37,7 +37,7 @@ jobs:
       - name: Pack published packages
         working-directory: /tmp
         run: tar -cvf verdaccio-workspace.tar verdaccio-workspace
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: verdaccio-workspace
           path: /tmp/verdaccio-workspace.tar
@@ -93,7 +93,7 @@ jobs:
         run: |
           rm -rf ${{ steps.yarn1-cache-dir-path.outputs.dir }}/*babel*
           rm -rf ${{ steps.yarn-cache-dir-path.outputs.dir }}/*babel*
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: verdaccio-workspace
           path: /tmp

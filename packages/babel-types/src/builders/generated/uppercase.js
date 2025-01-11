@@ -245,6 +245,7 @@ export {
   tsAsExpression as TSAsExpression,
   tsSatisfiesExpression as TSSatisfiesExpression,
   tsTypeAssertion as TSTypeAssertion,
+  tsEnumBody as TSEnumBody,
   tsEnumDeclaration as TSEnumDeclaration,
   tsEnumMember as TSEnumMember,
   tsModuleDeclaration as TSModuleDeclaration,

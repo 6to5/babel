@@ -1,3 +1,7 @@
 {
-  "plugins": ["exportDefaultFrom", "typescript"]
+  "plugins": [
+    "exportDefaultFrom",
+    "typescript"
+  ],
+  "BABEL_8_BREAKING": true
 }

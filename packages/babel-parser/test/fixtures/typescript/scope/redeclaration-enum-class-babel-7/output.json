@@ -1,0 +1,44 @@
+{
+  "type": "File",
+  "start":0,"end":20,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":10,"index":20}},
+  "errors": [
+    "SyntaxError: Identifier 'X' has already been declared. (2:6)"
+  ],
+  "program": {
+    "type": "Program",
+    "start":0,"end":20,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":10,"index":20}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "TSEnumDeclaration",
+        "start":0,"end":9,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":9,"index":9}},
+        "id": {
+          "type": "Identifier",
+          "start":5,"end":6,"loc":{"start":{"line":1,"column":5,"index":5},"end":{"line":1,"column":6,"index":6},"identifierName":"X"},
+          "name": "X"
+        },
+        "members": []
+      },
+      {
+        "type": "ClassDeclaration",
+        "start":10,"end":20,"loc":{"start":{"line":2,"column":0,"index":10},"end":{"line":2,"column":10,"index":20}},
+        "id": {
+          "type": "Identifier",
+          "start":16,"end":17,"loc":{"start":{"line":2,"column":6,"index":16},"end":{"line":2,"column":7,"index":17},"identifierName":"X"},
+          "name": "X"
+        },
+        "superClass": null,
+        "body": {
+          "type": "ClassBody",
+          "start":18,"end":20,"loc":{"start":{"line":2,"column":8,"index":18},"end":{"line":2,"column":10,"index":20}},
+          "body": []
+        }
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

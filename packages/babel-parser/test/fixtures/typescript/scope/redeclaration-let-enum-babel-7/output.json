@@ -1,0 +1,46 @@
+{
+  "type": "File",
+  "start":0,"end":20,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":11,"index":20}},
+  "errors": [
+    "SyntaxError: Identifier 'Foo' has already been declared. (2:5)"
+  ],
+  "program": {
+    "type": "Program",
+    "start":0,"end":20,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":11,"index":20}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "VariableDeclaration",
+        "start":0,"end":8,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":8,"index":8}},
+        "declarations": [
+          {
+            "type": "VariableDeclarator",
+            "start":4,"end":7,"loc":{"start":{"line":1,"column":4,"index":4},"end":{"line":1,"column":7,"index":7}},
+            "id": {
+              "type": "Identifier",
+              "start":4,"end":7,"loc":{"start":{"line":1,"column":4,"index":4},"end":{"line":1,"column":7,"index":7},"identifierName":"Foo"},
+              "name": "Foo"
+            },
+            "init": null
+          }
+        ],
+        "kind": "let"
+      },
+      {
+        "type": "TSEnumDeclaration",
+        "start":9,"end":20,"loc":{"start":{"line":2,"column":0,"index":9},"end":{"line":2,"column":11,"index":20}},
+        "id": {
+          "type": "Identifier",
+          "start":14,"end":17,"loc":{"start":{"line":2,"column":5,"index":14},"end":{"line":2,"column":8,"index":17},"identifierName":"Foo"},
+          "name": "Foo"
+        },
+        "members": []
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

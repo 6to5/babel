@@ -131,7 +131,7 @@ defineType("JSXOpeningElement", {
   builder: ["name", "attributes", "selfClosing"],
   visitor: process.env.BABEL_8_BREAKING
     ? ["name", "typeArguments", "attributes"]
-    : ["name", "typeParameters", "attributes"],
+    : ["name", "typeParameters", "typeArguments", "attributes"],
   aliases: ["Immutable"],
   fields: {
     name: {
@@ -145,13 +145,23 @@ defineType("JSXOpeningElement", {
       default: false,
     },
     attributes: validateArrayOfType("JSXAttribute", "JSXSpreadAttribute"),
-    [process.env.BABEL_8_BREAKING ? "typeArguments" : "typeParameters"]: {
-      validate: assertNodeType(
-        "TypeParameterInstantiation",
-        "TSTypeParameterInstantiation",
-      ),
+    typeArguments: {
+      validate: process.env.BABEL_8_BREAKING
+        ? assertNodeType(
+            "TypeParameterInstantiation",
+            "TSTypeParameterInstantiation",
+          )
+        : assertNodeType("TypeParameterInstantiation"),
       optional: true,
     },
+    ...(process.env.BABEL_8_BREAKING
+      ? {}
+      : {
+          typeParameters: {
+            validate: assertNodeType("TSTypeParameterInstantiation"),
+            optional: true,
+          },
+        }),
   },
 });
 

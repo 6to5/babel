@@ -25,7 +25,7 @@ import { Errors, ParseErrorEnum } from "../../parse-error.ts";
 import { cloneIdentifier, type Undone } from "../../parser/node.ts";
 import type { Pattern } from "../../types.ts";
 import type { Expression } from "../../types.ts";
-import type { IJSXParserMixin } from "../jsx/index.ts";
+import type { ClassWithMixin, IJSXParserMixin } from "../jsx/index.ts";
 import { ParseBindingListFlags } from "../../parser/lval.ts";
 import { OptionFlags } from "../../options.ts";
 
@@ -259,13 +259,6 @@ function tsIsVarianceAnnotations(
 ): modifier is N.VarianceAnnotations {
   return modifier === "in" || modifier === "out";
 }
-
-type ClassWithMixin<
-  T extends new (...args: any) => any,
-  M extends object,
-> = T extends new (...args: infer P) => infer I
-  ? new (...args: P) => I & M
-  : never;
 
 export default (superClass: ClassWithMixin<typeof Parser, IJSXParserMixin>) =>
   class TypeScriptParserMixin extends superClass implements Parser {
@@ -563,10 +556,20 @@ export default (superClass: ClassWithMixin<typeof Parser, IJSXParserMixin>) =>
       this.expect(tt.parenL);
       if (!this.match(tt.string)) {
         this.raise(TSErrors.UnsupportedImportTypeArgument, this.state.startLoc);
+        if (process.env.BABEL_8_BREAKING) {
+          // Consume as an non-conditional type so that we can recover from this error
+          node.argument = this.tsParseNonConditionalType() as any;
+        } else {
+          node.argument = super.parseExprAtom() as any;
+        }
+      } else {
+        if (process.env.BABEL_8_BREAKING) {
+          node.argument = this.tsParseLiteralTypeNode();
+        } else {
+          // @ts-ignore(Babel 7 vs Babel 8) Babel 7 AST
+          node.argument = this.parseStringLiteral(this.state.value);
+        }
       }
-
-      // For compatibility to estree we cannot call parseLiteral directly here
-      node.argument = super.parseExprAtom() as N.StringLiteral;
       if (this.eat(tt.comma) && !this.match(tt.parenR)) {
         node.options = super.parseMaybeAssignAllowIn();
         this.eat(tt.comma);
@@ -581,7 +584,11 @@ export default (superClass: ClassWithMixin<typeof Parser, IJSXParserMixin>) =>
         node.qualifier = this.tsParseEntityName();
       }
       if (this.match(tt.lt)) {
-        node.typeParameters = this.tsParseTypeArguments();
+        if (process.env.BABEL_8_BREAKING) {
+          node.typeArguments = this.tsParseTypeArguments();
+        } else {
+          node.typeParameters = this.tsParseTypeArguments();
+        }
       }
       return this.finishNode(node, "TSImportType");
     }
@@ -1212,7 +1219,7 @@ export default (superClass: ClassWithMixin<typeof Parser, IJSXParserMixin>) =>
       return this.finishNode(node, "TSLiteralType");
     }
 
-    tsParseTemplateLiteralType(): N.TsType {
+    tsParseTemplateLiteralType(): N.TsLiteralType {
       const node = this.startNode<N.TsLiteralType>();
       node.literal = super.parseTemplate(false);
       return this.finishNode(node, "TSLiteralType");
@@ -1803,13 +1810,18 @@ export default (superClass: ClassWithMixin<typeof Parser, IJSXParserMixin>) =>
       return this.finishNode(node, "TSTypeAliasDeclaration");
     }
 
-    tsInNoContext<T>(cb: () => T): T {
-      const oldContext = this.state.context;
-      this.state.context = [oldContext[0]];
-      try {
+    // Parse in top level normal context if we are in a JSX context
+    tsInTopLevelContext<T>(cb: () => T): T {
+      if (this.curContext() !== tc.brace) {
+        const oldContext = this.state.context;
+        this.state.context = [oldContext[0]];
+        try {
+          return cb();
+        } finally {
+          this.state.context = oldContext;
+        }
+      } else {
         return cb();
-      } finally {
-        this.state.context = oldContext;
       }
     }
 
@@ -1900,13 +1912,28 @@ export default (superClass: ClassWithMixin<typeof Parser, IJSXParserMixin>) =>
         node.const ? BindingFlag.TYPE_TS_CONST_ENUM : BindingFlag.TYPE_TS_ENUM,
       );
 
+      if (process.env.BABEL_8_BREAKING) {
+        node.body = this.tsParseEnumBody();
+      } else {
+        this.expect(tt.braceL);
+        node.members = this.tsParseDelimitedList(
+          "EnumMembers",
+          this.tsParseEnumMember.bind(this),
+        );
+        this.expect(tt.braceR);
+      }
+      return this.finishNode(node, "TSEnumDeclaration");
+    }
+
+    tsParseEnumBody(): N.TsEnumBody {
+      const node = this.startNode<N.TsEnumBody>();
       this.expect(tt.braceL);
       node.members = this.tsParseDelimitedList(
         "EnumMembers",
         this.tsParseEnumMember.bind(this),
       );
       this.expect(tt.braceR);
-      return this.finishNode(node, "TSEnumDeclaration");
+      return this.finishNode(node, "TSEnumBody");
     }
 
     tsParseModuleBlock(): N.TsModuleBlock {
@@ -2279,8 +2306,8 @@ export default (superClass: ClassWithMixin<typeof Parser, IJSXParserMixin>) =>
       );
     }
 
-    // Used when parsing type arguments from ES productions, where the first token
-    // has been created without state.inType. Thus we need to rescan the lt token.
+    // Used when parsing type arguments from ES or JSX productions, where the first token
+    // has been created without state.inType. Thus we need to re-scan the lt token.
     tsParseTypeArgumentsInExpression():
       | N.TsTypeParameterInstantiation
       | undefined {
@@ -2291,8 +2318,7 @@ export default (superClass: ClassWithMixin<typeof Parser, IJSXParserMixin>) =>
     tsParseTypeArguments(): N.TsTypeParameterInstantiation {
       const node = this.startNode<N.TsTypeParameterInstantiation>();
       node.params = this.tsInType(() =>
-        // Temporarily remove a JSX parsing context, which makes us scan different tokens.
-        this.tsInNoContext(() => {
+        this.tsInTopLevelContext(() => {
           this.expect(tt.lt);
           return this.tsParseDelimitedList(
             "TypeParametersOrArguments",

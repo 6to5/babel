@@ -116,7 +116,7 @@ function splitTwoslashCodeInfoFiles(code, defaultFileName, root = "") {
   for (const line of lines) {
     const newFileName = BracketedFileRegExp.test(line)
       ? line.match(BracketedFileRegExp)[1]
-      : line.match(AtFileRegExp)?.[1] ?? false;
+      : (line.match(AtFileRegExp)?.[1] ?? false);
     if (newFileName) {
       fileMap.push([root + nameForFile, currentFileContent]);
       nameForFile = newFileName;

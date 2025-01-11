@@ -8,7 +8,7 @@ import {
   isStatement,
   isClassBody,
   isTSInterfaceBody,
-  isTSEnumDeclaration,
+  isTSEnumMember,
 } from "@babel/types";
 import type { Opts as jsescOptions } from "jsesc";
 
@@ -1360,7 +1360,7 @@ class Printer {
             !isStatement(node) &&
             !isClassBody(parent) &&
             !isTSInterfaceBody(parent) &&
-            !isTSEnumDeclaration(parent);
+            !isTSEnumMember(node);
 
           if (type === COMMENT_TYPE.LEADING) {
             this._printComment(

@@ -15,35 +15,39 @@
           "start":5,"end":6,"loc":{"start":{"line":1,"column":5,"index":5},"end":{"line":1,"column":6,"index":6},"identifierName":"E"},
           "name": "E"
         },
-        "members": [
-          {
-            "type": "TSEnumMember",
-            "start":13,"end":14,"loc":{"start":{"line":2,"column":4,"index":13},"end":{"line":2,"column":5,"index":14}},
-            "id": {
-              "type": "Identifier",
-              "start":13,"end":14,"loc":{"start":{"line":2,"column":4,"index":13},"end":{"line":2,"column":5,"index":14},"identifierName":"A"},
-              "name": "A"
-            }
-          },
-          {
-            "type": "TSEnumMember",
-            "start":20,"end":25,"loc":{"start":{"line":3,"column":4,"index":20},"end":{"line":3,"column":9,"index":25}},
-            "id": {
-              "type": "Identifier",
-              "start":20,"end":21,"loc":{"start":{"line":3,"column":4,"index":20},"end":{"line":3,"column":5,"index":21},"identifierName":"B"},
-              "name": "B"
+        "body": {
+          "type": "TSEnumBody",
+          "start":7,"end":27,"loc":{"start":{"line":1,"column":7,"index":7},"end":{"line":4,"column":1,"index":27}},
+          "members": [
+            {
+              "type": "TSEnumMember",
+              "start":13,"end":14,"loc":{"start":{"line":2,"column":4,"index":13},"end":{"line":2,"column":5,"index":14}},
+              "id": {
+                "type": "Identifier",
+                "start":13,"end":14,"loc":{"start":{"line":2,"column":4,"index":13},"end":{"line":2,"column":5,"index":14},"identifierName":"A"},
+                "name": "A"
+              }
             },
-            "initializer": {
-              "type": "NumericLiteral",
-              "start":24,"end":25,"loc":{"start":{"line":3,"column":8,"index":24},"end":{"line":3,"column":9,"index":25}},
-              "extra": {
-                "rawValue": 0,
-                "raw": "0"
+            {
+              "type": "TSEnumMember",
+              "start":20,"end":25,"loc":{"start":{"line":3,"column":4,"index":20},"end":{"line":3,"column":9,"index":25}},
+              "id": {
+                "type": "Identifier",
+                "start":20,"end":21,"loc":{"start":{"line":3,"column":4,"index":20},"end":{"line":3,"column":5,"index":21},"identifierName":"B"},
+                "name": "B"
               },
-              "value": 0
+              "initializer": {
+                "type": "NumericLiteral",
+                "start":24,"end":25,"loc":{"start":{"line":3,"column":8,"index":24},"end":{"line":3,"column":9,"index":25}},
+                "extra": {
+                  "rawValue": 0,
+                  "raw": "0"
+                },
+                "value": 0
+              }
             }
-          }
-        ]
+          ]
+        }
       }
     ],
     "directives": [],

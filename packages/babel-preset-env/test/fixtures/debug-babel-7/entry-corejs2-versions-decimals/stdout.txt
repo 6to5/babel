@@ -49,7 +49,7 @@ Using plugins:
   transform-spread { ie }
   transform-destructuring { electron < 1.2, ie, node < 6.5 }
   transform-block-scoping { electron < 1.1, ie }
-  transform-typeof-symbol { ie }
+  transform-typeof-symbol { electron < 0.37, ie }
   transform-new-target { ie }
   transform-regenerator { electron < 1.1, ie }
   transform-export-namespace-from { chrome < 72, electron < 5.0, ie, node < 13.2 }

@@ -16,7 +16,11 @@
           "start":13,"end":14,"loc":{"start":{"line":2,"column":0,"index":13},"end":{"line":2,"column":1,"index":14},"identifierName":"E"},
           "name": "E"
         },
-        "members": []
+        "body": {
+          "type": "TSEnumBody",
+          "start":15,"end":17,"loc":{"start":{"line":3,"column":0,"index":15},"end":{"line":3,"column":2,"index":17}},
+          "members": []
+        }
       }
     ],
     "directives": [],

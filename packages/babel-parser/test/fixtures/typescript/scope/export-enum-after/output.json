@@ -15,7 +15,11 @@
           "start":52,"end":56,"loc":{"start":{"line":3,"column":5,"index":52},"end":{"line":3,"column":9,"index":56},"identifierName":"Test"},
           "name": "Test"
         },
-        "members": [],
+        "body": {
+          "type": "TSEnumBody",
+          "start":57,"end":59,"loc":{"start":{"line":3,"column":10,"index":57},"end":{"line":3,"column":12,"index":59}},
+          "members": []
+        },
         "leadingComments": [
           {
             "type": "CommentLine",

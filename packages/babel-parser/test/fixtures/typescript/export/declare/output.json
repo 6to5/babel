@@ -194,7 +194,11 @@
             "start":232,"end":235,"loc":{"start":{"line":8,"column":20,"index":232},"end":{"line":8,"column":23,"index":235},"identifierName":"foo"},
             "name": "foo"
           },
-          "members": [],
+          "body": {
+            "type": "TSEnumBody",
+            "start":236,"end":238,"loc":{"start":{"line":8,"column":24,"index":236},"end":{"line":8,"column":26,"index":238}},
+            "members": []
+          },
           "declare": true
         }
       },

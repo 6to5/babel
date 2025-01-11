@@ -25,11 +25,11 @@ const apiPolyfills: APIPolyfills = {
 if (!process.env.BABEL_8_BREAKING) {
   Object.assign(apiPolyfills, {
     // This is supported starting from Babel 7.13
-    targets: () => () => {
+    targets: () => (): any => {
       return {};
     },
     // This is supported starting from Babel 7.13
-    assumption: () => () => {
+    assumption: () => (): any => {
       return undefined;
     },
     // This is supported starting from Babel 7.17

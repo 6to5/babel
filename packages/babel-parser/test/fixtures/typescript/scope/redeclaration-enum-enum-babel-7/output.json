@@ -1,0 +1,36 @@
+{
+  "type": "File",
+  "start":0,"end":23,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":11,"index":23}},
+  "program": {
+    "type": "Program",
+    "start":0,"end":23,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":11,"index":23}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "TSEnumDeclaration",
+        "start":0,"end":11,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":11,"index":11}},
+        "id": {
+          "type": "Identifier",
+          "start":5,"end":8,"loc":{"start":{"line":1,"column":5,"index":5},"end":{"line":1,"column":8,"index":8},"identifierName":"Foo"},
+          "name": "Foo"
+        },
+        "members": []
+      },
+      {
+        "type": "TSEnumDeclaration",
+        "start":12,"end":23,"loc":{"start":{"line":2,"column":0,"index":12},"end":{"line":2,"column":11,"index":23}},
+        "id": {
+          "type": "Identifier",
+          "start":17,"end":20,"loc":{"start":{"line":2,"column":5,"index":17},"end":{"line":2,"column":8,"index":20},"identifierName":"Foo"},
+          "name": "Foo"
+        },
+        "members": []
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

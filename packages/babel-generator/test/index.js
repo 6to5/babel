@@ -4,7 +4,7 @@ import fs from "fs";
 import path from "path";
 import fixtures from "@babel/helper-fixtures";
 import { TraceMap, originalPositionFor } from "@jridgewell/trace-mapping";
-import { commonJS, describeBabel7NoESM } from "$repo-utils";
+import { commonJS, describeBabel7NoESM, itBabel7, itBabel8 } from "$repo-utils";
 import { encode } from "@jridgewell/sourcemap-codec";
 
 import _generate from "../lib/index.js";
@@ -795,7 +795,7 @@ describe("generation", function () {
     `);
   });
 
-  it("comments without loc3", () => {
+  itBabel7("comments without loc3", () => {
     const ast = parse(
       `
         /** This describes how the endpoint is implemented when the lease is deployed */
@@ -822,6 +822,37 @@ describe("generation", function () {
         /** RANDOM_PORT - Describes an endpoint that becomes a Kubernetes NodePort */
         RANDOM_PORT = 1,
         UNRECOGNIZED = -1,
+      }"
+    `);
+  });
+
+  itBabel8("comments without loc3", () => {
+    const ast = parse(
+      `
+        /** This describes how the endpoint is implemented when the lease is deployed */
+        export enum Endpoint_Kind {
+          /** SHARED_HTTP - Describes an endpoint that becomes a Kubernetes Ingress */
+          SHARED_HTTP = 0,
+          /** RANDOM_PORT - Describes an endpoint that becomes a Kubernetes NodePort */
+          RANDOM_PORT = 1,
+          UNRECOGNIZED = -1,
+        }
+      `,
+      { sourceType: "module", plugins: ["typescript"] },
+    );
+
+    for (const comment of ast.comments) {
+      comment.loc = undefined;
+    }
+
+    expect(generate(ast).code).toMatchInlineSnapshot(`
+      "/** This describes how the endpoint is implemented when the lease is deployed */
+      export enum Endpoint_Kind {
+        /** SHARED_HTTP - Describes an endpoint that becomes a Kubernetes Ingress */
+        SHARED_HTTP = 0,
+        /** RANDOM_PORT - Describes an endpoint that becomes a Kubernetes NodePort */
+        RANDOM_PORT = 1,
+        UNRECOGNIZED = -1
       }"
     `);
   });

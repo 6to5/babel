@@ -1,0 +1,43 @@
+{
+  "type": "File",
+  "start":0,"end":24,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":14,"index":24}},
+  "errors": [
+    "SyntaxError: Identifier 'X' has already been declared. (2:10)"
+  ],
+  "program": {
+    "type": "Program",
+    "start":0,"end":24,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":14,"index":24}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "TSEnumDeclaration",
+        "start":0,"end":9,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":9,"index":9}},
+        "id": {
+          "type": "Identifier",
+          "start":5,"end":6,"loc":{"start":{"line":1,"column":5,"index":5},"end":{"line":1,"column":6,"index":6},"identifierName":"X"},
+          "name": "X"
+        },
+        "members": []
+      },
+      {
+        "type": "TSInterfaceDeclaration",
+        "start":10,"end":24,"loc":{"start":{"line":2,"column":0,"index":10},"end":{"line":2,"column":14,"index":24}},
+        "id": {
+          "type": "Identifier",
+          "start":20,"end":21,"loc":{"start":{"line":2,"column":10,"index":20},"end":{"line":2,"column":11,"index":21},"identifierName":"X"},
+          "name": "X"
+        },
+        "body": {
+          "type": "TSInterfaceBody",
+          "start":22,"end":24,"loc":{"start":{"line":2,"column":12,"index":22},"end":{"line":2,"column":14,"index":24}},
+          "body": []
+        }
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

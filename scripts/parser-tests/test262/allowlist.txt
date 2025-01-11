@@ -3,7 +3,7 @@
 
 
 
-# 17 valid programs produced a parsing error
+# 9 valid programs produced a parsing error
 
 staging/sm/String/make-normalize-generateddata-input.py(default)
 staging/sm/String/make-normalize-generateddata-input.py(strict mode)
@@ -11,14 +11,6 @@ staging/sm/extensions/inc-dec-functioncall.js(default)
 staging/sm/lexical-environment/block-scoped-functions-deprecated-redecl.js(default)
 staging/sm/lexical-environment/block-scoped-functions-hoisted-tdz.js(default)
 staging/sm/lexical-environment/var-in-catch-body-annex-b-eval.js(default)
-staging/sm/module/bug1693261-async.mjs(default)
-staging/sm/module/bug1693261-async.mjs(strict mode)
-staging/sm/module/bug1693261-c1.mjs(default)
-staging/sm/module/bug1693261-c1.mjs(strict mode)
-staging/sm/module/bug1693261-c2.mjs(default)
-staging/sm/module/bug1693261-c2.mjs(strict mode)
-staging/sm/module/bug1693261-x.mjs(default)
-staging/sm/module/bug1693261-x.mjs(strict mode)
 staging/sm/regress/regress-563221.js(default)
 staging/sm/regress/regress-609617.js(default)
 staging/sm/statements/for-of-iterator-close.js(default)

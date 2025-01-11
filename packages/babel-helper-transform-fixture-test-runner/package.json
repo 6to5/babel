@@ -1,6 +1,6 @@
 {
   "name": "@babel/helper-transform-fixture-test-runner",
-  "version": "7.26.4",
+  "version": "7.26.5",
   "description": "Transform test runner for @babel/helper-fixtures module",
   "author": "The Babel Team (https://babel.dev/team)",
   "homepage": "https://babel.dev/docs/en/next/babel-helper-transform-fixture-test-runner",
@@ -23,7 +23,7 @@
     "fs-readdir-recursive": "^1.1.0",
     "jest-diff": "^29.6.4",
     "lru-cache": "condition:BABEL_8_BREAKING ? ^7.14.1 : ^5.1.1",
-    "make-dir": "^2.1.0"
+    "make-dir": "condition:BABEL_8_BREAKING ? : ^2.1.0"
   },
   "devDependencies": {
     "@types/fs-readdir-recursive": "^1.1.0"

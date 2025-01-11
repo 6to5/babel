@@ -609,6 +609,9 @@ export interface NodePathAssertions {
   assertTSEntityName(
     opts?: Opts<t.TSEntityName>,
   ): asserts this is NodePath<t.TSEntityName>;
+  assertTSEnumBody(
+    opts?: Opts<t.TSEnumBody>,
+  ): asserts this is NodePath<t.TSEnumBody>;
   assertTSEnumDeclaration(
     opts?: Opts<t.TSEnumDeclaration>,
   ): asserts this is NodePath<t.TSEnumDeclaration>;

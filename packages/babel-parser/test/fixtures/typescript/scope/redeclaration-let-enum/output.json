@@ -35,7 +35,11 @@
           "start":14,"end":17,"loc":{"start":{"line":2,"column":5,"index":14},"end":{"line":2,"column":8,"index":17},"identifierName":"Foo"},
           "name": "Foo"
         },
-        "members": []
+        "body": {
+          "type": "TSEnumBody",
+          "start":18,"end":20,"loc":{"start":{"line":2,"column":9,"index":18},"end":{"line":2,"column":11,"index":20}},
+          "members": []
+        }
       }
     ],
     "directives": [],

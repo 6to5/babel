@@ -1,7 +1,8 @@
-# 26 invalid programs did not produce a parsing error
+# 27 invalid programs did not produce a parsing error
 
 JSX/invalid_unpaired_gt.js
 JSX/invalid_unpaired_rcurly.js
+JSX/jsx_type_args_types_disabled.js
 JSX_invalid/migrated_0000.js
 arrow_function_invalid/migrated_0002.js
 async_arrow_functions/with_type_parameters_types_disabled.js
@@ -28,14 +29,11 @@ types/reserved/function.js
 types/typeof/with-targs-bad-newline.js
 
 
-# 101 valid programs produced a parsing error
+# 98 valid programs produced a parsing error
 
 ES6/modules/export_default_class_implements.js
 ES6/modules/migrated_0020.js
-JSX/jsx_type_args.js
 JSX/jsx_type_args_implicit.js
-JSX/jsx_type_args_multiple.js
-JSX/jsx_type_args_with_children.js
 arrow_function/object_return_type.js
 async_await/migrated_0020.js
 async_await/migrated_0024.js

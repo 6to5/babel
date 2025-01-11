@@ -1,6 +1,7 @@
 import { template, types as t, type NodePath } from "@babel/core";
 
 import { registerGlobalType } from "./global-types.ts";
+import { EXPORTED_CONST_ENUMS_IN_NAMESPACE } from "./const-enum.ts";
 
 export function getFirstIdentifier(node: t.TSEntityName): t.Identifier {
   if (t.isIdentifier(node)) {
@@ -230,6 +231,8 @@ function handleNested(
     // Transform the export declarations that occur inside of a namespace.
     switch (subNode.declaration.type) {
       case "TSEnumDeclaration":
+        EXPORTED_CONST_ENUMS_IN_NAMESPACE.add(subNode.declaration);
+      // fallthrough
       case "FunctionDeclaration":
       case "ClassDeclaration": {
         isEmpty = false;

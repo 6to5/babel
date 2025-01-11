@@ -1,0 +1,42 @@
+{
+  "type": "File",
+  "start":0,"end":26,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":9,"index":26}},
+  "errors": [
+    "SyntaxError: Identifier 'A' has already been declared. (2:5)"
+  ],
+  "program": {
+    "type": "Program",
+    "start":0,"end":26,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":9,"index":26}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "TSTypeAliasDeclaration",
+        "start":0,"end":16,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":16,"index":16}},
+        "id": {
+          "type": "Identifier",
+          "start":5,"end":6,"loc":{"start":{"line":1,"column":5,"index":5},"end":{"line":1,"column":6,"index":6},"identifierName":"A"},
+          "name": "A"
+        },
+        "typeAnnotation": {
+          "type": "TSNumberKeyword",
+          "start":9,"end":15,"loc":{"start":{"line":1,"column":9,"index":9},"end":{"line":1,"column":15,"index":15}}
+        }
+      },
+      {
+        "type": "TSEnumDeclaration",
+        "start":17,"end":26,"loc":{"start":{"line":2,"column":0,"index":17},"end":{"line":2,"column":9,"index":26}},
+        "id": {
+          "type": "Identifier",
+          "start":22,"end":23,"loc":{"start":{"line":2,"column":5,"index":22},"end":{"line":2,"column":6,"index":23},"identifierName":"A"},
+          "name": "A"
+        },
+        "members": []
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

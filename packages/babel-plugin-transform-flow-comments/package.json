@@ -1,6 +1,6 @@
 {
   "name": "@babel/plugin-transform-flow-comments",
-  "version": "7.25.9",
+  "version": "7.26.5",
   "description": "Turn flow type annotations into comments",
   "repository": {
     "type": "git",

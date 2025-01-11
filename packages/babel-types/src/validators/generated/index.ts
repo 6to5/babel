@@ -2377,6 +2377,16 @@ export function isTSTypeAssertion(
 
   return opts == null || shallowEqual(node, opts);
 }
+export function isTSEnumBody(
+  node: t.Node | null | undefined,
+  opts?: Opts<t.TSEnumBody> | null,
+): node is t.TSEnumBody {
+  if (!node) return false;
+
+  if (node.type !== "TSEnumBody") return false;
+
+  return opts == null || shallowEqual(node, opts);
+}
 export function isTSEnumDeclaration(
   node: t.Node | null | undefined,
   opts?: Opts<t.TSEnumDeclaration> | null,
@@ -3805,6 +3815,7 @@ export function isTypeScript(
     case "TSAsExpression":
     case "TSSatisfiesExpression":
     case "TSTypeAssertion":
+    case "TSEnumBody":
     case "TSEnumDeclaration":
     case "TSEnumMember":
     case "TSModuleDeclaration":

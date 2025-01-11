@@ -1,0 +1,59 @@
+{
+  "type": "File",
+  "start":0,"end":20,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":20,"index":20}},
+  "errors": [
+    "SyntaxError: Type argument list cannot be empty. (1:17)"
+  ],
+  "program": {
+    "type": "Program",
+    "start":0,"end":20,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":20,"index":20}},
+    "sourceType": "module",
+    "interpreter": null,
+    "body": [
+      {
+        "type": "VariableDeclaration",
+        "start":0,"end":20,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":20,"index":20}},
+        "declarations": [
+          {
+            "type": "VariableDeclarator",
+            "start":4,"end":19,"loc":{"start":{"line":1,"column":4,"index":4},"end":{"line":1,"column":19,"index":19}},
+            "id": {
+              "type": "Identifier",
+              "start":4,"end":19,"loc":{"start":{"line":1,"column":4,"index":4},"end":{"line":1,"column":19,"index":19},"identifierName":"a"},
+              "name": "a",
+              "typeAnnotation": {
+                "type": "TSTypeAnnotation",
+                "start":5,"end":19,"loc":{"start":{"line":1,"column":5,"index":5},"end":{"line":1,"column":19,"index":19}},
+                "typeAnnotation": {
+                  "type": "TSImportType",
+                  "start":7,"end":19,"loc":{"start":{"line":1,"column":7,"index":7},"end":{"line":1,"column":19,"index":19}},
+                  "argument": {
+                    "type": "StringLiteral",
+                    "start":14,"end":16,"loc":{"start":{"line":1,"column":14,"index":14},"end":{"line":1,"column":16,"index":16}},
+                    "extra": {
+                      "rawValue": "",
+                      "raw": "\"\""
+                    },
+                    "value": ""
+                  },
+                  "options": null,
+                  "typeParameters": {
+                    "type": "TSTypeParameterInstantiation",
+                    "start":17,"end":19,"loc":{"start":{"line":1,"column":17,"index":17},"end":{"line":1,"column":19,"index":19}},
+                    "params": []
+                  }
+                }
+              }
+            },
+            "init": null
+          }
+        ],
+        "kind": "let"
+      }
+    ],
+    "directives": [],
+    "extra": {
+      "topLevelAwait": false
+    }
+  }
+}

@@ -188,6 +188,7 @@ export interface ExplVisitorBase<S> {
   TSConstructorType?: ExplVisitNode<S, t.TSConstructorType>;
   TSDeclareFunction?: ExplVisitNode<S, t.TSDeclareFunction>;
   TSDeclareMethod?: ExplVisitNode<S, t.TSDeclareMethod>;
+  TSEnumBody?: ExplVisitNode<S, t.TSEnumBody>;
   TSEnumDeclaration?: ExplVisitNode<S, t.TSEnumDeclaration>;
   TSEnumMember?: ExplVisitNode<S, t.TSEnumMember>;
   TSExportAssignment?: ExplVisitNode<S, t.TSExportAssignment>;
@@ -457,6 +458,7 @@ export interface VisitorBaseNodes<S> {
   TSConstructorType?: VisitNode<S, t.TSConstructorType>;
   TSDeclareFunction?: VisitNode<S, t.TSDeclareFunction>;
   TSDeclareMethod?: VisitNode<S, t.TSDeclareMethod>;
+  TSEnumBody?: VisitNode<S, t.TSEnumBody>;
   TSEnumDeclaration?: VisitNode<S, t.TSEnumDeclaration>;
   TSEnumMember?: VisitNode<S, t.TSEnumMember>;
   TSExportAssignment?: VisitNode<S, t.TSExportAssignment>;

@@ -85,6 +85,13 @@ export interface IJSXParserMixin {
   ): N.JSXOpeningElement;
 }
 
+export type ClassWithMixin<
+  T extends new (...args: any) => any,
+  M extends object,
+> = T extends new (...args: infer P) => infer I
+  ? new (...args: P) => I & M
+  : never;
+
 export default (superClass: typeof Parser) =>
   class JSXParserMixin extends superClass implements Parser, IJSXParserMixin {
     // Reads inline JSX contents token.
