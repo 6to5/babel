@@ -54,7 +54,7 @@ export function _markRemoved(this: NodePath) {
   // this.shouldSkip = true; this.removed = true;
   this._traverseFlags |= SHOULD_SKIP | REMOVED;
   if (this.parent) {
-    getCachedPaths(this.hub, this.parent).delete(this.node);
+    getCachedPaths(this)?.delete(this.node);
   }
   this.node = null;
 }

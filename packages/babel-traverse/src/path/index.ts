@@ -69,6 +69,7 @@ const NodePath_Final = class NodePath {
   key: string | number | null = null;
   node: t.Node | null = null;
   type: t.Node["type"] | null = null;
+  _store: Map<t.Node, NodePath_Final> | null = null;
 
   static get({
     hub,
@@ -97,7 +98,7 @@ const NodePath_Final = class NodePath {
       // @ts-expect-error key must present in container
       container[key];
 
-    const paths = cache.getOrCreateCachedPaths(hub, parent);
+    const paths = cache.getOrCreateCachedPaths(parent, parentPath);
 
     let path = paths.get(targetNode);
     if (!path) {

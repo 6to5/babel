@@ -56,7 +56,7 @@ export function replaceWithMultiple(
   nodes = _verifyNodeList.call(this, nodes);
   inheritLeadingComments(nodes[0], this.node);
   inheritTrailingComments(nodes[nodes.length - 1], this.node);
-  getCachedPaths(this.hub, this.parent)?.delete(this.node);
+  getCachedPaths(this)?.delete(this.node);
   this.node =
     // @ts-expect-error this.key must present in this.container
     this.container[this.key] = null;
@@ -218,7 +218,7 @@ export function _replaceWith(this: NodePath, node: t.Node) {
   }
 
   this.debug(`Replace with ${node?.type}`);
-  getCachedPaths(this.hub, this.parent)?.set(node, this).delete(this.node);
+  getCachedPaths(this)?.set(node, this).delete(this.node);
 
   this.node =
     // @ts-expect-error this.key must present in this.container

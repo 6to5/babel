@@ -282,7 +282,8 @@ export function updateSiblingKeys(
 ) {
   if (!this.parent) return;
 
-  const paths = getCachedPaths(this.hub, this.parent) || ([] as never[]);
+  const paths = getCachedPaths(this);
+  if (!paths) return;
 
   for (const [, path] of paths) {
     if (

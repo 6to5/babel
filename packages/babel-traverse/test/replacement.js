@@ -178,7 +178,8 @@ describe("path/replacement", function () {
         VariableDeclaration(path) {
           visitCounter++;
           if (visitCounter > 1) {
-            return true;
+            path.stop();
+            return;
           }
           path.replaceWithMultiple([path.node, t.emptyStatement()]);
         },
@@ -193,7 +194,8 @@ describe("path/replacement", function () {
         VariableDeclaration(path) {
           visitCounter++;
           if (visitCounter > 1) {
-            return true;
+            path.stop();
+            return;
           }
           path.replaceWithMultiple([t.emptyStatement(), path.node]);
         },
