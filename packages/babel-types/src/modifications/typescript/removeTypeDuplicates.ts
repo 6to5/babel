@@ -1,5 +1,6 @@
 import {
   isIdentifier,
+  isThisExpression,
   isTSAnyKeyword,
   isTSTypeReference,
   isTSUnionType,
@@ -10,7 +11,9 @@ import type * as t from "../../index.ts";
 function getQualifiedName(node: t.TSTypeReference["typeName"]): string {
   return isIdentifier(node)
     ? node.name
-    : `${node.right.name}.${getQualifiedName(node.left)}`;
+    : isThisExpression(node)
+      ? "this"
+      : `${node.right.name}.${getQualifiedName(node.left)}`;
 }
 
 /**

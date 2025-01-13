@@ -1,9 +1,9 @@
 {
   "type": "File",
-  "start":0,"end":53,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":25,"index":53}},
+  "start":0,"end":54,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":26,"index":54}},
   "program": {
     "type": "Program",
-    "start":0,"end":53,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":25,"index":53}},
+    "start":0,"end":54,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":2,"column":26,"index":54}},
     "sourceType": "module",
     "interpreter": null,
     "body": [
@@ -43,7 +43,7 @@
       },
       {
         "type": "TSTypeAliasDeclaration",
-        "start":28,"end":53,"loc":{"start":{"line":2,"column":0,"index":28},"end":{"line":2,"column":25,"index":53}},
+        "start":28,"end":54,"loc":{"start":{"line":2,"column":0,"index":28},"end":{"line":2,"column":26,"index":54}},
         "id": {
           "type": "Identifier",
           "start":33,"end":34,"loc":{"start":{"line":2,"column":5,"index":33},"end":{"line":2,"column":6,"index":34},"identifierName":"T"},
@@ -51,10 +51,10 @@
         },
         "typeAnnotation": {
           "type": "TSTypeQuery",
-          "start":37,"end":52,"loc":{"start":{"line":2,"column":9,"index":37},"end":{"line":2,"column":24,"index":52}},
+          "start":37,"end":53,"loc":{"start":{"line":2,"column":9,"index":37},"end":{"line":2,"column":25,"index":53}},
           "exprName": {
             "type": "TSQualifiedName",
-            "start":44,"end":52,"loc":{"start":{"line":2,"column":16,"index":44},"end":{"line":2,"column":24,"index":52}},
+            "start":44,"end":53,"loc":{"start":{"line":2,"column":16,"index":44},"end":{"line":2,"column":25,"index":53}},
             "left": {
               "type": "Identifier",
               "start":44,"end":48,"loc":{"start":{"line":2,"column":16,"index":44},"end":{"line":2,"column":20,"index":48},"identifierName":"this"},
@@ -62,8 +62,8 @@
             },
             "right": {
               "type": "Identifier",
-              "start":49,"end":52,"loc":{"start":{"line":2,"column":21,"index":49},"end":{"line":2,"column":24,"index":52},"identifierName":"bar"},
-              "name": "bar"
+              "start":49,"end":53,"loc":{"start":{"line":2,"column":21,"index":49},"end":{"line":2,"column":25,"index":53},"identifierName":"this"},
+              "name": "this"
             }
           }
         }

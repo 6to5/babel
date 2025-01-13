@@ -260,6 +260,12 @@ function tsIsVarianceAnnotations(
   return modifier === "in" || modifier === "out";
 }
 
+export const enum tsParseEntityNameFlags {
+  NONE = 0b00,
+  ALLOW_RESERVED_WORDS = 0b01,
+  ALLOW_THIS_EXPRESSION = 0b10,
+}
+
 export default (superClass: ClassWithMixin<typeof Parser, IJSXParserMixin>) =>
   class TypeScriptParserMixin extends superClass implements Parser {
     getScopeHandler(): new (...args: any) => TypeScriptScopeHandler {
@@ -581,7 +587,9 @@ export default (superClass: ClassWithMixin<typeof Parser, IJSXParserMixin>) =>
       if (this.eat(tt.dot)) {
         // In this instance, the entity name will actually itself be a
         // qualifier, so allow it to be a reserved word as well.
-        node.qualifier = this.tsParseEntityName();
+        node.qualifier = this.tsParseEntityName(
+          tsParseEntityNameFlags.ALLOW_RESERVED_WORDS,
+        );
       }
       if (this.match(tt.lt)) {
         if (process.env.BABEL_8_BREAKING) {
@@ -593,13 +601,27 @@ export default (superClass: ClassWithMixin<typeof Parser, IJSXParserMixin>) =>
       return this.finishNode(node, "TSImportType");
     }
 
-    tsParseEntityName(allowReservedWords: boolean = true): N.TsEntityName {
-      let entity: N.TsEntityName = this.parseIdentifier(allowReservedWords);
+    tsParseEntityName(flags: tsParseEntityNameFlags): N.TsEntityName {
+      let entity: N.TsEntityName;
+      if (
+        flags & tsParseEntityNameFlags.ALLOW_THIS_EXPRESSION &&
+        this.match(tt._this)
+      ) {
+        const node = this.startNode<N.ThisExpression>();
+        this.next();
+        entity = this.finishNode(node, "ThisExpression");
+      } else {
+        entity = this.parseIdentifier(
+          !!(flags & tsParseEntityNameFlags.ALLOW_RESERVED_WORDS),
+        );
+      }
       while (this.eat(tt.dot)) {
         const node: Undone<N.TsQualifiedName> =
           this.startNodeAtNode<N.TsQualifiedName>(entity);
         node.left = entity;
-        node.right = this.parseIdentifier(allowReservedWords);
+        node.right = this.parseIdentifier(
+          !!(flags & tsParseEntityNameFlags.ALLOW_RESERVED_WORDS),
+        );
         entity = this.finishNode(node, "TSQualifiedName");
       }
       return entity;
@@ -607,7 +629,9 @@ export default (superClass: ClassWithMixin<typeof Parser, IJSXParserMixin>) =>
 
     tsParseTypeReference(): N.TsTypeReference {
       const node = this.startNode<N.TsTypeReference>();
-      node.typeName = this.tsParseEntityName();
+      node.typeName = this.tsParseEntityName(
+        tsParseEntityNameFlags.ALLOW_RESERVED_WORDS,
+      );
       if (!this.hasPrecedingLineBreak() && this.match(tt.lt)) {
         if (process.env.BABEL_8_BREAKING) {
           node.typeArguments = this.tsParseTypeArguments();
@@ -639,7 +663,16 @@ export default (superClass: ClassWithMixin<typeof Parser, IJSXParserMixin>) =>
       if (this.match(tt._import)) {
         node.exprName = this.tsParseImportType();
       } else {
-        node.exprName = this.tsParseEntityName();
+        if (process.env.BABEL_8_BREAKING) {
+          node.exprName = this.tsParseEntityName(
+            tsParseEntityNameFlags.ALLOW_RESERVED_WORDS |
+              tsParseEntityNameFlags.ALLOW_THIS_EXPRESSION,
+          );
+        } else {
+          node.exprName = this.tsParseEntityName(
+            tsParseEntityNameFlags.ALLOW_RESERVED_WORDS,
+          );
+        }
       }
       if (!this.hasPrecedingLineBreak() && this.match(tt.lt)) {
         if (process.env.BABEL_8_BREAKING) {
@@ -1717,7 +1750,9 @@ export default (superClass: ClassWithMixin<typeof Parser, IJSXParserMixin>) =>
           const node = this.startNode<
             N.TSClassImplements | N.TSInterfaceHeritage
           >();
-          node.expression = this.tsParseEntityName();
+          node.expression = this.tsParseEntityName(
+            tsParseEntityNameFlags.ALLOW_RESERVED_WORDS,
+          );
           if (process.env.BABEL_8_BREAKING) {
             if (this.match(tt.lt)) {
               node.typeArguments = this.tsParseTypeArguments();
@@ -1957,7 +1992,7 @@ export default (superClass: ClassWithMixin<typeof Parser, IJSXParserMixin>) =>
       nested: boolean = false,
     ): N.TsModuleDeclaration {
       node.id = process.env.BABEL_8_BREAKING
-        ? this.tsParseEntityName()
+        ? this.tsParseEntityName(tsParseEntityNameFlags.ALLOW_RESERVED_WORDS)
         : this.parseIdentifier();
 
       if (
@@ -2041,7 +2076,7 @@ export default (superClass: ClassWithMixin<typeof Parser, IJSXParserMixin>) =>
     tsParseModuleReference(): N.TsModuleReference {
       return this.tsIsExternalModuleReference()
         ? this.tsParseExternalModuleReference()
-        : this.tsParseEntityName(/* allowReservedWords */ false);
+        : this.tsParseEntityName(tsParseEntityNameFlags.NONE);
     }
 
     tsParseExternalModuleReference(): N.TsExternalModuleReference {

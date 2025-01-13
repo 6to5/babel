@@ -7,7 +7,10 @@ export function getFirstIdentifier(node: t.TSEntityName): t.Identifier {
   if (t.isIdentifier(node)) {
     return node;
   }
-  return getFirstIdentifier(node.left);
+  // In Babel 8 TSEntityName also includes ThisExpression, however, a namespace
+  // id must not be a ThisExpression or a TSQualifiedName { left: ThisExpression }.
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
+  return getFirstIdentifier((node as t.TSQualifiedName).left);
 }
 
 export default function transpileNamespace(

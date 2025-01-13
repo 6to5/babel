@@ -1486,7 +1486,7 @@ export interface TsQualifiedName extends NodeBase {
   right: Identifier;
 }
 
-export type TsEntityName = Identifier | TsQualifiedName;
+export type TsEntityName = Identifier | ThisExpression | TsQualifiedName;
 
 export type TsSignatureDeclaration =
   | TsCallSignatureDeclaration

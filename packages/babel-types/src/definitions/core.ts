@@ -1094,7 +1094,9 @@ defineType("SwitchStatement", {
 });
 
 defineType("ThisExpression", {
-  aliases: ["Expression"],
+  aliases: process.env.BABEL_8_BREAKING
+    ? ["Expression", "TSEntityName"]
+    : ["Expression"],
 });
 
 defineType("ThrowStatement", {
