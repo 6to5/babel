@@ -68,11 +68,9 @@ sed -i 's/"skipLibCheck": false,/"skipLibCheck": true,/g' tsconfig.json # Speedu
 
 yarn build
 
-# Temporarily ignore this test that is failing due to source maps changes in
-# Babel 7.21.0.
 # Re-enable it once Jest updates their snapshots to the latest Babel version.
-rm -f packages/jest-transform/src/__tests__/ScriptTransformer.test.ts
-rm -f packages/jest-transform/src/__tests__/__snapshots__/ScriptTransformer.test.ts.snap
+rm -f e2e/__tests__/transform.test.ts
+rm -f e2e/__tests__/__snapshots__/transform.test.ts.snap
 
 # Suppress REQUIRE_ESM warning from Node.js 22.12
 export NODE_OPTIONS="--disable-warning=ExperimentalWarning"

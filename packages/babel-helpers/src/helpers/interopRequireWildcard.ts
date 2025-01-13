@@ -1,54 +1,49 @@
 /* @minVersion 7.14.0 */
 
-function _getRequireWildcardCache(nodeInterop: boolean) {
-  if (typeof WeakMap !== "function") return null;
-
-  var cacheBabelInterop = new WeakMap();
-  var cacheNodeInterop = new WeakMap();
-  // @ts-expect-error assign to function
-  return (_getRequireWildcardCache = function (nodeInterop: boolean) {
-    return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
-  })(nodeInterop);
-}
-
 export default function _interopRequireWildcard(
   obj: any,
   nodeInterop: boolean,
 ) {
-  if (!nodeInterop && obj && obj.__esModule) {
-    return obj;
+  if (typeof WeakMap === "function") {
+    var cacheBabelInterop = new WeakMap();
+    var cacheNodeInterop = new WeakMap();
   }
 
-  if (obj === null || (typeof obj !== "object" && typeof obj !== "function")) {
-    return { default: obj };
-  }
+  // @ts-expect-error: assign to function
+  return (_interopRequireWildcard = function (obj: any, nodeInterop: boolean) {
+    if (!nodeInterop && obj && obj.__esModule) {
+      return obj;
+    }
+    // Temporary variable for output size
+    var _;
+    var newObj: { [key: string]: any } = { __proto__: null, default: obj };
+    var desc: PropertyDescriptor | undefined;
 
-  var cache = _getRequireWildcardCache(nodeInterop);
-  if (cache && cache.has(obj)) {
-    return cache.get(obj);
-  }
+    if (
+      obj === null ||
+      (typeof obj !== "object" && typeof obj !== "function")
+    ) {
+      return newObj;
+    }
 
-  var newObj: { [key: string]: any } = { __proto__: null };
-  var hasPropertyDescriptor =
-    // @ts-expect-error check if Object.defineProperty is available
-    (Object.defineProperty && Object.getOwnPropertyDescriptor) as
-      | typeof Object.getOwnPropertyDescriptor
-      | undefined;
-  for (var key in obj) {
-    if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
-      var desc = hasPropertyDescriptor
-        ? Object.getOwnPropertyDescriptor(obj, key)
-        : null;
-      if (desc && (desc.get || desc.set)) {
-        Object.defineProperty(newObj, key, desc);
-      } else {
-        newObj[key] = obj[key];
+    _ = nodeInterop ? cacheNodeInterop : cacheBabelInterop;
+    if (_) {
+      if (_.has(obj)) return _.get(obj);
+      _.set(obj, newObj);
+    }
+
+    for (const key in obj) {
+      if (key !== "default" && {}.hasOwnProperty.call(obj, key)) {
+        desc =
+          (_ = Object.defineProperty) &&
+          Object.getOwnPropertyDescriptor(obj, key);
+        if (desc && (desc.get || desc.set)) {
+          _(newObj, key, desc);
+        } else {
+          newObj[key] = obj[key];
+        }
       }
     }
-  }
-  newObj.default = obj;
-  if (cache) {
-    cache.set(obj, newObj);
-  }
-  return newObj;
+    return newObj;
+  })(obj, nodeInterop);
 }
