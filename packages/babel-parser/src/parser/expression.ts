@@ -469,8 +469,9 @@ export default abstract class ExpressionParser extends LValParser {
         this.next();
 
         if (
+          !process.env.BABEL_8_BREAKING &&
           op === tt.pipeline &&
-          // @ts-expect-error Remove this in Babel 8
+          // @ts-expect-error: Only in Babel 7
           this.hasPlugin(["pipelineOperator", { proposal: "minimal" }])
         ) {
           if (this.state.type === tt._await && this.prodParam.hasAwait) {
@@ -526,22 +527,26 @@ export default abstract class ExpressionParser extends LValParser {
               return this.parseHackPipeBody();
             });
 
-          // @ts-expect-error Remove this in Babel 8
-          case "smart":
-            return this.withTopicBindingContext(() => {
-              if (this.prodParam.hasYield && this.isContextual(tt._yield)) {
-                throw this.raise(Errors.PipeBodyIsTighter, this.state.startLoc);
-              }
-              return this.parseSmartPipelineBodyInStyle(
-                this.parseExprOpBaseRightExpr(op, prec),
-                startLoc,
-              );
-            });
-
           case "fsharp":
             return this.withSoloAwaitPermittingContext(() => {
               return this.parseFSharpPipelineBody(prec);
             });
+        }
+
+        if (
+          !process.env.BABEL_8_BREAKING &&
+          // @ts-expect-error: Babel 7 only
+          this.getPluginOption("pipelineOperator", "proposal") === "smart"
+        ) {
+          return this.withTopicBindingContext(() => {
+            if (this.prodParam.hasYield && this.isContextual(tt._yield)) {
+              throw this.raise(Errors.PipeBodyIsTighter, this.state.startLoc);
+            }
+            return this.parseSmartPipelineBodyInStyle(
+              this.parseExprOpBaseRightExpr(op, prec),
+              startLoc,
+            );
+          });
         }
 
       // Falls through.
@@ -1402,33 +1407,25 @@ export default abstract class ExpressionParser extends LValParser {
       // The token matches the plugin’s configuration.
       // The token is therefore a topic reference.
 
-      // Determine the node type for the topic reference
-      // that is appropriate for the active pipe-operator proposal.
-      const nodeType =
-        pipeProposal === "smart"
-          ? "PipelinePrimaryTopicReference"
-          : // The proposal must otherwise be "hack",
-            // as enforced by testTopicReferenceConfiguration.
-            "TopicReference";
+      if (process.env.BABEL_8_BREAKING || pipeProposal === "hack") {
+        if (!this.topicReferenceIsAllowedInCurrentContext()) {
+          this.raise(Errors.PipeTopicUnbound, startLoc);
+        }
 
-      if (!this.topicReferenceIsAllowedInCurrentContext()) {
-        this.raise(
-          // The topic reference is not allowed in the current context:
-          // it is outside of a pipe body.
-          // Raise recoverable errors.
-          pipeProposal === "smart"
-            ? Errors.PrimaryTopicNotAllowed
-            : // In this case, `pipeProposal === "hack"` is true.
-              Errors.PipeTopicUnbound,
-          startLoc,
-        );
+        // Register the topic reference so that its pipe body knows
+        // that its topic was used at least once.
+        this.registerTopicReference();
+
+        return this.finishNode(node, "TopicReference");
+      } else {
+        // pipeProposal is "smart"
+
+        if (!this.topicReferenceIsAllowedInCurrentContext()) {
+          this.raise(Errors.PrimaryTopicNotAllowed, startLoc);
+        }
+        this.registerTopicReference();
+        return this.finishNode(node, "PipelinePrimaryTopicReference");
       }
-
-      // Register the topic reference so that its pipe body knows
-      // that its topic was used at least once.
-      this.registerTopicReference();
-
-      return this.finishNode(node, nodeType);
     } else {
       // The token does not match the plugin’s configuration.
       throw this.raise(Errors.PipeTopicUnconfiguredToken, startLoc, {
@@ -1444,7 +1441,7 @@ export default abstract class ExpressionParser extends LValParser {
   // then this is a valid topic reference.
   // If the active pipe proposal is smart mix,
   // then the topic token must always be `#`.
-  // If the active pipe proposal is neither (e.g., "minimal" or "fsharp"),
+  // If the active pipe proposal is neither (e.g., "minimal"(Babel 7) or "fsharp"),
   // then an error is thrown.
   testTopicReferenceConfiguration(
     pipeProposal: string,
@@ -3065,8 +3062,13 @@ export default abstract class ExpressionParser extends LValParser {
   // had before the function was called.
 
   withSmartMixTopicForbiddingContext<T>(callback: () => T): T {
-    // @ts-expect-error Remove this in Babel 8
-    if (this.hasPlugin(["pipelineOperator", { proposal: "smart" }])) {
+    // TODO(Babel 8): Remove this method
+
+    if (
+      !process.env.BABEL_8_BREAKING &&
+      // @ts-expect-error Babel 7 only
+      this.hasPlugin(["pipelineOperator", { proposal: "smart" }])
+    ) {
       // Reset the parser’s topic context only if the smart-mix pipe proposal is active.
       const outerContextTopicState = this.state.topicContext;
       this.state.topicContext = {
@@ -3082,7 +3084,7 @@ export default abstract class ExpressionParser extends LValParser {
         this.state.topicContext = outerContextTopicState;
       }
     } else {
-      // If the pipe proposal is "minimal", "fsharp", or "hack",
+      // If the pipe proposal is "minimal"(Babel 7), "fsharp", or "hack",
       // or if no pipe proposal is active,
       // then the callback result is returned
       // without touching any extra parser state.

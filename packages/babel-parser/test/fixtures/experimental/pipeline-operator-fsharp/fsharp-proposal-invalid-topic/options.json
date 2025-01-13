@@ -1,3 +1,4 @@
 {
-  "throws": "Topic reference is used, but the pipelineOperator plugin was not passed a \"proposal\": \"hack\" or \"smart\" option. (1:5)"
+  "BABEL_8_BREAKING": true,
+  "throws": "Topic references are only supported when using the `\"proposal\": \"hack\"` version of the pipeline proposal. (1:5)"
 }

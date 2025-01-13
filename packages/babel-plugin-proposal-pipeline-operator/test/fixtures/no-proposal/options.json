@@ -1,4 +1,5 @@
 {
+  "BABEL_8_BREAKING": true,
   "plugins": ["proposal-pipeline-operator"],
-  "throws": "The pipeline plugin requires a \"proposal\" option. \"proposal\" must be one of: \"minimal\", \"fsharp\", \"hack\", \"smart\". See <https://babeljs.io/docs/en/babel-plugin-proposal-pipeline-operator>."
+  "throws": "The pipeline plugin requires a \"proposal\" option. \"proposal\" must be one of: \"fsharp\", \"hack\". See <https://babeljs.io/docs/en/babel-plugin-proposal-pipeline-operator>."
 }
