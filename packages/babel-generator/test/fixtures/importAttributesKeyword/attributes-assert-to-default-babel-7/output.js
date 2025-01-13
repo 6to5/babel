@@ -1,1 +1,1 @@
-import "a" with type: "json";
+import "a" with { type: "json" };

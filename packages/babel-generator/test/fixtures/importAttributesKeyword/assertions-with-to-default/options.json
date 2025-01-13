@@ -1,6 +1,4 @@
 {
   "BABEL_8_BREAKING": false,
-  "plugins": ["importAssertions"],
-  "warns": "You are using import attributes, without specifying the desired output syntax.",
-  "expectedReParseError": true
+  "plugins": ["importAssertions"]
 }

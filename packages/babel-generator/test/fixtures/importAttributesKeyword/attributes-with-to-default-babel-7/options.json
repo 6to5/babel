@@ -1,8 +1,0 @@
-{
-  "BABEL_8_BREAKING": false,
-  "_": "The warning is only shown once in the release build, tested by the assertions-with-to-default fixture",
-  "noWarnInPublishBuild": true,
-  "plugins": ["importAttributes"],
-  "warns": "You are using import attributes, without specifying the desired output syntax.",
-  "expectedReParseError": true
-}

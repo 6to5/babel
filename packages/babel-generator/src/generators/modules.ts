@@ -81,6 +81,9 @@ export function _printAttributes(
     !process.env.BABEL_8_BREAKING &&
     attributes &&
     !importAttributesKeyword &&
+    node.extra &&
+    (node.extra.deprecatedAssertSyntax ||
+      node.extra.deprecatedWithLegacySyntax) &&
     // In the production build only show the warning once.
     // We want to show it per-usage locally for tests.
     (!process.env.IS_PUBLISH || !warningShown)
@@ -105,7 +108,8 @@ Please specify the "importAttributesKeyword" generator option, whose value can b
   if (
     !process.env.BABEL_8_BREAKING &&
     !useAssertKeyword &&
-    importAttributesKeyword !== "with"
+    (importAttributesKeyword === "with-legacy" ||
+      (!importAttributesKeyword && node.extra?.deprecatedWithLegacySyntax))
   ) {
     // with-legacy
     this.printList(attributes || assertions);

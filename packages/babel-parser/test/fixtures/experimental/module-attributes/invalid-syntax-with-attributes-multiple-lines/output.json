@@ -20,6 +20,9 @@
           },
           "value": "x"
         },
+        "extra": {
+          "deprecatedWithLegacySyntax": true
+        },
         "attributes": [
           {
             "type": "ImportAttribute",

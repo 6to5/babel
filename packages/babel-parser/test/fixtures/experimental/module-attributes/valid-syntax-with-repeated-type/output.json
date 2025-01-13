@@ -33,6 +33,9 @@
           },
           "value": "foo.json"
         },
+        "extra": {
+          "deprecatedWithLegacySyntax": true
+        },
         "attributes": [
           {
             "type": "ImportAttribute",

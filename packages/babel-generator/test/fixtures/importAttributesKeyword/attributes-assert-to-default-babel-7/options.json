@@ -1,6 +1,5 @@
 {
-  "_": "The warning is only shown once in the release build, tested by the assertions-with-to-default fixture",
-  "noWarnInPublishBuild": true,
+  "_": "The warning is only shown once in the release build, tested by the attributes-assert-to-default-babel-7 fixture",
   "BABEL_8_BREAKING": false,
   "plugins": [["importAttributes", { "deprecatedAssertSyntax": true }]],
   "warns": "You are using import attributes, without specifying the desired output syntax.",
