@@ -53,6 +53,11 @@ function handleClassTDZ(
 
 const classFieldDefinitionEvaluationTDZVisitor: Visitor<HandleClassTDZState> = {
   ReferencedIdentifier: handleClassTDZ,
+  "TSTypeReference|TSExpressionWithTypeArguments|TSTypeQuery|TSQualifiedName"(
+    path,
+  ) {
+    path.skip();
+  },
 };
 
 interface RenamerState {
