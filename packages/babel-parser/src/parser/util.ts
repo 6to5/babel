@@ -386,7 +386,7 @@ export default abstract class UtilParser extends Tokenizer {
  */
 export class ExpressionErrors {
   shorthandAssignLoc: Position | undefined | null = null;
-  doubleProtoLoc: Position | undefined | null = null;
+  doubleProtoLoc: number | undefined | null = null;
   privateKeyLoc: Position | undefined | null = null;
   optionalParametersLoc: Position | undefined | null = null;
 }

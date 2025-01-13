@@ -7,7 +7,6 @@ const { defineProperty, entries, fromEntries } = Object;
 
 const named = (name, object) => defineProperty(object, "name", { value: name });
 const mapEntries = (object, f) => fromEntries(entries(object).map(f));
-
 const toContextError = error =>
   isArray(error) ? error.map(toContextError) : error.context || error;
 
@@ -76,7 +75,8 @@ Object.assign(
 
       DifferentAST: ({ message }) => message,
 
-      UnexpectedError: () => `Encountered unexpected unrecoverable error.`,
+      UnexpectedError: ({ message }) =>
+        `Encountered unexpected unrecoverable error:    \n\n${message}\n\n`,
 
       UnexpectedSuccess: ({ expected }) =>
         `Expected unrecoverable error:\n\n    ${expected}\n\n` +

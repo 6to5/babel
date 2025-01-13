@@ -12,13 +12,12 @@ export class ClassScope {
 
   // A list of private names used before being defined, mapping to
   // their position.
-  undefinedPrivateNames: Map<string, Position> = new Map();
+  undefinedPrivateNames: Map<string, Position | number> = new Map();
 }
 
 export default class ClassScopeHandler {
   parser: Tokenizer;
   stack: Array<ClassScope> = [];
-  undefinedPrivateNames: Map<string, Position> = new Map();
 
   constructor(parser: Tokenizer) {
     this.parser = parser;
@@ -54,11 +53,7 @@ export default class ClassScopeHandler {
     }
   }
 
-  declarePrivateName(
-    name: string,
-    elementType: ClassElementType,
-    loc: Position,
-  ) {
+  declarePrivateName(name: string, elementType: ClassElementType, loc: number) {
     const { privateNames, loneAccessors, undefinedPrivateNames } =
       this.current();
     let redefined = privateNames.has(name);
@@ -93,7 +88,7 @@ export default class ClassScopeHandler {
     undefinedPrivateNames.delete(name);
   }
 
-  usePrivateName(name: string, loc: Position) {
+  usePrivateName(name: string, loc: Position | number) {
     let classScope;
     for (classScope of this.stack) {
       if (classScope.privateNames.has(name)) return;

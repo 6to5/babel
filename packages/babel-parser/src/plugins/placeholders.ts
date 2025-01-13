@@ -7,7 +7,6 @@ import { ParseErrorEnum } from "../parse-error.ts";
 import type { Undone } from "../parser/node.ts";
 import type { ExpressionErrors } from "../parser/util.ts";
 import type { BindingFlag } from "../util/scopeflags.ts";
-import type { Position } from "../util/location.ts";
 
 type PossiblePlaceholders = {
   Identifier: N.Identifier;
@@ -112,7 +111,7 @@ export default (superClass: typeof Parser) =>
 
     checkReservedWord(
       word: string,
-      startLoc: Position,
+      startLoc: number,
       checkKeywords: boolean,
       isBinding: boolean,
     ) {

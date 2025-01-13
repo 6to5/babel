@@ -1,56 +1,56 @@
 {
   "type": "File",
-  "start":0,"end":21,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":21,"index":21}},
+  "start":0,"end":21,"loc":{"start":{"line":1,"column":0},"end":{"line":1,"column":21}},
   "errors": [
     "SyntaxError: Invalid parenthesized assignment pattern. (1:2)"
   ],
   "program": {
     "type": "Program",
-    "start":0,"end":21,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":21,"index":21}},
+    "start":0,"end":21,"loc":{"start":{"line":1,"column":0},"end":{"line":1,"column":21}},
     "sourceType": "script",
     "interpreter": null,
     "body": [
       {
         "type": "ExpressionStatement",
-        "start":0,"end":21,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":21,"index":21}},
+        "start":0,"end":21,"loc":{"start":{"line":1,"column":0},"end":{"line":1,"column":21}},
         "expression": {
           "type": "AssignmentExpression",
-          "start":0,"end":21,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":21,"index":21}},
+          "start":0,"end":21,"loc":{"start":{"line":1,"column":0},"end":{"line":1,"column":21}},
           "operator": "=",
           "left": {
             "type": "ArrayPattern",
-            "start":0,"end":17,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":17,"index":17}},
+            "start":0,"end":17,"loc":{"start":{"line":1,"column":0},"end":{"line":1,"column":17}},
             "elements": [
               {
                 "type": "ObjectPattern",
-                "start":2,"end":15,"loc":{"start":{"line":1,"column":2,"index":2},"end":{"line":1,"column":15,"index":15}},
+                "start":2,"end":15,"loc":{"start":{"line":1,"column":2},"end":{"line":1,"column":15}},
                 "properties": [
                   {
                     "type": "Property",
-                    "start":4,"end":14,"loc":{"start":{"line":1,"column":4,"index":4},"end":{"line":1,"column":14,"index":14}},
+                    "start":4,"end":14,"loc":{"start":{"line":1,"column":4},"end":{"line":1,"column":14}},
                     "method": false,
                     "key": {
                       "type": "Identifier",
-                      "start":4,"end":5,"loc":{"start":{"line":1,"column":4,"index":4},"end":{"line":1,"column":5,"index":5},"identifierName":"a"},
+                      "start":4,"end":5,"loc":{"start":{"line":1,"column":4},"end":{"line":1,"column":5},"identifierName":"a"},
                       "name": "a"
                     },
                     "computed": false,
                     "shorthand": false,
                     "value": {
                       "type": "ArrayPattern",
-                      "start":7,"end":14,"loc":{"start":{"line":1,"column":7,"index":7},"end":{"line":1,"column":14,"index":14}},
+                      "start":7,"end":14,"loc":{"start":{"line":1,"column":7},"end":{"line":1,"column":14}},
                       "elements": [
                         {
                           "type": "AssignmentPattern",
-                          "start":8,"end":13,"loc":{"start":{"line":1,"column":8,"index":8},"end":{"line":1,"column":13,"index":13}},
+                          "start":8,"end":13,"loc":{"start":{"line":1,"column":8},"end":{"line":1,"column":13}},
                           "left": {
                             "type": "Identifier",
-                            "start":8,"end":9,"loc":{"start":{"line":1,"column":8,"index":8},"end":{"line":1,"column":9,"index":9},"identifierName":"b"},
+                            "start":8,"end":9,"loc":{"start":{"line":1,"column":8},"end":{"line":1,"column":9},"identifierName":"b"},
                             "name": "b"
                           },
                           "right": {
                             "type": "Literal",
-                            "start":12,"end":13,"loc":{"start":{"line":1,"column":12,"index":12},"end":{"line":1,"column":13,"index":13}},
+                            "start":12,"end":13,"loc":{"start":{"line":1,"column":12},"end":{"line":1,"column":13}},
                             "value": 2,
                             "raw": "2"
                           }
@@ -69,7 +69,7 @@
           },
           "right": {
             "type": "Identifier",
-            "start":20,"end":21,"loc":{"start":{"line":1,"column":20,"index":20},"end":{"line":1,"column":21,"index":21},"identifierName":"t"},
+            "start":20,"end":21,"loc":{"start":{"line":1,"column":20},"end":{"line":1,"column":21},"identifierName":"t"},
             "name": "t"
           }
         }

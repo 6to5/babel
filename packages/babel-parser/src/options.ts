@@ -20,6 +20,7 @@ export interface Options {
   plugins?: PluginList;
   strictMode?: boolean | undefined | null;
   ranges?: boolean;
+  locations?: boolean;
   tokens?: boolean;
   createImportExpressions?: boolean;
   createParenthesizedExpressions?: boolean;
@@ -36,12 +37,13 @@ export const enum OptionFlags {
   AllowSuperOutsideMethod = 1 << 4,
   AllowUndeclaredExports = 1 << 5,
   Ranges = 1 << 6,
-  Tokens = 1 << 7,
-  CreateImportExpressions = 1 << 8,
-  CreateParenthesizedExpressions = 1 << 9,
-  ErrorRecovery = 1 << 10,
-  AttachComment = 1 << 11,
-  AnnexB = 1 << 12,
+  Locations = 1 << 7,
+  Tokens = 1 << 8,
+  CreateImportExpressions = 1 << 9,
+  CreateParenthesizedExpressions = 1 << 10,
+  ErrorRecovery = 1 << 11,
+  AttachComment = 1 << 12,
+  AnnexB = 1 << 13,
 }
 
 type OptionsWithDefaults = { [P in keyof Options]-?: Options[P] };
@@ -90,6 +92,8 @@ function createDefaultOptions(): OptionsWithDefaults {
     //
     // [range]: https://bugzilla.mozilla.org/show_bug.cgi?id=745678
     ranges: false,
+    // Nodes have their start and end line/columns recorded in `loc` property.
+    locations: true,
     // Adds all parsed tokens to a `tokens` property on the `File` node
     tokens: false,
     // Whether to create ImportExpression AST nodes (if false

@@ -54,6 +54,9 @@ export default class Parser extends StatementParser {
     if (options.ranges) {
       optionFlags |= OptionFlags.Ranges;
     }
+    if (options.locations) {
+      optionFlags |= OptionFlags.Locations;
+    }
     if (options.tokens) {
       optionFlags |= OptionFlags.Tokens;
     }

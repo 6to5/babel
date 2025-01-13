@@ -1,5 +1,4 @@
 import { ScopeFlag, BindingFlag } from "./scopeflags.ts";
-import type { Position } from "./location.ts";
 import type * as N from "../types.ts";
 import { Errors } from "../parse-error.ts";
 import type Tokenizer from "../tokenizer/index.ts";
@@ -30,7 +29,7 @@ export default class ScopeHandler<IScope extends Scope = Scope> {
   parser: Tokenizer;
   scopeStack: Array<IScope> = [];
   inModule: boolean;
-  undefinedExports: Map<string, Position> = new Map();
+  undefinedExports: Map<string, number> = new Map();
 
   constructor(parser: Tokenizer, inModule: boolean) {
     this.parser = parser;
@@ -100,7 +99,7 @@ export default class ScopeHandler<IScope extends Scope = Scope> {
     );
   }
 
-  declareName(name: string, bindingType: BindingFlag, loc: Position) {
+  declareName(name: string, bindingType: BindingFlag, loc: number) {
     let scope = this.currentScope();
     if (
       bindingType & BindingFlag.SCOPE_LEXICAL ||
@@ -149,7 +148,7 @@ export default class ScopeHandler<IScope extends Scope = Scope> {
     scope: IScope,
     name: string,
     bindingType: BindingFlag,
-    loc: Position,
+    loc: number,
   ) {
     if (this.isRedeclaredInScope(scope, name, bindingType)) {
       this.parser.raise(Errors.VarRedeclaration, loc, {
@@ -195,7 +194,7 @@ export default class ScopeHandler<IScope extends Scope = Scope> {
     const { name } = id;
     const topLevelScope = this.scopeStack[0];
     if (!topLevelScope.names.has(name)) {
-      this.undefinedExports.set(name, id.loc.start);
+      this.undefinedExports.set(name, id.start);
     }
   }
 

@@ -1,37 +1,37 @@
 {
   "type": "File",
-  "start":0,"end":13,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":13,"index":13}},
+  "start":0,"end":13,"loc":{"start":{"line":1,"column":0},"end":{"line":1,"column":13}},
   "errors": [
     "SyntaxError: Invalid parenthesized assignment pattern. (1:2)"
   ],
   "program": {
     "type": "Program",
-    "start":0,"end":13,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":13,"index":13}},
+    "start":0,"end":13,"loc":{"start":{"line":1,"column":0},"end":{"line":1,"column":13}},
     "sourceType": "script",
     "interpreter": null,
     "body": [
       {
         "type": "ExpressionStatement",
-        "start":0,"end":13,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":13,"index":13}},
+        "start":0,"end":13,"loc":{"start":{"line":1,"column":0},"end":{"line":1,"column":13}},
         "expression": {
           "type": "AssignmentExpression",
-          "start":0,"end":13,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":13,"index":13}},
+          "start":0,"end":13,"loc":{"start":{"line":1,"column":0},"end":{"line":1,"column":13}},
           "operator": "=",
           "left": {
             "type": "ArrayPattern",
-            "start":0,"end":9,"loc":{"start":{"line":1,"column":0,"index":0},"end":{"line":1,"column":9,"index":9}},
+            "start":0,"end":9,"loc":{"start":{"line":1,"column":0},"end":{"line":1,"column":9}},
             "elements": [
               {
                 "type": "AssignmentPattern",
-                "start":2,"end":7,"loc":{"start":{"line":1,"column":2,"index":2},"end":{"line":1,"column":7,"index":7}},
+                "start":2,"end":7,"loc":{"start":{"line":1,"column":2},"end":{"line":1,"column":7}},
                 "left": {
                   "type": "Identifier",
-                  "start":2,"end":3,"loc":{"start":{"line":1,"column":2,"index":2},"end":{"line":1,"column":3,"index":3},"identifierName":"a"},
+                  "start":2,"end":3,"loc":{"start":{"line":1,"column":2},"end":{"line":1,"column":3},"identifierName":"a"},
                   "name": "a"
                 },
                 "right": {
                   "type": "Literal",
-                  "start":6,"end":7,"loc":{"start":{"line":1,"column":6,"index":6},"end":{"line":1,"column":7,"index":7}},
+                  "start":6,"end":7,"loc":{"start":{"line":1,"column":6},"end":{"line":1,"column":7}},
                   "value": 1,
                   "raw": "1"
                 },
@@ -44,7 +44,7 @@
           },
           "right": {
             "type": "Identifier",
-            "start":12,"end":13,"loc":{"start":{"line":1,"column":12,"index":12},"end":{"line":1,"column":13,"index":13},"identifierName":"t"},
+            "start":12,"end":13,"loc":{"start":{"line":1,"column":12},"end":{"line":1,"column":13},"identifierName":"t"},
             "name": "t"
           }
         }

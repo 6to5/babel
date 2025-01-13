@@ -2,31 +2,29 @@ import type { TokenType } from "../tokenizer/types.ts";
 import type Parser from "../parser/index.ts";
 import type { ExpressionErrors } from "../parser/util.ts";
 import type * as N from "../types.ts";
-import type { Node as NodeType, NodeBase, File } from "../types.ts";
-import type { Position } from "../util/location.ts";
+import type { File } from "../types.ts";
+import { Position } from "../util/location.ts";
 import { Errors } from "../parse-error.ts";
 import type { Undone } from "../parser/node.ts";
 import type { BindingFlag } from "../util/scopeflags.ts";
 import { OptionFlags } from "../options.ts";
 
-const { defineProperty } = Object;
-const toUnenumerable = (object: any, key: string) => {
-  if (object) {
-    defineProperty(object, key, { enumerable: false, value: object[key] });
-  }
-};
-
 function toESTreeLocation(node: any) {
-  toUnenumerable(node.loc.start, "index");
-  toUnenumerable(node.loc.end, "index");
+  const { start, end } = node.loc;
+  node.loc.start = new Position(start.line, start.column);
+  node.loc.end = new Position(end.line, end.column);
 
   return node;
 }
 
 export default (superClass: typeof Parser) =>
   class ESTreeParserMixin extends superClass implements Parser {
+    createPosition(loc: Position): Position {
+      return new Position(loc.line, loc.column);
+    }
+
     parse(): File {
-      const file = toESTreeLocation(super.parse());
+      const file = super.parse();
 
       if (this.optionFlags & OptionFlags.Tokens) {
         file.tokens = file.tokens.map(toESTreeLocation);
@@ -415,10 +413,7 @@ export default (superClass: typeof Parser) =>
       if (node != null && this.isObjectProperty(node)) {
         const { key, value } = node;
         if (this.isPrivateName(key)) {
-          this.classScope.usePrivateName(
-            this.getPrivateNameSV(key),
-            key.loc.start,
-          );
+          this.classScope.usePrivateName(this.getPrivateNameSV(key), key.start);
         }
         this.toAssignable(value, isLHS);
       } else {
@@ -554,7 +549,7 @@ export default (superClass: typeof Parser) =>
             node.type.substring(8) as "CallExpression" | "MemberExpression";
         }
         if (state.stop) {
-          const chain = this.startNodeAtNode<N.EstreeChainExpression>(node);
+          const chain = this.startNodeAt<N.EstreeChainExpression>(startLoc);
           chain.expression = node;
           return this.finishNode(chain, "ChainExpression");
         }
@@ -594,26 +589,5 @@ export default (superClass: typeof Parser) =>
         node.type === "Property" &&
         (node.method || node.kind === "get" || node.kind === "set")
       );
-    }
-
-    finishNodeAt<T extends NodeType>(
-      node: Undone<T>,
-      type: T["type"],
-      endLoc: Position,
-    ): T {
-      return toESTreeLocation(super.finishNodeAt(node, type, endLoc));
-    }
-
-    resetStartLocation(node: N.Node, startLoc: Position) {
-      super.resetStartLocation(node, startLoc);
-      toESTreeLocation(node);
-    }
-
-    resetEndLocation(
-      node: NodeBase,
-      endLoc: Position = this.state.lastTokEndLoc,
-    ): void {
-      super.resetEndLocation(node, endLoc);
-      toESTreeLocation(node);
     }
   };

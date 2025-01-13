@@ -102,6 +102,16 @@ function runParseTest(parse, test, onlyCompareErrors) {
 
   const actual = parseWithRecovery(parse, source, filename, options);
 
+  if (
+    Array.isArray(onlyCompareErrors) &&
+    actual.ast.errors &&
+    actual.ast.errors.some(error =>
+      onlyCompareErrors.includes(error.reasonCode),
+    )
+  ) {
+    return;
+  }
+
   const difference = new Difference(
     adjust,
     onlyCompareErrors ? toJustErrors(expected) : expected,

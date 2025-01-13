@@ -1,4 +1,3 @@
-import type { Position } from "../../util/location.ts";
 import ScopeHandler, { NameType, Scope } from "../../util/scope.ts";
 import { BindingFlag, type ScopeFlag } from "../../util/scopeflags.ts";
 import type * as N from "../../types.ts";
@@ -14,7 +13,7 @@ export default class FlowScopeHandler extends ScopeHandler<FlowScope> {
     return new FlowScope(flags);
   }
 
-  declareName(name: string, bindingType: BindingFlag, loc: Position) {
+  declareName(name: string, bindingType: BindingFlag, loc: number) {
     const scope = this.currentScope();
     if (bindingType & BindingFlag.FLAG_FLOW_DECLARE_FN) {
       this.checkRedeclarationInScope(scope, name, bindingType, loc);
