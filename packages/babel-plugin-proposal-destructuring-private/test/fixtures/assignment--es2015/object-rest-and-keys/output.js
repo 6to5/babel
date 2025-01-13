@@ -12,11 +12,11 @@ var _y = {
 babelHelpers.defineProperty(C, "a", "a");
 babelHelpers.defineProperty(C, "b", "b");
 babelHelpers.defineProperty(C, "c", "c");
-(_C2 => {
+(() => {
   let x, y, z;
-  x = _x._, _C2 = _C, {
+  x = _x._, {
     y
-  } = _C2, z = babelHelpers.objectWithoutProperties(_C2, _excluded), _C2;
+  } = _C, z = babelHelpers.objectWithoutProperties(_C, _excluded), _C;
   result = {
     x,
     y,
