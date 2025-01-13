@@ -127,6 +127,9 @@ export default class TraversalContext<S = unknown> {
       visitIndex++;
       resync.call(path);
 
+      // this path no longer belongs to the tree
+      if (path.key === null) continue;
+
       if (
         path.contexts.length === 0 ||
         path.contexts[path.contexts.length - 1] !== this
@@ -136,9 +139,6 @@ export default class TraversalContext<S = unknown> {
         // on the stack after the traversal has completed, which could break things.
         pushContext.call(path, this);
       }
-
-      // this path no longer belongs to the tree
-      if (path.key === null) continue;
 
       // ensure we don't visit the same node twice
       const { node } = path;
@@ -160,6 +160,7 @@ export default class TraversalContext<S = unknown> {
 
     // pop contexts
     for (let i = 0; i < visitIndex; i++) {
+      if (queue[i].key === null) continue;
       popContext.call(queue[i]);
     }
 
