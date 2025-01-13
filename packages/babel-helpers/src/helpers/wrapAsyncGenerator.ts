@@ -145,7 +145,28 @@ function AsyncGenerator<T = unknown, TReturn = any, TNext = unknown>(
   }
 }
 
-AsyncGenerator.prototype[
+// AsyncIteratorPrototype should be third in the prototype chain of an async
+// generator objects returned from async generator function calls.
+// This aligns the prototype chain of transpiled generators to that of
+// native runtime implementations and simplifies the discovery of the
+// Async Iterator Prototype object for the purpose of Async Iterator Helper
+// polyfills and AsyncIterator constructor injection via core-js or other
+// libraries.
+//
+// The prototype chain here is still one step away from the fullest possible
+// alignment with native implementations.
+// Without async generator function marking like what regenerator does, the
+// following behavior will still be out of spec: given `async function* foo() {}`,
+// `foo() instanceof foo` will return false instead of true.
+var AsyncIteratorPrototype: any = {};
+var AsyncGeneratorPrototype: any = Object.create(AsyncIteratorPrototype);
+var AsyncGeneratorInstanceProrotype: any = Object.create(
+  AsyncGeneratorPrototype,
+);
+AsyncGenerator.prototype = AsyncGeneratorInstanceProrotype;
+AsyncGeneratorPrototype.constructor = AsyncGenerator;
+
+AsyncIteratorPrototype[
   ((typeof Symbol === "function" && Symbol.asyncIterator) ||
     "@@asyncIterator") as typeof Symbol.asyncIterator
 ] = function () {
