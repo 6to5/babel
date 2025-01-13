@@ -88,8 +88,14 @@ const loadMjsFromPath = endHiddenCallStack(async function loadMjsFromPath(
   }
 });
 
-const SUPPORTED_EXTENSIONS = new Set([".js", ".mjs", ".cjs", ".cts"] as const);
-type SetValue<T extends Set<unknown>> = T extends Set<infer U> ? U : never;
+const SUPPORTED_EXTENSIONS = {
+  ".js": "unknown",
+  ".mjs": "esm",
+  ".cjs": "cjs",
+  ".ts": "unknown",
+  ".mts": "esm",
+  ".cts": "cjs",
+} as const;
 
 const asyncModules = new Set();
 
@@ -101,15 +107,23 @@ export default function* loadCodeDefault(
 ): Handler<unknown> {
   let async;
 
-  let ext = path.extname(filepath);
-  if (!SUPPORTED_EXTENSIONS.has(ext as any)) ext = ".js";
+  const ext = path.extname(filepath);
+  const isTS = ext === ".ts" || ext === ".cts" || ext === ".mts";
 
-  const pattern =
-    `${loader} ${ext}` as `${typeof loader} ${SetValue<typeof SUPPORTED_EXTENSIONS>}`;
+  const type =
+    SUPPORTED_EXTENSIONS[
+      Object.hasOwn(SUPPORTED_EXTENSIONS, ext)
+        ? (ext as keyof typeof SUPPORTED_EXTENSIONS)
+        : (".js" as const)
+    ];
+
+  const pattern = `${loader} ${type}` as const;
   switch (pattern) {
-    case "require .cjs":
-    case "auto .cjs":
-      if (process.env.BABEL_8_BREAKING) {
+    case "require cjs":
+    case "auto cjs":
+      if (isTS) {
+        return ensureTsSupport(filepath, ext, () => loadCjsDefault(filepath));
+      } else if (process.env.BABEL_8_BREAKING) {
         return loadCjsDefault(filepath);
       } else {
         return loadCjsDefault(
@@ -118,14 +132,13 @@ export default function* loadCodeDefault(
           /* fallbackToTranspiledModule */ arguments[2],
         );
       }
-    case "require .cts":
-    case "auto .cts":
-      return loadCtsDefault(filepath);
-    case "auto .js":
-    case "require .js":
-    case "require .mjs": // Some versions of Node.js support require(esm):
+    case "auto unknown":
+    case "require unknown":
+    case "require esm":
       try {
-        if (process.env.BABEL_8_BREAKING) {
+        if (isTS) {
+          return ensureTsSupport(filepath, ext, () => loadCjsDefault(filepath));
+        } else if (process.env.BABEL_8_BREAKING) {
           return loadCjsDefault(filepath);
         } else {
           return loadCjsDefault(
@@ -151,7 +164,7 @@ export default function* loadCodeDefault(
           // fall through: require() failed due to TLA
         } else if (
           e.code === "ERR_REQUIRE_ESM" ||
-          (!process.env.BABEL_8_BREAKING && ext === ".mjs")
+          (!process.env.BABEL_8_BREAKING && type === "esm")
         ) {
           // fall through: require() failed due to ESM
         } else {
@@ -159,9 +172,13 @@ export default function* loadCodeDefault(
         }
       }
     // fall through: require() failed due to ESM or TLA, try import()
-    case "auto .mjs":
+    case "auto esm":
       if ((async ??= yield* isAsync())) {
-        return (yield* waitFor(loadMjsFromPath(filepath))).default;
+        const promise = isTS
+          ? ensureTsSupport(filepath, ext, () => loadMjsFromPath(filepath))
+          : loadMjsFromPath(filepath);
+
+        return (yield* waitFor(promise)).default;
       }
       throw new ConfigError(esmError, filepath);
     default:
@@ -169,74 +186,82 @@ export default function* loadCodeDefault(
   }
 }
 
-function loadCtsDefault(filepath: string) {
-  const ext = ".cts";
-  const hasTsSupport = !!(
+function ensureTsSupport<T>(
+  filepath: string,
+  ext: string,
+  callback: () => T,
+): T {
+  if (
     require.extensions[".ts"] ||
     require.extensions[".cts"] ||
     require.extensions[".mts"]
-  );
-
-  let handler: NodeJS.RequireExtensions[""];
-
-  if (!hasTsSupport) {
-    const opts: InputOptions = {
-      babelrc: false,
-      configFile: false,
-      sourceType: "unambiguous",
-      sourceMaps: "inline",
-      sourceFileName: path.basename(filepath),
-      presets: [
-        [
-          getTSPreset(filepath),
-          {
-            onlyRemoveTypeImports: true,
-            optimizeConstEnums: true,
-            ...(process.env.BABEL_8_BREAKING
-              ? {}
-              : { allowDeclareFields: true }),
-          },
-        ],
-      ],
-    };
-
-    handler = function (m, filename) {
-      // If we want to support `.ts`, `.d.ts` must be handled specially.
-      if (handler && filename.endsWith(ext)) {
-        try {
-          // @ts-expect-error Undocumented API
-          return m._compile(
-            transformFileSync(filename, {
-              ...opts,
-              filename,
-            }).code,
-            filename,
-          );
-        } catch (error) {
-          if (!hasTsSupport) {
-            // TODO(Babel 8): Add this as an optional peer dependency
-            // eslint-disable-next-line import/no-extraneous-dependencies
-            const packageJson = require("@babel/preset-typescript/package.json");
-            if (semver.lt(packageJson.version, "7.21.4")) {
-              console.error(
-                "`.cts` configuration file failed to load, please try to update `@babel/preset-typescript`.",
-              );
-            }
-          }
-          throw error;
-        }
-      }
-      return require.extensions[".js"](m, filename);
-    };
-    require.extensions[ext] = handler;
+  ) {
+    return callback();
   }
-  try {
-    return loadCjsDefault(filepath);
-  } finally {
-    if (!hasTsSupport) {
-      if (require.extensions[ext] === handler) delete require.extensions[ext];
-      handler = undefined;
+
+  if (ext !== ".cts") {
+    throw new ConfigError(
+      `\
+You are using a ${ext} config file, but Babel only supports transpiling .cts configs. Either:
+- Use a .cts config file
+- Update to Node.js 23.6.0, which has native TypeScript support
+- Install ts-node to transpile ${ext} files on the fly\
+`,
+      filepath,
+    );
+  }
+
+  const opts: InputOptions = {
+    babelrc: false,
+    configFile: false,
+    sourceType: "unambiguous",
+    sourceMaps: "inline",
+    sourceFileName: path.basename(filepath),
+    presets: [
+      [
+        getTSPreset(filepath),
+        {
+          onlyRemoveTypeImports: true,
+          optimizeConstEnums: true,
+          ...(process.env.BABEL_8_BREAKING ? {} : { allowDeclareFields: true }),
+        },
+      ],
+    ],
+  };
+
+  let handler: NodeJS.RequireExtensions[""] = function (m, filename) {
+    // If we want to support `.ts`, `.d.ts` must be handled specially.
+    if (handler && filename.endsWith(".cts")) {
+      try {
+        // @ts-expect-error Undocumented API
+        return m._compile(
+          transformFileSync(filename, {
+            ...opts,
+            filename,
+          }).code,
+          filename,
+        );
+      } catch (error) {
+        // TODO(Babel 8): Add this as an optional peer dependency
+        // eslint-disable-next-line import/no-extraneous-dependencies
+        const packageJson = require("@babel/preset-typescript/package.json");
+        if (semver.lt(packageJson.version, "7.21.4")) {
+          console.error(
+            "`.cts` configuration file failed to load, please try to update `@babel/preset-typescript`.",
+          );
+        }
+        throw error;
+      }
     }
+    return require.extensions[".js"](m, filename);
+  };
+  require.extensions[ext] = handler;
+
+  try {
+    return callback();
+  } finally {
+    if (require.extensions[ext] === handler) delete require.extensions[ext];
+    handler = undefined;
   }
 }
 

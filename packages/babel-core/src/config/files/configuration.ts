@@ -340,7 +340,9 @@ function readConfig(
     case ".js":
     case ".cjs":
     case ".mjs":
+    case ".ts":
     case ".cts":
+    case ".mts":
       return readConfigCode(filepath, { envName, caller });
     default:
       return readConfigJSON5(filepath);
