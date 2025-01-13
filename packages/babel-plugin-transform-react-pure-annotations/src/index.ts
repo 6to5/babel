@@ -20,6 +20,7 @@ const PURE_CALLS: [string, Set<string>][] = [
       "isValidElement",
       "memo",
       "lazy",
+      "Fragment",
     ]),
   ],
   ["react-dom", new Set(["createPortal"])],
