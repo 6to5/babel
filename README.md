@@ -32,7 +32,7 @@
 
 Babel (pronounced ["babble"](https://soundcloud.com/sebmck/how-to-pronounce-babel))  is a community-driven project used by many companies and projects, and is maintained by a group of [volunteers](https://babeljs.io/team). If you'd like to help support the future of the project, please consider:
 
-- Giving developer time on the project. (Message us on [Twitter](https://twitter.com/babeljs) or [Slack](https://slack.babeljs.io/) for guidance!)
+- Giving developer time on the project. (Message us on [X (formerly Twitter)](https://x.com/babeljs) or [Slack](https://slack.babeljs.io/) for guidance!)
 - Giving funds by becoming a sponsor on [Open Collective](https://opencollective.com/babel) or [GitHub](https://github.com/sponsors/babel/) (which goes to our Open Collective account)!
 
 ## Sponsors
@@ -86,11 +86,11 @@ Mostly a handful of volunteers, funded by you! Please check out our [team page](
 
 ### Is there a Babel song?
 
-I'm so glad you asked: [Hallelujah —— In Praise of Babel](SONG.md) by [@angus-c](https://github.com/angus-c), [audio version](https://youtu.be/40abpedBKK8) by [@swyx](https://twitter.com/@swyx). Tweet us your recordings!
+I'm so glad you asked: [Hallelujah —— In Praise of Babel](SONG.md) by [@angus-c](https://github.com/angus-c), [audio version](https://youtu.be/40abpedBKK8) by [@swyx](https://x.com/@swyx). Tweet us your recordings!
 
 ### Looking for support?
 
-For questions and support please join our [Slack Community](https://slack.babeljs.io/) (you can [sign up here](https://slack.babeljs.io/) for an invite), ask a question on [Stack Overflow](https://stackoverflow.com/questions/tagged/babeljs), or ping us on [Twitter](https://twitter.com/babeljs).
+For questions and support please join our [Slack Community](https://slack.babeljs.io/) (you can [sign up here](https://slack.babeljs.io/) for an invite), ask a question on [Stack Overflow](https://stackoverflow.com/questions/tagged/babeljs), or ping us on [X (formerly Twitter)](https://x.com/babeljs).
 
 ### Where are the docs?
 
