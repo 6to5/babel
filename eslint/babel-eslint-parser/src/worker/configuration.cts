@@ -74,22 +74,33 @@ function validateResolvedConfig(
         throw new Error(error);
       }
     }
-    if (config.options) return config.options;
   }
 
-  return getDefaultParserOptions(parseOptions);
-}
+  if (process.env.BABEL_8_BREAKING) {
+    const configOptions: InputOptions = {
+      plugins: [],
+      babelrc: false,
+      ...(config?.options || parseOptions),
+      configFile: false,
+      ignore: null,
+      only: null,
+      browserslistConfigFile: false,
+    };
 
-function getDefaultParserOptions(options: InputOptions): InputOptions {
-  return {
-    plugins: [],
-    ...options,
-    babelrc: false,
-    configFile: false,
-    browserslistConfigFile: false,
-    ignore: null,
-    only: null,
-  };
+    return configOptions;
+  } else {
+    return (
+      config?.options || {
+        plugins: [],
+        ...parseOptions,
+        babelrc: false,
+        configFile: false,
+        browserslistConfigFile: false,
+        ignore: null,
+        only: null,
+      }
+    );
+  }
 }
 
 export async function normalizeBabelParseConfig(
