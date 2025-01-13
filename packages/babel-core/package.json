@@ -33,10 +33,20 @@
   "engines": {
     "node": ">=6.9.0"
   },
-  "funding": {
-    "type": "opencollective",
-    "url": "https://opencollective.com/babel"
-  },
+  "funding": [
+    {
+      "type": "opencollective",
+      "url": "https://opencollective.com/babel"
+    },
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/babel"
+    },
+    {
+      "type": "gitcoin",
+      "url": "https://gitcoin.co/grants/2906/babel-compiler-for-next-generation-javascript"
+    }
+  ],
   "browser": {
     "./lib/config/files/index.js": "./lib/config/files/index-browser.js",
     "./lib/config/resolve-targets.js": "./lib/config/resolve-targets-browser.js",
