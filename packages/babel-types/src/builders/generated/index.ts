@@ -3021,14 +3021,18 @@ export function tsParenthesizedType(
   return node;
 }
 export { tsParenthesizedType as tSParenthesizedType };
-export function tsTypeOperator(typeAnnotation: t.TSType): t.TSTypeOperator {
+export function tsTypeOperator(
+  typeAnnotation: t.TSType,
+  operator: string,
+): t.TSTypeOperator {
   const node: t.TSTypeOperator = {
     type: "TSTypeOperator",
     typeAnnotation,
-    operator: null,
+    operator,
   };
   const defs = NODE_FIELDS.TSTypeOperator;
   validate(defs.typeAnnotation, node, "typeAnnotation", typeAnnotation, 1);
+  validate(defs.operator, node, "operator", operator);
   return node;
 }
 export { tsTypeOperator as tSTypeOperator };

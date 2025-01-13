@@ -346,8 +346,13 @@ defineType("TSParenthesizedType", {
 defineType("TSTypeOperator", {
   aliases: ["TSType"],
   visitor: ["typeAnnotation"],
+  builder: ["typeAnnotation", "operator"],
   fields: {
-    operator: validate(assertValueType("string")),
+    operator: {
+      validate: process.env.BABEL_8_BREAKING
+        ? assertOneOf("keyof", "readonly", "unique")
+        : assertValueType("string"),
+    },
     typeAnnotation: validateType("TSType"),
   },
 });
