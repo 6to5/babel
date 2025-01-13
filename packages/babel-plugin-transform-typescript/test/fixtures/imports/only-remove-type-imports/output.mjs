@@ -7,4 +7,4 @@ import "f";
 import "g";
 import "k";
 import { L2 } from "l";
-;
+var x = a;

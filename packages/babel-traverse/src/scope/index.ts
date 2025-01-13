@@ -268,7 +268,17 @@ const collectorVisitor: Visitor<CollectVisitorState> = {
     parent.registerDeclaration(path);
   },
 
+  TSImportEqualsDeclaration(path) {
+    const parent = path.scope.getBlockParent();
+
+    parent.registerDeclaration(path);
+  },
+
   ReferencedIdentifier(path, state) {
+    if (t.isTSQualifiedName(path.parent) && path.parent.right === path.node) {
+      return;
+    }
+    if (path.parentPath.isTSImportEqualsDeclaration()) return;
     state.references.push(path);
   },
 
@@ -374,6 +384,7 @@ const collectorVisitor: Visitor<CollectVisitorState> = {
       path.scope.registerBinding("local", path.get("id"), path);
     }
   },
+
   TSTypeAnnotation(path) {
     path.skip();
   },

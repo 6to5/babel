@@ -370,6 +370,24 @@ export default declare((api, opts: Options) => {
               continue;
             }
 
+            if (!onlyRemoveTypeImports && stmt.isTSImportEqualsDeclaration()) {
+              const { id, isExport } = stmt.node;
+              const binding = stmt.scope.getBinding(id.name);
+              if (
+                binding &&
+                !isExport &&
+                isImportTypeOnly({
+                  binding,
+                  programPath: path,
+                  pragmaImportName,
+                  pragmaFragImportName,
+                })
+              ) {
+                stmt.remove();
+                continue;
+              }
+            }
+
             if (stmt.isExportDeclaration()) {
               stmt = stmt.get("declaration");
             }

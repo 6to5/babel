@@ -145,6 +145,7 @@ const keys: KeysMap = {
   ImportNamespaceSpecifier: ["local"],
   ImportDefaultSpecifier: ["local"],
   ImportDeclaration: ["specifiers"],
+  TSImportEqualsDeclaration: ["id"],
 
   ExportSpecifier: ["exported"],
   ExportNamespaceSpecifier: ["exported"],
