@@ -16,6 +16,7 @@ const debug = buildDebug("babel:transform:file");
 // These regexps are copied from the convert-source-map package,
 // but without // or /* at the beginning of the comment.
 
+const SOURCEMAP_REGEX = /^[@#]\s+sourceMappingURL=.*$/;
 const INLINE_SOURCEMAP_REGEX =
   /^[@#]\s+sourceMappingURL=data:(?:application|text)\/json;(?:charset[:=]\S+?;)?base64,.*$/;
 const EXTERNAL_SOURCEMAP_REGEX =
@@ -34,6 +35,8 @@ export default function* normalizeFile(
   ast?: t.File | t.Program | null,
 ): Handler<File> {
   code = `${code || ""}`;
+
+  const fromAst = !!ast;
 
   if (ast) {
     if (ast.type === "Program") {
@@ -59,42 +62,105 @@ export default function* normalizeFile(
     }
 
     if (!inputMap) {
-      const lastComment = extractComments(INLINE_SOURCEMAP_REGEX, ast);
-      if (lastComment) {
-        try {
-          inputMap = convertSourceMap.fromComment("//" + lastComment);
-        } catch (err) {
-          if (process.env.BABEL_8_BREAKING) {
-            console.warn(
-              "discarding unknown inline input sourcemap",
-              options.filename,
-              err,
-            );
-          } else {
-            debug("discarding unknown inline input sourcemap");
+      if (process.env.BABEL_8_BREAKING || !fromAst) {
+        const comments = (ast as t.File).comments;
+        for (let i = comments.length - 1; i >= 0; i--) {
+          const comment = comments[i];
+          if (INLINE_SOURCEMAP_REGEX.test(comment.value)) {
+            try {
+              inputMap = convertSourceMap.fromComment("//" + comment.value);
+            } catch (err) {
+              if (process.env.BABEL_8_BREAKING) {
+                console.warn(
+                  "discarding unknown inline input sourcemap",
+                  options.filename,
+                  err,
+                );
+              } else {
+                debug("discarding unknown inline input sourcemap");
+              }
+            }
+            break;
           }
         }
-      }
-    }
 
-    if (!inputMap) {
-      const lastComment = extractComments(EXTERNAL_SOURCEMAP_REGEX, ast);
-      if (typeof options.filename === "string" && lastComment) {
-        try {
-          // when `lastComment` is non-null, EXTERNAL_SOURCEMAP_REGEX must have matches
-          const match: [string, string] = EXTERNAL_SOURCEMAP_REGEX.exec(
-            lastComment,
-          ) as any;
-          const inputMapContent = fs.readFileSync(
-            path.resolve(path.dirname(options.filename), match[1]),
-            "utf8",
-          );
-          inputMap = convertSourceMap.fromJSON(inputMapContent);
-        } catch (err) {
-          debug("discarding unknown file input sourcemap", err);
+        if (!inputMap) {
+          for (let i = comments.length - 1; i >= 0; i--) {
+            const comment = comments[i];
+            if (EXTERNAL_SOURCEMAP_REGEX.test(comment.value)) {
+              if (typeof options.filename === "string") {
+                try {
+                  // when `lastComment` is non-null, EXTERNAL_SOURCEMAP_REGEX must have matches
+                  const match: [string, string] = EXTERNAL_SOURCEMAP_REGEX.exec(
+                    comment.value,
+                  ) as any;
+                  const inputMapContent = fs.readFileSync(
+                    path.resolve(path.dirname(options.filename), match[1]),
+                    "utf8",
+                  );
+                  inputMap = convertSourceMap.fromJSON(inputMapContent);
+                } catch (err) {
+                  debug("discarding unknown file input sourcemap", err);
+                }
+              } else {
+                debug("discarding un-loadable file input sourcemap");
+              }
+              break;
+            }
+          }
         }
-      } else if (lastComment) {
-        debug("discarding un-loadable file input sourcemap");
+        if (inputMap) {
+          function removeComment(comments: t.Comment[]) {
+            for (let i = comments.length - 1; i >= 0; i--)
+              if (SOURCEMAP_REGEX.test(comments[i].value)) {
+                comments.splice(i, 1);
+              }
+          }
+
+          traverseFast(ast, node => {
+            if (node.leadingComments) removeComment(node.leadingComments);
+            if (node.innerComments) removeComment(node.innerComments);
+            if (node.trailingComments) removeComment(node.trailingComments);
+          });
+        }
+      } else {
+        const lastComment = extractComments(INLINE_SOURCEMAP_REGEX, ast);
+        if (lastComment) {
+          try {
+            inputMap = convertSourceMap.fromComment("//" + lastComment);
+          } catch (err) {
+            if (process.env.BABEL_8_BREAKING) {
+              console.warn(
+                "discarding unknown inline input sourcemap",
+                options.filename,
+                err,
+              );
+            } else {
+              debug("discarding unknown inline input sourcemap");
+            }
+          }
+        }
+
+        if (!inputMap) {
+          const lastComment = extractComments(EXTERNAL_SOURCEMAP_REGEX, ast);
+          if (typeof options.filename === "string" && lastComment) {
+            try {
+              // when `lastComment` is non-null, EXTERNAL_SOURCEMAP_REGEX must have matches
+              const match: [string, string] = EXTERNAL_SOURCEMAP_REGEX.exec(
+                lastComment,
+              ) as any;
+              const inputMapContent = fs.readFileSync(
+                path.resolve(path.dirname(options.filename), match[1]),
+                "utf8",
+              );
+              inputMap = convertSourceMap.fromJSON(inputMapContent);
+            } catch (err) {
+              debug("discarding unknown file input sourcemap", err);
+            }
+          } else if (lastComment) {
+            debug("discarding un-loadable file input sourcemap");
+          }
+        }
       }
     }
   }
