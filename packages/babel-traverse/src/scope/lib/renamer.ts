@@ -6,6 +6,70 @@ import { explode } from "../../visitors.ts";
 import { getAssignmentIdentifiers, type Identifier } from "@babel/types";
 import { requeueComputedKeyAndDecorators } from "../../path/context.ts";
 
+type RenameState = {
+  oldNames: string[];
+  newNames: string[];
+  bindings: Binding[];
+};
+
+export const newRenameVisitor: Visitor<RenameState> = {
+  ReferencedIdentifier({ node, scope }, state) {
+    const i = state.oldNames.indexOf(node.name);
+    if (
+      i !== -1 &&
+      scope.getBindingIdentifier(node.name) === state.bindings[i].identifier
+    ) {
+      node.name = state.newNames[i];
+    }
+  },
+
+  ObjectProperty({ node, scope }, state) {
+    const { name } = node.key as Identifier;
+    if (node.shorthand) {
+      const i = state.oldNames.indexOf(name);
+      const i2 = state.newNames.indexOf(name);
+      // In destructuring the identifier is already renamed by the
+      // AssignmentExpression|Declaration|VariableDeclarator visitor,
+      // while in object literals it's renamed later by the
+      // ReferencedIdentifier visitor.
+      if (
+        (i !== -1 &&
+          // Ignore shadowed bindings
+          scope.getBindingIdentifier(name) === state.bindings[i].identifier) ||
+        (i2 !== -1 &&
+          scope.getBindingIdentifier(name) === state.bindings[i2].identifier)
+      ) {
+        node.shorthand = false;
+        if (!process.env.BABEL_8_BREAKING) {
+          if (node.extra?.shorthand) node.extra.shorthand = false;
+        }
+      }
+    }
+  },
+
+  "AssignmentExpression|Declaration|VariableDeclarator"(
+    path: NodePath<
+      t.AssignmentExpression | t.Declaration | t.VariableDeclarator
+    >,
+    state,
+  ) {
+    if (path.isVariableDeclaration()) return;
+    const ids = path.isAssignmentExpression()
+      ? path.getAssignmentIdentifiers()
+      : path.getOuterBindingIdentifiers();
+
+    for (const name of Object.keys(ids)) {
+      const i = state.oldNames.indexOf(name);
+      if (
+        i !== -1 &&
+        path.scope.getBindingIdentifier(name) === state.bindings[i].identifier
+      ) {
+        ids[name].name = state.newNames[i];
+      }
+    }
+  },
+};
+
 const renameVisitor: Visitor<Renamer> = {
   ReferencedIdentifier({ node }, state) {
     if (node.name === state.oldName) {

@@ -1,4 +1,4 @@
-import Renamer from "./lib/renamer.ts";
+import Renamer, { newRenameVisitor } from "./lib/renamer.ts";
 import type NodePath from "../path/index.ts";
 import traverse from "../index.ts";
 import Binding from "./binding.ts";
@@ -58,7 +58,8 @@ import {
 import * as t from "@babel/types";
 import { scope as scopeCache } from "../cache.ts";
 import type { Visitor } from "../types.ts";
-import { isExplodedVisitor } from "../visitors.ts";
+import { explode, isExplodedVisitor } from "../visitors.ts";
+import { traverseNode } from "../traverse-node.ts";
 
 type NodePart = string | number | boolean;
 // Recursively gathers the identifying names of a node.
@@ -587,21 +588,101 @@ class Scope {
     }
   }
 
+  rename(oldName: string, newName?: string): void;
+  rename(names: Record<string, string>): void;
   rename(
-    oldName: string,
+    oldName: string | Record<string, string>,
     newName?: string,
     // prettier-ignore
     /* Babel 7 - block?: t.Pattern | t.Scopable */
   ) {
-    const binding = this.getBinding(oldName);
-    if (binding) {
-      newName ||= this.generateUidIdentifier(oldName).name;
-      const renamer = new Renamer(binding, oldName, newName);
-      if (process.env.BABEL_8_BREAKING) {
-        renamer.rename();
-      } else {
-        // @ts-ignore(Babel 7 vs Babel 8) TODO: Delete this
-        renamer.rename(arguments[2]);
+    if (typeof oldName === "object") {
+      const oldNames: string[] = [];
+      const newNames: string[] = [];
+      const bindings: Binding[] = [];
+
+      let minScopeId = Infinity;
+      let minScope;
+      for (const old of Object.keys(oldName)) {
+        oldNames.push(old);
+        newNames.push(oldName[old] || this.generateUidIdentifier(old).name);
+
+        const binding = this.getBinding(old);
+        bindings.push(binding);
+
+        const uid = binding.scope.uid;
+        if (uid < minScopeId) {
+          minScope = binding.scope;
+          minScopeId = uid;
+        }
+      }
+
+      // When we are renaming an exported identifier, we need to ensure that
+      // the exported binding keeps the old name.
+      for (const binding of bindings) {
+        const { path, identifier } = binding;
+        const parentExport = path.find(path => path.isExportDeclaration());
+        if (parentExport) {
+          const bindingIds = parentExport.getOuterBindingIdentifiers();
+          if (
+            Object.keys(bindingIds).findIndex(
+              name => bindingIds[name] === identifier,
+            ) !== -1
+          ) {
+            let skip = false;
+            if (parentExport.isExportDefaultDeclaration()) {
+              const { declaration } = parentExport.node;
+              if (t.isDeclaration(declaration) && !declaration.id) {
+                skip = true;
+              }
+            }
+            if (parentExport.isExportAllDeclaration()) {
+              skip = true;
+            }
+            if (!skip) {
+              (
+                parentExport as NodePath<
+                  t.ExportDefaultDeclaration | t.ExportNamedDeclaration
+                >
+              ).splitExportDeclaration();
+            }
+          }
+        }
+      }
+
+      traverseNode(
+        minScope.block,
+        explode(newRenameVisitor),
+        minScope,
+        {
+          oldNames,
+          newNames,
+          bindings,
+        },
+        minScope.path,
+        // When blockToTraverse is a SwitchStatement, the discriminant
+        // is not part of the current scope and thus should be skipped.
+        { discriminant: true },
+      );
+
+      for (let i = 0; i < bindings.length; i++) {
+        const binding = bindings[i];
+        const { scope } = binding;
+        scope.removeOwnBinding(oldNames[i]);
+        scope.bindings[newNames[i]] = binding;
+        binding.identifier.name = newNames[i];
+      }
+    } else {
+      const binding = this.getBinding(oldName);
+      if (binding) {
+        newName ||= this.generateUidIdentifier(oldName).name;
+        const renamer = new Renamer(binding, oldName, newName);
+        if (process.env.BABEL_8_BREAKING) {
+          renamer.rename();
+        } else {
+          // @ts-ignore(Babel 7 vs Babel 8) TODO: Delete this
+          renamer.rename(arguments[2]);
+        }
       }
     }
   }

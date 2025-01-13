@@ -1220,6 +1220,59 @@ describe("scope", () => {
     });
   });
 
+  describe("rename multiple names", () => {
+    it("normal", () => {
+      const program = getPath(`
+        const a = 1;
+        {
+          var b = 2;
+          function c() {
+            a;
+            b;
+            function d(a) {
+              a;
+              b;
+            }
+          }
+        }
+      `);
+      program.scope.rename({ a: "a2", b: "b2" });
+
+      expect(program + "").toMatchInlineSnapshot(`
+        "const a2 = 1;
+        {
+          var b2 = 2;
+          function c() {
+            a2;
+            b2;
+            function d(a) {
+              a;
+              b2;
+            }
+          }
+        }"
+      `);
+    });
+
+    it("export", () => {
+      const program = getPath(
+        `
+        export const a = 1;
+        export var b = 2;
+      `,
+        { sourceType: "module" },
+      );
+      program.scope.rename({ a: "a2", b: "b2" });
+
+      expect(program + "").toMatchInlineSnapshot(`
+        "const a2 = 1;
+        export { a2 as a };
+        var b2 = 2;
+        export { b2 as b };"
+      `);
+    });
+  });
+
   describe("constantViolations", () => {
     it("var redeclarations should not be treated as constantViolations", () => {
       const program = getPath(`
