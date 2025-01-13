@@ -1265,16 +1265,21 @@ const helpers: Record<string, Helper> = {
       },
     },
   ),
-  // size: 270, gzip size: 201
+  // size: 274, gzip size: 204
   toPrimitive: helper(
     "7.1.5",
-    'function toPrimitive(t,r){if("object"!=typeof t||!t)return t;var e=t[Symbol.toPrimitive];if(void 0!==e){var i=e.call(t,r||"default");if("object"!=typeof i)return i;throw new TypeError("@@toPrimitive must return a primitive value.")}return("string"===r?String:Number)(t)}',
+    'function toPrimitive(t,r){if("object"!==typeOf(t)||!t)return t;var e=t[Symbol.toPrimitive];if(void 0!==e){var i=e.call(t,r||"default");if("object"!==typeOf(i))return i;throw new TypeError("@@toPrimitive must return a primitive value.")}return("string"===r?String:Number)(t)}',
     {
       globals: ["Symbol", "TypeError", "String", "Number"],
       locals: { toPrimitive: ["body.0.id"] },
       exportBindingAssignments: [],
       exportName: "toPrimitive",
-      dependencies: {},
+      dependencies: {
+        typeof: [
+          "body.0.body.body.0.test.left.right.callee",
+          "body.0.body.body.2.consequent.body.1.test.right.callee",
+        ],
+      },
     },
   ),
   // size: 88, gzip size: 102
