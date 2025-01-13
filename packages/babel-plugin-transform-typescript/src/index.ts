@@ -12,7 +12,10 @@ import {
   isGlobalType,
   registerGlobalType,
 } from "./global-types.ts";
-import transpileNamespace, { getFirstIdentifier } from "./namespace.ts";
+import transpileNamespace, {
+  getFirstIdentifier,
+  handleIdentifier,
+} from "./namespace.ts";
 
 function isInType(path: NodePath) {
   switch (path.parent.type) {
@@ -247,7 +250,11 @@ export default declare((api, opts: Options) => {
     visitor: {
       //"Pattern" alias doesn't include Identifier or RestElement.
       Pattern: visitPattern,
-      Identifier: visitPattern,
+      Identifier(path) {
+        visitPattern(path);
+
+        handleIdentifier(path);
+      },
       RestElement: visitPattern,
 
       Program: {
