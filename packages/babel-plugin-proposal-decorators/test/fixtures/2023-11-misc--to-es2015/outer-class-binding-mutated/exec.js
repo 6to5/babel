@@ -27,19 +27,15 @@
   expect(errs.map(e => e.constructor)).toEqual([E, E, E]);
 
   const C = K;
-  // expect(fns.map(fn => fn())).toEqual([C, C, C]);
-  // todo: remove these three and enable the assertions above when we properly handle class tdz
-  expect(fns[0]()).toEqual(C);
-  expect(fns[1]).toThrow(E);
-  expect(fns[2]).toThrow(E);
+  expect(fns.map(fn => fn())).toEqual([C, C, C]);
 
   K = null;
 
   // expect(fns.map(fn => fn())).toEqual([null, C, C]);
   // todo: remove these three and enable the assertions above when we properly handle class tdz
   expect(fns[0]()).toEqual(null);
-  expect(fns[1]).toThrow(E);
-  expect(fns[2]).toThrow(E);
+  expect(fns[1]()).toEqual(null);
+  expect(fns[2]()).toEqual(null);
 }
 
 {

@@ -19,7 +19,7 @@
   };
   capture(() => K);
   assertUninitialized(() => K);
-  _ref = (_computedKeyDecs = [capture(() => (babelHelpers.classNameTDZError("K"), K)), assertUninitialized(() => (babelHelpers.classNameTDZError("K"), K))], _computedKey = babelHelpers.toPropertyKey((capture(() => (babelHelpers.classNameTDZError("K"), K)), assertUninitialized(() => (babelHelpers.classNameTDZError("K"), K)))));
+  _ref = (_computedKeyDecs = [capture(() => K), assertUninitialized(() => K)], _computedKey = babelHelpers.toPropertyKey((capture(() => K), assertUninitialized(() => K))));
   class K {
     constructor() {
       babelHelpers.defineProperty(this, _ref, _init_computedKey(this));
