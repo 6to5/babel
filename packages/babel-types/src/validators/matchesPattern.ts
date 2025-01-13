@@ -22,10 +22,10 @@ export default function matchesPattern(
   if (!isMemberExpression(member)) return false;
 
   const parts = Array.isArray(match) ? match : match.split(".");
-  const nodes = [];
+  const nodes = [member.property];
 
-  let node;
-  for (node = member; isMemberExpression(node); node = node.object) {
+  let node: t.Node = member.object;
+  for (; isMemberExpression(node); node = node.object) {
     nodes.push(node.property);
   }
   nodes.push(node);
